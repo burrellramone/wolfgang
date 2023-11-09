@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Wolfgang" default="full-build">
+	<target name="full-build" depends="clean,prepare,composer-self-update,composer,phplint,phpstan,phpunit,wolfgangerg,phploc,phpab" description="Perform static analysis, run tests, and generate project documentation.">
+        <echo message="Full Build Complete"/>
+    </target>
+	
+	<property name="php" value="/usr/bin/php"/>
+	<property name="phplint" value="${basedir}/vendor/bin/phplint"/>
+	<property name="phpstan" value="${basedir}/vendor/bin/phpstan"/>
+	<property name="phpcs" value="${basedir}/vendor/bin/phpcs"/>
+	<property name="phpunit" value="${basedir}/vendor/bin/phpunit"/>
+	<property name="phploc" value="${basedir}/vendor/bin/phploc"/>
+	<property name="phpab" value="${basedir}/vendor/bin/phpab"/>
+	<property name="phpdoc" value="${basedir}/vendor/bin/phpdoc"/>
+
+	<target name="clean" unless="clean.done" description="Cleanup build artifacts.">
+        <delete dir="${basedir}/build/"/>
+		<delete dir="${basedir}/doc/${wolfgang_version}"/>
+        <property name="clean.done" value="true"/>
+    </target>
+	        	
+	<target name="prepare" unless="prepare.done" depends="clean" description="Prepare for build.">
+	    <mkdir dir="${basedir}/build"/>
+        <property name="prepare.done" value="true"/>
+    </target>
+	
+	<target name="composer-self-update" description="Self-update composer php package manager.">
+	    <exec executable="php" failonerror="true" resultproperty="result.composer-self-update">
+	        <arg value="${basedir}/composer.phar"/>
+	        <arg value="self-update"/>
+	    	<arg value="--no-interaction"/>
+	    	<arg value="-v"/>
+	    </exec>
+    </target>
+	
+	<target name="composer" description="Install composer packages including require-dev.">
+        <exec executable="php" failonerror="true" resultproperty="result.composer">
+            <arg value="${basedir}/composer.phar"/>
+            <arg value="update"/>
+        	<arg value="--verbose"/>
+            <arg value="--prefer-dist"/>
+            <arg value="--no-progress"/>
+        </exec>
+    </target>
+	
+	<target name="phplint" unless="phplint.done" depends="composer" description="Syntax checking of PHP files">
+		<exec executable="${phplint}" failonerror="true" resultproperty="result.phplint" taskname="phplint">
+			<arg value="--verbose"/>
+			<arg path="${basedir}/src/"/>
+		</exec>
+	</target>
+	
+	<target name="phpstan" unless="phpstan.done" depends="phplint" description="Perform static analysis on Wolfang">
+		<exec executable="${php}" failonerror="true" resultproperty="result.phpstan" taskname="phpstan">
+			<arg value="-d"/>
+			<arg value="memory_limit=250M"/>
+			<arg value="${phpstan}"/>
+			<arg value="--level=0"/>
+			<arg value="analyse"/>
+			<arg value="${basedir}/src"/>
+		</exec>
+		 <property name="phpstan.done" value="true"/>
+	</target>
+	
+	 <target name="phpunit" unless="phpunit.done" depends="phplint" description="Run unit tests with PHPUnit">
+    	<exec executable="${phpunit}" failonerror="true" resultproperty="result.phpunit" taskname="phpunit">
+            <arg value="--configuration=${basedir}/src/tests/phpunit.xml"/>
+    		<arg value="--verbose"/>
+        </exec>
+        <property name="phpunit.done" value="true"/>
+    </target>
+	
+	<target name="wolfgangerg" unless="wolfgangerg.done" depends="phpunit" description="Builds the relationship for the tables within the system">
+		<exec executable="${php}" failonerror='true' resultproperty="result.tablegraph" taskname="erg">
+    		<arg value="${basedir}/bin/wolfgangerg"/>
+    	</exec>
+    	<property name="tablegraph.done" value="true"/>
+	</target>
+	
+	<target name="phploc" unless="phploc.done" depends="wolfgangerg" description="Measures the size of this project">
+		<exec executable="${phploc}" failonerror='true' resultproperty="result.phploc" taskname="phploc">
+        		<arg value="--verbose"/>
+        		<arg path="${basedir}/src/main/php/com/wolfgang/"/>
+    	</exec>
+    	<property name="phploc.done" value="true"/>
+	</target>
+	
+	<target name="phpab" unless="phpab.done" depends="prepare" description="Generate phar archive for project">
+    	<exec executable="${phpab}" resultproperty="result.phpab" taskname="phpab">
+        	<arg value="--phar"/>
+		<arg value="--output"/>
+        	<arg path="${basedir}/build/wolfgang.phar"/>
+	    	<arg path="${basedir}/src/main/php/"/>
+        </exec>
+        <property name="phpunit.done" value="true"/>
+    </target>
+
+	<target name="phpdoc" if="wolfgang_version" unless="phpdoc.done" depends="phpab" description="Generate documentation for Wolfgang">
+    	<exec executable="${phpdoc}" taskname="phpdoc">
+    		<arg value="--target"/>
+        	<arg value="${basedir}/doc/${wolfgang_version}"/>
+    		<arg value="--directory"/>
+    		<arg value="${basedir}/src/main/php/com/wolfgang"/>
+        </exec>
+	</target>
+	
+</project>

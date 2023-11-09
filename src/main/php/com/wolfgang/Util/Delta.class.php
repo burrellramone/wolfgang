@@ -1,0 +1,122 @@
+<?php
+
+namespace Wolfgang\Util;
+
+use Wolfgang\Interfaces\IDelta;
+use Wolfgang\BaseObject;
+
+/**
+ *
+ * @package Wolfgang\Util
+ * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @since Version 1.0.0
+ */
+abstract class Delta extends Component implements IDelta , \Iterator , \Countable {
+	
+	/**
+	 *
+	 * @var int
+	 */
+	private $position = 0;
+	
+	/**
+	 *
+	 * @var mixed
+	 */
+	private $subject;
+	
+	/**
+	 *
+	 * @var array
+	 */
+	protected $affected_properties = [ ];
+	
+	/**
+	 *
+	 * @param BaseObject $subject
+	 */
+	public function __construct ( BaseObject $subject ) {
+		$this->setSubject( $subject );
+		
+		parent::__construct();
+	}
+	
+	/**
+	 *
+	 * @param BaseObject $subject
+	 */
+	private function setSubject ( BaseObject $subject ) {
+		$this->subject = $subject;
+	}
+	
+	/**
+	 *
+	 * @return BaseObject
+	 */
+	public function getSubject ( ): BaseObject {
+		return $this->subject;
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc}
+	 * @see \Wolfgang\Interfaces\IDelta::getAffectedProperties()
+	 */
+	public function getAffectedProperties ( ): array {
+		return array_keys( $this->affected_properties );
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc}
+	 * @see \Countable::count()
+	 */
+	public function count ( ): int {
+		return count( $this->affected_properties );
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc}
+	 * @see \Iterator::next()
+	 */
+	public function next ( ) {
+		$this->position ++;
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc}
+	 * @see \Iterator::valid()
+	 */
+	public function valid ( ) {
+		return ! empty( array_values( $this->affected_properties )[ $this->position ] );
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc}
+	 * @see \Iterator::current()
+	 */
+	public function current ( ) {
+		return $this->affected_properties[ $this->key() ]->getNewValue();
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc}
+	 * @see \Iterator::rewind()
+	 */
+	public function rewind ( ) {
+		$this->position = 0;
+	}
+	
+	/**
+	 *
+	 * {@inheritdoc}
+	 * @see \Iterator::key()
+	 */
+	public function key ( ) {
+		return array_keys( $this->affected_properties )[ $this->position ];
+	}
+}
