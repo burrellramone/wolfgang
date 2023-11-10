@@ -75,7 +75,7 @@ final class ResultSet extends DatabaseResultSet implements IMySQLResultSet {
 	 *
 	 * @see \Countable::count()
 	 */
-	public function count ( ) {
+	public function count ( ):int {
 		return $this->result->num_rows;
 	}
 
@@ -85,7 +85,7 @@ final class ResultSet extends DatabaseResultSet implements IMySQLResultSet {
 	 *
 	 * @see \Iterator::current()
 	 */
-	public function current ( ) {
+	public function current ( ):mixed {
 		return $this->get( $this->position );
 	}
 
@@ -95,7 +95,7 @@ final class ResultSet extends DatabaseResultSet implements IMySQLResultSet {
 	 *
 	 * @see \Iterator::key()
 	 */
-	public function key ( ) {
+	public function key ( ):mixed {
 		return $this->position;
 	}
 
@@ -105,7 +105,7 @@ final class ResultSet extends DatabaseResultSet implements IMySQLResultSet {
 	 *
 	 * @see \Iterator::next()
 	 */
-	public function next ( ) {
+	public function next ( ):void {
 		$this->position ++;
 	}
 
@@ -115,7 +115,7 @@ final class ResultSet extends DatabaseResultSet implements IMySQLResultSet {
 	 *
 	 * @see \Iterator::rewind()
 	 */
-	public function rewind ( ) {
+	public function rewind ( ):void {
 		$this->position = 0;
 		$this->result->data_seek( $this->position );
 	}
@@ -126,7 +126,7 @@ final class ResultSet extends DatabaseResultSet implements IMySQLResultSet {
 	 *
 	 * @see \Iterator::valid()
 	 */
-	public function valid ( ) {
+	public function valid ( ):bool {
 		return ($this->position < $this->count());
 	}
 }

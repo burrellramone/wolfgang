@@ -599,7 +599,7 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 	 * @return void
 	 */
 	private function bootstrap ( ): void {
-		set_error_handler( function ( $errno, $errstr, $errfile, $errline, array $errcontext ) {
+		set_error_handler( function ( $errno, $errstr, $errfile = null, $errline = null, array $errcontext = null) {
 			if ( ! empty( $_SERVER[ 'HTTP_HOST' ] ) ) {
 				$host = $_SERVER[ 'HTTP_HOST' ];
 			} else {

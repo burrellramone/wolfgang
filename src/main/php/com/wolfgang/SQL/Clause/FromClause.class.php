@@ -102,7 +102,7 @@ final class FromClause extends Clause implements IFromClause {
 			return;
 		}
 		
-		// Check to see if one of the tables to be joined have a relationship with of the referenced
+		// Check to see if one of the tables to be joined has a relationship with one of the referenced
 		// tables
 		foreach ( $this->tables_to_join as $table_name => $table_to_join ) {
 			foreach ( $this->getTableReferences() as $table_reference ) {

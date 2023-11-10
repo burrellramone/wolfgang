@@ -143,7 +143,10 @@ class Table extends Component implements ITable {
 		$result = $connection->exec( $statement );
 		$record = $result->current();
 
-		$this->setComment( $record[ 'table_comment' ] );
+		if(!empty($record[ 'table_comment' ])){
+		    $this->setComment( $record[ 'table_comment' ] );
+		}
+		
 		$this->setType( $record[ 'table_type' ] );
 
 		$this->foreign_key_fields_relationships_cache_key = $this->getName() . '_foreign_key_fields_relationships';

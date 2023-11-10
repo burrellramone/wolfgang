@@ -4,31 +4,35 @@
 		"textalk/websocket" : "1.0.*",
 		"stripe/stripe-php" : "3.*",
 		"matthiasmullie/minify" : "1.3.*",
-		"abraham/twitteroauth" : "0.6.*",
+		"abraham/twitteroauth" : "6.2.0",
 		"smarty/smarty" : "3.1.32",
-		"tecnickcom/tc-lib-pdf" : "dev-master",
+		"tecnickcom/tc-lib-pdf" : "dev-main",
 		"phpmailer/phpmailer" : "~6.0",
 		"google/recaptcha" : "~1.1",
 		"aws/aws-sdk-php" : "3.32.7",
 		"paquettg/php-html-parser" : "1.7.0"
 	},
 	"require-dev" : {
-		"phpunit/phpunit" : "^6.2",
-		"phpunit/php-invoker" : "^1.1",
-		"phploc/phploc" : "^4.0",
-		"theseer/autoload" : "^1.24.1",
+		"phpunit/phpunit" : "9.6.13",
+		"phpunit/php-invoker" : "3.1.1",
+		"phploc/phploc" : "7.0.2",
+		"theseer/autoload" : "^1.29.0",
 		"lox/xhprof" : "dev-master",
 		"overtrue/phplint" : "^0.2.4",
 		"php-amqplib/php-amqplib" : "^2.7.2",
-		"phpstan/phpstan": "^0.10.1"
+		"phpstan/phpstan" : "^1.10.41"
 	},
 	"repositories" : [{
 			"type" : "vcs",
 			"url" : "git@github.com:tecnickcom/tc-lib-pdf.git"
 		}
 	],
-	"autoload": {
-        	"files": ["includes/common.php"],
-		"classmap": ["src/"]
-    	}
+	"autoload" : {
+		"files" : [
+			"includes/common.php"
+		],
+		"classmap" : [
+			"src/"
+		]
+	}
 }

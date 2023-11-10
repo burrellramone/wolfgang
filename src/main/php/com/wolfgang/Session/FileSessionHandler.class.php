@@ -23,7 +23,7 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	 * {@inheritdoc}
 	 * @see \SessionHandlerInterface::destroy()
 	 */
-	public function destroy ( $session_id ) {
+	public function destroy ( $session_id ):bool {
 	}
 
 	/**
@@ -31,7 +31,7 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	 * {@inheritdoc}
 	 * @see \SessionHandlerInterface::read()
 	 */
-	public function read ( $session_id ) {
+	public function read ( $session_id ): string|false {
 	}
 
 	/**
@@ -39,7 +39,7 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	 * {@inheritdoc}
 	 * @see \SessionHandlerInterface::write()
 	 */
-	public function write ( $session_id, $session_data ) {
+	public function write ( $session_id, $session_data ):bool {
 	}
 
 	/**
@@ -52,7 +52,7 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	 * {@inheritdoc}
 	 * @see \SessionHandlerInterface::gc()
 	 */
-	public function gc ( $maxlifetime ) {
+	public function gc ( $maxlifetime ):int|false {
 		return true;
 	}
 
@@ -61,7 +61,7 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	 * {@inheritdoc}
 	 * @see \SessionHandlerInterface::open()
 	 */
-	public function open ( $save_path, $session_name ) {
+	public function open ( $save_path, $session_name ):bool {
 		return true;
 	}
 
@@ -70,7 +70,7 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	 * {@inheritdoc}
 	 * @see \SessionHandlerInterface::close()
 	 */
-	public function close ( ) {
+	public function close ( ):bool {
 		return true;
 	}
 }

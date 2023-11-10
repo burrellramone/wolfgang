@@ -2,6 +2,11 @@
 
 namespace Wolfgang\Date;
 
+//PHP
+use DateTime as PHPDateTime;
+use DateInterval;
+
+//Wolfgang
 use Wolfgang\Interfaces\Model\ITimezone;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Model\Timezone;
@@ -36,8 +41,8 @@ final class DateTime extends \DateTime {
 	 * {@inheritdoc}
 	 * @see DateTime::add()
 	 */
-	public function add ( $interval ) {
-		return parent::add( new \DateInterval( $interval ) );
+	public function add ( DateInterval $interval ): PHPDateTime {
+		return parent::add( new DateInterval( $interval ) );
 	}
 
 	/**

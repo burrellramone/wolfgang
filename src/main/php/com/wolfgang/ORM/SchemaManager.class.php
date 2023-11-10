@@ -44,7 +44,7 @@ class SchemaManager extends Component implements ISingleton {
 		
 		$database_config = DatabaseConfig::getAll();
 		$database_names = [ ];
-		
+
 		foreach ( $database_config[ $database_config[ 'type' ] ] as $key => $schema ) {
 			$schema[ 'name' ] = $key;
 			$dsn = Dsn::parse( $schema );

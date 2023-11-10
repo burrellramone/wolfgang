@@ -386,7 +386,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 *
 	 * @see \Countable::count()
 	 */
-	public function count ( ) {
+	public function count ( ):int {
 		if ( ! $this->loaded ) {
 			$this->getObjectsFromStatement();
 		}
@@ -400,7 +400,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 *
 	 * @see \Iterator::current()
 	 */
-	public function current ( ) {
+	public function current ( ):mixed {
 		return $this->objects->offsetGet( $this->position );
 	}
 
@@ -410,7 +410,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 *
 	 * @see \Iterator::key()
 	 */
-	public function key ( ) {
+	public function key ( ):mixed {
 		return $this->position;
 	}
 
@@ -420,7 +420,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 *
 	 * @see \Iterator::next()
 	 */
-	public function next ( ) {
+	public function next ( ):void {
 		$this->position ++;
 	}
 
@@ -430,7 +430,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 *
 	 * @see \Iterator::rewind()
 	 */
-	public function rewind ( ) {
+	public function rewind ( ):void {
 		if ( ! $this->loaded ) {
 			$this->getObjectsFromStatement();
 		}
@@ -444,7 +444,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 *
 	 * @see \Iterator::valid()
 	 */
-	public function valid ( ) {
+	public function valid ( ):bool {
 		return $this->objects->offsetExists( $this->position ) ? true : false;
 	}
 
@@ -453,7 +453,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 * {@inheritdoc}
 	 * @see \ArrayAccess::offsetExists()
 	 */
-	public function offsetExists ( $offset ) {
+	public function offsetExists ( $offset ):bool {
 		if ( ! $this->loaded ) {
 			$this->getObjectsFromStatement();
 		}
@@ -466,7 +466,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 * {@inheritdoc}
 	 * @see \ArrayAccess::offsetGet()
 	 */
-	public function offsetGet ( $offset ) {
+	public function offsetGet ( $offset ):mixed {
 		if ( ! $this->loaded ) {
 			$this->getObjectsFromStatement();
 		}
@@ -483,7 +483,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 * {@inheritdoc}
 	 * @see \ArrayAccess::offsetSet()
 	 */
-	public function offsetSet ( $offset, $value ) {
+	public function offsetSet ( $offset, $value ):void {
 		throw new MethodNotImplementedException();
 	}
 
@@ -492,7 +492,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 * {@inheritdoc}
 	 * @see \ArrayAccess::offsetUnset()
 	 */
-	public function offsetUnset ( $offset ) {
+	public function offsetUnset ( $offset ):void {
 		throw new MethodNotImplementedException();
 	}
 

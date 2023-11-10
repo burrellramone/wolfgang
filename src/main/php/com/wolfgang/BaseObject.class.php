@@ -74,7 +74,7 @@ abstract class BaseObject {
 		}
 	}
 
-	public function __get ( $property ) {
+	public function __get ( string $property ) {
 		return @$this->{$property};
 	}
 

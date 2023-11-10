@@ -19,6 +19,7 @@ use Wolfgang\Interfaces\SQL\Clause\IFromClause;
 use Wolfgang\Interfaces\SQL\Clause\ISelectClause;
 use Wolfgang\Exceptions\Exception as ComponentException;
 use Wolfgang\Exceptions\InvalidStateException;
+use Wolfgang\StringObject;
 
 /**
  *
@@ -118,10 +119,10 @@ abstract class Expression extends SQLComponent implements IExpression {
 			return new BooleanExpression( $clause, $expression );
 		} else if ( $expression === null ) {
 			return new BooleanExpression( $clause, $expression );
-		} else if ( is_string( $expression ) ) {
+		} else if ( is_string( $expression ) || ($expression instanceof StringObject)) {
 			if ( empty( $expression ) ) {
 				return new CharacterExpression( $clause, $expression );
-			} else if ( preg_match( "/^[\s]+$/", $expression ) ) {
+			} else if ( preg_match( "/^[\s]+$/", $expression ) ) { //Expression is a string of one or more space characters
 				if ( strlen( $expression ) == 1 ) {
 					return new CharacterExpression( $clause, $expression );
 				} else {
@@ -129,7 +130,7 @@ abstract class Expression extends SQLComponent implements IExpression {
 				}
 			} else if ( preg_match( "/^([\w]+)([\s]*)?\((.*)\)([\s]+)?$/i", $expression ) ) {
 				return new FunctionExpression( $clause, $expression );
-			} else if ( preg_match( "/^([a-z_]+\.[a-z_]+)$/", $expression, $matches ) ) {
+			} else if ( !($expression instanceof StringObject) && preg_match( "/^([a-z_]+\.[a-z_]+)$/", $expression, $matches ) ) { //We're seeing if the expression is one of a qualified column (looking for '.' in the expression)
 				$column_parts = explode( '.', $matches[ 0 ] );
 				
 				if ( ($clause instanceof IDeleteClause) ) {

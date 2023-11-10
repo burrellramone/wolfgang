@@ -14,11 +14,19 @@ define( 'WOLFGANG_VERSION', "0.1.0" );
  */
 define( "_PHP_VERSION_", phpversion() );
 
+$app_env = getenv( 'APPLICATION_ENV' );
+
+if(!$app_env) {
+    die("APPLICATION_ENV environment variable not set.");
+}
+
 /**
  *
  * @var string
  */
-define( 'APPLICATION_ENVIRONMENT', getenv( 'APPLICATION_ENV' ) );
+define( 'APPLICATION_ENVIRONMENT', $app_env );
+
+
 
 if ( ! defined( "DOCUMENT_ROOT" ) ) {
 	/**

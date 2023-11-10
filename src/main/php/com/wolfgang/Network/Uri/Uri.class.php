@@ -115,7 +115,7 @@ class Uri extends Component implements IUri {
 			if ( ! empty( $components[ 'pass' ] ) ) {
 				$this->setUserInfo( $components[ 'user' ] . ":" . $components[ 'pass' ] );
 			} else {
-				throw new Exception();
+				throw new Exception("Database user password not provided.");
 				// $this->setUser( $components[ 'user' ] );
 			}
 		}

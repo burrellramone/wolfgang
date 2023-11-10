@@ -24,7 +24,7 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	 *
 	 * @param string $session_id
 	 */
-	public function destroy ( $session_id ) {
+	public function destroy ( $session_id ): bool {
 		return Cookie::write( $session_id, null, time() - 1, '/', $GLOBALS[ 'cookie_domain' ] );
 	}
 	
@@ -32,7 +32,7 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	 *
 	 * @param string $session_id
 	 */
-	public function read ( $session_id ) {
+	public function read ( $session_id ): string|false {
 		if ( ! empty( $_COOKIE[ $session_id ] ) ) {
 			return Cookie::read( $session_id );
 		}
@@ -46,7 +46,7 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	 * @throws SessionException
 	 * @return bool
 	 */
-	public function write ( $session_id, $session_data ) {
+	public function write ( $session_id, $session_data ):bool {
 		if ( empty( $session_id ) ) {
 			throw new IllegalArgumentException( "Session id must be provided" );
 		} else if ( empty( $session_data ) ) {
@@ -64,15 +64,15 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 		return true;
 	}
 	
-	public function gc ( $maxlifetime ) {
+	public function gc ( $maxlifetime ): int|false {
 		return true;
 	}
 	
-	public function open ( $save_path, $session_name ) {
+	public function open ( $save_path, $session_name ) :bool{
 		return true;
 	}
 	
-	public function close ( ) {
+	public function close ( ) :bool{
 		return true;
 	}
 }

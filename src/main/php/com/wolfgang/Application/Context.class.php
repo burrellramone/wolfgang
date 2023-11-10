@@ -2,6 +2,8 @@
 
 namespace Wolfgang\Application;
 
+//Wolfgang
+use Wolfgang\StringObject;
 use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Interfaces\Model\ISkin;
@@ -144,9 +146,9 @@ final class Context extends Component implements IContext , ISingleton {
 			$skin_domain_list = new SkinDomainList();
 
 			$skin_domain_list->where( [ 
-					'domain' => $domain
+					'domain' => new StringObject($domain)
 			] )->orWhere( [ 
-					'api_domain' => $domain
+			    'api_domain' => new StringObject($domain)
 			] );
 
 			$this->skin_domain = $skin_domain_list->offsetGet( 0 );

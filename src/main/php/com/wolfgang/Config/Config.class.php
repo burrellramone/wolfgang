@@ -133,7 +133,9 @@ abstract class Config extends Component {
 	 */
 	private static function loadConfigurationGroup ( string $environment, string $configuration_group ): void {
 		if ( ! file_exists( CONFIGURATION_DIRECTORY ) ) {
-			throw new InvalidStateException( "Configuration directory '" . CONFIGURATION_DIRECTORY . "' does not exist" );
+			throw new InvalidStateException( "Configuration directory '" . CONFIGURATION_DIRECTORY . "' does not exist." );
+		} else if ( !$environment ) {
+		    throw new \InvalidArgumentException("The environment variable is not set.");
 		}
 
 		$filepath = CONFIGURATION_DIRECTORY . "{$environment}/{$configuration_group}.ini";
@@ -146,7 +148,19 @@ abstract class Config extends Component {
 		if ( ! empty( $configurations ) ) {
 			if ( ! empty( self::$configurations[ $configuration_group ] ) ) {
 				foreach ( $configurations as $key => $value ) {
-					self::$configurations[ $configuration_group ][ $key ] = $value;
+				    if ( is_array($value) ) {
+				        foreach ($value as $key2 => $value2) {
+				            if(is_array($value2)) {
+				                foreach ($value2 as $key3 => $value3) {
+				                    self::$configurations[ $configuration_group ][ $key ][$key2][$key3] = $value3;
+				                }
+			                } else {
+				                self::$configurations[ $configuration_group ][ $key ][$key2] = $value2;
+			                }
+				        }
+				    } else {
+				        self::$configurations[ $configuration_group ][ $key ] = $value;
+				    }
 				}
 			} else {
 				self::$configurations[ $configuration_group ] = $configurations;
