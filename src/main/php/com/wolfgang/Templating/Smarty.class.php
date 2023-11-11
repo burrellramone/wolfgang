@@ -317,15 +317,15 @@ final class Smarty extends Templater implements ITemplater {
 		}
 
 		// Determine Script File
-		// Seek minified version first
-		$script_file = PUBLIC_DIRECTORY . 'js/' . $app . '/' . 'sections/' . $controller . '/' . $action . '.min.js';
-
+		$script_file = PUBLIC_DIRECTORY . 'js/' . $app . '/' . 'sections/' . $controller . '/' . $action . '.js';
+		$script_file_min = PUBLIC_DIRECTORY . 'js/' . $app . '/' . 'sections/' . $controller . '/' . $action . '.min.js';
+		
+		if ($context->isProduction() && file_exists($script_file_min)) {
+		    $script_file = $script_file_min;
+		}
+		
 		if ( ! file_exists( $script_file ) ) {
-			$script_file = PUBLIC_DIRECTORY . 'js/' . $app . '/' . 'sections/' . $controller . '/' . $action . '.js';
-
-			if ( ! file_exists( $script_file ) ) {
-				$script_file = str_replace( $app, 'Common', $script_file );
-			}
+		    $script_file = str_replace( $app, 'Common', $script_file );
 		}
 
 		if ( file_exists( $stylesheet ) ) {
