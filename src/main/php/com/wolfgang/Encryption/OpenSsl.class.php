@@ -109,7 +109,8 @@ abstract class OpenSsl extends BaseComponent {
 			throw new IllegalArgumentException( 'Data to be encrypted must be provided' );
 		}
 		
-		if ( empty( $iv ) ) {
+		//ecb mode does not use/require an IV
+		if ( empty( $iv ) && !preg_match("/ecb/i", $method) ) {
 			$iv = openssl_random_pseudo_bytes( openssl_cipher_iv_length( $method ) );
 		}
 		
@@ -147,7 +148,8 @@ abstract class OpenSsl extends BaseComponent {
 			throw new IllegalArgumentException( 'Data to be decrypted must be provided' );
 		}
 		
-		if ( empty( $iv ) ) {
+		//ecb mode does not use/require an IV
+		if ( empty( $iv ) && !preg_match("/ecb/i", $method) ) {
 			$iv = openssl_random_pseudo_bytes( openssl_cipher_iv_length( $method ) );
 		}
 		

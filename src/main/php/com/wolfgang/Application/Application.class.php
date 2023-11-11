@@ -453,13 +453,12 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 		    display: block;
 		    min-height:35px;
 		    background-color: firebrick;
-		    width: auto;
+		    width: fit-content;
 		    color: #FFF;
 		    font-weight: bold;
 			box-shadow: 1px 1px 1px 0px #111111;
 			line-height: 25px;
     		padding: 10px;
-			width:100px;
 			text-align:center;
 			z-index: 2000000;";
 

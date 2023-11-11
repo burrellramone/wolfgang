@@ -5,6 +5,7 @@ namespace Wolfgang\Date;
 //PHP
 use DateTime as PHPDateTime;
 use DateInterval;
+use DateTimeZone;
 
 //Wolfgang
 use Wolfgang\Interfaces\Model\ITimezone;
@@ -176,10 +177,8 @@ final class DateTime extends \DateTime {
 
 	/**
 	 *
-	 * {@inheritdoc}
-	 * @see DateTime::getTimezone()
 	 */
-	public function getTimezone ( ): ITimezone {
+	public function getModelTimezone ( ):Timezone {
 		$timezone_name = parent::getTimezone()->getName();
 		return Timezone::findByLabel( $timezone_name );
 	}
