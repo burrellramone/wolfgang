@@ -77,7 +77,7 @@ final class StringExpression extends CharacterExpression {
 				}
 			} else if ( is_object( $this->expression ) ) {
 				if ( ($this->expression instanceof LatLng) ) {
-					$expression = "GeomFromText('POINT({$this->expression->getLat()} {$this->expression->getLng()})')";
+					$expression = "ST_GeomFromText('POINT({$this->expression->getLat()} {$this->expression->getLng()})')";
 				} else {
 					$expression = "'" . ( string ) $this->expression . "'";
 				}

@@ -19,7 +19,7 @@ use Wolfgang\Exceptions\IllegalStateException;
  * @author Ramone Burrell <ramoneb@airportruns.ca>
  * @since Version 1.0.0
  */
-class SchemaManager extends Component implements ISingleton {
+final class SchemaManager extends Component implements ISingleton {
 	use TSingleton;
 	
 	/**

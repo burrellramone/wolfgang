@@ -194,8 +194,6 @@ final class SelectStatement extends Statement implements ISelectStatement {
 	 * @see \Wolfgang\Interfaces\SQL\Statement\ISelectStatement::where()
 	 */
 	public function where ( $where ): ISelectStatement {
-		$this->where_clause = new WhereClause( $this );
-
 		$this->_where( $where, IConditionalExpression::LOGICAL_OPERATOR_AND );
 
 		return $this;

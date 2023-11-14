@@ -448,21 +448,8 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 		if ( ! $uri ) {
 			$uri = "#";
 		}
-
-		$style = "position: relative;
-		    display: block;
-		    min-height:35px;
-		    background-color: firebrick;
-		    width: fit-content;
-		    color: #FFF;
-		    font-weight: bold;
-			box-shadow: 1px 1px 1px 0px #111111;
-			line-height: 25px;
-    		padding: 10px;
-			text-align:center;
-			z-index: 2000000;";
-
-		return "<a href='{$this->getProfileRunUri()}' style='{$style}' target='_blank' class='animated flash'>Xhprof Run</a>";
+		
+		return "<a href='{$uri}' target='_blank' class='xhprof animated flash'>Xhprof Run</a>";
 	}
 
 	/**
