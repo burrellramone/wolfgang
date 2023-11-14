@@ -5,6 +5,7 @@ namespace Wolfgang\SQL\Expression;
 use Wolfgang\Exceptions\SQL\ColumnNotExistException;
 use Wolfgang\Interfaces\SQL\Statement\ISelectStatement;
 use Wolfgang\Application\Application;
+use Wolfgang\ORM\SchemaManager;
 
 /**
  *
@@ -30,18 +31,15 @@ final class FunctionExpression extends Expression {
 			foreach ( $matches as $match ) {
 				$column_parts = explode( '.', $match );
 				
+				//The table referenced in the function is not the one specified in the from clause. eg. FROM <table_name>
 				if ( $column_parts[ 0 ] != $first_joined_table->getName() ) {
-					
-					$column_table = null;
-					$statement = $this->getClause()->getStatement();
-					
-					if ( ($statement instanceof ISelectStatement) ) {
-						$column_table = $statement->getFromClause()->getTableReferences()->offsetGet( 0 )->getSchema();
-					} else {
-						throw new \Exception( "Could not identify statement type" );
-					}
+
+				    //The table referenced in the function will be in the same schema as the first joined table
+					$schema = SchemaManager::getInstance()->getByDatabaseName($first_joined_table->getSchemaDsnName());
+					$column_table = $schema->getTable($column_parts[ 0 ]);
 					
 					if ( ! $column_table || ! $column_table->isColumn( $column_parts[ 1 ] ) ) {
+						
 						throw new ColumnNotExistException( "The column '{$column_parts[1]}' does not belong to the table '{$column_parts[0]}'. Qualify the column with its respective table name." );
 					}
 					
