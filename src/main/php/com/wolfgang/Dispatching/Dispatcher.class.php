@@ -19,7 +19,7 @@ use Wolfgang\Exceptions\Exception;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Dispatching
  * @since Version 1.0.0
  */
@@ -39,7 +39,7 @@ final class Dispatcher extends Component implements IDispatcher , ISingleton {
 	}
 
 	/**
-	 *
+	 * @author Ramone Burrell <burrellramone@gmail.com>
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Dispatching\IDispatcher::dispatch()
 	 */

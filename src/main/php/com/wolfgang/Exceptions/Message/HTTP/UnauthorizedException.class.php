@@ -7,7 +7,7 @@ use Wolfgang\Interfaces\Message\HTTP\IResponse;
 /**
  *
  * @package Wolfgang\Exceptions\Message\HTTP
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class UnauthorizedException extends Exception {

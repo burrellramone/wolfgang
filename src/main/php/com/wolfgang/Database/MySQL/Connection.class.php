@@ -14,7 +14,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 /**
  *
  * @package Wolfgang\Database\MySQL
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class Connection extends DatabaseConnection implements IMySQLConnection {
@@ -74,6 +74,7 @@ final class Connection extends DatabaseConnection implements IMySQLConnection {
 		$result = $this->connection->query( $sql );
 		
 		if ( $this->connection->error ) {
+			echo $sql;
 			throw new SQLException( "Error: {$this->connection->errno} {$this->connection->error} Query: {$sql}" );
 		}
 		

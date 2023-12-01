@@ -11,7 +11,7 @@ use Wolfgang\Application\Application;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class CookieSessionHandler extends Component implements ISessionHandler {
@@ -57,7 +57,7 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 			return true;
 		}
 		
-		if ( ! Cookie::write( $session_id, $session_data, time() + YEAR_IN_SECONDS, '/', Application::getInstance()->getContext()->getSkinDomain()->getDomain() ) ) {
+		if ( ! Cookie::write( $session_id, $session_data, time() + YEAR_IN_SECONDS, '/', Application::getInstance()->getContext()->getSkin()->getSkinDomain()->getDomain() ) ) {
 			throw new SessionException( "Failed to write session data for session id {$session_id}" );
 		}
 		

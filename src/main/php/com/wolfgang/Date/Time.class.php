@@ -7,7 +7,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @package Wolfgang\Date
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @link http://airportruns.ca
  * @since Version 1.0.0
  */

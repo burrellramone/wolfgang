@@ -6,7 +6,7 @@ use Wolfgang\Exceptions\Exception as BaseException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Exceptions\Mailing
  * @since Version 1.0.0
  */

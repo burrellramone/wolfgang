@@ -13,7 +13,7 @@ use Wolfgang\Exceptions\UnsupportedOperationException;
 /**
  *
  * @package Wolfgang\SQL\Statement\DML
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 abstract class Statement extends ComponentSQLStatement implements IDMLStatement , IBitManipulator {

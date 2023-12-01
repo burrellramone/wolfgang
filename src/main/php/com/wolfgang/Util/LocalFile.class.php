@@ -6,7 +6,7 @@ use Wolfgang\Exceptions\Exception;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Util
  */
 final class LocalFile extends File {

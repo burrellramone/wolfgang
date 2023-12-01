@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\IExtensible;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Extension
  * @link http://airportruns.ca
  * @since Version 1.0.0

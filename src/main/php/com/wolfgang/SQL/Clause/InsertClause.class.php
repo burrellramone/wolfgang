@@ -11,7 +11,7 @@ use Wolfgang\Interfaces\ORM\ITable;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class InsertClause extends Clause implements IInsertClause {

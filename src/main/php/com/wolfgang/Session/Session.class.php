@@ -14,7 +14,7 @@ use Wolfgang\Application\Context;
 /**
  *
  * @package Wolfgang\Session
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Session\CookieSessionHandler
  * @uses Wolfgang\Config\Session
  * @since Version 1.0.0
@@ -219,7 +219,7 @@ final class Session extends Component implements ISingleton , ISession {
 
 		session_set_save_handler( $this->getHandler(), true );
 		session_start( [ 
-				'cookie_domain' => Context::getInstance()->getSkinDomain()->getDomain()
+				'cookie_domain' => Context::getInstance()->getSkin()->getSkinDomain()->getDomain()
 		] );
 	}
 }

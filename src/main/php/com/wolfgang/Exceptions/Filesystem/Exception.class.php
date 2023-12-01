@@ -8,7 +8,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
  *
  * @package Components
 * @uses Wolfgang\Exceptions\Exception
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 class Exception extends ComponentException {

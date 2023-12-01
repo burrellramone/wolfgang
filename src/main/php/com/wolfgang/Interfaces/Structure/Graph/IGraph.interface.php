@@ -5,7 +5,7 @@ namespace Wolfgang\Interfaces\Structure\Graph;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 interface IGraph {
@@ -25,5 +25,5 @@ interface IGraph {
 	 * @return IGraphNode|null An instance of IGraphNode if the node was found in the graph, null
 	 *         otherwise
 	 */
-	public function find ( $node_name );
+	public function find ( string $node_name );
 }

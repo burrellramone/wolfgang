@@ -6,7 +6,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Component\Traits\Message
  * @since Version 1.0.0
  */

@@ -5,7 +5,7 @@ namespace Wolfgang;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class StringObject extends BaseObject{

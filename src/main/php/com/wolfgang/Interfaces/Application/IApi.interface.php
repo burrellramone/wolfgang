@@ -7,7 +7,7 @@ use Wolfgang\Interfaces\IApiKey;
 /**
  *
  * @package Wolfgang\Interfaces\Application
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 interface IApi extends IApplication {

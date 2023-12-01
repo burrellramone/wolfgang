@@ -17,7 +17,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Model
  * @since Version 1.0.0
  */
@@ -245,7 +245,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 * @param mixed $field The field or fields to filter the objects by
 	 * @param mixed $value The value or values for the specified fields / attributes to filter this
 	 *        objects of the list by
-	 * @return boolean False if the $field or $value params or empty true otherwise
+	 * @return boolean False if the $field or $value params are empty true otherwise
 	 */
 	public function filter ( $field, $value ) {
 		if ( (! empty( $field ) && ! empty( $value )) )
@@ -266,6 +266,8 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 				}
 			}
 		}
+
+		return true;
 	}
 
 	/**

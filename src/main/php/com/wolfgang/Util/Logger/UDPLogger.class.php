@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\Logger\ILogger;
 /**
  *
  * @package Components
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @link http://airportruns.ca
  * @since Version 1.0
  */
@@ -26,6 +26,9 @@ final class UDPLogger extends Logger implements IUDPLogger {
 	 * @return ILogger
 	 */
 	public static function getLogger ( string $name = null): ILogger {
+		$logger = null;
+
+		return $logger;
 	}
 	
 	/**

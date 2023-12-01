@@ -7,7 +7,7 @@ use Wolfgang\Network\Component as NetworkComponent;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 class UriPath extends NetworkComponent {

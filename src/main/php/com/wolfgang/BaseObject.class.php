@@ -11,7 +11,7 @@ use Wolfgang\Exceptions\NoSuchMethodException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 abstract class BaseObject {
@@ -52,7 +52,7 @@ abstract class BaseObject {
 	 * @throws NoSuchMethodException
 	 */
 	public function __call ( string $method, array $arguments ) {
-		$trace = debug_backtrace( null, 1 );
+		$trace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT, 1 );
 
 		if ( method_exists( get_called_class(), $method ) ) {
 			throw new Exception( "Illegal access to member method '{$method}'. Called in {$trace[0]['file']} on line {$trace[0]['line']}." );

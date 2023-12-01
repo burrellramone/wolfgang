@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\SQL\Clause\IOrderByClause;
 /**
  *
  * @package Components
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class OrderByClause extends Clause implements IOrderByClause {

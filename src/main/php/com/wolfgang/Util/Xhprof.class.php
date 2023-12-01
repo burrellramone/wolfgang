@@ -10,7 +10,7 @@ use Wolfgang\Network\Uri\Uri;
 /**
  *
  * @package Wolfgang\Util
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class Xhprof extends Component implements ISingleton {

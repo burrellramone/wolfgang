@@ -12,7 +12,7 @@ use Wolfgang\Session\Session;
 /**
  *
  * @package Wolfgang\Model
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Interfaces\Model\IModel
  * @since Version 1.0.0
  */
@@ -69,6 +69,8 @@ final class RecordHistory extends Model implements IEncrypted {
 	 */
 	protected function postInit ( ): IModel {
 		parent::postInit();
+
+		return $this;
 	}
 	
 	/**

@@ -5,7 +5,7 @@ namespace Wolfgang\Interfaces\SQL\Clause;
 /**
  *
  * @package Wolfgang\Interfaces\SQL\Clause
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 interface ISelectClause extends IClause {

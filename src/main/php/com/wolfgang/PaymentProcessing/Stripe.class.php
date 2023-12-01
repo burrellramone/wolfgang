@@ -28,7 +28,7 @@ use Wolfgang\Exceptions\PaymentProcessing\Stripe\Exception as StripePaymentProce
  *
  * @package Wolfgang\PaymentProcessing
  * @uses \Stripe\Stripe()
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @see Version 1.0.0
  */
 final class Stripe extends Component implements ISingleton {

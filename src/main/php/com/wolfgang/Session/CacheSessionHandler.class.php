@@ -8,7 +8,7 @@ use Wolfgang\Exceptions\Exception as CoreException;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class CacheSessionHandler extends Component implements ISessionHandler {
@@ -22,17 +22,18 @@ final class CacheSessionHandler extends Component implements ISessionHandler {
 	/**
 	 *
 	 * @param string $session_id
+	 * @return bool
 	 */
-	public function destroy ( $session_id ) {
-
+	public function destroy ( $session_id ): bool {
+		return true;
 	}
 
 	/**
 	 *
 	 * @param string $session_id
 	 */
-	public function read ( $session_id ) {
-
+	public function read ( $session_id ): string|false {
+		return false;
 	}
 
 	/**
@@ -42,8 +43,8 @@ final class CacheSessionHandler extends Component implements ISessionHandler {
 	 * @throws CoreException
 	 * @return bool
 	 */
-	public function write ( $session_id, $session_data ) {
-
+	public function write ( $session_id, $session_data ):bool {
+		return false;
 	}
 
 	/**
@@ -58,7 +59,7 @@ final class CacheSessionHandler extends Component implements ISessionHandler {
 	 * {@inheritDoc}
 	 * @see \SessionHandlerInterface::gc()
 	 */
-	public function gc ( $maxlifetime ) {
+	public function gc ( $maxlifetime ):int|false {
 		return true;
 	}
 
@@ -67,7 +68,7 @@ final class CacheSessionHandler extends Component implements ISessionHandler {
 	 * {@inheritDoc}
 	 * @see \SessionHandlerInterface::open()
 	 */
-	public function open ( $save_path, $session_name ) {
+	public function open ( $save_path, $session_name ):bool {
 		return true;
 	}
 
@@ -76,7 +77,7 @@ final class CacheSessionHandler extends Component implements ISessionHandler {
 	 * {@inheritDoc}
 	 * @see \SessionHandlerInterface::close()
 	 */
-	public function close ( ) {
+	public function close ( ):bool {
 		return true;
 	}
 }

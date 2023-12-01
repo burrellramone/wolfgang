@@ -7,7 +7,7 @@ use Wolfgang\Interfaces\Database\IConnection as IDatabaseConnection;
 /**
  *
  * @package Wolfgang\Interfaces\Database\MySQL
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 interface IMySQLConnection extends IDatabaseConnection {

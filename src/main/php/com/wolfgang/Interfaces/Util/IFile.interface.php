@@ -4,7 +4,7 @@ namespace Wolfgang\Interfaces\Util;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Interfaces\Util
  * @link http://airportruns.ca
  * @since Version 1.0.0

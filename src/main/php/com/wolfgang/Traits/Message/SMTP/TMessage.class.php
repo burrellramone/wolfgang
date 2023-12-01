@@ -9,7 +9,7 @@ use Wolfgang\Interfaces\IEmailContact;
 /**
  *
  * @package Component\Traits\Message\SMTP
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 trait TMessage {

@@ -24,7 +24,7 @@ use Wolfgang\Interfaces\Model\IBridgeModel;
  * inherit from.
  *
  * @package Wolfgang\Model
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 abstract class Model extends Component implements IModel {
@@ -75,7 +75,6 @@ abstract class Model extends Component implements IModel {
 			'RecordHistory',
 			'Skin',
 			'SkinDomain',
-			'WhiteLabel',
 			'Timezone'
 	];
 

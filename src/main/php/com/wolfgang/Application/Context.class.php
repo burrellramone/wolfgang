@@ -4,22 +4,18 @@ namespace Wolfgang\Application;
 
 //Wolfgang
 use Wolfgang\StringObject;
+use Wolfgang\Skin;
 use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Application\IContext;
-use Wolfgang\Interfaces\Model\ISkin;
-use Wolfgang\Interfaces\Model\ISkinDomain;
-use Wolfgang\Model\SkinDomainList;
+use Wolfgang\Interfaces\ISkin;
 use Wolfgang\Exceptions\Exception;
 use Wolfgang\Traits\TSingleton;
-use Wolfgang\Model\WhiteLabel;
-use Wolfgang\Model\WhiteLabelList;
-use Wolfgang\Interfaces\Model\IWhiteLabel;
 use Wolfgang\Network\Uri\Uri;
 
 /**
  *
  * @package Wolfgang\Application
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Interfaces\ISingleton
  * @since Version 1.0.0
  */
@@ -34,21 +30,14 @@ final class Context extends Component implements IContext , ISingleton {
 
 	/**
 	 *
-	 * @var IWhiteLabel
-	 */
-	private $white_label;
-
-	/**
-	 *
 	 * @var ISkin
 	 */
 	private $skin;
 
 	/**
-	 *
-	 * @var ISkinDomain
+	 * @var array
 	 */
-	private $skin_domain;
+	private $skins = [];
 
 	/**
 	 *
@@ -80,20 +69,27 @@ final class Context extends Component implements IContext , ISingleton {
 			$uri = new Uri( isset( $_SERVER[ 'REDIRECT_URL' ] ) ? $_SERVER[ 'REDIRECT_URL' ] : $_SERVER[ 'REQUEST_URI' ] );
 			$request_uri_parts = array_values( array_filter( explode( '/', $uri->getPath() ) ) );
 
-			if ( empty( $request_uri_parts[ 0 ] ) ) {
-				$this->setController( 'Index' );
-			} else {
-				$this->setController( $request_uri_parts[ 0 ] );
-			}
+			//Redirect rules will sometimes set controller and and action in query string
+			if(isset($_GET['c'], $_GET['a'])) {
+				$this->setController( $_GET['c'] );
+				$this->setAction( $_GET['a'] );
 
-			if ( empty( $request_uri_parts[ 1 ] ) ) {
-				$this->setAction( 'index' );
 			} else {
-				$this->setAction( $request_uri_parts[ 1 ] );
-			}
-
-			if ( ! empty( $request_uri_parts[ 2 ] ) ) {
-				$this->setIdMatched( $request_uri_parts[ 2 ] );
+				if ( empty( $request_uri_parts[ 0 ] ) ) {
+					$this->setController( 'Index' );
+				} else {
+					$this->setController( $request_uri_parts[ 0 ] );
+				}
+	
+				if ( empty( $request_uri_parts[ 1 ] ) ) {
+					$this->setAction( 'index' );
+				} else {
+					$this->setAction( $request_uri_parts[ 1 ] );
+				}
+	
+				if ( ! empty( $request_uri_parts[ 2 ] ) ) {
+					$this->setIdMatched( $request_uri_parts[ 2 ] );
+				}
 			}
 		}
 	}
@@ -113,52 +109,43 @@ final class Context extends Component implements IContext , ISingleton {
 
 	/**
 	 *
-	 * @return WhiteLabel
-	 */
-	public function getWhiteLabel ( ): WhiteLabel {
-		$white_label_list = new WhiteLabelList();
-		$white_label_list->findAll();
-		return $white_label_list->offsetGet( 0 );
-	}
-
-	/**
-	 *
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Application\IContext::getSkin()
 	 */
 	public function getSkin ( ): ISkin {
 		if ( $this->skin == null ) {
-			$this->skin = $this->getSkinDomain()->getSkin();
-		}
-		return $this->skin;
-	}
-
-	/**
-	 *
-	 * {@inheritdoc}
-	 * @see \Wolfgang\Interfaces\Application\IContext::getSkinDomain()
-	 */
-	public function getSkinDomain ( ): ISkinDomain {
-		if ( ! $this->skin_domain ) {
-
 			$domain = $_SERVER[ 'HTTP_HOST' ];
 
-			$skin_domain_list = new SkinDomainList();
+			$skins = include DOCUMENT_ROOT . 'sites.php';
 
-			$skin_domain_list->where( [ 
-					'domain' => new StringObject($domain)
-			] )->orWhere( [ 
-			    'api_domain' => new StringObject($domain)
-			] );
+			foreach($skins as $skin){
+				if($skin['skin_domain']['domain'] == $domain || $skin['skin_domain']['api_domain'] == $domain) {
+					$this->skin = new Skin($skin);
+				}
+			}
 
-			$this->skin_domain = $skin_domain_list->offsetGet( 0 );
-
-			if ( ! $this->skin_domain ) {
-				throw new Exception( "Unable to determine skin domain with domain {$domain}. " );
+			if(!$this->skin) {
+				throw new Exception( "Unable to determine skin with domain {$domain}. " );
 			}
 		}
 
-		return $this->skin_domain;
+		return $this->skin;
+	}
+
+	public function getSkinById(int $id) {
+		if(isset($this->skins[$id])) {
+			return $this->skins[$id];
+		}
+
+		$skins = include DOCUMENT_ROOT . 'sites.php';
+
+		foreach($skins as $skin){
+			if($skin['id'] == $id) {
+				$this->skins[$id] = new Skin($skin);
+			}
+		}
+
+		return $this->skins[$id];
 	}
 
 	/**
@@ -176,6 +163,7 @@ final class Context extends Component implements IContext , ISingleton {
 	 * @see \Wolfgang\Interfaces\Application\IContext::isMobile()
 	 */
 	public function isMobile ( ): bool {
+		return false;
 	}
 
 	/**

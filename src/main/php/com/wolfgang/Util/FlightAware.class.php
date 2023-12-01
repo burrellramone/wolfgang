@@ -16,7 +16,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @package Wolfgang\Util
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class FlightAware extends Component implements ISingleton {

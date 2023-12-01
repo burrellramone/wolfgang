@@ -1,32 +1,20 @@
 <?php
 
-namespace Wolfgang\Model;
+namespace Wolfgang;
 
-use Wolfgang\Interfaces\Model\ISkinDomain;
+use Wolfgang\Interfaces\ISkinDomain;
 use Wolfgang\Exceptions\IllegalStateException;
-use Wolfgang\Traits\Model\TSkinDomain;
+use Wolfgang\Traits\TSkinDomain;
 use Wolfgang\Date\DateTime;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
- * @package Wolfgang\Model
+ * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @package Wolfgang
  * @since Version 1.0.0
  */
-final class SkinDomain extends Model implements ISkinDomain {
+final class SkinDomain extends Component implements ISkinDomain {
 	use TSkinDomain;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $skin_id;
-
-	/**
-	 *
-	 * @var string
-	 */
-	public $white_label_id;
 
 	/**
 	 *
@@ -58,16 +46,15 @@ final class SkinDomain extends Model implements ISkinDomain {
 	 */
 	public $open;
 
-	/**
-	 *
-	 * @var DateTime
-	 */
-	public $last_updated;
-	/**
-	 *
-	 * @var DateTime
-	 */
-	public $create_date;
+	function __construct (array $definition) {
+		parent::__construct();
+
+		$this->domain = $definition['domain'];
+		$this->api_domain = $definition['api_domain'];
+		$this->url = $definition['url'];
+		$this->api_url = $definition['api_url'];
+		$this->open = $definition['open'];
+	}
 
 	/**
 	 *
@@ -85,19 +72,12 @@ final class SkinDomain extends Model implements ISkinDomain {
 		return $this->domain;
 	}
 
-	/**
-	 *
-	 * @return string
-	 */
-	public function getUser ( ): ?string {
-		return $this->user;
-	}
 
 	/**
 	 *
 	 * @return string
 	 */
-	public function getUrl ( ) {
+	public function getUrl ( ):string  {
 		return $this->url;
 	}
 

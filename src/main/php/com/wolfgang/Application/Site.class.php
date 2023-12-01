@@ -2,6 +2,7 @@
 
 namespace Wolfgang\Application;
 
+use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Interfaces\Application\IApplication;
 use Wolfgang\Interfaces\Routing\IRouter;
 use Wolfgang\Interfaces\Message\IRequest;
@@ -21,16 +22,23 @@ use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Network\IUri;
 
 /**
- *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Application
  * @since Version 1.0.0
  */
-final class Site extends Application implements ISite , ISingleton {
-	use TSingleton;
+final class Site extends Application implements ISite {
+	//use TSingleton;
 
-	protected function __construct ( ) {
-		parent::__construct( IApplication::KIND_SITE, Context::getInstance()->getSkinDomain()->getSkin()->getName() );
+	protected function __construct ( IContext $context ) {
+		parent::__construct( IApplication::KIND_SITE, $context);
+	}
+
+	final public static function getInstance() : ISingleton {
+		if ( self::$instance == null ) {
+			self::$instance = new Site(Context::getInstance());
+		}
+
+		return self::$instance;
 	}
 
 	/**

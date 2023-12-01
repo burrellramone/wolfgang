@@ -10,7 +10,7 @@ use Wolfgang\Exceptions\MethodNotImplementedException;
 /**
  *
  * @package Wolfgang\ORM\MySQLi
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class Column extends ORMColumn implements IMySQLiColumn {

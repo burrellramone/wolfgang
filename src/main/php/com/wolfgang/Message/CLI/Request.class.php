@@ -9,7 +9,7 @@ use Wolfgang\Traits\Message\TRequest;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Message\CLI
  * @since Version 1.0.0
  */

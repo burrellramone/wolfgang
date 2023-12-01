@@ -22,7 +22,7 @@ use Wolfgang\Encoding\Base64;
  * framework
  *
  * @package Wolfgang\Auth
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 class Controller extends BaseComponent implements IControllerAuthenticator {

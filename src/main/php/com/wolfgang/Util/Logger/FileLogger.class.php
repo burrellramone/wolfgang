@@ -14,7 +14,7 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @package Wolfgang\Util\Logger
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @link http://airportruns.ca
  * @since Version 1.0
  */

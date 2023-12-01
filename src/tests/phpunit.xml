@@ -27,15 +27,6 @@
 		<testsuite name="misc">
     		<directory suffix=".php">php/com/wolfgang/Misc</directory>
    		</testsuite>
-   		
-   	 	<testsuite name="model">
-    		<directory suffix=".php">php/com/wolfgang/Model</directory>
-   		</testsuite>
-   		
-   		<testsuite name="mailing">
-    		<directory suffix=".php">php/com/wolfgang/Mailing</directory>
-   		</testsuite>
-   		
   	</testsuites>
 
 </phpunit>

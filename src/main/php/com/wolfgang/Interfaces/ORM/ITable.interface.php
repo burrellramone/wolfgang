@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\ORM\ISchema as IDatabaseSchema;
 /**
  *
  * @package Wolfgang\Interfaces\ORM
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 interface ITable {

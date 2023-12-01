@@ -9,7 +9,7 @@ use Wolfgang\Interfaces\Structure\Tree\ITreeNode;
  * 
  *
  * @package Wolfgang\Structure\Tree
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class RoseTreeNode extends TreeNode {

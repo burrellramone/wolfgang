@@ -20,14 +20,6 @@ if(!$app_env) {
     die("APPLICATION_ENV environment variable not set.");
 }
 
-/**
- *
- * @var string
- */
-define( 'APPLICATION_ENVIRONMENT', $app_env );
-
-
-
 if ( ! defined( "DOCUMENT_ROOT" ) ) {
 	/**
 	 * The root of the application that Wolfgang is installed

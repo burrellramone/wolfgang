@@ -14,7 +14,7 @@ use Wolfgang\Interfaces\SQL\Clause\ISelectClause;
 /**
  *
  * @package Wolfgang\Interfaces\SQL\Statement
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 interface ISelectStatement extends IStatement {

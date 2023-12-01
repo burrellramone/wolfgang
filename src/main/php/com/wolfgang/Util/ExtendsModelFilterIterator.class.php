@@ -5,7 +5,7 @@ namespace Wolfgang\Util;
 /**
  *
  * @package Wolfgang\Util
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class ExtendsModelFilterIterator extends \RecursiveFilterIterator {
@@ -24,7 +24,7 @@ final class ExtendsModelFilterIterator extends \RecursiveFilterIterator {
 		$this->subject_class = $subject_class;
 	}
 	
-	public function accept ( ) {
+	public function accept ( ):bool {
 		if ( $this->current()->isDir() ) {
 			return false;
 		}

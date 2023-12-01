@@ -14,7 +14,7 @@ use Wolfgang\ORM\SchemaManager;
 /**
  *
  * @package Wolfgang\SQL\Statement\Utility
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class Explain extends Statement {

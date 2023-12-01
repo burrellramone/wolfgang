@@ -9,7 +9,7 @@ use Wolfgang\Exceptions\IllegalArgumentException;
 /**
  *
  * @package Wolfgang\Encryption
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @see https://tools.ietf.org/html/rfc5246#page-24
  * @since Version 1.0.0
  */

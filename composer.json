@@ -17,10 +17,10 @@
 		"phpunit/php-invoker" : "3.1.1",
 		"phploc/phploc" : "7.0.2",
 		"theseer/autoload" : "^1.29.0",
-		"lox/xhprof" : "dev-master",
 		"overtrue/phplint" : "^0.2.4",
 		"php-amqplib/php-amqplib" : "^2.7.2",
-		"phpstan/phpstan" : "^1.10.41"
+		"phpstan/phpstan" : "^1.10.41",
+		"lox/xhprof":"dev-master"
 	},
 	"repositories" : [{
 			"type" : "vcs",

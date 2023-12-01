@@ -2,13 +2,12 @@
 
 namespace Wolfgang\Interfaces\Application;
 
-use Wolfgang\Interfaces\Model\ISkin;
-use Wolfgang\Interfaces\Model\ISkinDomain;
+use Wolfgang\Interfaces\ISkin;
 
 /**
  *
- * @package Wolfgang\Interfaces
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @package Wolfgang\Interfaces\Application
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 interface IContext {
@@ -202,12 +201,6 @@ interface IContext {
 	 * @return ISkin
 	 */
 	public function getSkin ( ): ISkin;
-	
-	/**
-	 *
-	 * @return ISkinDomain
-	 */
-	public function getSkinDomain ( ): ISkinDomain;
 	
 	/**
 	 *

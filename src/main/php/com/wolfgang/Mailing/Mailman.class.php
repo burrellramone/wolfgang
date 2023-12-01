@@ -18,7 +18,7 @@ use Wolfgang\Interfaces\IEmailContact;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Mailing
  * @since Version 1.0.0
  */
@@ -65,6 +65,10 @@ final class Mailman extends Component implements ISingleton {
 		
 		if ( ! Context::getInstance()->isProduction() ) {
 			$this->mailer->SMTPDebug = 3;
+			$this->mailer->SMTPSecure = false;
+			$this->mailer->SMTPAutoTLS = false;
+		} else {
+			$this->mailer->SMTPSecure = 'tls';
 		}
 		
 		$this->mailer->isHTML( true );
@@ -72,7 +76,6 @@ final class Mailman extends Component implements ISingleton {
 		$this->mailer->SMTPAuth = true;
 		$this->mailer->Port = $this->mailing_config[ 'smtps' ][ 'port' ];
 		$this->mailer->Host = $this->mailing_config[ 'smtps' ][ 'host' ];
-		$this->mailer->SMTPSecure = 'tls';
 		
 		$this->mailer->SMTPOptions = array (
 				'ssl' => array (

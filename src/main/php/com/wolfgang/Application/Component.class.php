@@ -5,7 +5,7 @@ namespace Wolfgang\Application;
 use Wolfgang\Component as BaseComponent;
 
 /**
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Application
  * @since Version 1.0.0
  */

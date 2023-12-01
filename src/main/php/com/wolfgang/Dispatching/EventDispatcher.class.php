@@ -10,7 +10,7 @@ use Wolfgang\Interfaces\Event\IEventListener;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class EventDispatcher extends Component implements ISingleton , IEventDispatcher {

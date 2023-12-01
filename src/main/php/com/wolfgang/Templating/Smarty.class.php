@@ -16,7 +16,7 @@ use Wolfgang\Interfaces\ISingleton;
 /**
  *
  * @package Wolfgang\Temlating
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class Smarty extends Templater implements ITemplater {
@@ -119,6 +119,8 @@ final class Smarty extends Templater implements ITemplater {
 		} else if ( ! empty( $this->layout ) ) {
 			return $this->cleanMarkup( $this->smarty->fetch( $this->getLayout() ) );
 		}
+
+		return '';
 	}
 
 	/**
@@ -223,21 +225,14 @@ final class Smarty extends Templater implements ITemplater {
 		if ( php_sapi_name() != 'cli' ) {
 			$this->smarty->addTemplateDir( TEMPLATE_DIRECTORY );
 			$context = Context::getInstance();
-			$current_skin_domain = $context->getSkinDomain();
-			// $app_name = AppConfig::get( 'name' );
-			$skin_name = $current_skin_domain->getSkin()->getName();
-			$user = $current_skin_domain->getUser();
+			$skin = $context->getSkin();
+			$skin_name = $skin->getName();
 			$temporary_directory = AppConfig::get( 'directories.temporary_directory' );
 
-			if ( $context->isProduction() ) {
-				$this->smarty->setCompileDir( "{$temporary_directory}smarty/templates_c/{$skin_name}" );
-				$this->smarty->setCacheDir( "{$temporary_directory}smarty/cache/{$skin_name}" );
-				$this->smarty->setConfigDir( "{$temporary_directory}smarty/configs/{$skin_name}" );
-			} else {
-				$this->smarty->setCompileDir( "{$temporary_directory}smarty/templates_c/{$user}/{$skin_name}" );
-				$this->smarty->setCacheDir( "{$temporary_directory}/smarty/cache/{$user}/{$skin_name}" );
-				$this->smarty->setConfigDir( "{$temporary_directory}/smarty/configs/{$user}/{$skin_name}" );
-			}
+			$this->smarty->setCompileDir( "{$temporary_directory}smarty/templates_c/{$skin_name}" );
+			$this->smarty->setCacheDir( "{$temporary_directory}smarty/cache/{$skin_name}" );
+			$this->smarty->setConfigDir( "{$temporary_directory}smarty/configs/{$skin_name}" );
+			
 		}
 	}
 

@@ -14,7 +14,7 @@ use Wolfgang\ORM\SchemaManager;
 /**
  *
  * @package Wolfgang\Proxy\ORM
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 class Table extends Component implements IProxy , ITable {
@@ -134,6 +134,7 @@ class Table extends Component implements IProxy , ITable {
 	 * @return \ArrayObject
 	 */
 	public function getColumns ( ): \ArrayObject {
+		return new \ArrayObject([]);
 	}
 	
 	/**
@@ -143,6 +144,7 @@ class Table extends Component implements IProxy , ITable {
 	 * @see \Wolfgang\Interfaces\ORM\ITable::getColumn()
 	 */
 	public function getColumn ( string $column_name ): IColumn {
+		return null;
 	}
 	
 	/**
@@ -169,6 +171,7 @@ class Table extends Component implements IProxy , ITable {
 	 * @return \ArrayObject
 	 */
 	public function getForeignKeyFieldRelationship ( ITable $table ): \ArrayObject {
+		return new \ArrayObject([]);
 	}
 	
 	/**
@@ -177,6 +180,7 @@ class Table extends Component implements IProxy , ITable {
 	 * @return \ArrayObject|null
 	 */
 	public function getReferencedKeyFieldRelationship ( $table ) {
+		return new \ArrayObject([]);
 	}
 	
 	/**
@@ -196,7 +200,7 @@ class Table extends Component implements IProxy , ITable {
 	 */
 	public function getForeignKeyFieldsRelationships ( ): \ArrayObject {
 		$this->load();
-		$this->getSubject()->getForeignKeyFieldsRelationships();
+		return $this->getSubject()->getForeignKeyFieldsRelationships();
 	}
 	
 	/**
@@ -206,6 +210,7 @@ class Table extends Component implements IProxy , ITable {
 	 * @see \Wolfgang\Interfaces\ORM\ITable::getModel()
 	 */
 	public function getModel ( ): IModel {
+		return null;
 	}
 	
 	/**

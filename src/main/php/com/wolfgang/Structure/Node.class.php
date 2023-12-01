@@ -10,7 +10,7 @@ use Wolfgang\Interfaces\ISchema;
 /**
  *
  * @package Wolfgang\Structure
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 abstract class Node extends StructureComponent implements INode {
@@ -59,7 +59,7 @@ abstract class Node extends StructureComponent implements INode {
 	 *
 	 * @param string $name
 	 */
-	private function setName ( $name ) {
+	private function setName ( $name ):void {
 		$this->name = $name;
 	}
 	
@@ -69,7 +69,7 @@ abstract class Node extends StructureComponent implements INode {
 	 *
 	 * @see \Wolfgang\Interfaces\Structure\INode::getName()
 	 */
-	public function getName ( ) {
+	public function getName ( ):string {
 		return $this->name;
 	}
 	
@@ -77,7 +77,7 @@ abstract class Node extends StructureComponent implements INode {
 	 *
 	 * @param ISchema $schema
 	 */
-	private function setSchema ( ISchema $schema ) {
+	private function setSchema ( ISchema $schema ):void {
 		$this->schema = $schema;
 	}
 	

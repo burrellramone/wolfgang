@@ -9,7 +9,7 @@ use Wolfgang\Interfaces\Routing\Route\ISiteRoute;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Routing\Route
  * @since Version 1.0.0
  */

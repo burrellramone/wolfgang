@@ -23,7 +23,7 @@ use Wolfgang\SQL\Expression\ConditionalExpressionGroup;
 /**
  *
  * @package Wolfgang\SQL\Statement\DML
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class DeleteStatement extends Statement implements IDeleteStatement {

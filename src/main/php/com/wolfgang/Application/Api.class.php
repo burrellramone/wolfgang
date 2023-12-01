@@ -6,6 +6,7 @@ use Error;
 use Exception;
 
 //
+use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Interfaces\Message\IMessage;
 use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Message\IRequest;
@@ -24,20 +25,18 @@ use Wolfgang\Routing\ApiRouter;
 use Wolfgang\Message\HTTP\Response as HttpResponse;
 use Wolfgang\Interfaces\Message\HTTP\IResponse as IHttpResponse;
 use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
-use Wolfgang\Traits\TSingleton;
+use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Exceptions\UnsupportedOperationException;
 use Wolfgang\Interfaces\Network\IUri;
 
 /**
- *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Application
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\Application\IApi
  * @since Version 1.0.0
  */
 final class Api extends Application implements IApi {
-	use TSingleton;
 
 	/**
 	 *
@@ -47,10 +46,18 @@ final class Api extends Application implements IApi {
 
 	/**
 	 */
-	protected function __construct ( ) {
-		parent::__construct( IApplication::KIND_API, Context::getInstance()->getSkinDomain()->getSkin()->getName() );
+	protected function __construct (IContext $context) {
+		parent::__construct( IApplication::KIND_API, $context);
 	}
 
+	final public static function getInstance() : ISingleton {
+		if ( self::$instance == null ) {
+			self::$instance = new static(Context::getInstance());
+		}
+
+		return self::$instance;
+	}
+	
 	/**
 	 *
 	 * {@inheritdoc}

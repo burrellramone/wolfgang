@@ -8,7 +8,7 @@ use Wolfgang\Traits\Message\TMessage;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Message
  * @since Version 1.0.0
  */

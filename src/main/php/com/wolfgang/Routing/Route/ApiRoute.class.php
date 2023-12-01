@@ -10,7 +10,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0
  */
 final class ApiRoute extends Route implements IApiRoute {

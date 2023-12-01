@@ -10,7 +10,7 @@ use Wolfgang\Interfaces\ORM\ISchema;
 /**
  *
  * @package Wolfgang\ORM
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
@@ -40,6 +40,7 @@ class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
 		$result = $airportruns_connection->exec( "SHOW TABLES IN {$this->getSchema()->getName()};" );
 		
 		foreach ( $result as $record ) {
+			$add_node_to_graph = false;
 			$table_name = $record[ "Tables_in_{$this->getSchema()->getName()}" ];
 			$table = $subject_schema->getTable( $table_name );
 			
@@ -49,8 +50,14 @@ class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
 			
 			$relationships = $table->getForeignKeyFieldsRelationships();
 			
-			$node = new EntityRelationshipNode( $this->getSchema(), $table_name );
-			
+			//Maybe node already exists in graph
+			$node = $this->find($table_name);
+
+			if(!$node) {
+				$node = new EntityRelationshipNode( $this->getSchema(), $table_name );
+				$add_node_to_graph = true;
+			}
+
 			if ( $relationships->count() ) {
 				foreach ( $relationships as $relationship ) {
 					$node_name = $relationship->getReferencedTableName();
@@ -58,13 +65,17 @@ class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
 					
 					if ( $referenced_node == null ) {
 						$referenced_node = new EntityRelationshipNode( $this->getSchema(), $node_name );
+						//Add it to the map
+						$this->add( $referenced_node);
 					}
 					
 					$node->addRelationship( new EntityRelationship( $node, $referenced_node ) );
 				}
 			}
 			
-			$this->add( $node );
+			if($add_node_to_graph) {
+				$this->add( $node );
+			}
 		}
 	}
 	
@@ -79,13 +90,13 @@ class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
 		
 		$orm_connection->exec( "CREATE DATABASE IF NOT EXISTS `orm`;" );
 		$orm_connection->exec( "USE `orm`;" );
-		
+
 		$sql = <<<SQL
 			CREATE TABLE IF NOT EXISTS `node` (
 				id VARCHAR(36) NOT NULL PRIMARY KEY,
 				schema_name VARCHAR(64) NOT NULL,
 				name VARCHAR(64) NOT NULL,
-				create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+				datetime_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				CONSTRAINT UNIQUE (schema_name, name)
 			);
 SQL;
@@ -97,9 +108,10 @@ SQL;
 			CREATE TABLE IF NOT EXISTS `node_relationship` (
 				`node_id` VARCHAR(36) NOT NULL,
 				`related_node_id` VARCHAR(36) NOT NULL,
-				`create_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+				`datetime_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				UNIQUE KEY (node_id, related_node_id),
-				CONSTRAINT FOREIGN KEY (node_id) REFERENCES node(id) ON DELETE CASCADE
+				CONSTRAINT FOREIGN KEY (node_id) REFERENCES node(id) ON DELETE CASCADE,
+				CONSTRAINT FOREIGN KEY (related_node_id) REFERENCES node(id) ON DELETE CASCADE
 			);
 SQL;
 		
@@ -107,7 +119,7 @@ SQL;
 		
 		foreach ( $this->getMap() as $name => $node ) {
 			$sql = <<<SQL
-			INSERT INTO `node` (id, schema_name, name, create_date) VALUES ('{$node->getId()}', '{$node->getSchema()->getName()}', '{$node->getName()}', CURRENT_TIMESTAMP)
+			INSERT INTO `node` (id, schema_name, name, datetime_created) VALUES ('{$node->getId()}', '{$node->getSchema()->getName()}', '{$node->getName()}', CURRENT_TIMESTAMP)
 SQL;
 			$orm_connection->exec( $sql );
 		}
@@ -115,15 +127,9 @@ SQL;
 		foreach ( $this->getMap() as $node ) {
 			$relationships = $node->getRelationships();
 			
-			if ( ! $relationships->count() ) {
-				echo "No relationships found for node {$node->getName()}\n";
-			} else {
-				echo "{$relationships->count()} relationships found for node {$node->getName()}\n";
-			}
-			
 			foreach ( $relationships as $relationship ) {
 				$sql = <<<SQL
-					INSERT INTO `node_relationship` (node_id, related_node_id, create_date) VALUES ('{$node->getId()}', '{$relationship->e2->getId()}', CURRENT_TIMESTAMP)
+					INSERT INTO `node_relationship` (node_id, related_node_id, datetime_created) VALUES ('{$node->getId()}', '{$relationship->e2->getId()}', CURRENT_TIMESTAMP)
 SQL;
 				$orm_connection->exec( $sql );
 			}
@@ -132,12 +138,12 @@ SQL;
 		$sql = <<<SQL
 			CREATE TABLE IF NOT EXISTS `revision` (
 				revision BIGINT(11) UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
-				create_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+				datetime_created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 			);
 
 SQL;
 		$orm_connection->exec( $sql );
 		
-		$orm_connection->exec( "INSERT INTO `revision` (create_date) VALUES (CURRENT_TIMESTAMP);" );
+		$orm_connection->exec( "INSERT INTO `revision` (datetime_created) VALUES (CURRENT_TIMESTAMP);" );
 	}
 }

@@ -9,7 +9,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @package Wolfgang\Session
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class Manager extends Component implements ISingleton {

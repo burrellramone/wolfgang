@@ -7,7 +7,7 @@ use Wolfgang\Interfaces\IContact;
 /**
  *
  * @package Wolfgang\Util
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 class Contact extends Component implements IContact {

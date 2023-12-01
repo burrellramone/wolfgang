@@ -4,7 +4,7 @@ namespace Wolfgang\Adapter;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Adapter
  * @since Version 1.0.0
  */

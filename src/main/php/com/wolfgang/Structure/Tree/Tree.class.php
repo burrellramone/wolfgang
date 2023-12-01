@@ -7,7 +7,7 @@ use Wolfgang\Interfaces\Structure\Tree\ITreeNode;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Structure\Tree
  * @since Version 1.0.0
  */
@@ -111,7 +111,7 @@ abstract class Tree extends Component implements ITree {
 	 * @param ITreeNode $node
 	 * @return \Wolfgang\Interfaces\Structure\Tree\ITreeNode
 	 */
-	private function findRecursively ( string $node_name, ITreeNode $node ) {
+	private function findRecursively ( string $node_name, ITreeNode $node ):?ITreeNode {
 		if ( $node->getName() == $node_name ) {
 			$n = &$node;
 			return $n;
@@ -120,5 +120,7 @@ abstract class Tree extends Component implements ITree {
 		foreach ( $node->getChildren() as $child ) {
 			return $this->findRecursively( $node_name, $child );
 		}
+
+		return null;
 	}
 }

@@ -5,7 +5,7 @@ namespace Wolfgang\Util;
 /**
  *
  * @package Wolfgang\Util
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 0.1.0
  */
 final class Token extends Component {

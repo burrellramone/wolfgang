@@ -24,7 +24,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 /**
  *
  * @package Wolfgang\SQL\Expression
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class ColumnExpression extends Expression implements IColumnExpression {

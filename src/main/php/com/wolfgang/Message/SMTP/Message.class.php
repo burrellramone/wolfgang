@@ -10,7 +10,7 @@ use Wolfgang\Util\Token;
 /**
  *
  * @package Wolfgang\Message\SMTP
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 class Message extends WolfgangMessage implements IMail {

@@ -10,7 +10,7 @@ use Wolfgang\Encoding\JSON;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class JSONPMarshaller extends Component implements IMarshaller , ISingleton {

@@ -14,7 +14,7 @@ use Wolfgang\Exceptions\MethodNotImplementedException;
 /**
  *
  * @package Wolfgang\SQL\Expression
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class ConditionalExpressionGroup extends Component implements IConditionalExpressionGroup {
@@ -314,10 +314,11 @@ final class ConditionalExpressionGroup extends Component implements IConditional
 			}
 
 			$expressions = ' ( ' . implode( ' ' . $this->conditional_expressions_logical_operator . ' ', $expressions ) . ' ) ';
-
-			return $expressions;
+			
 		} catch ( \Exception $e ) {
 			Application::getInstance()->respond( $e );
 		}
+
+		return $expressions;
 	}
 }

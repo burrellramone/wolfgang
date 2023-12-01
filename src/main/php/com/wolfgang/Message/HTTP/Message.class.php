@@ -7,7 +7,7 @@ use Wolfgang\Message\Message as WolfgangMessage;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Message\HTTP
  * @since Version 1.0.0
  */

@@ -11,7 +11,7 @@ use Wolfgang\Exceptions\UnsupportedOperationException;
 /**
  *
  * @package Wolfgang\SQL\Statement\Utility
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 abstract class Statement extends ComponentSQLStatement implements IUtilityStatement {
@@ -71,5 +71,6 @@ abstract class Statement extends ComponentSQLStatement implements IUtilityStatem
 	 * @see \Wolfgang\Component::__toString()
 	 */
 	public function __toString ( ) {
+		return '';
 	}
 }

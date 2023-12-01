@@ -7,7 +7,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 /**
  *
  * @package Wolfgang\SQL\Expression
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class BooleanExpression extends NumericExpression {
@@ -36,6 +36,8 @@ final class BooleanExpression extends NumericExpression {
 		} else if ( $this->expression === false ) {
 			return 'FALSE';
 		} else if ( $this->expression === null ) {
+			return 'NULL';
+		} else {
 			return 'NULL';
 		}
 	}

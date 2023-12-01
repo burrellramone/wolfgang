@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\IEntity;
 /**
  *
  * @package Wolfgang\Structure
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class EntityRelationship extends Component implements IEntityRelationship {

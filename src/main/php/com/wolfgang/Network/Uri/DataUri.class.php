@@ -8,7 +8,7 @@ use Wolfgang\Encoding\Base64;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class DataUri extends Uri implements IDataUri {
@@ -94,7 +94,7 @@ final class DataUri extends Uri implements IDataUri {
 	 * @see \Wolfgang\Interfaces\Network\IDataUri::getMimeType()
 	 */
 	public function getMimeType ( ): string {
-		$this->mime_type;
+		return $this->mime_type;
 	}
 	
 	/**

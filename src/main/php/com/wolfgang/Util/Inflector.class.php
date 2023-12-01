@@ -8,7 +8,7 @@ use Wolfgang\Model\Model;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Util
  * @since Version 1.0.0
  */

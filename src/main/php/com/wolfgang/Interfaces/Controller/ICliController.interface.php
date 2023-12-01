@@ -5,7 +5,7 @@ namespace Wolfgang\Interfaces\Controller;
 /**
  *
  * @package Wolfgang\Interfaces\Controller
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  */
 interface ICliController extends IController {
 }

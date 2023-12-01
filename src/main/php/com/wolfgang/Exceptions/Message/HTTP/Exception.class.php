@@ -7,7 +7,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 /**
  *
  * @package Wolfgang\Exceptions\Message\HTTP
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 abstract class Exception extends ComponentException {

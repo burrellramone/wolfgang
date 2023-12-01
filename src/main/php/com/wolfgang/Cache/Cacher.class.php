@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\ISingleton;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Cache
  * @since Version 1.0.0
  */
@@ -52,10 +52,6 @@ abstract class Cacher extends Component implements ICacher , ISingleton {
 			switch ( CacheConfig::get( 'type' ) ) {
 				case ICacher::TYPE_MEMCACHED :
 					self::$instance = Memcached::getInstance();
-					break;
-
-				case ICacher::TYPE_REDIS :
-					self::$instance = Redis::getInstance();
 					break;
 
 				default :

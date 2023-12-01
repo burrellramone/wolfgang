@@ -5,7 +5,7 @@ namespace Wolfgang\Interfaces\Session;
 /**
  *
  * @package Wolfgang\Interfaces\Session
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 interface ISession {

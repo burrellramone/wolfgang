@@ -12,7 +12,7 @@ use Wolfgang\Exceptions\MQ\AMQP\Exception as AMQPException;
 /**
  *
  * @package Wolfgang\MQ\AMQP
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class Connection extends Component {

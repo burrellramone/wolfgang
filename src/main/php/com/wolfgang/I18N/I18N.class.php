@@ -7,7 +7,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @package Wolfgang\I18N
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class I18N extends BaseComponent {

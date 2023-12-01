@@ -11,7 +11,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @package Wolfgang\Message\HTTP
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class Response extends Message implements ISingleton , IResponse {

@@ -7,7 +7,7 @@ use Wolfgang\Interfaces\Session\ISessionHandler;
 /**
  *
  * @package Wolfgang\Session
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class FileSessionHandler extends Component implements ISessionHandler {
@@ -24,6 +24,7 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	 * @see \SessionHandlerInterface::destroy()
 	 */
 	public function destroy ( $session_id ):bool {
+		return true;
 	}
 
 	/**
@@ -32,6 +33,7 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	 * @see \SessionHandlerInterface::read()
 	 */
 	public function read ( $session_id ): string|false {
+		return false;
 	}
 
 	/**
@@ -40,6 +42,7 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	 * @see \SessionHandlerInterface::write()
 	 */
 	public function write ( $session_id, $session_data ):bool {
+		return false;
 	}
 
 	/**

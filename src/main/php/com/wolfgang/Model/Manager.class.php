@@ -11,7 +11,7 @@ use Wolfgang\Traits\TSingleton;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Model
  * @since Version 1.0.0
  */

@@ -10,7 +10,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @package Components
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class Twitter extends Component implements ISingleton {

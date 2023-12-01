@@ -9,7 +9,7 @@ use Wolfgang\Interfaces\SQL\Expression\IConditionalExpression;
 /**
  *
  * @package Wolfgang\SQL
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class HavingClause extends Clause implements IHavingClause {

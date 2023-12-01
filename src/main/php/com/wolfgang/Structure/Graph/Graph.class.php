@@ -2,13 +2,17 @@
 
 namespace Wolfgang\Structure\Graph;
 
+//PHP
+use \Exception;
+
+//Wolfgang
 use Wolfgang\Interfaces\Structure\Graph\IGraph;
 use Wolfgang\Interfaces\Structure\Graph\IGraphNode;
 
 /**
  *
  * @package Wolfgang\Structures
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 abstract class Graph extends Component implements IGraph , \Countable {
@@ -37,7 +41,13 @@ abstract class Graph extends Component implements IGraph , \Countable {
 	 * @see \Wolfgang\Interfaces\Structure\Graph\IGraph::add()
 	 */
 	public function add ( IGraphNode $node ) {
-		$this->map[ $node->getName() ] = $node;
+		$node_name = $node->getName();
+
+		if(isset($this->map[$node_name])) {
+			throw new Exception("Cannot re-add existing node '{$node_name}' to graph.");
+		}
+
+		$this->map[ $node_name ] = $node;
 	}
 
 	/**
@@ -46,13 +56,13 @@ abstract class Graph extends Component implements IGraph , \Countable {
 	 *
 	 * @see \Wolfgang\Interfaces\Structure\Graph\IGraph::find()
 	 */
-	public function &find ( $node_name ) {
-		$null = null;
+	public function &find ( string $node_name ) {
+		$node = null;
 		if ( ! empty( $this->map[ $node_name ] ) ) {
 			$node = $this->map[ $node_name ];
-			return $node;
 		}
-		return $null;
+
+		return $node;
 	}
 
 	/**

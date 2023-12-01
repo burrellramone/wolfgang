@@ -12,7 +12,7 @@ use Wolfgang\Config\App as AppConfig;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Templater
  * @link http://airportruns.ca
  * @since Version 1.0.0
@@ -56,9 +56,6 @@ abstract class Templater extends Component implements ISingleton {
 			switch ( $templater ) {
 				case ITemplater::KIND_SMARTY :
 					self::$instance = Smarty::getInstance();
-					break;
-				case ITemplater::KIND_TWIG :
-					self::$instance = Twig::getInstance();
 					break;
 				default :
 					throw new IllegalStateException( "Unknown and unimplemented templater '{$templater}'" );
@@ -164,13 +161,13 @@ abstract class Templater extends Component implements ISingleton {
 			throw new IllegalArgumentException( "Action must be specified" );
 		}
 		
-		// $reflector = new \ReflectionClass( "Controller\\{$application}\\Site\\" . $controller );
-		$layout = @$this->layout_directives[ $application ][ $controller ][ $action ];
+		$layout = null;
+		$layout_name = @$this->layout_directives[ $application ][ $controller ][ $action ];
 		
-		if ( $layout ) {
-			return $application . "/layout/" . $action . '.tmpl';
+		if ( $layout_name ) {
+			$layout = $application . "/layout/" . $layout_name . '.tmpl';
 		}
 		
-		return null;
+		return $layout;
 	}
 }

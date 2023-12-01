@@ -12,7 +12,7 @@ use Wolfgang\Component;
 /**
  *
  * @package Wolfgang\ORM
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 class TableManager extends Component {

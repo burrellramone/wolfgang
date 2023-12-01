@@ -6,7 +6,7 @@ use Wolfgang\Interfaces\Message\IMessage as IComponentMessage;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  */
 interface IMessage extends IComponentMessage {
 }

@@ -11,7 +11,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Config
  * @since Version 1.0.0
  */

@@ -20,7 +20,6 @@ use Wolfgang\Config\Curl as CurlConfig;
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Util\Logger\Logger;
 use Wolfgang\Exceptions\InvalidArgumentException;
-use Wolfgang\Traits\TSingleton;
 use Wolfgang\Database\DriverManager;
 use Wolfgang\ORM\SchemaManager;
 use Wolfgang\Network\Uri\Uri;
@@ -28,14 +27,11 @@ use Wolfgang\Interfaces\Network\IUri;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Application
  * @since Version 1.0.0
  */
 abstract class Application extends Component implements ISingleton , IApplication {
-	use TSingleton {
-		getInstance as public traitGetInstance;
-	}
 
 	/**
 	 *
@@ -134,14 +130,16 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 	 */
 	protected $config = [ ];
 
+	protected static $instance;
+
 	/**
 	 *
 	 * @param string $kind
 	 * @param string $name
 	 */
-	protected function __construct ( string $kind, string $name ) {
+	protected function __construct ( string $kind, IContext $context ) {
 		$this->setKind( $kind );
-		$this->setName( $name );
+		$this->setContext($context);
 
 		parent::__construct();
 	}
@@ -154,7 +152,6 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 	protected function init ( ) {
 		parent::init();
 
-		$this->setContext( Context::getInstance() );
 		$this->setSession( SessionManager::getInstance()->getSession() );
 		$this->setDispatcher( Dispatcher::getInstance() );
 		$this->setEventDispatcher( EventDispatcher::getInstance() );
@@ -180,18 +177,13 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 	 * @return ISingleton
 	 */
 	public static function getInstance ( ): ISingleton {
-		if ( ! self::$instance ) {
-
-			if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
-				self::$instance = Cli::getInstance();
-			} else if ( preg_match( "/^api\./", $_SERVER[ 'HTTP_HOST' ] ) ) {
-				self::$instance = Api::getInstance();
-			} else {
-				self::$instance = Site::getInstance();
-			}
+		if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
+			return Cli::getInstance();
+		} else if ( preg_match( "/^api\./", $_SERVER[ 'HTTP_HOST' ] ) ) {
+			return Api::getInstance();
+		} else {
+			return Site::getInstance();
 		}
-
-		return self::$instance;
 	}
 
 	/**
@@ -250,7 +242,7 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 	 * @see \Wolfgang\Interfaces\Application\IApplication::getName()
 	 */
 	public function getName ( ): string {
-		return $this->name;
+		return $this->getContext()->getSkin()->getName();
 	}
 
 	/**

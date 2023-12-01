@@ -10,7 +10,7 @@ use Wolfgang\Interfaces\SQL\Clause\IWhereClause;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\SQL\Clause
  * @since Version 1.0.0
  */

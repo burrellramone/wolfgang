@@ -4,14 +4,12 @@ namespace Wolfgang\Interfaces\Message;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  */
 interface IMessage {
 	
 	/**
 	 * Sets the body of the message.
-	 *
-	 * @return string
 	 */
 	public function setBody ( string $body );
 	

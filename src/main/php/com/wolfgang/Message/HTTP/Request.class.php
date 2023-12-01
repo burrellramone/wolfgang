@@ -11,7 +11,7 @@ use Wolfgang\Traits\TSingleton;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Message\HTTP
  * @uses Wolfgang\Message\HTTP\Message
  * @uses Wolfgang\Interfaces\ISingleton
@@ -34,7 +34,7 @@ class Request extends Message implements ISingleton , IRequest {
 	 */
 	protected $uri;
 
-	protected function __construct ( ) {
+	final protected function __construct ( ) {
 		parent::__construct();
 	}
 

@@ -10,7 +10,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Network\Uri\DataUri;
 
 /**
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Util
  * @since Version 1.0.0
  */
@@ -168,6 +168,8 @@ final class Filesystem extends Component {
 		if ( file_exists( $filepath ) ) {
 			return unlink( $filepath );
 		}
+
+		return false;
 	}
 
 	/**

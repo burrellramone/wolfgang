@@ -7,8 +7,8 @@ use Wolfgang\Interfaces\Logger\IHTTPLogger;
 
 /**
  *
- * @package Components
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @package Wolfgang\Util\Logger
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @link http://airportruns.ca
  * @since Version 1.0
  */
@@ -26,6 +26,9 @@ final class HTTPLogger extends Logger implements IHTTPLogger {
 	 * @return ILogger
 	 */
 	public static function getLogger ( string $name = null): ILogger {
+		$logger = null;
+
+		return $logger;
 	}
 	
 	/**

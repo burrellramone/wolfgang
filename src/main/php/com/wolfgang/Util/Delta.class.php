@@ -8,7 +8,7 @@ use Wolfgang\BaseObject;
 /**
  *
  * @package Wolfgang\Util
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 abstract class Delta extends Component implements IDelta , \Iterator , \Countable {
@@ -80,7 +80,7 @@ abstract class Delta extends Component implements IDelta , \Iterator , \Countabl
 	 * {@inheritdoc}
 	 * @see \Iterator::next()
 	 */
-	public function next ( ) {
+	public function next ( ):void {
 		$this->position ++;
 	}
 	
@@ -89,7 +89,7 @@ abstract class Delta extends Component implements IDelta , \Iterator , \Countabl
 	 * {@inheritdoc}
 	 * @see \Iterator::valid()
 	 */
-	public function valid ( ) {
+	public function valid ( ):bool {
 		return ! empty( array_values( $this->affected_properties )[ $this->position ] );
 	}
 	
@@ -98,7 +98,7 @@ abstract class Delta extends Component implements IDelta , \Iterator , \Countabl
 	 * {@inheritdoc}
 	 * @see \Iterator::current()
 	 */
-	public function current ( ) {
+	public function current ( ):mixed {
 		return $this->affected_properties[ $this->key() ]->getNewValue();
 	}
 	
@@ -107,7 +107,7 @@ abstract class Delta extends Component implements IDelta , \Iterator , \Countabl
 	 * {@inheritdoc}
 	 * @see \Iterator::rewind()
 	 */
-	public function rewind ( ) {
+	public function rewind ( ):void {
 		$this->position = 0;
 	}
 	
@@ -116,7 +116,7 @@ abstract class Delta extends Component implements IDelta , \Iterator , \Countabl
 	 * {@inheritdoc}
 	 * @see \Iterator::key()
 	 */
-	public function key ( ) {
+	public function key ( ):int {
 		return array_keys( $this->affected_properties )[ $this->position ];
 	}
 }

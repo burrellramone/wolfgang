@@ -79,7 +79,6 @@
 	
 	<target name="phploc" unless="phploc.done" depends="wolfgangerg" description="Measures the size of this project">
 		<exec executable="${phploc}" failonerror='true' resultproperty="result.phploc" taskname="phploc">
-        		<arg value="--verbose"/>
         		<arg path="${basedir}/src/main/php/com/wolfgang/"/>
     	</exec>
     	<property name="phploc.done" value="true"/>

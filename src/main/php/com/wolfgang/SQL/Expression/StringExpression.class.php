@@ -19,7 +19,7 @@ use Wolfgang\Interfaces\SQL\Statement\DML\IDeleteStatement;
 /**
  *
  * @package Wolfgang\SQL\Expresssion
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class StringExpression extends CharacterExpression {

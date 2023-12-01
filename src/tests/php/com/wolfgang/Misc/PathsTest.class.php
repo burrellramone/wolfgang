@@ -9,7 +9,7 @@ use Wolfgang\Util\EmailContact;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  */
 final class PathsTest extends Test {
 	
@@ -18,7 +18,7 @@ final class PathsTest extends Test {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Test\Test::setUp()
 	 */
-	protected function setUp ( ) {
+	protected function setUp ( ):void {
 		parent::setUp();
 	}
 	

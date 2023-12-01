@@ -9,7 +9,7 @@ use Wolfgang\Exceptions\IllegalArgumentException;
 use Wolfgang\Traits\TSingleton;
 
 /**
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Cache
  * @uses \Memcached
  * @uses Wolfgang\Interfaces\ISingleton
@@ -149,7 +149,7 @@ final class Memcached extends Cacher {
 			return [ ];
 		}
 
-		$this->memcached->fetchAll();
+		return $this->memcached->fetchAll();
 	}
 
 	/**

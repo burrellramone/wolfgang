@@ -9,7 +9,7 @@ use Wolfgang\Interfaces\SQL\Statement\DML\IInsertStatement;
 /**
  *
  * @package Wolfgang\SQL\Clause
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class OnDuplicateKeyUpdateClause extends Clause {

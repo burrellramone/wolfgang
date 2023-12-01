@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\ICommand;
 /**
  *
  * @package Wolfgang\Util
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 abstract class Command extends Component implements ICommand {

@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\IEmailContact;
 /**
  *
  * @package Wolfgang\Util
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 class EmailContact extends Contact implements IEmailContact {

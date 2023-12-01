@@ -11,7 +11,7 @@ use Wolfgang\Interfaces\SQL\Statement\ISelectStatement;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class GroupByClause extends Clause implements IGroupByClause {

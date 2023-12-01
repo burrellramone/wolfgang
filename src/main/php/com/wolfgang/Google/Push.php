@@ -8,7 +8,7 @@ use Minishlink\WebPush\WebPush;
 use Minishlink\WebPush\Subscription;
 
 //Google
-use Google_Client;
+use Google\Client;
 use Google_Service_FirebaseCloudMessaging;
 use Google_Service_FirebaseCloudMessaging_SendMessageRequest;
 use Google_Service_FirebaseCloudMessaging_Message;
@@ -99,7 +99,7 @@ final class Push {
      * @return void|boolean
      */
     public static function sendNotification ($title, $user, $otherOptions = array()) {
-        if (!isset($title, $user->id, $user['notifications'])) {
+        /*if (!isset($title, $user->id, $user['notifications'])) {
             return false;
         } else if (!$user['notifications']) {
             return false;
@@ -290,7 +290,7 @@ final class Push {
                     self::log($e);
                 }
             }
-        }
+        }*/
     }
     
     /**
@@ -300,7 +300,7 @@ final class Push {
      * @return void
      */
     public static function sendMobileBadgeUpdateDataMessage($user, $badge) {
-        $mobilePushRegistrationsModel = new MobilePushRegistrations();
+        /*$mobilePushRegistrationsModel = new MobilePushRegistrations();
         
         self::init();
         
@@ -348,7 +348,7 @@ final class Push {
             }
         } else {
             self::log("Badge message not sent. No registration tokens.");
-        }
+        }*/
     }
     
     /**
@@ -359,7 +359,7 @@ final class Push {
      * @throws Exception
      */
     public static function sendDataMessage ($options) {
-        if (empty($options)) {
+        /*if (empty($options)) {
             throw new Exception("Options not provided for sending data message");
         } else if (empty($options['data'])) {
             throw new Exception("Data not provided for sending data message");
@@ -397,7 +397,7 @@ final class Push {
             }
         } else {
             self::log("Data message not sent. No registration tokens.");
-        }
+        }*/
     }
     
     /**
@@ -407,7 +407,7 @@ final class Push {
      * @param string $payload
      */
     private static function sendSafariPushNotification ($deviceTokens, $payload) {
-        if (empty($deviceTokens)) {
+        /*if (empty($deviceTokens)) {
             return;
         } else if (empty($payload)) {
             throw new Exception("Safari push notification payload not provided");
@@ -466,7 +466,7 @@ final class Push {
         
         if ($failedTokens) {
             throw new Exception("Failed to deliver to device id(s) \"" . implode(', ', $failedTokens). "\"");
-        }
+        }*/
     }
     
     /**
@@ -477,7 +477,7 @@ final class Push {
      * @return void|mixed
      */
     private static function sendMobilePushNotifications ($registrationTokens, $payload) {
-        if (empty($registrationTokens)) {
+        /*if (empty($registrationTokens)) {
             throw new Exception("Registration tokens not provided");
         } else if (empty($payload)) {
             throw new Exception("Push notification payload not provided");
@@ -530,7 +530,7 @@ final class Push {
             }
             //Throw exception to log error
             throw new Exception("Registration token(s) '" . implode(', ', $invalidTokens) . "' are no longer valid an have been removed.");
-        }
+        }*/
     }
     
     /**
@@ -541,7 +541,7 @@ final class Push {
      * @param array $mobileRegistrationTokens
      */
     private static function filterMobileRegistrationIdsWhereSessionInvalid ($mobileRegistrationTokens) {
-        $mobilePushRegistrationsModel = new MobilePushRegistrations();
+        /*$mobilePushRegistrationsModel = new MobilePushRegistrations();
         $sessions = new Sessions();
         $userModel = new User();
         
@@ -583,7 +583,7 @@ final class Push {
         
         $mobileRegistrationTokens = array_values($mobileRegistrationTokens);
         
-        return $mobileRegistrationTokens;
+        return $mobileRegistrationTokens;*/
     }
 
     /**

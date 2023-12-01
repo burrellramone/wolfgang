@@ -11,7 +11,7 @@ use Wolfgang\Interfaces\IApiKey;
  * @uses Wolfgang\Interfaces\Message\HTTP\Request
  * @uses Wolfgang\Interfaces\ISingleton
  * @uses Componenets\Interfaces\HTTP\IApiRequest
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */
 final class ApiRequest extends Request implements IApiRequest {
@@ -21,11 +21,6 @@ final class ApiRequest extends Request implements IApiRequest {
 	 * @var IApiKey
 	 */
 	private $api_key;
-
-	protected function __construct ( ) {
-		parent::__construct();
-
-	}
 
 	/**
 	 *

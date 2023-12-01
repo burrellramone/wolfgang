@@ -7,7 +7,7 @@ use Wolfgang\Interfaces\Logger\IGelfMessage;
 /**
  *
  * @package Components
-* @author Ramone Burrell <ramoneb@airportruns.ca>
+* @author Ramone Burrell <ramoneb@airportruns.com>
  * @link http://airportruns.ca
  * @since Version 1.0.0
  */

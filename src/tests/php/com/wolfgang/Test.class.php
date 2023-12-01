@@ -10,13 +10,13 @@ use Wolfgang\Application\Context;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Test
  * @since Version 1.0.0
  */
 abstract class Test extends TestCase {
 	
-	protected function setUp ( ) {
+	protected function setUp ( ):void {
 		parent::setUp();
 		
 		if ( gethostname() == HOST_BOCCHERINI ) {
@@ -24,7 +24,7 @@ abstract class Test extends TestCase {
 		}
 	}
 	
-	protected function tearDown ( ) {
+	protected function tearDown ( ):void {
 		parent::tearDown();
 	}
 }

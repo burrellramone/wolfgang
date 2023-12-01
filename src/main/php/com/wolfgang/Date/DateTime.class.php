@@ -14,7 +14,7 @@ use Wolfgang\Model\Timezone;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  * @package Wolfgang\Date
  * @link http://airportruns.ca
  * @since Version 1.0.0
@@ -27,8 +27,8 @@ final class DateTime extends \DateTime {
 	 * @param string $time
 	 * @param \DateTimeZone $timezone
 	 */
-	public function __construct ( $time = "now", ITimezone $timezone = null) {
-		if ( strtotime( $time ) < 0 ) {
+	public function __construct ( string $time = "now", ITimezone $timezone = null) {
+		if ( !isset($time) || strtotime( $time ) < 0 ) {
 			throw new InvalidArgumentException( "Invalid time provided" );
 		}
 
@@ -148,6 +148,7 @@ final class DateTime extends \DateTime {
 	 * @return string
 	 */
 	public function getElapsedTime ( DateTime $datetime = null): string {
+		$elapsedTime = '';
 		$time = 0;
 
 		if ( ! $datetime ) {
@@ -171,8 +172,10 @@ final class DateTime extends \DateTime {
 			if ( $time < $unit )
 				continue;
 			$numberOfUnits = floor( $time / $unit );
-			return $numberOfUnits . ' ' . $text . (($numberOfUnits > 1) ? 's' : '') . " ago";
+			$elapsedTime = $numberOfUnits . ' ' . $text . (($numberOfUnits > 1) ? 's' : '') . " ago";
 		}
+
+		return $elapsedTime;
 	}
 
 	/**

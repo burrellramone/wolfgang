@@ -4,7 +4,7 @@ namespace Wolfgang\Interfaces\Network;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.ca>
+ * @author Ramone Burrell <ramoneb@airportruns.com>
  */
 interface IDsn extends IUri {
 	public function getDiver ( ): string;
