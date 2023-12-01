@@ -1,32 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
-         backupGlobals="true"
-         backupStaticAttributes="false"
-         beStrictAboutTestsThatDoNotTestAnything="true"
-         cacheTokens="false"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         forceCoversAnnotation="false"
-         processIsolation="false"
-         stopOnError="true"
-         stopOnFailure="true"
-         stopOnIncomplete="true"
-         stopOnSkipped="true"
-         stopOnRisky="false"
-         timeoutForSmallTests="1"
-         timeoutForMediumTests="10"
-         timeoutForLargeTests="60"
-         verbose="true"
-         bootstrap="../../includes/common.php">
-         
-	<testsuites>
-		<testsuite name="misc">
-    		<directory suffix=".php">php/com/wolfgang/Misc</directory>
-   		</testsuite>
-  	</testsuites>
-
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" backupGlobals="true" backupStaticAttributes="false" beStrictAboutTestsThatDoNotTestAnything="true" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" forceCoversAnnotation="false" processIsolation="false" stopOnError="true" stopOnFailure="true" stopOnIncomplete="true" stopOnSkipped="true" stopOnRisky="false" timeoutForSmallTests="1" timeoutForMediumTests="10" timeoutForLargeTests="60" verbose="true" bootstrap="../../includes/common.php">
+  <coverage/>
+  <testsuites>
+    <testsuite name="misc">
+      <directory suffix=".php">php/com/wolfgang/Misc</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>
