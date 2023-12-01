@@ -44,7 +44,7 @@ final class ModelDelta extends Delta implements IModelDelta {
 			$newvalue = $this->getSubject()->{$property};
 
 			if ( $newvalue != $oldvalue ) {
-				$this->affected_properties[ $property ] = new DeltaChange( $property, $oldvalue, $newvalue );
+				$this->affected_properties[] = new DeltaChange( $property, $oldvalue, $newvalue );
 			}
 		}
 	}

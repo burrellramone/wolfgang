@@ -66,6 +66,16 @@ abstract class Delta extends Component implements IDelta , \Iterator , \Countabl
 		return array_keys( $this->affected_properties );
 	}
 	
+	public function getAffectedProperyNames():array {
+		$property_names = array();
+		
+		foreach($this->affected_properties as $delta_change) {
+			$property_names[] = $delta_change->getProperty();
+		}
+		
+		return $property_names;
+	}
+	
 	/**
 	 *
 	 * {@inheritdoc}
@@ -90,7 +100,7 @@ abstract class Delta extends Component implements IDelta , \Iterator , \Countabl
 	 * @see \Iterator::valid()
 	 */
 	public function valid ( ):bool {
-		return ! empty( array_values( $this->affected_properties )[ $this->position ] );
+		return ! empty( $this->affected_properties[ $this->position ] );
 	}
 	
 	/**
@@ -99,7 +109,7 @@ abstract class Delta extends Component implements IDelta , \Iterator , \Countabl
 	 * @see \Iterator::current()
 	 */
 	public function current ( ):mixed {
-		return $this->affected_properties[ $this->key() ]->getNewValue();
+		return $this->affected_properties[$this->key()];
 	}
 	
 	/**
@@ -117,6 +127,6 @@ abstract class Delta extends Component implements IDelta , \Iterator , \Countabl
 	 * @see \Iterator::key()
 	 */
 	public function key ( ):int {
-		return array_keys( $this->affected_properties )[ $this->position ];
+		return $this->position;
 	}
 }

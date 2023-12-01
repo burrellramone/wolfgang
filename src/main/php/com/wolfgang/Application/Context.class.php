@@ -114,18 +114,27 @@ final class Context extends Component implements IContext , ISingleton {
 	 */
 	public function getSkin ( ): ISkin {
 		if ( $this->skin == null ) {
-			$domain = $_SERVER[ 'HTTP_HOST' ];
+			if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
+				$this->skin = new Skin(array(
+					'name' => IContext::PHP_SAPI_CLI,
+					'skin_domain' => array(
+					)
+				));
+			
+			} else {
+				$domain = $_SERVER[ 'HTTP_HOST' ];
 
-			$skins = include DOCUMENT_ROOT . 'sites.php';
+				$skins = include DOCUMENT_ROOT . 'sites.php';
 
-			foreach($skins as $skin){
-				if($skin['skin_domain']['domain'] == $domain || $skin['skin_domain']['api_domain'] == $domain) {
-					$this->skin = new Skin($skin);
+				foreach($skins as $skin){
+					if($skin['skin_domain']['domain'] == $domain || $skin['skin_domain']['api_domain'] == $domain) {
+						$this->skin = new Skin($skin);
+					}
 				}
-			}
-
-			if(!$this->skin) {
-				throw new Exception( "Unable to determine skin with domain {$domain}. " );
+				
+				if(!$this->skin) {
+					throw new Exception( "Unable to determine skin with domain {$domain}. " );
+				}
 			}
 		}
 

@@ -49,11 +49,13 @@ final class SkinDomain extends Component implements ISkinDomain {
 	function __construct (array $definition) {
 		parent::__construct();
 
-		$this->domain = $definition['domain'];
-		$this->api_domain = $definition['api_domain'];
-		$this->url = $definition['url'];
-		$this->api_url = $definition['api_url'];
-		$this->open = $definition['open'];
+		if(!empty($definition)) {
+			$this->domain = $definition['domain'];
+			$this->api_domain = $definition['api_domain'];
+			$this->url = $definition['url'];
+			$this->api_url = $definition['api_url'];
+			$this->open = $definition['open'];
+		}
 	}
 
 	/**

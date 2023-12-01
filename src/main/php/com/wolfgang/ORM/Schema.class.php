@@ -467,8 +467,10 @@ final class Schema extends Component implements IDatabaseSchema {
 			return $model;
 		}
 
-		foreach ( $model_delta as $column_name => $value ) {
+		foreach ( $model_delta as $delta_change ) {
+			$column_name = $delta_change->getProperty();
 			$column = $table->getColumn( $column_name );
+			$value = $delta_change->getNewValue();
 
 			if ( ($value === null) && ! $column->isNullable() ) {
 				$value = $column->getDefaultValue();
