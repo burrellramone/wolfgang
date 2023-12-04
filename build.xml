@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Wolfgang" default="full-build">
-	<target name="full-build" depends="clean,prepare,composer-self-update,composer,phplint,phpstan,phpunit,wolfgangerg,phploc,phpab" description="Perform static analysis, run tests, and generate project documentation.">
+	<target name="full-build" depends="clean,prepare,composer-self-update,composer,phplint,phpstan,phpunit,phploc,phpab,phpdoc" description="Perform static analysis, run tests, and generate project documentation.">
         <echo message="Full Build Complete"/>
     </target>
 	
+	<property name="wolfgang_version" value="0.1.0"/>
 	<property name="php" value="/usr/bin/php"/>
 	<property name="phplint" value="${basedir}/vendor/bin/phplint"/>
 	<property name="phpstan" value="${basedir}/vendor/bin/phpstan"/>
@@ -11,11 +12,12 @@
 	<property name="phpunit" value="${basedir}/vendor/bin/phpunit"/>
 	<property name="phploc" value="${basedir}/vendor/bin/phploc"/>
 	<property name="phpab" value="${basedir}/vendor/bin/phpab"/>
-	<property name="phpdoc" value="${basedir}/vendor/bin/phpdoc"/>
+	<property name="phpdoc" value="/usr/bin/phpdoc"/>
 
 	<target name="clean" unless="clean.done" description="Cleanup build artifacts.">
         <delete dir="${basedir}/build/"/>
 		<delete dir="${basedir}/doc/${wolfgang_version}"/>
+		<mkdir dir="${basedir}/doc/${wolfgang_version}"/>
         <property name="clean.done" value="true"/>
     </target>
 	        	
@@ -70,14 +72,7 @@
         <property name="phpunit.done" value="true"/>
     </target>
 	
-	<target name="wolfgangerg" unless="wolfgangerg.done" depends="phpunit" description="Builds the relationship for the tables within the system">
-		<exec executable="${php}" failonerror='true' resultproperty="result.tablegraph" taskname="erg">
-    		<arg value="${basedir}/bin/wolfgangerg"/>
-    	</exec>
-    	<property name="tablegraph.done" value="true"/>
-	</target>
-	
-	<target name="phploc" unless="phploc.done" depends="wolfgangerg" description="Measures the size of this project">
+	<target name="phploc" unless="phploc.done" depends="phpunit" description="Measures the size of this project">
 		<exec executable="${phploc}" failonerror='true' resultproperty="result.phploc" taskname="phploc">
         		<arg path="${basedir}/src/main/php/com/wolfgang/"/>
     	</exec>
@@ -85,9 +80,9 @@
 	</target>
 	
 	<target name="phpab" unless="phpab.done" depends="prepare" description="Generate phar archive for project">
-    	<exec executable="${phpab}" resultproperty="result.phpab" taskname="phpab">
+    	<exec executable="${phpab}" failonerror='true' resultproperty="result.phpab" taskname="phpab">
         	<arg value="--phar"/>
-		<arg value="--output"/>
+			<arg value="--output"/>
         	<arg path="${basedir}/build/wolfgang.phar"/>
 	    	<arg path="${basedir}/src/main/php/"/>
         </exec>
@@ -95,11 +90,11 @@
     </target>
 
 	<target name="phpdoc" if="wolfgang_version" unless="phpdoc.done" depends="phpab" description="Generate documentation for Wolfgang">
-    	<exec executable="${phpdoc}" taskname="phpdoc">
-    		<arg value="--target"/>
-        	<arg value="${basedir}/doc/${wolfgang_version}"/>
-    		<arg value="--directory"/>
-    		<arg value="${basedir}/src/main/php/com/wolfgang"/>
+    	<exec executable="${phpdoc}" failonerror='true' resultproperty="result.phpdoc" taskname="phpdoc">
+    		<arg value="--target=${basedir}/doc/${wolfgang_version}/"/>
+			<arg value="--cache-folder=${basedir}/doc/${wolfgang_version}/"/>
+			<arg value="--verbose"/>
+			<arg value="--directory=${basedir}/src/main/php/com/wolfgang/"/>
         </exec>
 	</target>
 	

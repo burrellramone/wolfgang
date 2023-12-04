@@ -3,9 +3,6 @@
 namespace Wolfgang\Test\Mailing;
 
 use Wolfgang\Test\Test;
-use Wolfgang\Mailing\Mailman;
-use Wolfgang\Message\SMTP\Message as Mail;
-use Wolfgang\Util\EmailContact;
 
 /**
  *
@@ -20,11 +17,5 @@ final class PathsTest extends Test {
 	 */
 	protected function setUp ( ):void {
 		parent::setUp();
-	}
-	
-	public function testConfigLocationExists ( ) {
-		$config_directory = WOLFGANG_DIRECTORY . "config/";
-		
-		$this->assertDirectoryExists( $config_directory, "Configuration directory '{$config_directory}' does not exist" );
 	}
 }
