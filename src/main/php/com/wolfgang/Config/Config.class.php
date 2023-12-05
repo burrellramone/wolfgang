@@ -12,7 +12,6 @@ use Wolfgang\Exceptions\InvalidStateException;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Config
  * @since Version 1.0.0
  */
 abstract class Config extends Component {

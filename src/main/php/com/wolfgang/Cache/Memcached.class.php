@@ -10,7 +10,6 @@ use Wolfgang\Traits\TSingleton;
 
 /**
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Cache
  * @uses \Memcached
  * @uses Wolfgang\Interfaces\ISingleton
  * @uses Wolfgang\Interfaces\ICacher

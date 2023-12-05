@@ -31,7 +31,6 @@ use Wolfgang\Interfaces\Network\IUri;
 
 /**
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Application
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\Application\IApi
  * @since Version 1.0.0

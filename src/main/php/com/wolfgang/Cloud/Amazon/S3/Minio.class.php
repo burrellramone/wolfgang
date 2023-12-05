@@ -7,7 +7,6 @@ use Wolfgang\Exceptions\Exception as CoreException;
 
 /**
  *
- * @package Wolfgang\Cloud\Amazon\S3
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */

@@ -17,7 +17,6 @@ use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
  * Controller authentication component. This class authorizes access to an api controller within the
  * framework
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Auth
  * @since Version 1.0
  */
 final class ApiController extends Controller {

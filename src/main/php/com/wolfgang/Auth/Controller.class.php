@@ -21,7 +21,6 @@ use Wolfgang\Encoding\Base64;
  * Controller authentication component. This class authorizes access to a site controller within the
  * framework
  *
- * @package Wolfgang\Auth
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */

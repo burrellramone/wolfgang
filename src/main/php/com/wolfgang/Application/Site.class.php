@@ -23,7 +23,6 @@ use Wolfgang\Interfaces\Network\IUri;
 
 /**
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Application
  * @since Version 1.0.0
  */
 final class Site extends Application implements ISite {

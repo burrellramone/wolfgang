@@ -16,7 +16,6 @@ use Wolfgang\Message\CLI\Response as CliResponse;
 
 /**
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Application
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\ISingleton
  * @since Version 1.0.0

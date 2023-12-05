@@ -9,7 +9,6 @@ use Wolfgang\Dispatching\EventDispatcher;
 
 /**
  *
- * @package Wolfgang\Controller
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Controller\Controller
  * @uses Wolfgang\Interfaces\Message\IRequest

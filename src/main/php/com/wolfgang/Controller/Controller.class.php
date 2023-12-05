@@ -13,7 +13,6 @@ use Wolfgang\Application\Application;
 
 /**
  *
- * @package Wolfgang\Controller
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Interfaces\IController
  * @since Version 1.0.0

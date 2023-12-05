@@ -14,7 +14,6 @@ use Wolfgang\Network\Uri\Uri;
 
 /**
  *
- * @package Wolfgang\Application
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Interfaces\ISingleton
  * @since Version 1.0.0

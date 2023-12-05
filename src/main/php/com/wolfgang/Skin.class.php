@@ -8,7 +8,6 @@ use Wolfgang\Date\DateTime;
 
 /**
  *
- * @package Wolfgang
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */

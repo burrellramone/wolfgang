@@ -6,7 +6,6 @@ use Wolfgang\Component as BaseComponent;
 
 /**
  *
- * @package Wolfgang\Adapter
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0.0
  */

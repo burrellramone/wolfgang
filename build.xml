@@ -59,7 +59,7 @@
 			<arg value="${phpstan}"/>
 			<arg value="--level=0"/>
 			<arg value="analyse"/>
-			<arg value="${basedir}/src"/>
+			<arg value="${basedir}/src/main/php/com/wolfgang"/>
 		</exec>
 		 <property name="phpstan.done" value="true"/>
 	</target>

@@ -14,7 +14,6 @@ use Wolfgang\Interfaces\Controller\ICliController;
  * framework
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Auth
  * @since Version 1.0.0
  */
 final class CliController extends Controller {
