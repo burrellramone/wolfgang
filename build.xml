@@ -15,9 +15,9 @@
 	<property name="phpdoc" value="/usr/bin/phpdoc"/>
 
 	<target name="clean" unless="clean.done" description="Cleanup build artifacts.">
-        <delete dir="${basedir}/build/"/>
-		<delete dir="${basedir}/doc/${wolfgang_version}"/>
-		<mkdir dir="${basedir}/doc/${wolfgang_version}"/>
+        	<delete dir="${basedir}/build/"/>
+		<delete dir="${basedir}/doc/v/${wolfgang_version}"/>
+		<mkdir dir="${basedir}/doc/v/${wolfgang_version}"/>
         <property name="clean.done" value="true"/>
     </target>
 	        	
@@ -90,12 +90,12 @@
     </target>
 
 	<target name="phpdoc" if="wolfgang_version" unless="phpdoc.done" depends="phpab" description="Generate documentation for Wolfgang">
-    	<exec executable="${phpdoc}" failonerror='true' resultproperty="result.phpdoc" taskname="phpdoc">
-    		<arg value="--target=${basedir}/doc/${wolfgang_version}/"/>
-			<arg value="--cache-folder=${basedir}/doc/${wolfgang_version}/"/>
+    		<exec executable="${phpdoc}" failonerror='true' resultproperty="result.phpdoc" taskname="phpdoc">
+			<arg value="--target=${basedir}/doc/v/${wolfgang_version}/"/>
+			<arg value="--cache-folder=${basedir}/.cache/"/>
 			<arg value="--verbose"/>
 			<arg value="--directory=${basedir}/src/main/php/com/wolfgang/"/>
-        </exec>
+        	</exec>
 	</target>
 	
 </project>

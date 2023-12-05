@@ -1,6 +1,6 @@
 build/*
 vendor/
-doc/
+doc/v/
 .phplint.cache
 .settings/
 .vscode/

@@ -1,0 +1,43 @@
+body, html {
+  background-color: #616161;
+  font-size: 11pt;
+  text-align: center;
+}
+
+div.main-page {
+  	position: absolute;
+  	width: 600px;
+  	height:600px;
+  	padding:0px;
+  	border:none;
+	background-color: #FFFFFF;
+  	text-align: center;
+        margin:0;
+        margin: auto;
+	left: 0;
+	right: 0;
+	top: -150px;
+	bottom: 0;
+}
+
+div.page-header {
+	height: 99px;
+  	width: 100%;
+  	background-color: #F5F6F7;
+  	display: flex;
+  	align-items: center;
+}
+
+div.page-header h1 {
+	flex-grow: 1;
+}
+
+ul#versions {
+	padding: 0px;
+    	list-style: none;
+    	font-size: 25px;
+}
+
+ul#versions li a:visited {
+	color:blue;
+}
