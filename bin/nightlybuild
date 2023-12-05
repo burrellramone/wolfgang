@@ -1,0 +1,12 @@
+#!/bin/bash
+
+environment=$(echo $APPLICATION_ENV)
+
+if [[ $environment -ne "local" ]]; then
+        echo "This script must ONLY be run on a local environment"
+        exit -1
+fi
+
+cd /var/www/Wolfgang/
+git pull
+ant
