@@ -93,6 +93,7 @@
     		<exec executable="${phpdoc}" failonerror='true' resultproperty="result.phpdoc" taskname="phpdoc">
 			<arg value="--target=${basedir}/doc/v/${wolfgang_version}/"/>
 			<arg value="--cache-folder=${basedir}/.cache/"/>
+			<arg value="--sourcecode"/>
 			<arg value="--verbose"/>
 			<arg value="--directory=${basedir}/src/main/php/com/wolfgang/"/>
         	</exec>
