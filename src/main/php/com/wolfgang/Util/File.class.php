@@ -9,7 +9,7 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @author Ramone Burrell
- * @package HostedPortal\Util
+ * @package Wolfgang\Util
  */
 abstract class File extends BaseObject implements IFileUtility {
 
