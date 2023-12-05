@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Wolfgang" default="full-build">
-	<target name="full-build" depends="clean,prepare,composer-self-update,composer,phplint,phpstan,phpunit,phploc,phpab,phpdoc" description="Perform static analysis, run tests, and generate project documentation.">
+	<target name="full-build" depends="composer-self-update,composer,phplint,phpstan,phpunit,phploc,clean,prepare,phpab,phpdoc" description="Perform static analysis, run tests, and generate project documentation.">
         <echo message="Full Build Complete"/>
     </target>
 	
@@ -13,18 +13,6 @@
 	<property name="phploc" value="${basedir}/vendor/bin/phploc"/>
 	<property name="phpab" value="${basedir}/vendor/bin/phpab"/>
 	<property name="phpdoc" value="/usr/bin/phpdoc"/>
-
-	<target name="clean" unless="clean.done" description="Cleanup build artifacts.">
-        	<delete dir="${basedir}/build/"/>
-		<delete dir="${basedir}/doc/v/${wolfgang_version}"/>
-		<mkdir dir="${basedir}/doc/v/${wolfgang_version}"/>
-        <property name="clean.done" value="true"/>
-    </target>
-	        	
-	<target name="prepare" unless="prepare.done" depends="clean" description="Prepare for build.">
-	    <mkdir dir="${basedir}/build"/>
-        <property name="prepare.done" value="true"/>
-    </target>
 	
 	<target name="composer-self-update" description="Self-update composer php package manager.">
 	    <exec executable="php" failonerror="true" resultproperty="result.composer-self-update">
@@ -74,10 +62,22 @@
 	
 	<target name="phploc" unless="phploc.done" depends="phpunit" description="Measures the size of this project">
 		<exec executable="${phploc}" failonerror='true' resultproperty="result.phploc" taskname="phploc">
-        		<arg path="${basedir}/src/main/php/com/wolfgang/"/>
+		<arg path="${basedir}/src/main/php/com/wolfgang/"/>
     	</exec>
     	<property name="phploc.done" value="true"/>
 	</target>
+
+	<target name="clean" unless="clean.done" depends="phploc" description="Cleanup build artifacts.">
+        <delete dir="${basedir}/build/"/>
+		<delete dir="${basedir}/doc/v/${wolfgang_version}"/>
+        <property name="clean.done" value="true"/>
+    </target>
+
+	<target name="prepare" unless="prepare.done" depends="clean" description="Prepare to create build artifacts.">
+	    <mkdir dir="${basedir}/build"/>
+		<mkdir dir="${basedir}/doc/v/${wolfgang_version}"/>
+        <property name="prepare.done" value="true"/>
+    </target>
 	
 	<target name="phpab" unless="phpab.done" depends="prepare" description="Generate phar archive for project">
     	<exec executable="${phpab}" failonerror='true' resultproperty="result.phpab" taskname="phpab">
@@ -90,13 +90,13 @@
     </target>
 
 	<target name="phpdoc" if="wolfgang_version" unless="phpdoc.done" depends="phpab" description="Generate documentation for Wolfgang">
-    		<exec executable="${phpdoc}" failonerror='true' resultproperty="result.phpdoc" taskname="phpdoc">
+		<exec executable="${phpdoc}" failonerror='true' resultproperty="result.phpdoc" taskname="phpdoc">
 			<arg value="--target=${basedir}/doc/v/${wolfgang_version}/"/>
 			<arg value="--cache-folder=${basedir}/.cache/"/>
 			<arg value="--sourcecode"/>
 			<arg value="--verbose"/>
 			<arg value="--directory=${basedir}/src/main/php/com/wolfgang/"/>
-        	</exec>
+		</exec>
 	</target>
 	
 </project>
