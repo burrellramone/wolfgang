@@ -65,14 +65,12 @@ final class Mailman extends Component implements ISingleton {
 		
 		if ( ! Context::getInstance()->isProduction() ) {
 			$this->mailer->SMTPDebug = 3;
-			$this->mailer->SMTPSecure = false;
-			$this->mailer->SMTPAutoTLS = false;
-		} else {
-			$this->mailer->SMTPSecure = 'tls';
+			//$this->mailer->SMTPSecure = false;
+			//$this->mailer->SMTPAutoTLS = false;
 		}
 		
+		$this->mailer->SMTPSecure = 'tls';
 		$this->mailer->isHTML( true );
-		
 		$this->mailer->SMTPAuth = true;
 		$this->mailer->Port = $this->mailing_config[ 'smtps' ][ 'port' ];
 		$this->mailer->Host = $this->mailing_config[ 'smtps' ][ 'host' ];
