@@ -9,7 +9,7 @@ use Wolfgang\Interfaces\Logger\IHTTPLogger;
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @link http://airportruns.ca
- * @since Version 1.0
+ * @since Version 0.1.0
  */
 final class HTTPLogger extends Logger implements IHTTPLogger {
 	

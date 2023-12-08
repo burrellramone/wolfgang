@@ -11,7 +11,7 @@ use Wolfgang\Encryption\OpenSsl;
  *
  * @author Andrew Moore
  * @link http://www.php.net/manual/en/function.uniqid.php#94959
- * @since Version 1.0
+ * @since Version 0.1.0
  */
 final class UUID extends Component {
 	

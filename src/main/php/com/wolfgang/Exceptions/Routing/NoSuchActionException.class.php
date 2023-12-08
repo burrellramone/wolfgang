@@ -4,7 +4,7 @@ namespace Wolfgang\Exceptions\Routing;
 
 /**
  *
-* @since Version 1.0
+* @since Version 0.1.0
  */
 final class NoSuchActionException extends Exception {
 

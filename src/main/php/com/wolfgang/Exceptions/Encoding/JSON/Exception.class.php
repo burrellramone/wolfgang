@@ -6,7 +6,7 @@ use Wolfgang\Exceptions\Encoding\Exception as EncodingException;
 
 /**
  *
-* @since Version 1.0
+* @since Version 0.1.0
  */
 class Exception extends EncodingException {
 	/**

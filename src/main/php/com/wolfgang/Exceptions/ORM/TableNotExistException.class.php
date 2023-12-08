@@ -8,7 +8,7 @@ use Wolfgang\Exceptions\ORM\Exception as ORMException;
  *
  * 
  *
- * @since Version 1.0
+ * @since Version 0.1.0
  */
 final class TableNotExistException extends ORMException {
 	

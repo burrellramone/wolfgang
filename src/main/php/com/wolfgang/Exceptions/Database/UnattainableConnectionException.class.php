@@ -5,7 +5,7 @@ namespace Wolfgang\Exceptions\Database;
 /**
  *
  * @filesource Exceptions\SQL\UnattainableConnectionException
-* @since Version 1.0
+* @since Version 0.1.0
  */
 final class UnattainableConnectionException extends Exception {
 

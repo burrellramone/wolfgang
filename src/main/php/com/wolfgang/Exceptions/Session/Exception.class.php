@@ -6,7 +6,7 @@ use Wolfgang\Exceptions\Exception as BaseException;
 
 /**
  *
-* @since Version 1.0
+* @since Version 0.1.0
  */
 class Exception extends BaseException {
 

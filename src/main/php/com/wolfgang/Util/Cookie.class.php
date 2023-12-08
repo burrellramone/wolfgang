@@ -11,7 +11,7 @@ use Wolfgang\Encryption\AES;
 * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Exceptions\IllegalArgumentException
  * @uses Wolfgang\Encryption\AES
- * @since Version 1.0
+ * @since Version 0.1.0
  */
 final class Cookie extends Component {
 

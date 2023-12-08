@@ -7,7 +7,7 @@ use Wolfgang\Exceptions\Encoding\JSON\Exception as JSONException;
 /**
  *
 * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0
+ * @since Version 0.1.0
  */
 final class JSON extends Component {
 
