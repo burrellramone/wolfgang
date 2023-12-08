@@ -20,8 +20,7 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Dispatching
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Dispatcher extends Component implements IDispatcher , ISingleton {
 	use TSingleton;

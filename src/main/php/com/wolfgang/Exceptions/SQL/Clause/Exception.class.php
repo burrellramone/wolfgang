@@ -6,8 +6,7 @@ use Wolfgang\Exceptions\SQL\Exception as SQLException;
 
 /**
  *
- * @package Components
-* @since Version 1.0.0
+* @since Version 0.1.0
  */
 class Exception extends SQLException {
 

@@ -7,7 +7,6 @@ use Wolfgang\Config\App;
 
 /**
  *
- * @package Wolfgang\Util\Logger\Configuration
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @link http://airportruns.ca
  * @since Version 1.0

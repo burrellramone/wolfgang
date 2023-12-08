@@ -10,8 +10,7 @@ use Wolfgang\Interfaces\Routing\Route\ISiteRoute;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Routing\Route
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 class SiteRoute extends Route implements ISiteRoute {
 

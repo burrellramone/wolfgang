@@ -6,11 +6,10 @@ use Wolfgang\Interfaces\IEncoder;
 
 /**
  *
- * @package Wolfgang\Encoding
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Interfaces\IEncoder
  * @uses Wolfgang\Component
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Base64 extends Component implements IEncoder {
 

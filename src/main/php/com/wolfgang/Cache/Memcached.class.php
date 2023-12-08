@@ -15,7 +15,7 @@ use Wolfgang\Traits\TSingleton;
  * @uses Wolfgang\Interfaces\ICacher
  * @uses Wolfgang\Session\Manager
  * @uses Wolfgang\Session\Session
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Memcached extends Cacher {
 	use TSingleton;

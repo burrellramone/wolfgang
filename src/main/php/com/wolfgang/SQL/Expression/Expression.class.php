@@ -23,9 +23,8 @@ use Wolfgang\StringObject;
 
 /**
  *
- * @package Wolfgang\SQL\Expression
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Expression extends SQLComponent implements IExpression {
 	

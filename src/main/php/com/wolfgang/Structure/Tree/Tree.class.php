@@ -8,8 +8,7 @@ use Wolfgang\Interfaces\Structure\Tree\ITreeNode;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Structure\Tree
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Tree extends Component implements ITree {
 	/**

@@ -7,8 +7,7 @@ use Wolfgang\Exceptions\Exception as BaseException;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Exceptions\Mailing
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 class Exception extends BaseException {
 }

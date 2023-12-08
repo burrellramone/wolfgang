@@ -9,8 +9,7 @@ use Wolfgang\Interfaces\ISingleton;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Cache
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Cacher extends Component implements ICacher , ISingleton {
 

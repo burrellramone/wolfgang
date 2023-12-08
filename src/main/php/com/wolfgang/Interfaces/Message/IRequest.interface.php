@@ -4,9 +4,8 @@ namespace Wolfgang\Interfaces\Message;
 
 /**
  *
- * @package Wolfgang\Interfaces\Message
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 interface IRequest extends IMessage {
 

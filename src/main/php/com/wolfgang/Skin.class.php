@@ -9,7 +9,7 @@ use Wolfgang\Date\DateTime;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Skin extends Component implements ISkin {
 	use TSkin;

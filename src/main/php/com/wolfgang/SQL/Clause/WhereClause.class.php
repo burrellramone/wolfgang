@@ -11,8 +11,7 @@ use Wolfgang\Interfaces\SQL\Clause\IWhereClause;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\SQL\Clause
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class WhereClause extends Clause implements IWhereClause {
 	

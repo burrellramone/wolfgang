@@ -14,8 +14,7 @@ use Wolfgang\Exceptions\MethodNotImplementedException;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\SQL\Expression
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class ConditionalExpression extends Expression implements IConditionalExpression {
 

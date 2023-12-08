@@ -6,9 +6,8 @@ use Wolfgang\Interfaces\Session\ISessionHandler;
 use Wolfgang\Exceptions\Exception as CoreException;
 /**
  *
- * @package Wolfgang\Session
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class DatabaseSessionHandler extends Component implements ISessionHandler {
 

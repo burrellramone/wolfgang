@@ -6,7 +6,6 @@ use Wolfgang\Exceptions\PaymentProcessing\Exception as PaymentProcessingExceptio
 
 /**
  *
- * @package Exceptions
 * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0
  */

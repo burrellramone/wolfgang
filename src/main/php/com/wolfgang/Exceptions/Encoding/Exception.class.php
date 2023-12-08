@@ -6,7 +6,6 @@ use Wolfgang\Exceptions\Exception as BaseException;
 
 /**
  *
- * @package Components
 * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0
  */

@@ -4,7 +4,6 @@ namespace Wolfgang\Exceptions;
 
 /**
  *
- * @package Wolfgang\Exceptions
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0
  */

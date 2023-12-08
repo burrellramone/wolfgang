@@ -31,9 +31,8 @@ use Wolfgang\Application\Application;
 
 /**
  *
- * @package Wolfgang\SQL\Statement\DML
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class SelectStatement extends Statement implements ISelectStatement {
 

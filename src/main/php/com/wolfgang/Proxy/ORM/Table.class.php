@@ -13,9 +13,8 @@ use Wolfgang\ORM\SchemaManager;
 
 /**
  *
- * @package Wolfgang\Proxy\ORM
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 class Table extends Component implements IProxy , ITable {
 	use TProxy;

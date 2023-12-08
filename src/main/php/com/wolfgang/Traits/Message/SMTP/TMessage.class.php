@@ -8,9 +8,8 @@ use Wolfgang\Interfaces\IEmailContact;
 
 /**
  *
- * @package Component\Traits\Message\SMTP
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 trait TMessage {
 	use TWolfgangMessage;

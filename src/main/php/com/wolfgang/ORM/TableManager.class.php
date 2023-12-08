@@ -11,9 +11,8 @@ use Wolfgang\Component;
 
 /**
  *
- * @package Wolfgang\ORM
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 class TableManager extends Component {
 	

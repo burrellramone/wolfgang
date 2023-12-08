@@ -7,10 +7,9 @@ use Wolfgang\Interfaces\Event\IEvent;
 
 /**
  *
- * @package Wolfgang\Event
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @version 1.0.0
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class EventListener extends Component implements IEventListener {
 

@@ -4,9 +4,8 @@ namespace Wolfgang\Config;
 
 /**
  *
- * @package Wolfgang\Config
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Server extends Config {
 }

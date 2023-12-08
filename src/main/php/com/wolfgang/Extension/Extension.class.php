@@ -9,9 +9,8 @@ use Wolfgang\Interfaces\IExtensible;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Extension
  * @link http://airportruns.ca
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Extension extends BaseComponent implements IExtension {
 	/**

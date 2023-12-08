@@ -6,7 +6,6 @@ use Wolfgang\Exceptions\Encoding\JSON\Exception as JSONException;
 
 /**
  *
- * @package Components
 * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0
  */

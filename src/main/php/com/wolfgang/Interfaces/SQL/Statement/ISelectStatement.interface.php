@@ -13,9 +13,8 @@ use Wolfgang\Interfaces\SQL\Clause\ISelectClause;
 
 /**
  *
- * @package Wolfgang\Interfaces\SQL\Statement
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 interface ISelectStatement extends IStatement {
 	const MODIFIER_ALL = 1;

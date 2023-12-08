@@ -10,9 +10,8 @@ use Wolfgang\Traits\TSingleton;
 
 /**
  *
- * @package Wolfgang\SQL
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class StatementManager extends Component implements ISingleton {
 	use TSingleton;

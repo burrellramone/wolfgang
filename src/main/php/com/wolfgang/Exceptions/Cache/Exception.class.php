@@ -6,10 +6,9 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
- * @package Wolfgang\Exceptions\Cache
  * @author Ramone Burrell <ramone.burrell@rairportruns.ca>
  * @uses Wolfgang\Exceptions\Exception
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 class Exception extends ComponentException {
 	

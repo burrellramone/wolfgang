@@ -4,8 +4,7 @@ namespace Wolfgang\Exceptions;
 
 /**
  *
- * @package Exceptions
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class ClassNotFound extends Exception {
 

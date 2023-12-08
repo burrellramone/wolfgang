@@ -4,7 +4,6 @@ namespace Wolfgang\Exceptions\Message\HTTP;
 
 /**
  *
- * @package Wolfgang\Exceptions\Message\HTTP
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0
  */

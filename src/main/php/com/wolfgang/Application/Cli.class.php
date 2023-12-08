@@ -18,7 +18,7 @@ use Wolfgang\Message\CLI\Response as CliResponse;
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\ISingleton
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Cli extends Application {
 	//use TSingleton;

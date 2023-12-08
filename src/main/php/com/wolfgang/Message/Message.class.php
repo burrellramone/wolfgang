@@ -9,8 +9,7 @@ use Wolfgang\Traits\Message\TMessage;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Message
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Message extends WolfgangComponent implements IMessage {
 	use TMessage;

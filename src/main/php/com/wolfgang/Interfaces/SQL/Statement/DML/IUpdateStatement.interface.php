@@ -9,9 +9,8 @@ use Wolfgang\Interfaces\SQL\Clause\ILimitClause;
 
 /**
  *
- * @package Wolfgang\Wolfgang\Interfaces\SQL\DML
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 interface IUpdateStatement extends IStatement {
 	

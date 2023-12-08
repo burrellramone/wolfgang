@@ -4,10 +4,9 @@ namespace Wolfgang\Interfaces\Logger;
 
 /**
  *
- * @package Components
 * @author Ramone Burrell <ramoneb@airportruns.com>
  * @link http://airportruns.ca
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 interface IGelfMessage {
 

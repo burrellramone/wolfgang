@@ -6,7 +6,6 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
- * @package Exceptions
  * @since Version 1.0
  */
 class Exception extends ComponentException {

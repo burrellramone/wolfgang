@@ -7,8 +7,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Component\Traits\Message
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 trait TMessage {
 

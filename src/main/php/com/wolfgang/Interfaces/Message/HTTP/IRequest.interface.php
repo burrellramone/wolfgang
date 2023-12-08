@@ -6,9 +6,8 @@ use Wolfgang\Interfaces\Message\IRequest as IComponentRequest;
 
 /**
  *
- * @package Wolfgang\Interfaces\Message\Http
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 interface IRequest extends IMessage , IComponentRequest {
 

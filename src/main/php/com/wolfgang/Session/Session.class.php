@@ -13,11 +13,10 @@ use Wolfgang\Application\Context;
 
 /**
  *
- * @package Wolfgang\Session
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Session\CookieSessionHandler
  * @uses Wolfgang\Config\Session
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Session extends Component implements ISingleton , ISession {
 

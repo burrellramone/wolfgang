@@ -9,9 +9,8 @@ use Wolfgang\Interfaces\ORM\ISchema;
 
 /**
  *
- * @package Wolfgang\ORM
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
 	

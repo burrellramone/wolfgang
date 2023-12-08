@@ -4,9 +4,8 @@ namespace Wolfgang\Encryption;
 
 /**
  *
- * @package Wolfgang\Encryption
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class AES extends OpenSsl {
 	const AES_PASSWORD = 'e57733e10d128a0e1d24875d6e7479af8af146d4bbc272e444e7c3f7a1e83eae';

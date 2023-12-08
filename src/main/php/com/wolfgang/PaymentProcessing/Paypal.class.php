@@ -10,8 +10,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\PaymentProcessing
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Paypal extends Component implements ISingleton {
 	use TSingleton;

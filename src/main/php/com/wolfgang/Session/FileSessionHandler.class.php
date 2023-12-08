@@ -6,9 +6,8 @@ use Wolfgang\Interfaces\Session\ISessionHandler;
 
 /**
  *
- * @package Wolfgang\Session
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class FileSessionHandler extends Component implements ISessionHandler {
 

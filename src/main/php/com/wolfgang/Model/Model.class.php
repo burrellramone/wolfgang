@@ -23,9 +23,8 @@ use Wolfgang\Interfaces\Model\IBridgeModel;
  * Abstract class representing database model from which all other models that are not a list
  * inherit from.
  *
- * @package Wolfgang\Model
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Model extends Component implements IModel {
 

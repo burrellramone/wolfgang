@@ -10,7 +10,6 @@ use Wolfgang\Interfaces\Message\HTTP\IRequest;
 
 /**
  *
- * @package Wolfgang\Routing
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @since Version 1.0
  */

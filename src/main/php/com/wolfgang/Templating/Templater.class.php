@@ -13,9 +13,8 @@ use Wolfgang\Config\App as AppConfig;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Templater
  * @link http://airportruns.ca
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Templater extends Component implements ISingleton {
 	

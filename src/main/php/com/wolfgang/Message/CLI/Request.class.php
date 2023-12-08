@@ -10,8 +10,7 @@ use Wolfgang\Traits\Message\TRequest;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Message\CLI
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Request extends Message implements ISingleton , IRequest {
 	use TSingleton;

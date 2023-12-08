@@ -11,12 +11,11 @@ use Wolfgang\Dispatching\EventDispatcher;
 
 /**
  *
- * @package Wolfgang\Controller
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Controller\Controller
  * @uses Wolfgang\Interfaces\HTTP\IRequest
  * @uses Wolfgang\Interfaces\HTTP\IResponse
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Cli extends Controller {
 

@@ -15,9 +15,8 @@ use Wolfgang\Interfaces\ISingleton;
 
 /**
  *
- * @package Wolfgang\Temlating
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Smarty extends Templater implements ITemplater {
 

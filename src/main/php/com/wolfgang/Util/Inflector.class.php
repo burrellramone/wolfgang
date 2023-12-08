@@ -9,8 +9,7 @@ use Wolfgang\Model\Model;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Util
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Inflector extends Component {
 

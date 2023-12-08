@@ -19,8 +19,7 @@ use Wolfgang\Interfaces\IEmailContact;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Mailing
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Mailman extends Component implements ISingleton {
 	use TSingleton;

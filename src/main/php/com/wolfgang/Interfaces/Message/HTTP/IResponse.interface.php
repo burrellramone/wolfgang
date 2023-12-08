@@ -6,10 +6,9 @@ use Wolfgang\Interfaces\Message\IResponse as IComponentResponse;
 
 /**
  *
- * @package Wolfgang\Interfaces\HTTP
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @see http://airportruns.ca
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 interface IResponse extends IMessage , IComponentResponse {
 	//@formatter:off

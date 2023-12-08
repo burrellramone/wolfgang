@@ -7,9 +7,8 @@ use Wolfgang\Interfaces\Routing\IRouter;
 
 /**
  *
- * @package Wolfgang\Interfaces\Routing\Route
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 interface IRoute {
 

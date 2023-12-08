@@ -19,9 +19,8 @@ use Wolfgang\SQL\Expression\ConditionalExpressionGroup;
 
 /**
  *
- * @package Wolfgang\SQL\Statement\DML
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class UpdateStatement extends Statement implements IUpdateStatement {
 	

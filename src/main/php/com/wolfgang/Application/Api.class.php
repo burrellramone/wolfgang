@@ -33,7 +33,7 @@ use Wolfgang\Interfaces\Network\IUri;
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\Application\IApi
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Api extends Application implements IApi {
 

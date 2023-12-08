@@ -6,10 +6,9 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 
 /**
  *
- * @package Wolfgang\Date
  * @author Ramone Burrell <ramoneb@airportruns.com>
  * @link http://airportruns.ca
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Time extends Component {
 	const FORMAT = 'H:i';

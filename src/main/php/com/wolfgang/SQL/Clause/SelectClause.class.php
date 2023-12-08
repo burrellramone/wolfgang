@@ -10,8 +10,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\SQL\Clause
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class SelectClause extends Clause implements ISelectClause {
 	

@@ -7,7 +7,6 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @author Ramone Burrell <rburrell@altmedia.ca>
- * @package Wolfgang\Util
  */
 class UploadedFile extends File {
 	private static $files = [ ];

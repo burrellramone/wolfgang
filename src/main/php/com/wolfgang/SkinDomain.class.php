@@ -10,8 +10,7 @@ use Wolfgang\Date\DateTime;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class SkinDomain extends Component implements ISkinDomain {
 	use TSkinDomain;

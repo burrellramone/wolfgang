@@ -6,9 +6,8 @@ use Wolfgang\Interfaces\ISchema;
 
 /**
  *
- * @package Components
 * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 interface IRelationalSchema extends ISchema {
 	/**

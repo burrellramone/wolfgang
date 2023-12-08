@@ -12,7 +12,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Config extends Component {
 	/**

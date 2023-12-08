@@ -37,8 +37,7 @@ use Wolfgang\Exceptions\ORM\Exception as ORMException;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\ORM
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class Schema extends Component implements IDatabaseSchema {
 

@@ -10,9 +10,8 @@ use Wolfgang\SQL\Statement\DML\Statement as DMLStatement;
 
 /**
  *
- * @package Wolfgang\SQL\Statement
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class Statement extends SQLComponent implements IStatement {
 	

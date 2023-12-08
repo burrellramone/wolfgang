@@ -12,11 +12,10 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Message\HTTP
  * @uses Wolfgang\Message\HTTP\Message
  * @uses Wolfgang\Interfaces\ISingleton
  * @uses Wolfgang\Interfaces\HTTP\IRequest
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 class Request extends Message implements ISingleton , IRequest {
 	use TSingleton;

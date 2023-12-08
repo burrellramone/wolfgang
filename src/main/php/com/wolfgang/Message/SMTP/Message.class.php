@@ -9,9 +9,8 @@ use Wolfgang\Util\Token;
 
 /**
  *
- * @package Wolfgang\Message\SMTP
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 class Message extends WolfgangMessage implements IMail {
 	use TMail;

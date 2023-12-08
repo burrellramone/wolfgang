@@ -13,9 +13,8 @@ use Wolfgang\Exceptions\MethodNotImplementedException;
 
 /**
  *
- * @package Wolfgang\SQL\Expression
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 final class ConditionalExpressionGroup extends Component implements IConditionalExpressionGroup {
 

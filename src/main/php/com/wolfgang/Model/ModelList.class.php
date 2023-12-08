@@ -18,8 +18,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 /**
  *
  * @author Ramone Burrell <ramoneb@airportruns.com>
- * @package Wolfgang\Model
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 abstract class ModelList extends Component implements \Iterator , IModelList , \Countable , IQueryBuilder , \ArrayAccess {
 	/**

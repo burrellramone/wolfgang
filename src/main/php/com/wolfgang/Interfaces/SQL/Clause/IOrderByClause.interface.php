@@ -4,9 +4,8 @@ namespace Wolfgang\Interfaces\SQL\Clause;
 
 /**
  *
- * @package Components
 * @author Ramone Burrell <ramoneb@airportruns.com>
- * @since Version 1.0.0
+ * @since Version 0.1.0
  */
 interface IOrderByClause extends IClause {
 	const ORDER_ASC = 'ASC';
