@@ -2748,12 +2748,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/tc-lib-pdf.git",
-                "reference": "95a1fa0e0d7372b26e86be8d41f371cded9d2eb9"
+                "reference": "98de295e4f53ccccff62f20c373e5b0c5723b2aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf/zipball/95a1fa0e0d7372b26e86be8d41f371cded9d2eb9",
-                "reference": "95a1fa0e0d7372b26e86be8d41f371cded9d2eb9",
+                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf/zipball/98de295e4f53ccccff62f20c373e5b0c5723b2aa",
+                "reference": "98de295e4f53ccccff62f20c373e5b0c5723b2aa",
                 "shasum": ""
             },
             "require": {
@@ -2814,7 +2814,7 @@
                 "tc-lib-pdf"
             ],
             "support": {
-                "source": "https://github.com/tecnickcom/tc-lib-pdf/tree/8.0.55",
+                "source": "https://github.com/tecnickcom/tc-lib-pdf/tree/main",
                 "issues": "https://github.com/tecnickcom/tc-lib-pdf/issues"
             },
             "funding": [
@@ -2823,7 +2823,7 @@
                     "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20tc-lib-pdf%20project"
                 }
             ],
-            "time": "2023-11-29T18:11:15+00:00"
+            "time": "2023-12-08T13:49:50+00:00"
         },
         {
             "name": "tecnickcom/tc-lib-pdf-encrypt",
@@ -4006,16 +4006,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.47",
+            "version": "1.10.48",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "84dbb33b520ea28b6cf5676a3941f4bae1c1ff39"
+                "reference": "087ed4b5f4a7a6e8f3bbdfbfe98ce5c181380bc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/84dbb33b520ea28b6cf5676a3941f4bae1c1ff39",
-                "reference": "84dbb33b520ea28b6cf5676a3941f4bae1c1ff39",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/087ed4b5f4a7a6e8f3bbdfbfe98ce5c181380bc6",
+                "reference": "087ed4b5f4a7a6e8f3bbdfbfe98ce5c181380bc6",
                 "shasum": ""
             },
             "require": {
@@ -4064,7 +4064,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-01T15:19:17+00:00"
+            "time": "2023-12-08T14:34:28+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
