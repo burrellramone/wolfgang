@@ -9,7 +9,7 @@ use Wolfgang\Traits\Message\TRequest;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class Request extends Message implements ISingleton , IRequest {

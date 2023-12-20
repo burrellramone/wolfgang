@@ -11,7 +11,7 @@ use Wolfgang\Session\Session;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Interfaces\Model\IModel
  * @since Version 0.1.0
  */

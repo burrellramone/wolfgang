@@ -6,7 +6,7 @@ use Wolfgang\Interfaces\Message\IMessage as IWolfgangMessage;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  */
 interface IMessage extends IWolfgangMessage {
 	

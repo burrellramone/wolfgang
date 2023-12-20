@@ -30,7 +30,7 @@ use Wolfgang\Exceptions\UnsupportedOperationException;
 use Wolfgang\Interfaces\Network\IUri;
 
 /**
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\Application\IApi
  * @since Version 0.1.0

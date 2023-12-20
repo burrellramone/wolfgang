@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\Message\IResponse;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  */
 interface IController {
 

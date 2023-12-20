@@ -6,7 +6,7 @@ use Wolfgang\Interfaces\Structure\Tree\ITreeNode;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 class RoseTree extends Tree {

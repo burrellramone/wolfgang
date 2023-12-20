@@ -11,7 +11,7 @@ use Wolfgang\Traits\TSingleton;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Message\HTTP\Message
  * @uses Wolfgang\Interfaces\ISingleton
  * @uses Wolfgang\Interfaces\HTTP\IRequest

@@ -12,7 +12,7 @@ use Wolfgang\Exceptions\UnsupportedOperationException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 abstract class Statement extends ComponentSQLStatement implements IDMLStatement , IBitManipulator {

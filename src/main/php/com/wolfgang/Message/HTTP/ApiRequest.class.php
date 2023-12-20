@@ -10,7 +10,7 @@ use Wolfgang\Interfaces\IApiKey;
  * @uses Wolfgang\Interfaces\Message\HTTP\Request
  * @uses Wolfgang\Interfaces\ISingleton
  * @uses Componenets\Interfaces\HTTP\IApiRequest
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class ApiRequest extends Request implements IApiRequest {

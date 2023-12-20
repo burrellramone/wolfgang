@@ -13,7 +13,7 @@ use Wolfgang\Interfaces\Controller\ICliController;
  * Controller authentication component. This class authorizes access to an api controller within the
  * framework
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class CliController extends Controller {

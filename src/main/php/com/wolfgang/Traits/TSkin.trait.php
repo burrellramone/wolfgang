@@ -5,7 +5,7 @@ namespace Wolfgang\Traits;
 use Wolfgang\Interfaces\ISkinDomain;
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 trait TSkin {

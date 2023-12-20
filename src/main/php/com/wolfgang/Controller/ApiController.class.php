@@ -12,7 +12,7 @@ use Wolfgang\Interfaces\Controller\IApiController;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Controller\Controller
  * @uses Wolfgang\Auth\ApiController
  * @uses Wolfgang\Interfaces\Message\IRequest

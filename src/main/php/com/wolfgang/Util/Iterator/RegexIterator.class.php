@@ -8,7 +8,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @version 1.0.0
  * @since Version 0.1.0
  */

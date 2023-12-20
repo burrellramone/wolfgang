@@ -13,7 +13,7 @@ use Wolfgang\Application\Context;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Session\CookieSessionHandler
  * @uses Wolfgang\Config\Session
  * @since Version 0.1.0

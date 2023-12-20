@@ -7,7 +7,7 @@ use Wolfgang\Interfaces\ORM\IColumn;
 
 /**
  *
-* @author Ramone Burrell <ramoneb@airportruns.com>
+* @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 interface IColumnExpression extends IExpression {

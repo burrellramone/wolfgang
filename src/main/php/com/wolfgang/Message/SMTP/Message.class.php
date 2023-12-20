@@ -9,7 +9,7 @@ use Wolfgang\Util\Token;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 class Message extends WolfgangMessage implements IMail {

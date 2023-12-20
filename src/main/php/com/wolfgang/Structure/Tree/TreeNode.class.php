@@ -10,7 +10,7 @@ use Wolfgang\Interfaces\ISchema;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 class TreeNode extends Node implements ITreeNode {

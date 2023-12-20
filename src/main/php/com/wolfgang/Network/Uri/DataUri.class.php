@@ -7,7 +7,7 @@ use Wolfgang\Encoding\Base64;
 
 /**
  *
-* @author Ramone Burrell <ramoneb@airportruns.com>
+* @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class DataUri extends Uri implements IDataUri {

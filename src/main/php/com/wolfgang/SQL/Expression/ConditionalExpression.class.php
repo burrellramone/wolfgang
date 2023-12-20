@@ -13,7 +13,7 @@ use Wolfgang\Exceptions\MethodNotImplementedException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class ConditionalExpression extends Expression implements IConditionalExpression {

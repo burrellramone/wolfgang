@@ -5,7 +5,7 @@ namespace Wolfgang\Exceptions\Filesystem;
 /**
  *
 * @uses Wolfgang\Exceptions\Filesystem\Exception
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class FileNotExistException extends Exception {

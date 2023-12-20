@@ -9,7 +9,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
  *
  * @abstract
  *
-* @author Ramone Burrell <ramoneb@airportruns.com>
+* @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 abstract class ResultSet extends Component implements IResultSet {

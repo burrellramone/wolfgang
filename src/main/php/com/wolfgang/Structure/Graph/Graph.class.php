@@ -11,7 +11,7 @@ use Wolfgang\Interfaces\Structure\Graph\IGraphNode;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 abstract class Graph extends Component implements IGraph , \Countable {

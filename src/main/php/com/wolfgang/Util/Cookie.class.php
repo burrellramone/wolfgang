@@ -8,7 +8,7 @@ use Wolfgang\Encryption\AES;
 
 /**
  *
-* @author Ramone Burrell <ramoneb@airportruns.com>
+* @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Exceptions\IllegalArgumentException
  * @uses Wolfgang\Encryption\AES
  * @since Version 0.1.0

@@ -4,7 +4,7 @@ namespace Wolfgang\Exceptions\Templating;
 
 /**
  *
-* @author Ramone Burrell <ramoneb@airportruns.com>
+* @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 class TemplateNotExistException extends Exception {

@@ -7,7 +7,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  */
 final class Dsn extends Uri implements IDsn {
 	

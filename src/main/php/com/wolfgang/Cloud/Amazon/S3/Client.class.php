@@ -10,7 +10,7 @@ use Wolfgang\Exceptions\Exception as CoreException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class Client extends Component {

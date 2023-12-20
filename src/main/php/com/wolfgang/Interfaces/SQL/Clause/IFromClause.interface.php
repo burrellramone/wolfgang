@@ -6,7 +6,7 @@ use Wolfgang\Interfaces\ORM\ITable;
 
 /**
  *
-* @author Ramone Burrell <ramoneb@airportruns.com>
+* @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 interface IFromClause extends IClause {

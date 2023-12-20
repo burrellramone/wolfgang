@@ -27,7 +27,7 @@ use Wolfgang\Interfaces\Network\IUri;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 abstract class Application extends Component implements ISingleton , IApplication {

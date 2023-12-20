@@ -9,7 +9,7 @@ use Wolfgang\Exceptions\IllegalArgumentException;
 use Wolfgang\Traits\TSingleton;
 
 /**
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses \Memcached
  * @uses Wolfgang\Interfaces\ISingleton
  * @uses Wolfgang\Interfaces\ICacher

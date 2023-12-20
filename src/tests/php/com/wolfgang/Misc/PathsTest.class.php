@@ -6,7 +6,7 @@ use Wolfgang\Test\Test;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  */
 final class PathsTest extends Test {
 	

@@ -8,7 +8,7 @@ use Wolfgang\Exceptions\IllegalArgumentException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @see https://tools.ietf.org/html/rfc5246#page-24
  * @since Version 0.1.0
  */

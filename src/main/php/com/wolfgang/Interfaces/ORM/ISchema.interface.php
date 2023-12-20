@@ -9,7 +9,7 @@ use Wolfgang\Exceptions\ORM\TableNotExistException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  */
 interface ISchema extends IComponentSchema {
 	

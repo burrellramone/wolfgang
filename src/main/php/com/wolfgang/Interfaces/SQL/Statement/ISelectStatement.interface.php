@@ -13,7 +13,7 @@ use Wolfgang\Interfaces\SQL\Clause\ISelectClause;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 interface ISelectStatement extends IStatement {

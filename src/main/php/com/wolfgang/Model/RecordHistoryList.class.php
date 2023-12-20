@@ -6,7 +6,7 @@ namespace Wolfgang\Model;
  *
  * 
  *
-* @author Ramone Burrell <ramoneb@airportruns.com>
+* @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Model\ModelList
  * @since Version 0.1.0
  */

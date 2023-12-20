@@ -12,7 +12,7 @@ use Wolfgang\Config\App as AppConfig;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @link http://airportruns.ca
  * @since Version 0.1.0
  */

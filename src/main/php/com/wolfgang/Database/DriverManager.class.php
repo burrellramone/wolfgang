@@ -14,7 +14,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 
 /**
  *
- * @author Ramone Burrell <ramoneb@airportruns.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class DriverManager extends DatabaseComponent implements ISingleton {
