@@ -455,7 +455,7 @@ final class Stripe extends Component implements ISingleton {
 	
 	/**
 	 *
-	 * @link https://stripe.com/docs/api/php#customer_create_bank_account
+	 * @link https://stripe.com/docs/api?lang=php#customer_create_bank_account
 	 * @param array $data
 	 * @throws InvalidArgumentException
 	 * @throws StripePaymentProcessingException
