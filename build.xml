@@ -41,13 +41,11 @@
 	</target>
 	
 	<target name="phpstan" unless="phpstan.done" depends="phplint" description="Perform static analysis on Wolfang">
-		<exec executable="${php}" failonerror="true" resultproperty="result.phpstan" taskname="phpstan">
-			<arg value="-d"/>
-			<arg value="memory_limit=250M"/>
-			<arg value="${phpstan}"/>
-			<arg value="--level=0"/>
+		<exec executable="${phpstan}" failonerror="true" resultproperty="result.phpstan" taskname="phpstan">
 			<arg value="analyse"/>
-			<arg value="${basedir}/src/"/>
+			<arg value="--memory-limit=250M"/>
+			<arg value="--verbose"/>
+			<arg path="${basedir}/src/"/>
 		</exec>
 		 <property name="phpstan.done" value="true"/>
 	</target>
