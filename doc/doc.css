@@ -1,5 +1,5 @@
 body, html {
-  background-color: #616161;
+  background-color: #ebe8e8;
   font-size: 11pt;
   text-align: center;
 }
@@ -7,13 +7,12 @@ body, html {
 div.main-page {
   	position: absolute;
   	width: 600px;
-  	height:600px;
   	padding:0px;
   	border:none;
 	background-color: #FFFFFF;
   	text-align: center;
-        margin:0;
         margin: auto;
+        top:0;
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -29,6 +28,10 @@ div.page-header {
 
 div.page-header h1 {
 	flex-grow: 1;
+}
+
+.content {
+	padding: 20px;
 }
 
 ul#versions {
