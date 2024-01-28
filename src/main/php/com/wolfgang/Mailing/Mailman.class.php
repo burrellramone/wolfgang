@@ -68,6 +68,7 @@ final class Mailman extends Component implements ISingleton {
 			//$this->mailer->SMTPAutoTLS = false;
 		}
 		
+		$this->mailer->AuthType = 'LOGIN';
 		$this->mailer->SMTPSecure = 'tls';
 		$this->mailer->isHTML( true );
 		$this->mailer->SMTPAuth = true;

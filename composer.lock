@@ -2748,12 +2748,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/tc-lib-pdf.git",
-                "reference": "f6907e3c1ac77228aadba185627998dd4eeaddf6"
+                "reference": "5b6510d13dba5e1b208686a080e06f2ac157c186"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf/zipball/f6907e3c1ac77228aadba185627998dd4eeaddf6",
-                "reference": "f6907e3c1ac77228aadba185627998dd4eeaddf6",
+                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf/zipball/5b6510d13dba5e1b208686a080e06f2ac157c186",
+                "reference": "5b6510d13dba5e1b208686a080e06f2ac157c186",
                 "shasum": ""
             },
             "require": {
@@ -2764,7 +2764,7 @@
                 "tecnickcom/tc-lib-color": "^2.0",
                 "tecnickcom/tc-lib-file": "^2.0",
                 "tecnickcom/tc-lib-pdf-encrypt": "^2.1",
-                "tecnickcom/tc-lib-pdf-font": "^2.0",
+                "tecnickcom/tc-lib-pdf-font": "^2.1",
                 "tecnickcom/tc-lib-pdf-graph": "^2.0",
                 "tecnickcom/tc-lib-pdf-image": "^2.0",
                 "tecnickcom/tc-lib-pdf-page": "^4.0",
@@ -2823,7 +2823,7 @@
                     "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20tc-lib-pdf%20project"
                 }
             ],
-            "time": "2024-01-26T15:42:20+00:00"
+            "time": "2024-01-27T16:18:05+00:00"
         },
         {
             "name": "tecnickcom/tc-lib-pdf-encrypt",
@@ -2896,16 +2896,16 @@
         },
         {
             "name": "tecnickcom/tc-lib-pdf-font",
-            "version": "2.0.13",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/tc-lib-pdf-font.git",
-                "reference": "f5bbbfeefb648ae87e6b9ed267cdab45c76052da"
+                "reference": "9cd99255138302fe00863319d865890ffecf99b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf-font/zipball/f5bbbfeefb648ae87e6b9ed267cdab45c76052da",
-                "reference": "f5bbbfeefb648ae87e6b9ed267cdab45c76052da",
+                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf-font/zipball/9cd99255138302fe00863319d865890ffecf99b8",
+                "reference": "9cd99255138302fe00863319d865890ffecf99b8",
                 "shasum": ""
             },
             "require": {
@@ -2953,7 +2953,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tecnickcom/tc-lib-pdf-font/issues",
-                "source": "https://github.com/tecnickcom/tc-lib-pdf-font/tree/2.0.13"
+                "source": "https://github.com/tecnickcom/tc-lib-pdf-font/tree/2.1.1"
             },
             "funding": [
                 {
@@ -2961,7 +2961,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-11-29T11:12:10+00:00"
+            "time": "2024-01-27T16:04:59+00:00"
         },
         {
             "name": "tecnickcom/tc-lib-pdf-graph",
