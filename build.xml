@@ -4,7 +4,7 @@
         <echo message="Full Build Complete"/>
     </target>
 	
-	<property name="wolfgang_version" value="0.1.0"/>
+	<property name="app_version" value="0.1.0"/>
 	<property name="php" value="/usr/bin/php"/>
 	<property name="phplint" value="${basedir}/vendor/bin/phplint"/>
 	<property name="phpstan" value="${basedir}/vendor/bin/phpstan"/>
@@ -67,13 +67,13 @@
 
 	<target name="clean" unless="clean.done" depends="phploc" description="Cleanup build artifacts.">
         <delete dir="${basedir}/build/"/>
-		<delete dir="${basedir}/doc/v/${wolfgang_version}"/>
+		<delete dir="${basedir}/doc/v/${app_version}"/>
         <property name="clean.done" value="true"/>
     </target>
 
 	<target name="prepare" unless="prepare.done" depends="clean" description="Prepare to create build artifacts.">
 	    <mkdir dir="${basedir}/build"/>
-		<mkdir dir="${basedir}/doc/v/${wolfgang_version}"/>
+		<mkdir dir="${basedir}/doc/v/${app_version}"/>
         <property name="prepare.done" value="true"/>
     </target>
 	
@@ -87,9 +87,9 @@
         <property name="phpunit.done" value="true"/>
     </target>
 
-	<target name="phpdoc" if="wolfgang_version" unless="phpdoc.done" depends="phpab" description="Generate documentation for Wolfgang">
+	<target name="phpdoc" if="app_version" unless="phpdoc.done" depends="phpab" description="Generate documentation for Wolfgang">
 		<exec executable="${phpdoc}" failonerror='true' resultproperty="result.phpdoc" taskname="phpdoc">
-			<arg value="--target=${basedir}/doc/v/${wolfgang_version}/"/>
+			<arg value="--target=${basedir}/doc/v/${app_version}/"/>
 			<arg value="--cache-folder=${basedir}/.cache/"/>
 			<arg value="--sourcecode"/>
 			<arg value="--verbose"/>
