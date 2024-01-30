@@ -10,11 +10,11 @@ use Wolfgang\Date\DateTime;
 use Wolfgang\Util\Filesystem;
 use Wolfgang\Application\Application;
 use Wolfgang\Exceptions\Exception;
+use Wolfgang\Application\Context;
 
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
  * @since Version 0.1.0
  */
 final class FileLogger extends Logger implements IFileLogger {
@@ -133,6 +133,10 @@ final class FileLogger extends Logger implements IFileLogger {
 	public function log ( $level, $message, array $context = []) {
 		$file = null;
 		$line = null;
+
+		if( isset($context['application']) ){
+			$context['application'] = strtolower($context['application']);
+		}
 		
 		if ( ($message instanceof \Exception) || ($message instanceof \Error) || ($message instanceof \ErrorException) ) {
 			$file = $message->getFile();
@@ -146,24 +150,24 @@ final class FileLogger extends Logger implements IFileLogger {
 			if ( ! empty( $context[ 'line' ] ) ) {
 				$line = $context[ 'line' ];
 			}
-			
-			if ( ! empty( $context[ 'host' ] ) ) {
-				$host = $context[ 'host' ];
-			}
-			
-			if ( ! empty( $context[ 'application' ] ) ) {
-				$application = $context[ 'application' ];
-			}
-			
-			if ( ! empty( $context[ 'ip_address' ] ) ) {
-				$ip_address = $context[ 'ip_address' ];
-			}
+		}
+
+		if ( ! empty( $context[ 'host' ] ) ) {
+			$host = $context[ 'host' ];
+		}
+		
+		if ( ! empty( $context[ 'application' ] ) ) {
+			$application = $context[ 'application' ];
+		}
+		
+		if ( ! empty( $context[ 'ip_address' ] ) ) {
+			$ip_address = $context[ 'ip_address' ];
 		}
 		
 		$host_ip_address = gethostbyname( gethostname() );
 		
 		if ( empty( $host ) ) {
-			if ( ! empty( $_SERVER[ 'HTTP_HOST' ] ) ) {
+			if ( isset( $_SERVER[ 'HTTP_HOST' ] ) ) {
 				$host = $_SERVER[ 'HTTP_HOST' ];
 			} else {
 				$host = gethostname();
@@ -171,15 +175,15 @@ final class FileLogger extends Logger implements IFileLogger {
 		}
 		
 		if ( empty( $application ) ) {
-			if ( php_sapi_name() == 'cli' ) {
-				$application = 'cli';
+			if ( php_sapi_name() == Context::PHP_SAPI_CLI ) {
+				$application = Context::PHP_SAPI_CLI;
 			} else {
 				$application = Application::getInstance()->getName();
 			}
 		}
 		
 		if ( empty( $ip_address ) ) {
-			if ( $application != 'cli' ) {
+			if ( $application != Context::PHP_SAPI_CLI ) {
 				$ip_address = $_SERVER[ 'REMOTE_ADDR' ];
 			} else {
 				$ip_address = 'N/A';

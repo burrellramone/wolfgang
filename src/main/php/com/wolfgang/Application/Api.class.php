@@ -21,7 +21,7 @@ use Wolfgang\Exceptions\Message\HTTP\Exception as HTTPException;
 use Wolfgang\Util\Logger\Logger;
 use Wolfgang\Interfaces\IMarshallable;
 use Wolfgang\Exceptions\Exception as ComponentException;
-use Wolfgang\Routing\ApiRouter;
+use Wolfgang\Routing\HttpRouter;
 use Wolfgang\Message\HTTP\Response as HttpResponse;
 use Wolfgang\Interfaces\Message\HTTP\IResponse as IHttpResponse;
 use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
@@ -65,7 +65,7 @@ final class Api extends Application implements IApi {
 	protected function init ( ) {
 		parent::init();
 
-		$this->setRouter( ApiRouter::getInstance() );
+		$this->setRouter( HttpRouter::getInstance() );
 		$this->setResponse( HttpResponse::getInstance() );
 
 		if ( ! empty( $_SERVER[ 'HTTP_ORIGIN' ] ) ) {
@@ -107,8 +107,8 @@ final class Api extends Application implements IApi {
 	 * @see \Wolfgang\Application\Application::setRouter()
 	 */
 	protected function setRouter ( IRouter $router ) {
-		if ( ! ($router instanceof ApiRouter) ) {
-			throw new InvalidArgumentException( "Router must be and instance of Wolfgang\Routing\ApiRouter" );
+		if ( ! ($router instanceof HttpRouter) ) {
+			throw new InvalidArgumentException( "Router must be and instance of Wolfgang\Routing\HttpRouter" );
 		}
 
 		$router->setApplication( $this );

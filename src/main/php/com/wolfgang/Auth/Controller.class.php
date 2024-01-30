@@ -4,7 +4,7 @@ namespace Wolfgang\Auth;
 
 use Wolfgang\Interfaces\IControllerAuthenticator;
 use Wolfgang\Interfaces\Controller\IController;
-use Wolfgang\Interfaces\Routing\Route\IRoute;
+use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
 use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Component as BaseComponent;

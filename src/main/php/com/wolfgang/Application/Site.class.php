@@ -12,11 +12,10 @@ use Wolfgang\Interfaces\Application\ISite;
 use Wolfgang\Templating\Templater;
 use Wolfgang\Exceptions\Message\HTTP\Exception as HTTPException;
 use Wolfgang\Util\Logger\Logger;
-use Wolfgang\Routing\SiteRouter;
+use Wolfgang\Routing\HttpRouter;
 use Wolfgang\Message\HTTP\Response as HttpResponse;
 use Wolfgang\Interfaces\Message\IMessage;
 use Wolfgang\Interfaces\ISingleton;
-use Wolfgang\Traits\TSingleton;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Network\IUri;
@@ -56,8 +55,7 @@ final class Site extends Application implements ISite {
 			$this->notices = unserialize( $_SESSION[ 'notices' ] );
 		}
 
-		$this->setRouter( SiteRouter::getInstance() );
-		$this->setRouter( SiteRouter::getInstance() );
+		$this->setRouter( HttpRouter::getInstance() );
 		$this->setResponse( HttpResponse::getInstance() );
 	}
 
@@ -91,8 +89,8 @@ final class Site extends Application implements ISite {
 	 * @see \Wolfgang\Application\Application::setRouter()
 	 */
 	protected function setRouter ( IRouter $router ) {
-		if ( ! ($router instanceof SiteRouter) ) {
-			throw new InvalidArgumentException( "Router must be an instance of Wolfgang\Routing\SiteRouter" );
+		if ( ! ($router instanceof HttpRouter) ) {
+			throw new InvalidArgumentException( "Router must be an instance of Wolfgang\Routing\HttpRouter" );
 		}
 
 		$router->setApplication( $this );
@@ -142,7 +140,7 @@ final class Site extends Application implements ISite {
 
 		header( $response->getStatusLine() );
 
-		$templater->setTemplate( "Common/sections/Errors/{$response->getStatusCode()}.tmpl" );
+		$templater->setTemplate( "Common/sections/errors/{$response->getStatusCode()}.tmpl" );
 		$templater->assign( "response", $response );
 		$templater->assign( "exception", $e );
 		$templater->display();
@@ -165,29 +163,32 @@ final class Site extends Application implements ISite {
 		$this->setRequest( $request );
 
 		try {
+			$templater = Templater::getInstance();
 			$driver_manager = $this->getDriverManager();
 			$driver_manager->begin();
 
 			$this->getDispatcher()->dispatch( $request, $this->getRouter()->route( $request ) );
 
 			$driver_manager->commit();
+			
 
 			if ( ! $this->response->isError() ) {
-				$templater = Templater::getInstance();
 				$templater->determineLayout();
 				$this->response->setBody( $templater->fetch() );
 			}
 		} catch ( HTTPException $e ) {
 			$this->response->setStatusCode( $e->getHttpCode() );
-			$this->response->setBody( $e->getMessage() );
+			$this->response->setBody( $e->getMessage() . "<br/>" . $e->getTraceAsString());
+
+			$templater->assign("e", $e);
 			Logger::getLogger()->error( $e );
 		} catch ( \SmartyException $e ) {
 			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
-			$this->response->setBody( $e->getMessage() );
+			$this->response->setBody( $e->getMessage() . "<br/>" . $e->getTraceAsString());
 			Logger::getLogger()->error( $e );
 		} catch ( \Exception $e ) {
 			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
-			$this->response->setBody( $e->getMessage() );
+			$this->response->setBody( $e->getMessage() . "<br/>" . $e->getTraceAsString());
 			Logger::getLogger()->error( $e );
 		}
 

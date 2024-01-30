@@ -3,8 +3,7 @@
 namespace Wolfgang\Interfaces\Routing;
 
 use Wolfgang\Interfaces\Application\IApplication;
-use Wolfgang\Interfaces\Routing\Route\IRoute;
-use Wolfgang\Network\Uri\UriPath;
+use Wolfgang\Interfaces\Routing\IRoute;
 
 /**
  *
@@ -16,65 +15,11 @@ interface IRouter {
 	const DEFAULT_ACTION = 'index';
 
 	/**
-	 *
-	 * @param UriPath $uri
-	 */
-	public function get ( UriPath $path );
-
-	/**
-	 *
-	 * @param UriPath $uri
-	 */
-	public function post ( UriPath $path );
-
-	/**
-	 *
-	 * @param UriPath $uri
-	 */
-	public function put ( UriPath $path );
-
-	/**
-	 *
-	 * @param UriPath $uri
-	 */
-	public function delete ( UriPath $path );
-
-	/**
-	 *
-	 * @param UriPath $uri
-	 */
-	public function trace ( UriPath $path );
-
-	/**
-	 *
-	 * @param UriPath $uri
-	 */
-	public function connect ( UriPath $path );
-
-	/**
-	 *
-	 * @param UriPath $uri
-	 */
-	public function options ( UriPath $path );
-
-	/**
-	 *
-	 * @param UriPath $uri
-	 */
-	public function head ( UriPath $path );
-
-	/**
 	 * Gets the active route that is currently being executed in this router
 	 *
 	 * @return IRoute
 	 */
 	public function getRoute ( ): IRoute;
-
-	/**
-	 *
-	 * @param IRoute $route
-	 */
-	public function addRoute ( IRoute $route );
 
 	/**
 	 *

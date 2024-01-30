@@ -15,7 +15,7 @@ use Wolfgang\Dispatching\Dispatcher;
 use Wolfgang\Dispatching\EventDispatcher;
 use Wolfgang\Util\Filesystem;
 use Wolfgang\Config\App as AppConfig;
-use Wolfgang\Interfaces\Routing\Route\IRoute;
+use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Config\Curl as CurlConfig;
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Util\Logger\Logger;

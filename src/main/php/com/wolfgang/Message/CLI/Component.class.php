@@ -2,13 +2,13 @@
 
 namespace Wolfgang\Message\CLI;
 
-use Wolfgang\Component as BaseComponent;
+use Wolfgang\Message\Message;
 
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
-abstract class Component extends BaseComponent {
+abstract class Component extends Message {
 
 }

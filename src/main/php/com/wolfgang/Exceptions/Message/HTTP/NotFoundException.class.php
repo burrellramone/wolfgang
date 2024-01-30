@@ -13,6 +13,12 @@ final class NotFoundException extends Exception {
 	 * @var int
 	 */
 	protected $http_code = 404;
+
+	/**
+	 *
+	 * @var string
+	 */
+	protected $http_status = 'Not Found';
 	
 	/**
 	 *
@@ -20,7 +26,7 @@ final class NotFoundException extends Exception {
 	 * @param number $code
 	 * @param string $previous
 	 */
-	public function __construct ( $message = "400 Not Found Request. See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html", $code = 0, $previous = NULL ) {
+	public function __construct ( $message = "404 Not Found. See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html", $code = 0, $previous = NULL ) {
 		parent::__construct( $message, $code, $previous );
 		
 	}

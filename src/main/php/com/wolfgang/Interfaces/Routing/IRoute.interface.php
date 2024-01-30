@@ -1,9 +1,8 @@
 <?php
 
-namespace Wolfgang\Interfaces\Routing\Route;
+namespace Wolfgang\Interfaces\Routing;
 
 use Wolfgang\Interfaces\Controller\IController;
-use Wolfgang\Interfaces\Routing\IRouter;
 
 /**
  *
@@ -11,18 +10,6 @@ use Wolfgang\Interfaces\Routing\IRouter;
  * @since Version 0.1.0
  */
 interface IRoute {
-
-	/**
-	 *
-	 * @return IRouter
-	 */
-	public function getRouter ( ): IRouter;
-
-	/**
-	 *
-	 * @return string
-	 */
-	public function getMethod ( ): string;
 
 	/**
 	 *

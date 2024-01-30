@@ -150,9 +150,9 @@ final class Smarty extends Templater implements ITemplater {
 	 */
 	public function setTemplate ( string $path ) {
 		if ( ! $path ) {
-			throw new IllegalArgumentException( "Template path must be provided" );
+			throw new IllegalArgumentException( "Template file path must be provided" );
 		} else if ( ! $this->templateExists( $path ) ) {
-			throw new TemplatingException( "File path must be provided" );
+			throw new TemplatingException( "Template '{$path}' does not exist" );
 		}
 
 		$this->template = TEMPLATE_DIRECTORY . $path;
@@ -242,21 +242,26 @@ final class Smarty extends Templater implements ITemplater {
 		$templater = Templater::getInstance();
 		$skin = Context::getInstance()->getSkin();
 
-		$layout = null;
-		$common_default_layout = "Common/layout/default.tmpl";
-		$default_layout = $skin->getName() . "/layout/default.tmpl";
+		if(!$this->layout) {
+			$layout = null;
+			$common_default_layout = "Common/layout/default.tmpl";
+			$default_layout = $skin->getName() . "/layout/default.tmpl";
 
-		$layout = $this->getLayoutFromDirectives( $skin->getName(), $context->getControllerName(), $context->getAction() );
+			$layout = $this->getLayoutFromDirectives( $skin->getName(), $context->getControllerName(), $context->getAction() );
 
-		if ( ! $layout ) {
-			$layout = $default_layout;
+			if ( ! $layout ) {
+				$layout = $default_layout;
+			}
+
+			if ( ! $templater->templateExists( $layout ) ) {
+				$layout = $common_default_layout;
+			}
+
+			$this->setLayout( $layout );
 		}
+		
 
-		if ( ! $templater->templateExists( $layout ) ) {
-			$layout = $common_default_layout;
-		}
-
-		$this->setLayout( $layout );
+		
 		$this->determineTemplate();
 	}
 
@@ -271,7 +276,7 @@ final class Smarty extends Templater implements ITemplater {
 		$controller = $context->getControllerName();
 		$action = $context->getAction();
 
-		$template = $app . "/sections/{$controller}/{$action}.tmpl";
+		$template = $app . "/sections/" . strtolower($controller) . "/{$action}.tmpl";
 
 		if ( ! $this->templateExists( $template ) && $action === 'add' ) {
 			$template = preg_replace( "/add\.tmpl/", "edit.tmpl", $template );
@@ -346,7 +351,7 @@ final class Smarty extends Templater implements ITemplater {
 	 */
 	public function templateExists ( string $path ) {
 		if ( empty( $path ) ) {
-			throw new IllegalArgumentException( "File path must be provided" );
+			throw new IllegalArgumentException( "Template file path must be provided" );
 		}
 
 		return $this->smarty->templateExists( $path );

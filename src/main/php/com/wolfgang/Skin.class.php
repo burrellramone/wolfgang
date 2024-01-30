@@ -4,7 +4,7 @@ namespace Wolfgang;
 
 use Wolfgang\Interfaces\ISkin;
 use Wolfgang\Traits\TSkin;
-use Wolfgang\Date\DateTime;
+use Wolfgang\Exceptions\InvalidArgumentException;
 
 /**
  *
@@ -18,6 +18,10 @@ final class Skin extends Component implements ISkin {
 
 	public function __construct(array $definition) {
 		parent::__construct();
+
+		if( empty($definition) ) {
+			throw new InvalidArgumentException("Skin definition is empty");
+		}
 
 		$this->id = $definition['id'];
 		$this->name = $definition['name'];

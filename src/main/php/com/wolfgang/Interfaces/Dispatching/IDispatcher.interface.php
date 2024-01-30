@@ -2,7 +2,7 @@
 
 namespace Wolfgang\Interfaces\Dispatching;
 
-use Wolfgang\Interfaces\Routing\Route\IRoute;
+use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Interfaces\Message\HTTP\IRequest;
 use Wolfgang\Interfaces\Application\IApplication;
 

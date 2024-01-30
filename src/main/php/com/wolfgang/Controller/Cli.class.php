@@ -2,11 +2,12 @@
 
 namespace Wolfgang\Controller;
 
+use Wolfgang\Interfaces\Controller\ICliController;
 use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Message\CLI\IRequest as ICliRequest;
 use Wolfgang\Exceptions\InvalidArgumentException;
-use Wolfgang\Auth\ApiController as ApiControllerAuthenticator;
+use Wolfgang\Auth\CliController as CliControllerAuthenticator;
 use Wolfgang\Dispatching\EventDispatcher;
 
 /**
@@ -17,7 +18,7 @@ use Wolfgang\Dispatching\EventDispatcher;
  * @uses Wolfgang\Interfaces\HTTP\IResponse
  * @since Version 0.1.0
  */
-abstract class Cli extends Controller {
+abstract class Cli extends Controller implements ICliController{
 
 	/**
 	 *
@@ -28,7 +29,8 @@ abstract class Cli extends Controller {
 	 */
 	public function __construct ( IRequest $request, IResponse $response ) {
 		if ( ! ($request instanceof ICliRequest) ) {
-			throw new InvalidArgumentException( "Request is not an instance of Wolfgang\Interfaces\CLI\IRequest" );
+			print_r($request);
+			throw new InvalidArgumentException( "Request is not an instance of Wolfgang\Interfaces\Message\CLI\IRequest" );
 		}
 
 		parent::__construct( $request, $response );
@@ -42,7 +44,7 @@ abstract class Cli extends Controller {
 	protected function init ( ) {
 		parent::init();
 
-		$this->authenticator = new ApiControllerAuthenticator( $this );
+		$this->authenticator = new CliControllerAuthenticator( $this );
 		$this->setEventDispatcher( EventDispatcher::getInstance() );
 	}
 }

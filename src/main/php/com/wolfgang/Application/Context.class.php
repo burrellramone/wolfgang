@@ -39,6 +39,11 @@ final class Context extends Component implements IContext , ISingleton {
 	private $skins = [];
 
 	/**
+	 * @var string
+	 */
+	private $application;
+
+	/**
 	 *
 	 * @var string
 	 */
@@ -57,6 +62,11 @@ final class Context extends Component implements IContext , ISingleton {
 	private $id_matched;
 
 	/**
+	 * @var array
+	 */
+	private $cli_options = array();
+
+	/**
 	 *
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Component::init()
@@ -67,6 +77,8 @@ final class Context extends Component implements IContext , ISingleton {
 		if ( PHP_SAPI == IContext::PHP_SAPI_APACHE2_HANDLER ) {
 			$uri = new Uri( isset( $_SERVER[ 'REDIRECT_URL' ] ) ? $_SERVER[ 'REDIRECT_URL' ] : $_SERVER[ 'REQUEST_URI' ] );
 			$request_uri_parts = array_values( array_filter( explode( '/', $uri->getPath() ) ) );
+
+			$this->setApplication($this->getSkin()->getName());
 
 			//Redirect rules will sometimes set controller and and action in query string
 			if(isset($_GET['c'], $_GET['a'])) {
@@ -88,6 +100,47 @@ final class Context extends Component implements IContext , ISingleton {
 	
 				if ( ! empty( $request_uri_parts[ 2 ] ) ) {
 					$this->setIdMatched( $request_uri_parts[ 2 ] );
+				}
+			}
+		} else if ( PHP_SAPI ==  IContext::PHP_SAPI_CLI) {
+			$shortopts = "A:c:a:";
+			$longopts = [
+					"application:",
+					"controller:",
+					"action:",
+					"id:",
+					"firstname:",
+					"lastname:",
+					"email:",
+					"phone:",
+					"password:",
+					"url:",
+					"status_id:",
+					"timezone_id:",
+					"type_id:"
+			];
+
+			$options = getopt( $shortopts, $longopts );
+
+			if($options){
+				$this->cli_options = $options;
+
+				if(isset($this->cli_options['A'])){
+					$this->setApplication($this->cli_options['A']);
+				} else if (isset($this->cli_options['application'])) {
+					$this->setApplication($this->cli_options['application']);
+				}
+
+				if(isset($this->cli_options['c'])){
+					$this->setController($this->cli_options['c']);
+				} else if (isset($this->cli_options['controller'])) {
+					$this->setController($this->cli_options['controller']);
+				}
+
+				if(isset($this->cli_options['a'])){
+					$this->setAction($this->cli_options['a']);
+				} else if (isset($this->cli_options['action'])) {
+					$this->setAction($this->cli_options['action']);
 				}
 			}
 		}
@@ -113,19 +166,17 @@ final class Context extends Component implements IContext , ISingleton {
 	 */
 	public function getSkin ( ): ISkin {
 		if ( $this->skin == null ) {
+			$skins = include DOCUMENT_ROOT . 'sites.php';
+
 			if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
-				$this->skin = new Skin(array(
-					'name' => IContext::PHP_SAPI_CLI,
-					'skin_domain' => array(
-					)
-				));
-			
+				$this->skin = new Skin($skins['cli']);
 			} else {
 				$domain = $_SERVER[ 'HTTP_HOST' ];
 
-				$skins = include DOCUMENT_ROOT . 'sites.php';
-
-				foreach($skins as $skin){
+				foreach($skins as $key => $skin){
+					if($key == 'cli'){
+						continue;
+					}
 					if($skin['skin_domain']['domain'] == $domain || $skin['skin_domain']['api_domain'] == $domain) {
 						$this->skin = new Skin($skin);
 					}
@@ -172,6 +223,17 @@ final class Context extends Component implements IContext , ISingleton {
 	 */
 	public function isMobile ( ): bool {
 		return false;
+	}
+
+	/**
+	 * @param string $application
+	 */
+	private function setApplication(string $application) {
+		$this->application = $application;
+	}
+
+	public function getApplication():string {
+		return $this->application;
 	}
 
 	/**
@@ -230,5 +292,12 @@ final class Context extends Component implements IContext , ISingleton {
 	 */
 	public function getIdMatched ( ): ?string {
 		return $this->id_matched;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getCliOptions():array {
+		return $this->cli_options;
 	}
 }

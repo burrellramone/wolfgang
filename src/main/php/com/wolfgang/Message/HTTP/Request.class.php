@@ -46,8 +46,7 @@ class Request extends Message implements ISingleton , IRequest {
 		parent::init();
 
 		$_REQUEST = array_merge( array_merge( $_REQUEST, $_POST ), $_GET );
-
-		$this->params = new \stdClass();
+		
 		foreach ( $_REQUEST as $param => $value ) {
 			$this->params->{$param} = $value;
 		}

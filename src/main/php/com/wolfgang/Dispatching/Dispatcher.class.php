@@ -3,11 +3,11 @@
 namespace Wolfgang\Dispatching;
 
 use Wolfgang\Interfaces\IMarshallable;
-use Wolfgang\Interfaces\Message\HTTP\IRequest;
+use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
 use Wolfgang\Interfaces\Application\IApplication;
 use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Dispatching\IDispatcher;
-use Wolfgang\Interfaces\Routing\Route\IRoute;
+use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Encoding\JSON;
 use Wolfgang\Exceptions\IllegalStateException;
 use Wolfgang\Interfaces\Model\IModel;
@@ -16,7 +16,8 @@ use Wolfgang\Util\DataTableMarshaller;
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Interfaces\IGraph;
 use Wolfgang\Exceptions\Exception;
-
+use Wolfgang\Message\HTTP\Request as HttpRequest;
+use Wolfgang\Interfaces\Message\IRequest;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
@@ -38,16 +39,18 @@ final class Dispatcher extends Component implements IDispatcher , ISingleton {
 	}
 
 	/**
-	 * @author Ramone Burrell <burrellramone@gmail.com>
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Dispatching\IDispatcher::dispatch()
 	 */
 	public function dispatch ( IRequest $request, IRoute $route ): void {
 		$route->getController()->getAuthenticator()->authenticate( $request, $route );
 
-		if ( $request->getMethod() == IRequest::METHOD_OPTIONS ) {
-			return;
+		if($request instanceof HttpRequest) {
+			if ( $request->getMethod() == IHttpRequest::METHOD_OPTIONS ) {
+				return;
+			}
 		}
+		
 
 		if ( $route->methodExists() ) {
 

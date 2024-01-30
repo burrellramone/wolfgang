@@ -1,97 +1,49 @@
 <?php
 
-namespace Wolfgang\Routing\Route;
+namespace Wolfgang\Routing;
 
-//PHP
-use \Exception;
-
-//Wolfgang
-use Wolfgang\Exceptions\Routing\NoSuchActionException;
-use Wolfgang\Exceptions\IllegalStateException;
-use Wolfgang\Interfaces\Routing\IRouter;
-use Wolfgang\Interfaces\Controller\IController;
-use Wolfgang\Exceptions\Routing\Exception as RoutingException;
-use Wolfgang\Interfaces\Routing\Route\IRoute;
-use Wolfgang\Exceptions\IllegalArgumentException;
-use Wolfgang\Interfaces\Network\IUri;
-use Wolfgang\Network\Uri\Uri;
-use Wolfgang\Util\Strings;
-use Wolfgang\Exceptions\Message\HTTP\NotFoundException;
 use Wolfgang\Application\Application;
+use Wolfgang\Interfaces\Routing\IRouter;
+use Wolfgang\Interfaces\Network\IUri;
+use Wolfgang\Util\Strings;
+use Wolfgang\Exceptions\Routing\NoSuchActionException;
+use Wolfgang\Exceptions\Routing\Exception as RoutingException;
+use Wolfgang\Exceptions\Message\HTTP\NotFoundException;
 
 /**
  *
- * @author Ramone Burrell <ramone@ramoneburrell.com>
+* @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
-abstract class Route extends Component implements IRoute {
-
-	/**
-	 *
-	 * @var string
-	 */
-	protected $method;
-
-	/**
-	 *
-	 * @var IRouter
-	 */
-	protected $router;
-
-	/**
-	 *
-	 * @var IController
-	 */
-	protected $controller;
-
-	/**
-	 *
-	 * @var string
-	 */
-	protected $action;
-
-	/**
-	 *
-	 * @var Uri
-	 */
-	protected $uri;
+final class HttpRoute extends Route {
 
 	/**
 	 *
 	 * @param IRouter $router
 	 * @param string $method
 	 * @param string $uri
-	 * @throws IllegalArgumentException
 	 */
-	public function __construct ( IRouter $router, $method, IUri $uri ) {
-		if ( ! $method ) {
-			throw new IllegalArgumentException( 'Illegal argument provided for HTTP method. HTTP method must not be empty' );
-		} else if ( ! $uri ) {
-			throw new IllegalArgumentException( 'Illegal argument provided for request URI. URI must not be empty' );
-		}
-
-		$this->setRouter( $router );
-		$this->setMethod( $method );
-		$this->setUri( $uri );
-
-		parent::__construct();
+	public function __construct () {
+		parent::__construct( );
 	}
 
 	/**
 	 *
 	 * @throws NoSuchActionException
 	 * @throws RoutingException
-	 * @throws IllegalStateException
+	 * @throws NotFoundException
+	 * {@inheritDoc}
+	 * @see \Wolfgang\Routing\Route\Route::init()
 	 */
 	protected function init ( ) {
 		parent::init();
-
-		$controller = Application::getInstance()->getContext()->getControllerName();
-		$action = Application::getInstance()->getContext()->getAction();
-
-		$application = $this->getRouter()->getApplication();
+	
+		$application = Application::getInstance();
 		$context = $application->getContext();
-		$app = $context->getSkin()->getName();
+		$app = $context->getApplication();
+		$controller = $context->getControllerName();
+		$action = $context->getAction();
+
 		$applicationKind = Strings::ucwords( $application->getKind() );
 		$request = $application->getRequest();
 		$response = $application->getResponse();
@@ -148,14 +100,14 @@ abstract class Route extends Component implements IRoute {
 	 *
 	 * @param string $method
 	 */
-	private function setMethod ( $method ) {
+	final public function setMethod ( $method ) {
 		$this->method = $method;
 	}
 
 	/**
 	 *
 	 * {@inheritdoc}
-	 * @see \Wolfgang\Interfaces\Routing\Route\IRoute::getMethod()
+	 * @see \Wolfgang\Interfaces\Routing\IHttpRoute::getMethod()
 	 */
 	public function getMethod ( ): string {
 		return $this->method;
@@ -163,59 +115,9 @@ abstract class Route extends Component implements IRoute {
 
 	/**
 	 *
-	 * @param IRouter $router
-	 */
-	private function setRouter ( IRouter $router ) {
-		$this->router = $router;
-	}
-
-	/**
-	 *
-	 * {@inheritdoc}
-	 * @see \Wolfgang\Interfaces\Routing\Route\IRoute::getRouter()
-	 */
-	public function getRouter ( ): IRouter {
-		return $this->router;
-	}
-
-	/**
-	 *
-	 * @param IController $controller
-	 */
-	private function setController ( IController $controller ) {
-		$this->controller = $controller;
-	}
-
-	/**
-	 *
-	 * @return IController
-	 */
-	public function getController ( ): IController {
-		return $this->controller;
-	}
-
-	/**
-	 *
-	 * @param string $action
-	 */
-	private function setAction ( string $action ) {
-		$this->action = $action;
-	}
-
-	/**
-	 *
-	 * {@inheritdoc}
-	 * @see \Wolfgang\Interfaces\Routing\Route\IRoute::getAction()
-	 */
-	public function getAction ( ): string {
-		return $this->action;
-	}
-
-	/**
-	 *
 	 * @param IUri $uri
 	 */
-	private function setUri ( IUri $uri ) {
+	final public function setUri ( IUri $uri ) {
 		$this->uri = $uri;
 	}
 
@@ -240,11 +142,4 @@ abstract class Route extends Component implements IRoute {
 		return $this->isTabAction( $this->getAction() );
 	}
 
-	/**
-	 *
-	 * @return boolean
-	 */
-	public function methodExists ( ) {
-		return method_exists( $this->getController(), $this->getAction() );
-	}
 }

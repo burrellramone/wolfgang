@@ -3,7 +3,7 @@
 namespace Wolfgang\Auth;
 
 use Wolfgang\Interfaces\Controller\IController;
-use Wolfgang\Interfaces\Routing\Route\IRoute;
+use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\Message\HTTP\UnauthorizedException;

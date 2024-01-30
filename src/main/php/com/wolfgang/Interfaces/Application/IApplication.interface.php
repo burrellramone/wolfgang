@@ -2,7 +2,7 @@
 
 namespace Wolfgang\Interfaces\Application;
 
-use Wolfgang\Interfaces\Routing\Route\IRoute;
+use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Interfaces\Message\IMessage;
 use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Message\IRequest;

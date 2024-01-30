@@ -3,11 +3,12 @@
 namespace Wolfgang\Auth;
 
 use Wolfgang\Interfaces\Controller\IController;
-use Wolfgang\Interfaces\Routing\Route\IRoute;
+use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\UnauthorizedException;
 use Wolfgang\Interfaces\Controller\ICliController;
+use Wolfgang\Interfaces\Message\CLI\IRequest as ICliRequest;
 
 /**
  * Controller authentication component. This class authorizes access to an api controller within the
@@ -46,7 +47,9 @@ final class CliController extends Controller {
 	 * @see \Wolfgang\Auth\Controller::authenticate()
 	 */
 	public function authenticate ( IRequest $request, IRoute $route ): bool {
-		throw new UnauthorizedException( "Implement this shit" );
+		if ( ! ($request instanceof ICliRequest) ) {
+			throw new InvalidArgumentException( 'Request is not an instance of the Wolfgang\Interfaces\Message\CLI\IRequest' );
+		}
 
 		return true;
 	}

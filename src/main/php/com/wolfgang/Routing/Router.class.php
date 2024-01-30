@@ -5,8 +5,8 @@ namespace Wolfgang\Routing;
 use Wolfgang\Interfaces\Routing\IRouter;
 use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Application\IApplication;
-use Wolfgang\Interfaces\Routing\Route\IRoute;
-use Wolfgang\Interfaces\Message\HTTP\IRequest;
+use Wolfgang\Interfaces\Routing\IRoute;
+use Wolfgang\Interfaces\Message\IRequest;
 
 /**
  *
@@ -59,23 +59,6 @@ abstract class Router extends Component implements IRouter , ISingleton {
 	 * @return IRoute
 	 */
 	public abstract function route ( IRequest $request ): IRoute;
-
-	/**
-	 *
-	 * {@inheritdoc}
-	 *
-	 * @see \Wolfgang\Interfaces\Routing\IRouter::addRoute()
-	 */
-	abstract public function addRoute ( IRoute $route );
-
-	/**
-	 *
-	 * @return array
-	 */
-	public function getRoutes ( ): \ArrayObject {
-		return $this->routes;
-
-	}
 
 	/**
 	 *
