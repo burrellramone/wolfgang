@@ -3,6 +3,10 @@
 	<target name="full-build" depends="composer-self-update,composer,phplint,phpstan,phpunit,phploc,clean,prepare,phpab,phpdoc" description="Perform static analysis, run tests, and generate project documentation.">
         <echo message="Full Build Complete"/>
     </target>
+
+	<target name="full-build-nodoc" depends="composer-self-update,composer,phplint,phpstan,phpunit,phploc,clean,prepare,phpab" description="Like full-build but without generating documentation">
+        <echo message="Full Build wo Documentation Complete"/>
+    </target>
 	
 	<property name="app_version" value="0.1.0"/>
 	<property name="php" value="/usr/bin/php"/>
