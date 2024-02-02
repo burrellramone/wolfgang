@@ -171,7 +171,7 @@ final class Context extends Component implements IContext , ISingleton {
 			if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
 				$this->skin = new Skin($skins['cli']);
 			} else {
-				$domain = $_SERVER[ 'HTTP_HOST' ];
+				$domain = strtok($_SERVER['HTTP_HOST'], ':');
 
 				foreach($skins as $key => $skin){
 					if($key == 'cli'){
