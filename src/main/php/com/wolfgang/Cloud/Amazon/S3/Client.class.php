@@ -31,14 +31,14 @@ final class Client extends Component {
 		
 		try {
 			$this->s3_client = new S3Client( [ 
-					'version' => 'latest',
-					'region' => 'us-east-1',
-					'endpoint' => $tenant->getProtocol() . '://' . $tenant->getHostname() . ':' . $tenant->getPort(),
-					'use_path_style_endpoint' => true,
-					'credentials' => [ 
-							'key' => MinioConfig::get( 'access_key' ),
-							'secret' => MinioConfig::get( 'secret_key' )
-					]
+				'region' => 'us-east-1',
+				'version' => 'latest',
+				'endpoint' => $tenant->getProtocol() . '://' . $tenant->getHostname() . ':' . $tenant->getPort(),
+				'use_path_style_endpoint' => true,
+				'credentials' => [ 
+					'key' => MinioConfig::get( 'access_key' ),
+					'secret' => MinioConfig::get( 'secret_key' ),
+				]
 			] );
 			
 			$this->listBuckets();

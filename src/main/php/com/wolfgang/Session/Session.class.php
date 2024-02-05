@@ -5,7 +5,6 @@ namespace Wolfgang\Session;
 use Wolfgang\Interfaces\Session\ISession;
 use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Session\ISessionHandler;
-use Wolfgang\Config\Session as SessionConfig;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\IllegalArgumentException;
 use Wolfgang\Interfaces\Model\IUser;
@@ -18,7 +17,7 @@ use Wolfgang\Application\Context;
  * @uses Wolfgang\Config\Session
  * @since Version 0.1.0
  */
-final class Session extends Component implements ISingleton , ISession {
+final class Session extends Component implements ISession {
 
 	/**
 	 *
@@ -55,24 +54,24 @@ final class Session extends Component implements ISingleton , ISession {
 	 *
 	 * @param string $kind
 	 */
-	protected function __construct ( string $kind ) {
-		$this->setKind( $kind );
+	protected function __construct ( array $options ) {
 		parent::__construct();
-	}
 
-	/**
-	 *
-	 * {@inheritdoc}
-	 * @see \Wolfgang\Component::init()
-	 */
-	protected function init ( ) {
-		parent::init();
+		if( !isset($options['kind']) ){
+			throw new IllegalArgumentException("Session kind session option not provided");
+		}
+
+		$this->setKind( $options['kind'] );
 
 		$handler = null;
 
 		switch ( $this->getKind() ) {
 			case ISession::KIND_COOKIE :
-				$handler = new CookieSessionHandler();
+				if( !isset($options['domain']) ){
+					throw new IllegalArgumentException("Session domain session option not provided");
+				}
+
+				$handler = new CookieSessionHandler( $options['domain'] );
 				break;
 
 			case ISession::KIND_CACHE :
@@ -92,13 +91,10 @@ final class Session extends Component implements ISingleton , ISession {
 		$this->start();
 	}
 
-	/**
-	 *
-	 * @return ISession
-	 */
-	public static function getInstance ( ): ISession {
+
+	public static function create( array $options ): Session {
 		if ( empty( self::$instance ) ) {
-			self::$instance = new Session( SessionConfig::get( 'kind' ) );
+			self::$instance = new Session( $options );
 		}
 		return self::$instance;
 	}

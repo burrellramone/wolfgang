@@ -25,23 +25,28 @@ final class Manager extends Component implements ISingleton {
 	protected function __construct ( ) {
 		parent::__construct();
 	}
-	
 	/**
-	 *
-	 * {@inheritdoc}
-	 * @see \Wolfgang\Component::init()
-	 */
-	protected function init ( ) {
-		parent::init();
-		
-		$this->session = Session::getInstance();
-	}
-	
-	/**
-	 *
+	 * @param string $kind
+	 * @param array $options
 	 * @return ISession
 	 */
-	public function getSession ( ): ISession {
+	public function createSession(string $kind, array $options = array()){
+		$this->session = Session::create([
+			'kind' => $kind,
+			'domain' => $options['domain']??null,
+		]);
+
 		return $this->session;
+	} 
+
+	/**
+	 * @return ISession
+	 */
+	public function getSession (  ): ?ISession {
+		if( $this->session ) {
+			return $this->session;
+		}
+
+		return null;
 	}
 }

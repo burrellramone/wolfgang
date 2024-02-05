@@ -71,10 +71,9 @@ final class Connection extends DatabaseConnection implements IMySQLConnection {
 		
 		$sql = $this->replaceSQLMacros( $sql );
 		$result = $this->connection->query( $sql );
-		
+
 		if ( $this->connection->error ) {
-			echo $sql;
-			throw new SQLException( "Error: {$this->connection->errno} {$this->connection->error} Query: {$sql}" );
+			throw new SQLException( "Error: {$this->connection->errno} {$this->connection->error} Query: {$sql}", $this->connection->errno );
 		}
 		
 		if ( ($result instanceof \mysqli_result) ) {

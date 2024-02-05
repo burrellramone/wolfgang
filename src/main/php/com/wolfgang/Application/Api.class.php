@@ -5,7 +5,7 @@ namespace Wolfgang\Application;
 use Error;
 use Exception;
 
-//
+//Wolfgang
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Interfaces\Message\IMessage;
 use Wolfgang\Interfaces\Message\IResponse;
@@ -31,11 +31,12 @@ use Wolfgang\Interfaces\Network\IUri;
 
 /**
  * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @abstract
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\Application\IApi
  * @since Version 0.1.0
  */
-final class Api extends Application implements IApi {
+abstract class Api extends Application implements IApi {
 
 	/**
 	 *
@@ -49,14 +50,6 @@ final class Api extends Application implements IApi {
 		parent::__construct( IApplication::KIND_API, $context);
 	}
 
-	final public static function getInstance() : ISingleton {
-		if ( self::$instance == null ) {
-			self::$instance = new static(Context::getInstance());
-		}
-
-		return self::$instance;
-	}
-	
 	/**
 	 *
 	 * {@inheritdoc}
@@ -157,7 +150,7 @@ final class Api extends Application implements IApi {
 	public function respond ( $message = null): ?IResponse {
 		$error = null;
 
-		if ( ($message instanceof \Exception) || ($message instanceof \Error) || (is_string( $message )) ) {
+		if ( ($message instanceof Exception) || ($message instanceof Error) || (is_string( $message )) ) {
 			if ( is_string( $message ) ) {
 				$message = new ComponentException( $message );
 				Logger::getLogger()->error( $message );

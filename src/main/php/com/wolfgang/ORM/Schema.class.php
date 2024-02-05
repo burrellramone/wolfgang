@@ -304,7 +304,7 @@ final class Schema extends Component implements IDatabaseSchema {
 					$getter_method = Inflector::getMethodify( $column_name );
 
 					if ( ! $getter_method || ! $model_reflection->hasMethod( $getter_method ) ) {
-						throw new ORMException( "Property '{$column_name}' of class '{$model->getModelType()}' is inaccessible in use for schema write. Implement getter method for property." );
+						throw new ORMException( "Property '{$column_name}' of class '{$model->getModelType()}' is inaccessible in use for schema write. Implement getter method for the property." );
 					}
 
 					$value = call_user_func( array (
@@ -433,8 +433,6 @@ final class Schema extends Component implements IDatabaseSchema {
 		}
 
 		$instance->sourceDataWrite( $result->current() );
-
-		$instance->postSourceDataWrite();
 
 		$model_manager->put( $instance );
 

@@ -15,8 +15,32 @@ use Wolfgang\Application\Application;
  */
 final class CookieSessionHandler extends Component implements ISessionHandler {
 	
-	public function __construct ( ) {
+	/**
+	 * @var string The (sub)domain that the cookie is available to.
+	 */
+	private $domain;
+
+	/**
+	 * @param string $domain The (sub)domain that the cookies that are written is available to.
+	 */
+	public function __construct ( string $domain ) {
 		parent::__construct();
+
+		$this->setDomain($domain);
+	}
+
+	/**
+	 * @param string $domain
+	 */
+	private function setDomain( string $domain ):void{
+		$this->domain = $domain;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDomain():string {
+		return $this->domain;
 	}
 	
 	/**
@@ -56,7 +80,7 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 			return true;
 		}
 		
-		if ( ! Cookie::write( $session_id, $session_data, time() + YEAR_IN_SECONDS, '/', Application::getInstance()->getContext()->getSkin()->getSkinDomain()->getDomain() ) ) {
+		if ( ! Cookie::write( $session_id, $session_data, time() + YEAR_IN_SECONDS, '/', $this->getDomain() ) ) {
 			throw new SessionException( "Failed to write session data for session id {$session_id}" );
 		}
 		

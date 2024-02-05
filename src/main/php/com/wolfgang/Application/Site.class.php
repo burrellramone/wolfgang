@@ -22,21 +22,14 @@ use Wolfgang\Interfaces\Network\IUri;
 
 /**
  * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @abstract
  * @since Version 0.1.0
  */
-final class Site extends Application implements ISite {
+abstract class Site extends Application implements ISite {
 	//use TSingleton;
 
 	protected function __construct ( IContext $context ) {
 		parent::__construct( IApplication::KIND_SITE, $context);
-	}
-
-	final public static function getInstance() : ISingleton {
-		if ( self::$instance == null ) {
-			self::$instance = new Site(Context::getInstance());
-		}
-
-		return self::$instance;
 	}
 
 	/**
@@ -153,7 +146,7 @@ final class Site extends Application implements ISite {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Application\IApplication::execute()
 	 */
-	public function execute ( IMessage $request ): IResponse {
+	public function execute ( IRequest $request ): IResponse {
 		if ( ! ($request instanceof IHttpRequest) ) {
 			throw new InvalidArgumentException( "Request must implement Wolfgang\Interfaces\Message\IRequest" );
 		}
@@ -163,6 +156,7 @@ final class Site extends Application implements ISite {
 		$this->setRequest( $request );
 
 		try {
+			$e = null;
 			$templater = Templater::getInstance();
 			$driver_manager = $this->getDriverManager();
 			$driver_manager->begin();
@@ -178,18 +172,21 @@ final class Site extends Application implements ISite {
 			}
 		} catch ( HTTPException $e ) {
 			$this->response->setStatusCode( $e->getHttpCode() );
-			$this->response->setBody( $e->getMessage() . "<br/>" . $e->getTraceAsString());
-
-			$templater->assign("e", $e);
+			$this->response->setBody( $e->getMessage() . "<br/><br/>" . $e->getTraceAsString());
 			Logger::getLogger()->error( $e );
 		} catch ( \SmartyException $e ) {
 			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
-			$this->response->setBody( $e->getMessage() . "<br/>" . $e->getTraceAsString());
+			$this->response->setBody( $e->getMessage() . "<br/><br/>" . $e->getTraceAsString());
 			Logger::getLogger()->error( $e );
 		} catch ( \Exception $e ) {
 			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
-			$this->response->setBody( $e->getMessage() . "<br/>" . $e->getTraceAsString());
+			$this->response->setBody( $e->getMessage() . "<br/><br/>" . $e->getTraceAsString());
 			Logger::getLogger()->error( $e );
+		} finally {
+			if($e){
+				throw $e;
+			}
+			
 		}
 
 		$this->onAfterExec();

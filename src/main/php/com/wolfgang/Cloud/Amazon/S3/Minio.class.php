@@ -31,6 +31,10 @@ final class Minio extends Component {
 		return null;
 	}
 
+	public static function createTenantFromArray( array $tenant ):MinioTenant{
+		return Minio::createTenant( $tenant['id'], $tenant['protocol'], $tenant['host'], $tenant['port'] );
+	}
+
 	/**
 	 *
 	 * @param int $id

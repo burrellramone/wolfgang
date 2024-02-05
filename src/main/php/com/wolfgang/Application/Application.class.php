@@ -17,6 +17,7 @@ use Wolfgang\Util\Filesystem;
 use Wolfgang\Config\App as AppConfig;
 use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Config\Curl as CurlConfig;
+use Wolfgang\Config\Session as SessionConfig;
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Util\Logger\Logger;
 use Wolfgang\Exceptions\InvalidArgumentException;
@@ -107,6 +108,11 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 	private $profile_run_uri;
 
 	/**
+	 * @var string
+	 */
+	private $temporary_directory;
+
+	/**
 	 *
 	 * @var array
 	 */
@@ -151,7 +157,13 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 	protected function init ( ) {
 		parent::init();
 
-		$this->setSession( SessionManager::getInstance()->getSession() );
+		$kind = SessionConfig::get( 'kind' );
+		$domain = $this->context->getSkin()->getSkinDomain()->getDomain();
+
+		$this->setSession( SessionManager::getInstance()->createSession( $kind, array(
+			'domain' => $domain
+		) ) );
+		
 		$this->setDispatcher( Dispatcher::getInstance() );
 		$this->setEventDispatcher( EventDispatcher::getInstance() );
 		$this->setDriverManager( DriverManager::getInstance() );
@@ -176,6 +188,10 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 	 * @return ISingleton
 	 */
 	public static function getInstance ( ): ISingleton {
+		if(self::$instance){
+			return self::$instance;
+		}
+
 		if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
 			return Cli::getInstance();
 		} else if ( preg_match( "/^api\./", $_SERVER[ 'HTTP_HOST' ] ) ) {
@@ -594,7 +610,7 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 		}, E_ALL );
 
 		$log_directory = AppConfig::get( 'directories.log_directory' );
-		$temporary_directory = AppConfig::get( 'directories.temporary_directory' );
+		$this->temporary_directory = AppConfig::get( 'directories.temporary_directory' );
 		$templating_temporary_directory = AppConfig::get( 'directories.templating_temporary_directory' );
 		$xhprof_temporary_directory = AppConfig::get( 'directories.xhprof_temporary_directory' );
 		$uploads_temporary_directory = AppConfig::get( 'directories.uploads_temporary_directory' );
@@ -605,9 +621,9 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 			exec( "chown www-data:www-data -R " . $log_directory );
 		}
 
-		if ( ! Filesystem::exists( $temporary_directory ) ) {
-			Filesystem::makeDirectory( $temporary_directory, 0777 );
-			exec( "chown www-data:www-data -R " . $temporary_directory );
+		if ( ! Filesystem::exists( $this->temporary_directory ) ) {
+			Filesystem::makeDirectory( $this->temporary_directory, 0777 );
+			exec( "chown www-data:www-data -R " . $this->temporary_directory );
 		}
 
 		if ( ! Filesystem::exists( $templating_temporary_directory ) ) {
@@ -630,7 +646,7 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 			exec( "chown www-data:www-data -R " . $curl_temporary_directory );
 		}
 
-		exec( "chmod 777 -R " . $temporary_directory );
+		exec( "chmod 777 -R " . $this->temporary_directory );
 
 		$this->registerShutdownFunction( function ( $application ) {
 			// Rollback all transactions that might have been left open
@@ -638,5 +654,12 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 				$connection->rollback();
 			}
 		}, $this );
+	}
+
+	/**
+	 * @var 
+	 */
+	public function getTemporaryDirectory():string {
+		return $this->temporary_directory;
 	}
 }

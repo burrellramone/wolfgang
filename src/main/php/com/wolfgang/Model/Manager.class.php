@@ -91,8 +91,6 @@ final class Manager extends Component implements ISingleton {
 
 	/**
 	 *
-	 * @param string $type
-	 * @param string $key
 	 * @param IModel $model
 	 * @throws IllegalArgumentException
 	 */
@@ -111,18 +109,21 @@ final class Manager extends Component implements ISingleton {
 
 		$columns = $model->getTable()->getColumns();
 
-		$state = [ ];
+		$state_raw = [ ];
 
 		foreach ( $columns as $column ) {
-			$state[ $column->getName() ] = $model->{$column->getName()};
+			$state_raw[ $column->getName() ] = $model->{$column->getName()};
 		}
 
-		$state = gzcompress( Serializer::serialize( $state ) );
+		$state = gzcompress( Serializer::serialize( $state_raw ) );
 
 		$this->models[ $type ][ $id ] = [ 
 				'instance' => $model,
-				'put_state' => $state
+				'put_state' => $state,
+				'put_state_raw' => $state_raw,
 		];
+
+		$model->postModelManagerPut();
 	}
 
 	/**

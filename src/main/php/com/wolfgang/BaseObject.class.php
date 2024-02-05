@@ -28,12 +28,6 @@ abstract class BaseObject {
 	 */
 	private $hashCode;
 
-	/**
-	 *
-	 * @var \ReflectionClass
-	 */
-	private $reflection;
-
 	public function __construct ( ) {
 		$this->init();
 	}
@@ -68,9 +62,9 @@ abstract class BaseObject {
 	 */
 	public static function __callStatic ( $method, $arguments ) {
 		if ( method_exists( get_called_class(), $method ) ) {
-			throw new \Wolfgang\Exceptions\Exception( "Illegal access to static method '{$method}'" );
+			throw new Exception( "Illegal access to static method '{$method}'" );
 		} else {
-			throw new \Wolfgang\Exceptions\NoSuchMethodException( "Method '{$method}' of the class '" . get_called_class() . "' does not exist" );
+			throw new NoSuchMethodException( "Method '{$method}' of the class '" . get_called_class() . "' does not exist" );
 		}
 	}
 
@@ -96,11 +90,9 @@ abstract class BaseObject {
 	 * @return ReflectionClass
 	 */
 	public function getReflection ( ): ReflectionClass {
-		if ( ! $this->reflection ) {
-			$this->reflection = new ReflectionClass( $this );
-		}
+		$reflection = new ReflectionClass( $this );
 
-		return $this->reflection;
+		return $reflection;
 	}
 
 	public function __destruct ( ) {

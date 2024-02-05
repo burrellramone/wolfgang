@@ -154,6 +154,15 @@ abstract class Model extends Component implements IModel {
 	}
 
 	/**
+	 * Called after the instance has been put into the model manager
+	 * 
+	 * @return IModel
+	 */
+	public function postModelManagerPut (): IModel {
+		return $this;
+	}
+
+	/**
 	 *
 	 * @param string $method
 	 * @param array $arguments
@@ -344,6 +353,7 @@ abstract class Model extends Component implements IModel {
 		$model_reflection = $this->getReflection();
 
 		foreach ( $data as $column_name => $value ) {
+			
 			$column_name = strtolower( $column_name );
 
 			$column = $table->getColumn( $column_name );
@@ -390,6 +400,8 @@ abstract class Model extends Component implements IModel {
 				}
 			}
 		}
+
+		$this->postSourceDataWrite();
 
 		return $this;
 	}

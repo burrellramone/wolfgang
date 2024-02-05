@@ -3,7 +3,6 @@
 namespace Wolfgang\Interfaces\Application;
 
 use Wolfgang\Interfaces\Routing\IRoute;
-use Wolfgang\Interfaces\Message\IMessage;
 use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Interfaces\Routing\IRouter;
@@ -51,10 +50,10 @@ interface IApplication {
 	
 	/**
 	 *
-	 * @param IMessage $message
+	 * @param IRequest $message
 	 * @return IResponse
 	 */
-	public function execute ( IMessage $message ): IResponse;
+	public function execute ( IRequest $message ): IResponse;
 	
 	/**
 	 * Sends a response from the application. Depending under what circumstance this method was

@@ -26,7 +26,7 @@ use Wolfgang\Routing\CliRouter;
  * @uses Wolfgang\Interfaces\ISingleton
  * @since Version 0.1.0
  */
-final class Cli extends Application {
+abstract class Cli extends Application {
 	//use TSingleton;
 
 	/**
@@ -35,14 +35,6 @@ final class Cli extends Application {
 	 */
 	protected function __construct (IContext $context) {
 		parent::__construct( IApplication::KIND_CLI, $context);
-	}
-
-	final public static function getInstance() : ISingleton {
-		if ( self::$instance == null ) {
-			self::$instance = new static(Context::getInstance());
-		}
-
-		return self::$instance;
 	}
 
 	/**

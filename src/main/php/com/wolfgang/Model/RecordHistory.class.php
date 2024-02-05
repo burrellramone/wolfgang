@@ -6,8 +6,9 @@ use Wolfgang\Interfaces\Model\IModel;
 use Wolfgang\Interfaces\Model\IEncrypted;
 use Wolfgang\Traits\Model\TEncrypted;
 use Wolfgang\Encoding\Base64;
+use Wolfgang\Date\DateTime;
 use Wolfgang\Serialization\Serializer;
-use Wolfgang\Session\Session;
+use Wolfgang\Session\Manager as SessionManager;
 
 /**
  *
@@ -41,6 +42,12 @@ final class RecordHistory extends Model implements IEncrypted {
 	 * @var string
 	 */
 	public $record;
+
+	/**
+	 *
+	 * @var DateTime
+	 */
+	protected $datetime_created;
 	
 	/**
 	 *
@@ -58,6 +65,8 @@ final class RecordHistory extends Model implements IEncrypted {
 		if ( ! empty( $model_instance ) ) {
 			$this->setModelInstance( $model_instance );
 		}
+
+		$this->datetime_created = new DateTime();
 	}
 	
 	/**
@@ -91,7 +100,7 @@ final class RecordHistory extends Model implements IEncrypted {
 	 * @return \Wolfgang\Model\RecordHistory
 	 */
 	private function setModelInstance ( IModel $model_instance ) {
-		$user_id = Session::getInstance()->get( 'user_id' );
+		$user_id = SessionManager::getInstance()->getSession()->get( 'user_id' );
 		
 		if ( $user_id ) {
 			$this->model_instance = $model_instance;
@@ -102,6 +111,15 @@ final class RecordHistory extends Model implements IEncrypted {
 		}
 		
 		return $this;
+	}
+
+	/**
+	 *
+	 *
+	 * @see \Interfaces\Model\IModel::getCreateDate()
+	 */
+	public function getDatetimeCreated ( ): DateTime {
+		return $this->datetime_created;
 	}
 	
 	/**
