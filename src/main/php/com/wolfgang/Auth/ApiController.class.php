@@ -8,6 +8,7 @@ use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\Message\HTTP\UnauthorizedException;
 use Wolfgang\Session\Session;
+use Wolfgang\Session\Manager as SessionManager;
 use Wolfgang\Util\Bots;
 use Wolfgang\Interfaces\Message\HTTP\IApiRequest;
 use Wolfgang\Interfaces\Controller\IApiController;
@@ -60,7 +61,7 @@ final class ApiController extends Controller {
 			return true;
 		}
 
-		if ( ! Session::getInstance()->get( 'user_id' ) ) {
+		if ( ! SessionManager::getInstance()->getSession()->get( 'user_id' ) ) {
 			if ( ! $this->isAllowed( $route->getAction() ) && empty( $request->getApiKey() ) ) {
 				throw new UnauthorizedException( "Unauthorized HTTP API request to {$request->getUri()}" );
 			}

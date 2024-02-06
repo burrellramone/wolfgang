@@ -113,4 +113,9 @@ interface IApplication {
 	 * @param IUri $uri
 	 */
 	public function redirect ( IUri $uri ): void;
+
+	/**
+	 * @return IApplication
+	 */
+	public static function getInstance ( ): IApplication;
 }

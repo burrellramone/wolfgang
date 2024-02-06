@@ -215,7 +215,6 @@ final class ColumnExpression extends Expression implements IColumnExpression {
 				return "AES_DECRYPT({$this->expression}, '{$encryption_key}')";
 			}
 		} catch ( \Exception $e ) {
-			die( $e->getMessage() );
 			Application::getInstance()->respond( $e );
 		}
 		

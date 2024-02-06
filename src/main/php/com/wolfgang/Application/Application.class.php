@@ -16,6 +16,7 @@ use Wolfgang\Dispatching\EventDispatcher;
 use Wolfgang\Util\Filesystem;
 use Wolfgang\Config\App as AppConfig;
 use Wolfgang\Interfaces\Routing\IRoute;
+use Wolfgang\Exceptions\Exception;
 use Wolfgang\Config\Curl as CurlConfig;
 use Wolfgang\Config\Session as SessionConfig;
 use Wolfgang\Interfaces\Application\IContext;
@@ -31,7 +32,7 @@ use Wolfgang\Interfaces\Network\IUri;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
-abstract class Application extends Component implements ISingleton , IApplication {
+abstract class Application extends Component implements IApplication {
 
 	/**
 	 *
@@ -185,20 +186,14 @@ abstract class Application extends Component implements ISingleton , IApplicatio
 
 	/**
 	 *
-	 * @return ISingleton
+	 * @return IApplication
 	 */
-	public static function getInstance ( ): ISingleton {
+	public static function getInstance ( ): IApplication {
 		if(self::$instance){
 			return self::$instance;
 		}
 
-		if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
-			return Cli::getInstance();
-		} else if ( preg_match( "/^api\./", $_SERVER[ 'HTTP_HOST' ] ) ) {
-			return Api::getInstance();
-		} else {
-			return Site::getInstance();
-		}
+		throw new Exception("Application not instantiated.");
 	}
 
 	/**

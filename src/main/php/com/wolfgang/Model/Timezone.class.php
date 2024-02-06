@@ -24,7 +24,7 @@ final class Timezone extends Model implements ITimezoneModel , ITimezone {
 	public $country_code;
 	public $comments;
 	public $notes;
-	public $create_date;
+	public $datetime_created;
 
 	/**
 	 *
