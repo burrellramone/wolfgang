@@ -458,9 +458,9 @@ abstract class Model extends Component implements IModel {
 	 * @return IModel
 	 */
 	private function saveAsHistory ( ) {
-		if ( ! Application::getInstance()->isJournaling() ) {
-			return $this;
-		}
+		//if ( ! Application::getInstance()->isJournaling() ) {
+		//	return $this;
+		//}
 
 		if ( get_class( $this ) != 'Wolfgang\Model\RecordHistory' ) {
 			$record_history = new RecordHistory( $this );
