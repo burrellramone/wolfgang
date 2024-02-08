@@ -332,7 +332,7 @@ final class Smarty extends Templater implements ITemplater {
 			$this->assign( 'stylesheet', $stylesheet );
 		} else {
 			// Defailt Stylesheet
-			$this->assign( 'stylesheet', WOLFGANG_RESOURCES_DIR . 'css/stylesheet-default.css' );
+			$this->assign( 'stylesheet', null);
 		}
 
 		if ( file_exists( $script_file ) ) {

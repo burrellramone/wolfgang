@@ -136,6 +136,16 @@ final class Curl extends Component implements ISingleton {
 		
 		return $output;
 	}
+
+	/**
+	 * Gets the info of the last CURL request
+	 * 
+	 * @see https://www.php.net/manual/function.curl-getinfo.php
+	 * @return array The info of the last curl request
+	 */
+	public function getInfo(): array {
+		return $this->info;
+	}
 	
 	/**
 	 * Performs a POST HTTP request
