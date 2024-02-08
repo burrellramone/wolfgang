@@ -41,7 +41,7 @@ final class HttpRoute extends Route {
 		$application = Application::getInstance();
 		$context = $application->getContext();
 		$app = $context->getApplication();
-		$controller = $context->getControllerName();
+		$controller = $context->getController();
 		$action = $context->getAction();
 
 		$applicationKind = Strings::ucwords( $application->getKind() );
@@ -59,9 +59,9 @@ final class HttpRoute extends Route {
 			] );
 
 			if ( ! $this->isTabAction( $action ) && ! method_exists( $controllerInstance, $action ) ) {
-				throw new NoSuchActionException( "Controller '{$class}' has no such action called '{$action}'" );
+				throw new NotFoundException( "Controller '{$class}' has no such action called '{$action}'" );
 			}
-		} catch ( NoSuchActionException $e1 ) {
+		} catch ( NotFoundException $e1 ) {
 			try {
 				$creator = new \ReflectionClass( $commonClass );
 				$controllerInstance = $creator->newInstanceArgs( [ 
@@ -69,7 +69,7 @@ final class HttpRoute extends Route {
 						$response
 				] );
 			} catch ( \Exception $e ) {
-				throw new RoutingException( "Common controller class '{$controller}' does not exist.", 0, $e1 );
+				throw new NotFoundException( "Common controller class '{$controller}' does not exist.", 0, $e1 );
 			}
 		} catch ( \ReflectionException $e ) {
 			try {
@@ -81,7 +81,7 @@ final class HttpRoute extends Route {
 				] );
 
 				if ( ! $this->isTabAction( $action ) && ! method_exists( $controllerInstance, $action ) ) {
-					throw new NoSuchActionException( "Controller '{$class}' has no such action '{$action}'", 0, $e );
+					throw new NotFoundException( "Controller '{$class}' has no such action '{$action}'", 0, $e );
 				}
 			} catch ( \ReflectionException $e1 ) {
 				throw new NotFoundException( $e->getMessage(), 0, $e1 );
@@ -89,7 +89,7 @@ final class HttpRoute extends Route {
 		}
 
 		if ( ! $this->isTabAction( $action ) && ! method_exists( $controllerInstance, $action ) ) {
-			throw new NoSuchActionException( "Controller '{$class}' has no such action '{$action}'" );
+			throw new NotFoundException( "Controller '{$class}' has no such action '{$action}'" );
 		}
 
 		$this->setController( $controllerInstance );

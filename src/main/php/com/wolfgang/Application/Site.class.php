@@ -2,6 +2,12 @@
 
 namespace Wolfgang\Application;
 
+//PHP
+use Exception;
+use Error;
+use ErrorException;
+
+//Wolfgang
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Interfaces\Application\IApplication;
 use Wolfgang\Interfaces\Routing\IRouter;
@@ -171,22 +177,17 @@ abstract class Site extends Application implements ISite {
 				$this->response->setBody( $templater->fetch() );
 			}
 		} catch ( HTTPException $e ) {
-			$this->response->setStatusCode( $e->getHttpCode() );
-			$this->response->setBody( $e->getMessage() . "<br/><br/>" . $e->getTraceAsString());
 			Logger::getLogger()->error( $e );
-		} catch ( \SmartyException $e ) {
-			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
-			$this->response->setBody( $e->getMessage() . "<br/><br/>" . $e->getTraceAsString());
+		} catch ( Exception $e ) {
 			Logger::getLogger()->error( $e );
-		} catch ( \Exception $e ) {
-			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
-			$this->response->setBody( $e->getMessage() . "<br/><br/>" . $e->getTraceAsString());
+		} catch ( Error $e ) {
+			Logger::getLogger()->error( $e );
+		} catch ( ErrorException $e ) {
 			Logger::getLogger()->error( $e );
 		} finally {
 			if($e){
 				throw $e;
 			}
-			
 		}
 
 		$this->onAfterExec();
