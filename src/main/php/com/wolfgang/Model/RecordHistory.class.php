@@ -100,7 +100,12 @@ final class RecordHistory extends Model implements IEncrypted {
 	 * @return \Wolfgang\Model\RecordHistory
 	 */
 	private function setModelInstance ( IModel $model_instance ) {
-		$user_id = SessionManager::getInstance()->getSession()->get( 'user_id' );
+		$user_id = null;
+		$session = SessionManager::getInstance()->getSession();
+
+		if( $session ) {
+			$user_id = $session->get('user_id');
+		}
 		
 		if ( $user_id ) {
 			$this->model_instance = $model_instance;

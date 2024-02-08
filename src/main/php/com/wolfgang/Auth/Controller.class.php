@@ -192,7 +192,7 @@ class Controller extends BaseComponent implements IControllerAuthenticator {
 		if ( ! $this->allowsAll() && ! $this->isAllowed( $route->getAction() ) && empty( $this->getUser() ) ) {
 			$application = Application::getInstance();
 			$application->addError( "Not authorized to access '{$request->getUri()}'" );
-			$application->redirect( new Uri( "/Account/login/" . Base64::encode( $request->getUri() ) ) );
+			$application->redirect( new Uri( "/account/login/" . Base64::encode( $request->getUri() ) ) );
 		}
 
 		if ( Bots::isBot() && ! Bots::isAllowedBot() ) {
