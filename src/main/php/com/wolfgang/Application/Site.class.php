@@ -20,8 +20,6 @@ use Wolfgang\Exceptions\Message\HTTP\Exception as HTTPException;
 use Wolfgang\Util\Logger\Logger;
 use Wolfgang\Routing\HttpRouter;
 use Wolfgang\Message\HTTP\Response as HttpResponse;
-use Wolfgang\Interfaces\Message\IMessage;
-use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Network\IUri;

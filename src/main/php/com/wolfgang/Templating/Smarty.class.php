@@ -228,9 +228,9 @@ final class Smarty extends Templater implements ITemplater {
 			$skin_name = $skin->getName();
 			$temporary_directory = AppConfig::get( 'directories.temporary_directory' );
 
-			$this->smarty->setCompileDir( "{$temporary_directory}smarty/templates_c/{$skin_name}" );
-			$this->smarty->setCacheDir( "{$temporary_directory}smarty/cache/{$skin_name}" );
-			$this->smarty->setConfigDir( "{$temporary_directory}smarty/configs/{$skin_name}" );
+			$this->smarty->setCompileDir( "{$temporary_directory}/smarty/templates_c/{$skin_name}" );
+			$this->smarty->setCacheDir( "{$temporary_directory}/smarty/cache/{$skin_name}" );
+			$this->smarty->setConfigDir( "{$temporary_directory}/smarty/configs/{$skin_name}" );
 			
 		}
 	}
