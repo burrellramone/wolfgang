@@ -304,6 +304,7 @@ final class Smarty extends Templater implements ITemplater {
 		}
 
 		// Determine CSS Stylesheet
+		$app = strtolower($app);
 		// Seek minified version first
 		$stylesheet = PUBLIC_DIRECTORY . 'css/' . $app . '/' . 'sections/' . $controller . '/' . $action . '.min.css';
 
