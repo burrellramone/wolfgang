@@ -16,6 +16,7 @@ use Wolfgang\Interfaces\Message\IMessage;
 use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Network\IUri;
+use Wolfgang\Exceptions\UnsupportedOperationException;
 use Wolfgang\Message\CLI\Response as CliResponse;
 use Wolfgang\Message\CLI\Request as CliRequest;
 use Wolfgang\Routing\CliRouter;
@@ -98,7 +99,8 @@ abstract class Cli extends Application {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Application\Application::redirect()
 	 */
-	public function redirect ( IUri $uri ): void {
+	public function redirect ( IUri|string $uri ): void {
+		throw new UnsupportedOperationException();
 	}
 
 	/**

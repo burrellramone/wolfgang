@@ -572,7 +572,7 @@ abstract class Application extends Component implements IApplication {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Application\IApplication::redirect()
 	 */
-	abstract public function redirect ( IUri $uri ): void;
+	abstract public function redirect ( IUri|string $uri ): void;
 
 	/**
 	 *
@@ -656,5 +656,9 @@ abstract class Application extends Component implements IApplication {
 	 */
 	public function getTemporaryDirectory():string {
 		return $this->temporary_directory;
+	}
+
+	public function __destruct ( ) {
+		parent::__destruct();
 	}
 }

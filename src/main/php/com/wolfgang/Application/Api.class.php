@@ -138,7 +138,7 @@ abstract class Api extends Application implements IApi {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Application\Application::redirect()
 	 */
-	public function redirect ( IUri $uri ): void {
+	public function redirect ( IUri|string $uri ): void {
 		throw new UnsupportedOperationException();
 	}
 
@@ -240,5 +240,9 @@ abstract class Api extends Application implements IApi {
 
 			return $this->respond( $e );
 		}
+	}
+
+	public function __destruct ( ) {
+		parent::__destruct();
 	}
 }

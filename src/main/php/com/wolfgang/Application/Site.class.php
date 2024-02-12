@@ -100,7 +100,7 @@ abstract class Site extends Application implements ISite {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Application\Application::redirect()
 	 */
-	public function redirect ( IUri $uri ): void {
+	public function redirect ( IUri|string $uri ): void {
 		$_SESSION[ 'errors' ] = serialize( $this->getErrors() );
 		$_SESSION[ 'notices' ] = serialize( $this->getNotices() );
 		$_SESSION[ 'warnings' ] = serialize( $this->getWarnings() );
@@ -193,12 +193,11 @@ abstract class Site extends Application implements ISite {
 		return $this->response;
 	}
 
-	/**
-	 */
 	public function __destruct ( ) {
 		parent::__destruct();
 
 		$this->clearNotices();
 		$this->clearErrors();
+		$this->clearWarnings();
 	}
 }

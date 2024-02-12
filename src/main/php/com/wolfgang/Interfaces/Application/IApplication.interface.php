@@ -110,9 +110,9 @@ interface IApplication {
 	 * being run is of the kind 'cli' then execution will be redirected to another controller and
 	 * action within the cli application
 	 *
-	 * @param IUri $uri
+	 * @param IUri|string $uri
 	 */
-	public function redirect ( IUri $uri ): void;
+	public function redirect ( IUri|string $uri ): void;
 
 	/**
 	 * @return IApplication
