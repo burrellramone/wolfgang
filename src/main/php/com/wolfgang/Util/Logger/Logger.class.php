@@ -8,10 +8,8 @@ use Wolfgang\Interfaces\Logger\ILogger;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
- */
-
+* @since Version 0.1.0
+*/
 abstract class Logger extends Component implements ILogger {
 
 	/**

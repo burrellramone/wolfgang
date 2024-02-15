@@ -2,6 +2,9 @@
 
 namespace Wolfgang\SQL\Expression;
 
+use Stringable;
+
+//Wolfgang
 use Wolfgang\Exceptions\IllegalStateException;
 use Wolfgang\Util\LatLng;
 use Wolfgang\Application\Application;
@@ -66,13 +69,25 @@ final class StringExpression extends CharacterExpression {
 				if ( empty( $this->expression ) ) {
 					$expression = '(\'\')';
 				} else {
-					if ( is_int( $this->expression[ 0 ] ) || is_double( $this->expression[ 0 ] || is_float( $this->expression[ 0 ] ) ) ) {
-						$expression = "(" . implode( ',', $this->expression ) . ")";
-					} else if ( is_string( $this->expression[ 0 ] ) ) {
-						$expression = "('" . implode( "','", $this->expression ) . "')";
-					} else {
-						throw new \Exception( "Condition not implemented" );
+					if(isset( $this->expression[0] )){
+						if ( is_int( $this->expression[ 0 ] ) || is_double( $this->expression[ 0 ] || is_float( $this->expression[ 0 ] ) ) ) {
+							$expression = "(" . implode( ',', $this->expression ) . ")";
+						} else if ( is_string( $this->expression[ 0 ] ) ) {
+							$expression = "('" . implode( "','", $this->expression ) . "')";
+						} else if ( is_object( $this->expression[ 0 ] ) && ( $this->expression[ 0 ] instanceof Stringable) ) {
+							$a = array();
+							foreach($this->expression as $v) {
+								$a[] = (string)$v;
+							}
+
+							$expression = "('" . serialize( $a ) . "')";
+						} else {
+							throw new \Exception( "Condition not implemented" );
+						}
+					} else { //Associative array
+						$expression = "('" . serialize( $this->expression ) . "')";
 					}
+					
 				}
 			} else if ( is_object( $this->expression ) ) {
 				if ( ($this->expression instanceof LatLng) ) {

@@ -158,12 +158,14 @@ abstract class Application extends Component implements IApplication {
 	protected function init ( ) {
 		parent::init();
 
-		$kind = SessionConfig::get( 'kind' );
-		$domain = $this->context->getSkin()->getSkinDomain()->getDomain();
+		if(!$this->context->isCli()){
+			$kind = SessionConfig::get( 'kind' );
+			$domain = $this->context->getSkin()->getSkinDomain()->getDomain();
 
-		$this->setSession( SessionManager::getInstance()->createSession( $kind, array(
-			'domain' => $domain
-		) ) );
+			$this->setSession( SessionManager::getInstance()->createSession( $kind, array(
+				'domain' => $domain
+			) ) );
+		}		
 		
 		$this->setDispatcher( Dispatcher::getInstance() );
 		$this->setEventDispatcher( EventDispatcher::getInstance() );

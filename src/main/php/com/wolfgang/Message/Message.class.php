@@ -14,6 +14,11 @@ use Wolfgang\Traits\Message\TMessage;
 abstract class Message extends WolfgangComponent implements IMessage {
 	use TMessage;
 
+	/**
+	 * @var \stdClass
+	 */
+	protected $params;
+
 	public function __construct(){
 		parent::__construct();
 	}

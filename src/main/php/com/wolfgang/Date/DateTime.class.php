@@ -41,8 +41,12 @@ final class DateTime extends \DateTime {
 	 * {@inheritdoc}
 	 * @see DateTime::add()
 	 */
-	public function add ( DateInterval $interval ): PHPDateTime {
-		return parent::add( new DateInterval( $interval ) );
+	public function add ( DateInterval|string $interval ): PHPDateTime {
+		if(is_string($interval)){
+			return parent::add( DateInterval::createFromDateString( $interval ) );
+		} else {
+			return parent::add( $interval );
+		}
 	}
 
 	/**

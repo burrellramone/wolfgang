@@ -22,7 +22,7 @@ trait TMessage {
 	 *
 	 * @var array
 	 */
-	protected $headers = [ ];
+	protected array $headers = [ ];
 
 	/**
 	 *
@@ -64,5 +64,12 @@ trait TMessage {
 	 */
 	public function setHeader ( string $name, string $value ) {
 		$this->headers[ $name ] = $value;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getHeaders():array{
+		return $this->headers;
 	}
 }

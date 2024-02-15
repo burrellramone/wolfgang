@@ -4,6 +4,7 @@ namespace Wolfgang\Application;
 
 //PHP
 use Exception;
+use TypeError;
 
 //Wolfgang
 use Wolfgang\Exceptions\InvalidArgumentException;
@@ -13,7 +14,6 @@ use Wolfgang\Interfaces\Routing\IRouter;
 use Wolfgang\Exceptions\InvalidStateException;
 use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Interfaces\Message\IMessage;
-use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Network\IUri;
 use Wolfgang\Exceptions\UnsupportedOperationException;
@@ -28,7 +28,6 @@ use Wolfgang\Routing\CliRouter;
  * @since Version 0.1.0
  */
 abstract class Cli extends Application {
-	//use TSingleton;
 
 	/**
 	 *
@@ -123,6 +122,8 @@ abstract class Cli extends Application {
 
 			$driver_manager->commit();
 		} catch ( Exception $e ) {
+			$this->response->setBody($e->getMessage() . "\n\n" . $e->getTraceAsString());
+		} catch ( TypeError $e ) {
 			$this->response->setBody($e->getMessage() . "\n\n" . $e->getTraceAsString());
 		}
 

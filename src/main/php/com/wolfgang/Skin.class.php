@@ -16,6 +16,11 @@ final class Skin extends Component implements ISkin {
 
 	private $id;
 
+	/**
+	 * @var SkinDomain|null
+	 */
+	private $skin_domain;
+
 	public function __construct(array $definition) {
 		parent::__construct();
 
@@ -26,7 +31,9 @@ final class Skin extends Component implements ISkin {
 		$this->id = $definition['id'];
 		$this->name = $definition['name'];
 
-		$this->skin_domain = new SkinDomain($definition['skin_domain']);
+		if(!empty($definition['skin_domain'])){
+			$this->skin_domain = new SkinDomain($definition['skin_domain']);
+		}
 	}
 
 	public function getId():string|int {

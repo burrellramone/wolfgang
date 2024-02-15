@@ -2,6 +2,10 @@
 
 namespace Wolfgang\Model;
 
+//PHP
+use ArrayObject;
+
+//Wolfgang
 use Wolfgang\SQL\Statement\DML\SelectStatement;
 use Wolfgang\Interfaces\ORM\IQueryBuilder;
 use Wolfgang\Interfaces\Model\IModelList;
@@ -228,10 +232,10 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 * Deletes all the objects within this list and returns a reference to this instance
 	 *
 	 * @param boolean $hard Indicates whether to hard delete the opbjects within the list
-	 * @return boolean This method will always return true in the case that an exception is not
+	 * @return ModelList This method will always return the instance of itself unless an exception
 	 *         thrown within the process.
 	 */
-	public function delete ( ) {
+	public function delete ( ):ModelList {
 		$this->each( function ( IModel $model ) {
 			$model->delete();
 		} );
@@ -325,11 +329,15 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	}
 
 	/**
-	 * Gets an instance of the array object set for this instance
+	 * Gets an instance of the ArrayObject set for this instance
 	 *
-	 * @return \ArrayObject
+	 * @return ArrayObject The ArrayObject set of items loaded for this instance
 	 */
-	private function getObjects ( ) {
+	public function getObjects ( ):ArrayObject {
+		if ( ! $this->loaded ) {
+			$this->getObjectsFromStatement();
+		}
+
 		return $this->objects;
 	}
 
@@ -338,7 +346,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 * @access private
 	 * @return ModelList
 	 */
-	private function determineUnitClass ( ) {
+	private function determineUnitClass ( ): ModelList {
 		$this->unit_class = str_replace( "List", "", get_class( $this ) );
 		$this->unit_class_instance = ModelManager::getInstance()->create( $this->unit_class );
 		return $this;

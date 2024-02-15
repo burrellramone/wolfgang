@@ -345,8 +345,10 @@ abstract class Model extends Component implements IModel {
 	}
 
 	/**
-	 *
-	 * @param array $data
+	 * Writes data from the data source to this instance
+	 * 
+	 * @param array $data The data to write to this instance
+	 * @return IModel A reference to this instance
 	 */
 	protected function sourceDataWrite ( array $data ): IModel {
 		$table = $this->getTable();
@@ -385,7 +387,25 @@ abstract class Model extends Component implements IModel {
 				}
 
 				if ( $reflection_property->isPublic() || $reflection_property->isProtected() ) {
-					$this->{$column_name} = $value;
+					$type = $reflection_property->getType();
+
+					if( $type){
+						if($type->getName() == 'array'){
+							if($value){
+								$uvalue = unserialize($value);
+
+								if(!is_array($uvalue)){
+									throw new ModelException("Could not unserialize value '{$value}' to assign to object");
+								}
+
+								$this->{$column_name} = $uvalue;
+							} else {
+								$this->{$column_name} = [];
+							}
+						}
+					} else {
+						$this->{$column_name} = $value;
+					}
 				} else {
 					// Attempt to determine and call getter method for property
 					$setter_method = Inflector::setMethodify( $column_name );
@@ -449,6 +469,14 @@ abstract class Model extends Component implements IModel {
 	 * @return Model a reference to this instance
 	 */
 	public function delete ( ): IModel {
+		$this->getTable()->getSchema()->delete( $this );
+		return $this;
+	}
+
+	/**
+	 * @return IModel
+	 */
+	public function purge():IModel{
 		$this->getTable()->getSchema()->delete( $this );
 		return $this;
 	}

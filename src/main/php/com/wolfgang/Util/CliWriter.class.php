@@ -16,9 +16,17 @@ final class CliWriter extends Component {
 	public static $COLOR_BLUE = '34m';
 
 	public static function info( string $message ){
+		if(!$message){
+			return;
+		}
+		
 		echo "\033[" . self::$COLOR_BLUE . "{$message}\n";
 	}
 	public static function error( string $message ){
+		if(!$message){
+			return;
+		}
+		
 		echo "\033[" . self::$COLOR_RED . "{$message}\n";
 	}
 }

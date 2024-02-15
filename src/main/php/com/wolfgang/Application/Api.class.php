@@ -233,6 +233,10 @@ abstract class Api extends Application implements IApi {
 			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
 		} finally {
 
+			if($e){
+				$driver_manager->rollback();
+			}
+
 			if ( $request->getMethod() == IHttpRequest::METHOD_OPTIONS ) {
 				echo $this->getResponse();
 				exit( 0 );

@@ -24,25 +24,25 @@ trait TMessage {
 	 *
 	 * @var array
 	 */
-	protected $recipients = [ ];
+	protected array $recipients = [ ];
 	
 	/**
 	 *
 	 * @var array
 	 */
-	protected $reply_tos = [ ];
+	protected array $reply_tos = [ ];
 	
 	/**
 	 *
 	 * @var array
 	 */
-	protected $ccs = [ ];
+	protected array $ccs = [ ];
 	
 	/**
 	 *
 	 * @var array
 	 */
-	protected $bccs = [ ];
+	protected array $bccs = [ ];
 	
 	/**
 	 *
@@ -107,5 +107,13 @@ trait TMessage {
 	 */
 	public function getReplyTos ( ): array {
 		return $this->reply_tos;
+	}
+
+	/**
+	 *
+	 * @param IEmailContact $reply_to
+	 */
+	public function addReplyTo ( IEmailContact $reply_to ) {
+		$this->reply_tos[] = $reply_to;
 	}
 }

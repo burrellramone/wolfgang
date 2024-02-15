@@ -3,14 +3,14 @@
 namespace Wolfgang\Application;
 
 //Wolfgang
-use Wolfgang\StringObject;
-use Wolfgang\Skin;
+use Wolfgang\Exceptions\IllegalArgumentException;
 use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Interfaces\ISkin;
 use Wolfgang\Exceptions\Exception;
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Network\Uri\Uri;
+use Wolfgang\Skin;
 
 /**
  *
@@ -87,7 +87,7 @@ final class Context extends Component implements IContext , ISingleton {
 
 			} else {
 				if ( empty( $request_uri_parts[ 0 ] ) ) {
-					$this->setController( 'Index' );
+					$this->setController( 'index' );
 				} else {
 					$this->setController( $request_uri_parts[ 0 ] );
 				}
@@ -129,18 +129,24 @@ final class Context extends Component implements IContext , ISingleton {
 					$this->setApplication($this->cli_options['A']);
 				} else if (isset($this->cli_options['application'])) {
 					$this->setApplication($this->cli_options['application']);
+				} else {
+					throw new IllegalArgumentException("Application not provided");
 				}
 
 				if(isset($this->cli_options['c'])){
 					$this->setController($this->cli_options['c']);
 				} else if (isset($this->cli_options['controller'])) {
 					$this->setController($this->cli_options['controller']);
+				} else {
+					throw new IllegalArgumentException("Controller not provided");
 				}
 
 				if(isset($this->cli_options['a'])){
 					$this->setAction($this->cli_options['a']);
 				} else if (isset($this->cli_options['action'])) {
 					$this->setAction($this->cli_options['action']);
+				} else {
+					throw new IllegalArgumentException("Action not provided");
 				}
 			}
 		}
@@ -299,5 +305,12 @@ final class Context extends Component implements IContext , ISingleton {
 	 */
 	public function getCliOptions():array {
 		return $this->cli_options;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isCli(): bool {
+		return  PHP_SAPI ==  IContext::PHP_SAPI_CLI;
 	}
 }

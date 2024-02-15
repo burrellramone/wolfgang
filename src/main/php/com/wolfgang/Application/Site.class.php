@@ -167,10 +167,8 @@ abstract class Site extends Application implements ISite {
 
 			$this->getDispatcher()->dispatch( $request, $this->getRouter()->route( $request ) );
 
-			$driver_manager->commit();
-			
-
 			if ( ! $this->response->isError() ) {
+				$driver_manager->commit();
 				$templater->determineLayout();
 				$this->response->setBody( $templater->fetch() );
 			}

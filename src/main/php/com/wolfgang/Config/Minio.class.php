@@ -34,4 +34,17 @@ final class Minio extends Config {
 
         return $tenant;
     }
+
+    public static function getAvailableTenants():array{
+        $config = self::getAll();
+        $tenants = $config['tenants'];
+
+        foreach( $tenants as $key => $t){
+            if(!$t['available']){
+                unset($tenants[$key]);
+            }
+        }
+
+        return $tenants;
+    }
 }

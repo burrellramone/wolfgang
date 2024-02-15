@@ -4,6 +4,8 @@ namespace Wolfgang\Cloud\Amazon\S3;
 
 use Wolfgang\Component;
 use Wolfgang\Exceptions\Exception as CoreException;
+use Wolfgang\Exceptions\InvalidArgumentException;
+use Wolfgang\Config\Minio as MinioConfig;
 
 /**
  *
@@ -52,5 +54,48 @@ final class Minio extends Component {
 		$tenant = new MinioTenant( $id, $protocol, $hostname, $port );
 		self::$tenants[ $id ] = &$tenant;
 		return $tenant;
+	}
+
+	/**
+	 * @param string $bucket
+	 */
+	public static function bucketize( string $bucket ): string {
+		if(!$bucket){
+			throw new InvalidArgumentException("Bucket string not provided");
+		}
+
+		$bucket = preg_replace("/[^\w]/", '', $bucket);
+		$bucket = strtolower($bucket);
+		
+		return $bucket;
+	}
+
+	/**
+	 * Checks if a bucket exists across all available tenants
+	 */
+	public static function bucketExists( string $bucket ): bool {
+		$tenants = MinioConfig::getAvailableTenants();
+
+		foreach($tenants as $tenant){
+			$s3_minio_tenant = self::getTenantById( $tenant['id'] );
+
+			if ( ! $s3_minio_tenant ) {
+				$s3_minio_tenant = Minio::createTenantFromArray( $tenant );
+			}
+
+			$result = $s3_minio_tenant->listBuckets();
+
+			foreach($result as $key => $r){
+				if($key == 'Buckets'){
+					foreach($r as $bucket_array){
+						if($bucket_array['Name'] == $bucket){
+							return true;
+						}
+					}
+				}
+			}
+		}
+
+		return false;
 	}
 }

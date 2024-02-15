@@ -47,7 +47,7 @@ final class FileLogger extends Logger implements IFileLogger {
 			$configurations = LoggerConfig::get( 'file' );
 			$logger = new FileLogger( new FileLoggerConfiguration( array_shift( $configurations ) ) );
 		} else {
-			throw new Exception();
+			throw new Exception("Not Implemented");
 		}
 		
 		return $logger;

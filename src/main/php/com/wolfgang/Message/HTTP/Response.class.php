@@ -37,7 +37,7 @@ final class Response extends Message implements ISingleton , IResponse {
 	 *
 	 * @var array
 	 */
-	protected $headers = [ ];
+	protected array $headers = [ ];
 
 	/**
 	 *

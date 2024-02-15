@@ -35,6 +35,7 @@ final class Connection extends DatabaseConnection implements IMySQLConnection {
 		}
 		
 		$this->connection->set_charset( $dsn->getCharSet() );
+		$this->connection->autocommit(false);
 		
 		parent::__construct( $dsn );
 	}
