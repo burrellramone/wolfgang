@@ -6,6 +6,7 @@ namespace Wolfgang\Date;
 use DateTime as PHPDateTime;
 use DateInterval;
 use DateTimeZone;
+use Stringable;
 
 //Wolfgang
 use Wolfgang\Interfaces\Model\ITimezone;
@@ -15,10 +16,9 @@ use Wolfgang\Model\Timezone;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
  * @since Version 0.1.0
  */
-final class DateTime extends \DateTime {
+final class DateTime extends PHPDateTime implements Stringable {
 	const DEFAULT_FORMAT = 'Y-m-d H:i';
 
 	/**
