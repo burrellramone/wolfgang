@@ -113,11 +113,14 @@ final class Context extends Component implements IContext , ISingleton {
 					"lastname:",
 					"email:",
 					"phone:",
+					"user_phone:",
+					"user_email:",
 					"password:",
 					"url:",
 					"status_id:",
 					"timezone_id:",
-					"type_id:"
+					"type_id:",
+					"bucket:",
 			];
 
 			$options = getopt( $shortopts, $longopts );
