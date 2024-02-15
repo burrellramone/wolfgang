@@ -95,10 +95,10 @@ final class Mailman extends Component implements ISingleton {
 	 *
 	 * @throws Exception
 	 * @throws MailException
-	 * @param callable $email_callback
+	 * @param callable|null $email_callback
 	 * @return int
 	 */
-	public function deliver ( callable $email_callback ): int {
+	public function deliver ( callable $email_callback = null): int {
 		$total_emails_sent = 0;
 
 		foreach ( $this->emails as &$email ) {
@@ -136,15 +136,20 @@ final class Mailman extends Component implements ISingleton {
 				
 				$sent = $this->mailer->send();
 
-				$email_callback($email, $sent);
+				if($email_callback){
+					$email_callback($email, $sent);
+				}
 				
 				if($sent){
 					$total_emails_sent ++;
 				}
 				
 			} catch ( Exception $e ) {
-				$email_callback($email, false);
 
+				if($email_callback){
+					$email_callback($email, false);
+				}
+				
 				throw new MailException( "Email with id '{$email->getMessageId()}' could not be sent. Error: {$e->getMessage()}.", 0, $e );
 			}
 		}
