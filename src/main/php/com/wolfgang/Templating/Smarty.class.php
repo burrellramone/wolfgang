@@ -155,7 +155,7 @@ final class Smarty extends Templater implements ITemplater {
 			throw new TemplatingException( "Template '{$path}' does not exist" );
 		}
 
-		$this->template = TEMPLATE_DIRECTORY . $path;
+		$this->template = $path;
 		$this->assign( "template", $this->template );
 	}
 
@@ -222,11 +222,13 @@ final class Smarty extends Templater implements ITemplater {
 	 */
 	private function setSmartyLocations ( ): void {
 		if ( php_sapi_name() != 'cli' ) {
-			$this->smarty->addTemplateDir( TEMPLATE_DIRECTORY );
 			$context = Context::getInstance();
 			$skin = $context->getSkin();
 			$skin_name = $skin->getName();
 			$temporary_directory = AppConfig::get( 'directories.temporary_directory' );
+
+			$this->smarty->addTemplateDir( TEMPLATE_DIRECTORY );
+			$this->smarty->addTemplateDir( $temporary_directory );
 
 			$this->smarty->setCompileDir( "{$temporary_directory}/smarty/templates_c/{$skin_name}" );
 			$this->smarty->setCacheDir( "{$temporary_directory}/smarty/cache/{$skin_name}" );

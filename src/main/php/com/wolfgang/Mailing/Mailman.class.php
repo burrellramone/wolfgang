@@ -67,7 +67,7 @@ final class Mailman extends Component implements ISingleton {
 		
 		$context = Context::getInstance();
 
-		if ( ! $context->isProduction() && $context->isCli()) {
+		if ( ! $context->isProduction() && $context->isCli() && ! $context->isCron() ) {
 			$this->mailer->SMTPDebug = 3;
 			//$this->mailer->SMTPSecure = false;
 			//$this->mailer->SMTPAutoTLS = false;

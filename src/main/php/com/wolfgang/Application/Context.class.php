@@ -67,6 +67,11 @@ final class Context extends Component implements IContext , ISingleton {
 	private $cli_options = array();
 
 	/**
+	 * @var array
+	 */
+	private $sites = array();
+
+	/**
 	 *
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Component::init()
@@ -200,14 +205,20 @@ final class Context extends Component implements IContext , ISingleton {
 		return $this->skin;
 	}
 
-	public function getSkinById(int $id) {
+	/**
+	 * @param int $id
+	 * @return Skin
+	 */
+	public function getSkinById(int $id):Skin{
 		if(isset($this->skins[$id])) {
 			return $this->skins[$id];
 		}
 
-		$skins = include DOCUMENT_ROOT . 'sites.php';
-
-		foreach($skins as $skin){
+		if(empty($this->sites)){
+			$this->sites = include DOCUMENT_ROOT . 'sites.php';
+		}
+		
+		foreach($this->sites as $skin){
 			if($skin['id'] == $id) {
 				$this->skins[$id] = new Skin($skin);
 			}
@@ -315,5 +326,20 @@ final class Context extends Component implements IContext , ISingleton {
 	 */
 	public function isCli(): bool {
 		return  PHP_SAPI ==  IContext::PHP_SAPI_CLI;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isCron(): bool {
+		if(!$this->isCli()){
+			return false;
+		}
+
+		if( isset( $_SERVER['TERM'] ) ) {
+			return false;
+		}
+
+		return true;
 	}
 }

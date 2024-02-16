@@ -30,7 +30,6 @@ use Wolfgang\Interfaces\Network\IUri;
  * @since Version 0.1.0
  */
 abstract class Site extends Application implements ISite {
-	//use TSingleton;
 
 	protected function __construct ( IContext $context ) {
 		parent::__construct( IApplication::KIND_SITE, $context);

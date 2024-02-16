@@ -12,13 +12,13 @@ trait TLabelled {
 	 *
 	 * @var string
 	 */
-	public $label;
+	protected $label;
 	
 	/**
 	 *
 	 * @var string
 	 */
-	public $description;
+	protected $description;
 	
 	/**
 	 *
