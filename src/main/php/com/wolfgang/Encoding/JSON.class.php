@@ -39,10 +39,10 @@ final class JSON extends Component {
 	 *
 	 * @see \json_encode()
 	 * @param mixed $data
-	 * @param boolean $pretty_print
+	 * @param int $flags
 	 */
-	public static function encode ( $data, $pretty_print = true ) {
-		$json = json_encode( $data, $pretty_print );
+	public static function encode ( mixed $data, int $flags = JSON_PRETTY_PRINT|JSON_NUMERIC_CHECK ) {
+		$json = json_encode( $data, $flags );
 
 		if ( json_last_error() != JSON_ERROR_NONE )
 			self::throwException();

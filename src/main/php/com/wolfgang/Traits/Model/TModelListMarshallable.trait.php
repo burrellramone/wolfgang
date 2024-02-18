@@ -1,5 +1,4 @@
 <?php
-
 namespace Wolfgang\Traits\Model;
 
 use Wolfgang\Interfaces\IMarshaller;
