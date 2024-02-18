@@ -11,6 +11,7 @@ use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Encoding\JSON;
 use Wolfgang\Exceptions\IllegalStateException;
 use Wolfgang\Interfaces\Model\IModel;
+use Wolfgang\Interfaces\ICliMarshallable;
 use Wolfgang\Interfaces\Model\IModelList;
 use Wolfgang\Util\DataTableMarshaller;
 use Wolfgang\Traits\TSingleton;
@@ -51,40 +52,67 @@ final class Dispatcher extends Component implements IDispatcher , ISingleton {
 			}
 		}
 		
-
 		if ( $route->methodExists() ) {
+			$context = $this->getApplication()->getContext();
 
 			$result = $route->getController()->{$route->getAction()}();
 
-			if ( $result ) {
+			if( $context->isCli() ) {
+				$this->handleCliResult($request, $result);
+			} else {
+				$this->handleHttpResult($request, $result);
+			}
+		}
+	}
 
-				if ( is_object( $result ) ) {
+	private function handleHttpResult( $request, mixed $result ){
+		if ( $result ) {
 
-					if ( ($result instanceof IMarshallable) ) {
+			if ( is_object( $result ) ) {
 
-						if ( ($result instanceof IModel) ) {
-							$result = DataTableMarshaller::recursiveMarshall( $result );
-						} else if ( ($result instanceof IModelList) ) {
-							if ( $request->getHeader( 'HTTP-X-REQUESTED-WITH-DATATABLE' ) ) {
-								$result = DataTableMarshaller::getInstance()->marshall( $result );
-							} else {
-								$result = $result->marshall();
-							}
-						} else if ( ($result instanceof IGraph) ) {
-							$result = $result->marshall();
+				if ( ($result instanceof IMarshallable) ) {
+					if ( ($result instanceof IModel) ) {
+						$result = DataTableMarshaller::recursiveMarshall( $result );
+					} else if ( ($result instanceof IModelList) ) {
+						if ( $request->getHeader( 'HTTP-X-REQUESTED-WITH-DATATABLE' ) ) {
+							$result = DataTableMarshaller::getInstance()->marshall( $result );
 						} else {
-							throw new Exception( "Could not interpret dispatch response" );
+							$result = $result->marshall();
 						}
-					} else if ( ($result instanceof \JsonSerializable) ) {
-						$result = JSON::encode( $result );
+					} else if ( ($result instanceof IGraph) ) {
+						$result = $result->marshall();
 					} else {
-						throw new IllegalStateException( "Object returned but it does not implement Wolfgang\Interfaces\IMarshallable, Wolfgang\Interfaces\Model\IMarshallable nor \JsonSerializable" );
+						throw new Exception( "Could not interpret dispatch response" );
 					}
-				} else if ( is_array( $result ) ) {
-					$result = DataTableMarshaller::recursiveMarshall( $result );
+				} else if ( ($result instanceof \JsonSerializable) ) {
+					$result = JSON::encode( $result );
+				} else {
+					throw new IllegalStateException( "Object returned but it does not implement Wolfgang\Interfaces\IMarshallable nor \JsonSerializable" );
+				}
+			} else if ( is_array( $result ) ) {
+				$result = DataTableMarshaller::recursiveMarshall( $result );
+			}
+
+			$this->getApplication()->getResponse()->setData( $result );
+		}
+	}
+
+	private function handleCliResult( $request, mixed $result ){
+		if ( $result ) {
+
+			if( is_object($result) ) {
+				if( !($result instanceof ICliMarshallable)){
+					throw new IllegalStateException( "Object returned but it does not implement Wolfgang\Interfaces\ICliMarshallable" );
 				}
 
-				$this->getApplication()->getResponse()->setData( $result );
+				if ( ($result instanceof IModel) ) {
+					throw new Exception("Not implemented");
+				} else if ( ($result instanceof IModelList) ) {
+					$result->climarshall();
+				}
+
+			} else if ( is_array( $result ) ) {
+				throw new Exception("Not implemented");
 			}
 		}
 	}
