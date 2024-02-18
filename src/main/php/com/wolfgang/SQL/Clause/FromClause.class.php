@@ -151,11 +151,7 @@ final class FromClause extends Clause implements IFromClause {
 		                (
 		                    [0] => Wolfgang\Proxy\ORM\Table Object
 		                        (
-		                            [schema_dsn_name:protected] => airportruns
-		                            [name:protected] => white_label
-		                            [qualified_name:protected] => airportruns.white_label
-		                            [hashCode:Wolfgang\BaseObject:private] => 2244
-		                            [subject:protected] => 
+		                          
 		                        )
 		
 		                    [1] => Wolfgang\Proxy\ORM\Table Object
