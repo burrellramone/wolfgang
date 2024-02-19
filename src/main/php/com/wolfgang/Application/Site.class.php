@@ -9,6 +9,7 @@ use ErrorException;
 
 //Wolfgang
 use Wolfgang\Interfaces\Message\HTTP\IResponse as IHttpResponse;
+use Wolfgang\Exceptions\Message\HTTP\Exception as HTTPException;
 use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
 use Wolfgang\Message\HTTP\Response as HttpResponse;
 use Wolfgang\Interfaces\Application\IApplication;
@@ -121,10 +122,6 @@ abstract class Site extends Application implements ISite {
 
 		// Before ending execution and redirecting the user, commit all open transaction
 		$this->getDriverManager()->commit();
-
-		//MUST write and close session here before 'respond' is called since 'respond' will result in output being written
-		session_write_close();
-
 		$this->getResponse()->setHeader( "Location", $uri );
 		$this->respond();
 	}
@@ -165,12 +162,12 @@ abstract class Site extends Application implements ISite {
 		} catch ( ErrorException $e ) {
 			Logger::getLogger()->error( $e );
 		} finally {
+			$this->onAfterExec();
+
 			if($e){
 				throw $e;
 			}
 		}
-
-		$this->onAfterExec();
 
 		return $this->response;
 	}
