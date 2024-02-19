@@ -8,21 +8,20 @@ use Error;
 use ErrorException;
 
 //Wolfgang
-use Wolfgang\Interfaces\Application\IContext;
+use Wolfgang\Interfaces\Message\HTTP\IResponse as IHttpResponse;
+use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
+use Wolfgang\Message\HTTP\Response as HttpResponse;
 use Wolfgang\Interfaces\Application\IApplication;
+use Wolfgang\Exceptions\InvalidArgumentException;
+use Wolfgang\Interfaces\Application\IContext;
+use Wolfgang\Interfaces\Application\ISite;
+use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Routing\IRouter;
 use Wolfgang\Interfaces\Message\IRequest;
-use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
-use Wolfgang\Interfaces\Message\HTTP\IResponse as IHttpResponse;
-use Wolfgang\Interfaces\Application\ISite;
-use Wolfgang\Templating\Templater;
-use Wolfgang\Exceptions\Message\HTTP\Exception as HTTPException;
-use Wolfgang\Util\Logger\Logger;
-use Wolfgang\Routing\HttpRouter;
-use Wolfgang\Message\HTTP\Response as HttpResponse;
-use Wolfgang\Exceptions\InvalidArgumentException;
-use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Interfaces\Network\IUri;
+use Wolfgang\Templating\Templater;
+use Wolfgang\Routing\HttpRouter;
+use Wolfgang\Util\Logger\Logger;
 
 /**
  * @author Ramone Burrell <ramone@ramoneburrell.com>
@@ -43,12 +42,24 @@ abstract class Site extends Application implements ISite {
 	protected function init ( ) {
 		parent::init();
 
-		if ( ! empty( $_SESSION[ 'errors' ] ) ) {
-			$this->errors = unserialize( $_SESSION[ 'errors' ] );
-		}
+		$session = $this->getSession();
 
-		if ( ! empty( $_SESSION[ 'notices' ] ) ) {
-			$this->notices = unserialize( $_SESSION[ 'notices' ] );
+		if( $session ){ 
+			$errors = $session->get('errors');
+			$warnings = $session->get('warnings');
+			$notices = $session->get('notices');
+
+			if ( $errors ) {
+				$this->setErrors(unserialize( $errors ));
+			}
+	
+			if ( $warnings ) {
+				$this->setWarnings(unserialize( $warnings ));
+			}
+	
+			if ( $notices ) {
+				$this->setNotices(unserialize( $notices ));
+			}
 		}
 
 		$this->setRouter( HttpRouter::getInstance() );
@@ -100,48 +111,22 @@ abstract class Site extends Application implements ISite {
 	 * @see \Wolfgang\Application\Application::redirect()
 	 */
 	public function redirect ( IUri|string $uri ): void {
-		$_SESSION[ 'errors' ] = serialize( $this->getErrors() );
-		$_SESSION[ 'notices' ] = serialize( $this->getNotices() );
-		$_SESSION[ 'warnings' ] = serialize( $this->getWarnings() );
+		$session = $this->getSession();
+
+		if ($session) { 
+			$session->set('errors', serialize( $this->getErrors() ));
+			$session->set('notices', serialize( $this->getNotices() ));
+			$session->set('warnings', serialize( $this->getWarnings() ));
+		}
 
 		// Before ending execution and redirecting the user, commit all open transaction
 		$this->getDriverManager()->commit();
 
+		//MUST write and close session here before 'respond' is called since 'respond' will result in output being written
+		session_write_close();
+
 		$this->getResponse()->setHeader( "Location", $uri );
 		$this->respond();
-	}
-
-	/**
-	 *
-	 * {@inheritdoc}
-	 * @see \Wolfgang\Interfaces\Application\IApplication::respond()
-	 */
-	public function respond ( $message = null): ?IResponse {
-		if ( is_string( $message ) ) {
-			$this->getResponse()->setBody( $message );
-		}
-
-		if ( ! ($message instanceof \Exception) ) {
-			echo $this->getResponse();
-			exit();
-		}
-
-		$templater = Templater::getInstance();
-		$response = HttpResponse::getInstance();
-		$e = $message;
-		$message = $e->getMessage();
-
-		$response->setStatusCode( 500 );
-		$response->setBody( $message );
-
-		header( $response->getStatusLine() );
-
-		$templater->setTemplate( "Common/sections/errors/{$response->getStatusCode()}.tmpl" );
-		$templater->assign( "response", $response );
-		$templater->assign( "exception", $e );
-		$templater->display();
-
-		exit( 1 );
 	}
 
 	/**
@@ -192,9 +177,5 @@ abstract class Site extends Application implements ISite {
 
 	public function __destruct ( ) {
 		parent::__destruct();
-
-		$this->clearNotices();
-		$this->clearErrors();
-		$this->clearWarnings();
 	}
 }

@@ -63,7 +63,7 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	}
 	
 	/**
-	 *
+	 * @see http://php.net/setcookie
 	 * @param string $session_id
 	 * @param string $session_data
 	 * @throws SessionException
@@ -76,7 +76,7 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 			return true;
 		} else if ( php_sapi_name() == 'cli' ) {
 			return true;
-		} else if ( \headers_sent() ) {
+		} else if ( headers_sent() ) {
 			return true;
 		}
 		

@@ -177,13 +177,22 @@ final class Session extends Component implements ISession {
 	}
 
 	/**
+	 * @return array
+	 */
+	public function getAll():array {
+		return $_SESSION;
+	}
+
+	/**
 	 *
 	 * @param string $key
 	 */
 	public function get ( string $key ) {
-		if ( ! empty( $_SESSION[ $key ] ) ) {
+		if ( isset( $_SESSION[ $key ] ) ) {
 			return $_SESSION[ $key ];
 		}
+
+		return null;
 	}
 
 	/**
@@ -206,8 +215,9 @@ final class Session extends Component implements ISession {
 	}
 
 	/**
+	 * @return void
 	 */
-	private function start ( ) {
+	private function start ( ): void {
 		if ( php_sapi_name() == 'cli' ) {
 			return;
 		}

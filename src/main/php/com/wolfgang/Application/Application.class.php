@@ -466,14 +466,25 @@ abstract class Application extends Component implements IApplication {
 	}
 
 	/**
+	 * @param $errors
+	 * @return void
+	 */
+	public function setErrors( array $errors ):void {
+		$this->errors = array();
+		$this->addErrors($errors);
+	}
+
+	/**
 	 *
 	 * @param string $error
 	 * @throws InvalidArgumentException
+	 * @return void
 	 */
 	public function addError ( string $error ): void {
-		if ( empty( $error ) ) {
+		if ( ! $error ) {
 			throw new InvalidArgumentException( "Error not provided" );
 		}
+
 		$this->errors[] = $error;
 	}
 
@@ -488,18 +499,34 @@ abstract class Application extends Component implements IApplication {
 
 	/**
 	 * Clears all existing errors within this application
+	 * 
+	 * @return void
 	 */
 	public function clearErrors ( ): void {
-		$_SESSION[ "errors" ] = $this->errors = array ();
+		$session = $this->getSession();
+		$this->errors = array();
+
+		if($session){
+			$session->set('errors', array());
+		}
 	}
 
 	/**
 	 * Add a set of notices to this application
 	 *
-	 * @param array $notice
+	 * @param array $notices
 	 */
-	public function addNotices ( array $notice ): void {
-		$this->notices = array_merge( $this->notices, $notice );
+	public function addNotices ( array $notices ): void {
+		$this->notices = array_merge( $this->notices, $notices );
+	}
+
+	/**
+	 * @param $notices
+	 * @return void
+	 */
+	public function setNotices( array $notices ):void {
+		$this->notices = array();
+		$this->addNotices($notices);
 	}
 
 	/**
@@ -517,9 +544,16 @@ abstract class Application extends Component implements IApplication {
 
 	/**
 	 * Clears all existing notices within this application
+	 * 
+	 * @return void
 	 */
 	public function clearNotices ( ): void {
-		$_SESSION[ "notices" ] = $this->notices = array ();
+		$session = $this->getSession();
+		$this->notices = array();
+		
+		if($session){
+			$session->set('notices', array());
+		}
 	}
 
 	/**
@@ -541,6 +575,15 @@ abstract class Application extends Component implements IApplication {
 	}
 
 	/**
+	 * @param $warnings
+	 * @return void
+	 */
+	public function setWarnings( array $warnings ):void {
+		$this->warnings = array();
+		$this->addWarnings($warnings);
+	}
+
+	/**
 	 * Adds a warning to this application
 	 *
 	 * @param string $warning
@@ -555,9 +598,16 @@ abstract class Application extends Component implements IApplication {
 
 	/**
 	 * Clears all existing warnings within this application
+	 * 
+	 * @return void
 	 */
 	public function clearWarnings ( ): void {
-		$_SESSION[ "warnings" ] = $this->warnings = array ();
+		$session = $this->getSession();
+		$this->warnings = array();
+		
+		if($session){
+			$session->set('warnings', array());
+		}
 	}
 
 	/**

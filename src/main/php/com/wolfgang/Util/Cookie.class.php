@@ -16,7 +16,7 @@ use Wolfgang\Encryption\AES;
 final class Cookie extends Component {
 
 	/**
-	 *
+	 * @see http://php.net/setcookie
 	 * @param string $name
 	 * @param string $value
 	 * @param string $expires

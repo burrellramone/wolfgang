@@ -203,12 +203,20 @@ final class Response extends Message implements ISingleton , IResponse {
 	}
 
 	/**
-	 *
+	 * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages
 	 * @return string
 	 */
 	public function __toString ( ): string {
+		$redirect = array_key_exists('Location', $this->headers);
+		
+		header( $this->getStatusLine() );
+
 		foreach ( $this->headers as $key => $value ) {
 			header( $key . ":" . $value );
+		}
+
+		if($redirect){
+			exit();
 		}
 
 		return $this->getBody();

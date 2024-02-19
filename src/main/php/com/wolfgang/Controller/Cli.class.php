@@ -29,7 +29,6 @@ abstract class Cli extends Controller implements ICliController{
 	 */
 	public function __construct ( IRequest $request, IResponse $response ) {
 		if ( ! ($request instanceof ICliRequest) ) {
-			print_r($request);
 			throw new InvalidArgumentException( "Request is not an instance of Wolfgang\Interfaces\Message\CLI\IRequest" );
 		}
 
