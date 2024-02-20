@@ -131,7 +131,7 @@ abstract class Site extends Application implements ISite {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Application\IApplication::execute()
 	 */
-	public function execute ( IRequest $request ): IResponse {
+	public function execute ( IRequest $request ) {
 		if ( ! ($request instanceof IHttpRequest) ) {
 			throw new InvalidArgumentException( "Request must implement Wolfgang\Interfaces\Message\IRequest" );
 		}
@@ -168,8 +168,6 @@ abstract class Site extends Application implements ISite {
 				throw $e;
 			}
 		}
-
-		return $this->response;
 	}
 
 	public function __destruct ( ) {

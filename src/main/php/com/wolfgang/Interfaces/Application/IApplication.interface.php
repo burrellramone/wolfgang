@@ -51,22 +51,15 @@ interface IApplication {
 	/**
 	 *
 	 * @param IRequest $message
-	 * @return IResponse
 	 */
-	public function execute ( IRequest $message ): IResponse;
+	public function execute ( IRequest $message );
 	
 	/**
-	 * Sends a response from the application. Depending under what circumstance this method was
-	 * called it will decide wether to return an instance of an a message response,
-	 * Wolfgang\Interfaces\Message\IResponse, or wite the response immediately and terminate with an
-	 * error code.
-	 *
+	 * Sends a response from the application.
+	 * 
 	 * @param string|\Exception|null $message The message to exit the application with
-	 * @return IResponse|null An instance of Wolfgang\Interfaces\Message\IResponse if the method was
-	 *         called under normal circumstances or nothing on termination if the method was called
-	 *         in a __toString magic method
 	 */
-	public function respond ( $message = null ): ?IResponse;
+	public function respond ( $message = null );
 	
 	/**
 	 *
