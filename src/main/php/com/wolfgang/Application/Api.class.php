@@ -172,10 +172,15 @@ abstract class Api extends Application implements IApi {
 		$response = $this->getResponse();
 
 		$successful_request = ! preg_match( "/^[54]{1}/", $response->getStatusCode() ) && empty( $error );
+		$message = $response->getBody();
+
+		if(!$message){
+			$message = 'Ok';
+		}
 
 		$array_response = [ 
 				"success" => $successful_request,
-				"message" => $successful_request ? 'Ok' : 'Failed',
+				"message" => $successful_request ? $message : 'Failed',
 				"data" => $response->getData(),
 				"error" => $error
 		];
