@@ -147,7 +147,7 @@ abstract class Api extends Application implements IApi {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Application\IApplication::respond()
 	 */
-	public function respond ( $message = null): ?IResponse {
+	public function respond ( $message = null) {
 		$error = null;
 
 		if ( ($message instanceof Exception) || ($message instanceof Error) || (is_string( $message )) ) {
@@ -204,15 +204,15 @@ abstract class Api extends Application implements IApi {
 			exit( 0 );
 		}
 
-		return $response;
+		echo $response;
+		exit( 0 );
 	}
 
 	/**
 	 *
 	 * @param IRequest $request
-	 * @return IResponse
 	 */
-	public function execute ( IMessage $request ): IResponse {
+	public function execute ( IMessage $request ) {
 		if ( ! ($request instanceof IApiRequest) ) {
 			throw new InvalidArgumentException( "Message must implement interface Wolfgang\Interfaces\Message\HTTP\IApiRequest" );
 		}
@@ -237,9 +237,10 @@ abstract class Api extends Application implements IApi {
 		} catch ( Exception $e ) {
 			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
 		} finally {
+			$this->onAfterExec();
 
 			if($e){
-				$driver_manager->rollback();
+				throw $e;
 			}
 
 			if ( $request->getMethod() == IHttpRequest::METHOD_OPTIONS ) {
@@ -247,7 +248,7 @@ abstract class Api extends Application implements IApi {
 				exit( 0 );
 			}
 
-			return $this->respond( $e );
+			$this->respond( $e );
 		}
 	}
 
