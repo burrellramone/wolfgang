@@ -197,7 +197,7 @@ abstract class Api extends Application implements IApi {
 			$response->setBody( $json_response );
 		}
 
-		$backtrace = debug_backtrace( null, 1 );
+		$backtrace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT, 1 );
 
 		if ( $backtrace[ 0 ][ 'function' ] == '__toString' ) {
 			echo $response;

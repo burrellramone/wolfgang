@@ -8,6 +8,7 @@ use jc21\CliTable;
 
 //Wolfgang
 use Wolfgang\Exceptions\IllegalStateException;
+use Wolfgang\Util\Inflector;
 
 /**
  *
@@ -37,7 +38,8 @@ trait TCliModelListMarshallable {
 			$a = array();
 
 			foreach(array_keys($printable_fields) as $field){
-				$v = $model_instance->{$field};
+				$getter_method = Inflector::getMethodify($field);
+				$v = $model_instance->{$getter_method}();
 
 				if($v instanceof Stringable){
 					$v = (string)$v;

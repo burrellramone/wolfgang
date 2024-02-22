@@ -102,11 +102,11 @@ abstract class TableRelationship extends Component implements ITableRelationship
 		$this->setReferencedTableName( $this->relationship[ 'referenced_table_name' ] );
 		$this->setReferencedColumnName( $this->relationship[ 'referenced_column_name' ] );
 		
-		if ($this->relationship['update_rule']) {
+		if (isset($this->relationship['update_rule'])) {
 			$this->setUpdateRule( $this->relationship[ 'update_rule' ] );
 		}
 
-		if ($this->relationship['delete_rule']) {
+		if (isset($this->relationship['delete_rule'])) {
 			$this->setDeleteRule( $this->relationship[ 'delete_rule' ] );
 		}
 

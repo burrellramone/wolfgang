@@ -11,6 +11,7 @@ use Wolfgang\Date\DateTime;
 use Wolfgang\Interfaces\ORM\ITable;
 use Wolfgang\Exceptions\Model\Exception as ModelException;
 use Wolfgang\Util\Inflector;
+use Wolfgang\Exceptions\IllegalArgumentException;
 use Wolfgang\Exceptions\IllegalOperationException;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\ORM\SchemaManager;
@@ -63,7 +64,7 @@ abstract class Model extends Component implements IModel {
 	 *
 	 * @var string
 	 */
-	private $dsn_name;
+	protected $dsn_name;
 
 	/**
 	 *
@@ -97,6 +98,65 @@ abstract class Model extends Component implements IModel {
 	 */
 	protected function init ( ): IModel {
 		parent::init();
+
+		$model_reflection = $this->getReflection();
+
+		foreach($this->getTable()->getColumns() as $column) {
+			$column_name = $column->getName();
+
+			if(isset($this->{$column_name})){
+				continue;
+			}
+			
+			try {
+				$reflection_property = $model_reflection->getProperty( $column_name );
+			} catch ( ReflectionException $e ) {
+				throw new ModelException( "Property '{$column_name}' of class '{$this->getModelType()}' does not exist. Please implement it." );
+			}
+
+			if ( $reflection_property->isPublic() || $reflection_property->isProtected() ) {
+				$type = $reflection_property->getType();
+
+				if( $type ){
+					switch($type->getName()){
+						case 'array':
+							$this->{$column_name} = [];
+						break;
+
+						case 'bool':
+							$this->{$column_name} = false;
+						break;
+
+						case 'float':
+							$this->{$column_name} = 0.0;
+						break;
+
+						case 'int':
+							$this->{$column_name} = 0;
+						break;
+
+						case 'null':
+							$this->{$column_name} = null;
+						break;
+
+						case 'object':
+							$this->{$column_name} = new \stdClass;
+						break;
+
+						case 'string':
+							$this->{$column_name} = '';
+						break;
+
+						default:
+							$this->{$column_name} = null;
+						break;
+					}
+				} else {
+					$this->{$column_name} = null;
+				}
+			}
+		}
+
 		return $this;
 	}
 
@@ -389,7 +449,7 @@ abstract class Model extends Component implements IModel {
 				if ( $reflection_property->isPublic() || $reflection_property->isProtected() ) {
 					$type = $reflection_property->getType();
 
-					if( $type){
+					if( $type ){
 						if($type->getName() == 'array'){
 							if($value){
 								$uvalue = unserialize($value);
@@ -402,6 +462,8 @@ abstract class Model extends Component implements IModel {
 							} else {
 								$this->{$column_name} = [];
 							}
+						} else {
+							$this->{$column_name} = $value;
 						}
 					} else {
 						$this->{$column_name} = $value;
@@ -506,7 +568,7 @@ abstract class Model extends Component implements IModel {
 		if ( $this->getDSNName() ) {
 			return SchemaManager::getInstance()->get( $this->getDSNName() );
 		} else {
-			return SchemaManager::getInstance()->getDefaultSchema( $this->getDSNName() );
+			return SchemaManager::getInstance()->getDefaultSchema( );
 		}
 	}
 
@@ -540,11 +602,15 @@ abstract class Model extends Component implements IModel {
 	}
 
 	/**
-	 *
+	 * @throws IllegalArgumentException
 	 * @param string $dsn_name
 	 * @return IModel
 	 */
 	protected function setDSNName ( string $dsn_name ): IModel {
+		if(!$dsn_name){
+			throw new IllegalArgumentException("DSN name not provided");
+		}
+
 		$this->dsn_name = $dsn_name;
 		return $this;
 	}

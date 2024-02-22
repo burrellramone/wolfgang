@@ -90,8 +90,12 @@ class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
 		$orm_connection->exec( "CREATE DATABASE IF NOT EXISTS `orm`;" );
 		$orm_connection->exec( "USE `orm`;" );
 
+		//$orm_connection->exec( "DROP TABLE `revision`;" );
+		//$orm_connection->exec( "DROP TABLE `node_relationship`;" );
+		//$orm_connection->exec( "DROP TABLE `node`;" );
+
 		$sql = <<<SQL
-			CREATE TABLE IF NOT EXISTS `node` (
+CREATE TABLE IF NOT EXISTS `node` (
 				id VARCHAR(36) NOT NULL PRIMARY KEY,
 				schema_name VARCHAR(64) NOT NULL,
 				name VARCHAR(64) NOT NULL,
