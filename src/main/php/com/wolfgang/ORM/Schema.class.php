@@ -357,7 +357,7 @@ final class Schema extends Component implements IDatabaseSchema {
 		if ( ! $type ) {
 			throw new InvalidArgumentException( "Type must be provided" );
 		} else if ( ! $id ) {
-			throw new InvalidArgumentException( "Id must be provided" );
+			throw new InvalidArgumentException( "Record id must be provided" );
 		}
 
 		$connection = $this->getConnection();
