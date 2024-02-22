@@ -239,8 +239,8 @@ abstract class Api extends Application implements IApi {
 		} finally {
 			$this->onAfterExec();
 
-			if($e){
-				throw $e;
+			if ($e) {
+				Logger::getLogger()->error($e);
 			}
 
 			if ( $request->getMethod() == IHttpRequest::METHOD_OPTIONS ) {
