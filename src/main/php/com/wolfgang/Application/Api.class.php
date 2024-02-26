@@ -185,7 +185,7 @@ abstract class Api extends Application implements IApi {
 				"error" => $error
 		];
 
-		$json_response = JSON::encode( $array_response, JSON_PRETTY_PRINT );
+		$json_response = JSON::encode( $array_response );
 
 		if ( $request->getHeader( 'Accept' ) == 'application/javascript' || $request->getParameter( '__header_accept' ) == 'application/javascript' || $request->getParameter( 'callback' ) ) {
 			$response->setHeader( 'Content-Type', 'application/javascript' );

@@ -2,6 +2,9 @@
 
 namespace Wolfgang\Util;
 
+use Exception;
+
+//
 use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Config\Curl as CurlConfig;
 use Wolfgang\Encoding\JSON;
@@ -130,8 +133,12 @@ final class Curl extends Component implements ISingleton {
 		
 		curl_close( $this->curl_handle );
 		
-		if ( $json_decode ) {
-			$output = JSON::decode( $output, true );
+		if ( $json_decode && $output ) {
+			try {
+				$output = JSON::decode( $output, true );
+			} catch(Exception $e) {
+				throw new Exception("Could not JSON decode response '{$output}'", 0 , $e);
+			}
 		}
 		
 		return $output;

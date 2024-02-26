@@ -20,13 +20,13 @@ final class CliWriter extends Component {
 			return;
 		}
 		
-		echo "\033[" . self::$COLOR_BLUE . "{$message}\n";
+		echo "\033[" . self::$COLOR_BLUE . "{$message}\e[0m\n";
 	}
 	public static function error( string $message ){
 		if(!$message){
 			return;
 		}
 		
-		echo "\033[" . self::$COLOR_RED . "{$message}\n";
+		echo "\033[" . self::$COLOR_RED . "{$message}\e[0m\n";
 	}
 }
