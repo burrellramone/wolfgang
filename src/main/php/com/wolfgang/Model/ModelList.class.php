@@ -389,6 +389,10 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 		return $this->statement;
 	}
 
+	public function first(){
+		return $this->offsetGet(0);
+	}
+
 	/**
 	 *
 	 * {@inheritdoc}

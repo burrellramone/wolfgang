@@ -134,7 +134,7 @@ abstract class Application extends Component implements IApplication {
 	 *
 	 * @var array
 	 */
-	protected $config = [ ];
+	protected array $config = [ ];
 
 	protected static $instance;
 
@@ -245,6 +245,17 @@ abstract class Application extends Component implements IApplication {
 	 */
 	public function isJournaling ( ): bool {
 		return ( bool ) $this->config[ 'journaling' ];
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getConfig() : array {
+		if(!$this->config){
+			$this->config = AppConfig::getAll();
+		}
+
+		return $this->config;
 	}
 
 	/**
