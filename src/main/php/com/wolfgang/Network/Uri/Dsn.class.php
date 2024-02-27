@@ -52,6 +52,11 @@ final class Dsn extends Uri implements IDsn {
 	 * @var string
 	 */
 	protected $information_schema;
+
+	/**
+	 * @var bool
+	 */
+	private $password_encoded = false;
 	
 	/**
 	 *
@@ -62,7 +67,7 @@ final class Dsn extends Uri implements IDsn {
 		parent::init();
 		
 		$user_info = explode( ':', $this->getUserInfo() );
-		
+
 		$this->setUsername( $user_info[ 0 ] );
 		$this->setPassword( $user_info[ 1 ] );
 		$this->setDatabase( str_replace( "/", "", $this->getPath() ) );
@@ -125,6 +130,11 @@ final class Dsn extends Uri implements IDsn {
 	 * @see \Wolfgang\Interfaces\Network\IDsn::getPassword()
 	 */
 	public function getPassword ( ): string {
+		if($this->password_encoded){
+			//We must base64 decode password as it was originally encoded before 
+			return base64_decode($this->password);
+		}
+		
 		return $this->password;
 	}
 	
@@ -211,6 +221,8 @@ final class Dsn extends Uri implements IDsn {
 	 * @return string
 	 */
 	public static function parse ( array $dsn ): IDsn {
+		$dsn = array_filter($dsn);
+
 		if ( empty( $dsn ) ) {
 			throw new InvalidArgumentException( "DSN array not provided" );
 		} else if ( empty( $dsn[ 'name' ] ) ) {
@@ -221,6 +233,8 @@ final class Dsn extends Uri implements IDsn {
 			$dsn[ 'port' ] = self::getSchemePort( $dsn[ 'driver' ] );
 		}
 		
+		$dsn[ 'password' ] = base64_encode($dsn['password']);
+
 		$patterns = [ 
 				"/(<driver>)/",
 				"/(<username>)/",
@@ -243,7 +257,7 @@ final class Dsn extends Uri implements IDsn {
 		$dsn_string = preg_replace( $patterns, $replacements, "<driver>://<username>:<password>@<host>:<port>/<database>" );
 		
 		$dsn_instance = new Dsn( $dsn_string );
-		
+		$dsn_instance->password_encoded = true;
 		$dsn_instance->setName( $dsn[ 'name' ] );
 		
 		if ( ! empty( $dsn[ 'encryption_key' ] ) ) {
