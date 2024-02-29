@@ -65,6 +65,13 @@ abstract class Site extends Application implements ISite {
 
 		$this->setRouter( HttpRouter::getInstance() );
 		$this->setResponse( HttpResponse::getInstance() );
+
+		$tmpl = Templater::getInstance();
+
+		$tmpl->assign( 'application', $this );
+		$tmpl->assign( 'context', $this->getContext() );
+		$tmpl->assign( 'templater', $tmpl );
+		$tmpl->assign( 'tmpl', $tmpl );
 	}
 
 	/**

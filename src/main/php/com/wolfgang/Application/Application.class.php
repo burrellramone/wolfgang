@@ -2,7 +2,6 @@
 
 namespace Wolfgang\Application;
 
-use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Application\IApplication;
 use Wolfgang\Interfaces\Routing\IRouter;
 use Wolfgang\Interfaces\Dispatching\IDispatcher;

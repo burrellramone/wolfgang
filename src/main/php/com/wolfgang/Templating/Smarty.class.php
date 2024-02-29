@@ -88,9 +88,7 @@ final class Smarty extends Templater implements ITemplater {
 	 * @see \Wolfgang\Interfaces\ITemplater::display()
 	 */
 	public function display ( ): void {
-		$context = Application::getInstance()->getContext();
-
-		if ( ! empty( $this->getLayout() ) && ! preg_match( "/^edit_tab_/", $context->getAction() ) && ! preg_match( "/^view_tab_/", $context->getAction() ) ) {
+		if($this->getLayout()){
 			echo $this->cleanMarkup( $this->smarty->fetch( $this->getLayout() ) );
 		} else {
 			echo $this->cleanMarkup( $this->smarty->fetch( $this->template ) );
@@ -104,20 +102,23 @@ final class Smarty extends Templater implements ITemplater {
 	 */
 	public function fetch ( $template = null): string {
 		if ( ! empty( $template ) ) {
-			if ( ! Filesystem::exists( $template ) ) {
+			if ( ! Filesystem::exists( $template ) && ! Filesystem::exists( TEMPLATE_DIRECTORY . $template ) ) {
 				throw new FileNotExistException( "Template {$template} does not exist" );
 			}
 
 			return $this->smarty->fetch( $template );
 		}
 
-		$context = Application::getInstance()->getContext();
-
-		if ( preg_match( "/^edit_tab_/", $context->getAction() ) || preg_match( "/^view_tab_/", $context->getAction() ) ) {
-			return $this->cleanMarkup( $this->smarty->fetch( $this->template ) );
-		} else if ( ! empty( $this->layout ) ) {
+		if ( ! empty( $this->layout ) ) {
 			return $this->cleanMarkup( $this->smarty->fetch( $this->getLayout() ) );
 		}
+
+		$context = Application::getInstance()->getContext();
+		$action = $context->getAction();
+
+		if ( preg_match( "/^(edit|view)_tab_/", $action ) ) {
+			return $this->cleanMarkup( $this->smarty->fetch( $this->template ) );
+		} 
 
 		return '';
 	}
@@ -275,7 +276,7 @@ final class Smarty extends Templater implements ITemplater {
 		$context = Application::getInstance()->getContext();
 		$app = $context->getSkin()->getName();
 
-		$controller = $context->getControllerName();
+		$controller = $context->getController();
 		$action = $context->getAction();
 
 		$template = $app . "/sections/" . strtolower($controller) . "/{$action}.tmpl";

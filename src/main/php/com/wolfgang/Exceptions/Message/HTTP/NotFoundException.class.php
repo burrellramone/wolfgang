@@ -2,6 +2,8 @@
 
 namespace Wolfgang\Exceptions\Message\HTTP;
 
+use Exception as PHPException;
+
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
@@ -24,9 +26,9 @@ final class NotFoundException extends Exception {
 	 *
 	 * @param string $message
 	 * @param number $code
-	 * @param string $previous
+	 * @param PHPException $previous
 	 */
-	public function __construct ( $message = "404 Not Found. See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html", $code = 0, $previous = NULL ) {
+	public function __construct ( $message = "404 Not Found. See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html", $code = 0, PHPException $previous = NULL ) {
 		parent::__construct( $message, $code, $previous );
 		
 	}

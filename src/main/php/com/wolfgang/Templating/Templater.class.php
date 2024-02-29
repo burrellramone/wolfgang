@@ -59,10 +59,6 @@ abstract class Templater extends Component implements ISingleton {
 					throw new IllegalStateException( "Unknown and unimplemented templater '{$templater}'" );
 					break;
 			}
-			
-			self::$instance->assign( 'application', Application::getInstance() );
-			self::$instance->assign( 'context', Application::getInstance()->getContext() );
-			self::$instance->assign( 'templater', self::$instance );
 		}
 		return self::$instance;
 	}

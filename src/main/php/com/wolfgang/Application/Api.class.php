@@ -4,6 +4,7 @@ namespace Wolfgang\Application;
 
 use Error;
 use Exception;
+use ErrorException;
 
 //Wolfgang
 use Wolfgang\Interfaces\Application\IContext;
@@ -150,7 +151,7 @@ abstract class Api extends Application implements IApi {
 	public function respond ( $message = null) {
 		$error = null;
 
-		if ( ($message instanceof Exception) || ($message instanceof Error) || (is_string( $message )) ) {
+		if ( ($message instanceof Exception) || ($message instanceof Error) || ($message instanceof ErrorException) || (is_string( $message )) ) {
 			if ( is_string( $message ) ) {
 				$message = new ComponentException( $message );
 				Logger::getLogger()->error( $message );
