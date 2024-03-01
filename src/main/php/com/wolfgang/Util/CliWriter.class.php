@@ -15,8 +15,15 @@ final class CliWriter extends Component {
 	public static $COLOR_RED = '31m';
 	public static $COLOR_BLUE = '34m';
 
-	public static function info( string $message ){
+	public static function info( string|array $message ){
 		if(!$message){
+			return;
+		}
+
+		if(is_array($message)){
+			foreach($message as $m){
+				self::info($m);
+			}
 			return;
 		}
 		

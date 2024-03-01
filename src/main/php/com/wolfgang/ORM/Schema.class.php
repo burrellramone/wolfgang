@@ -314,7 +314,9 @@ final class Schema extends Component implements IDatabaseSchema {
 				}
 			}
 
-			if ( $value === null && ! $column->isNullable() ) {
+			if ($value === '' && $column->isNullable()) {
+				$value = null;
+			} else if ( $value === null && ! $column->isNullable() ) {
 				$value = $column->getDefaultValue();
 
 				if ( $value === null ) {

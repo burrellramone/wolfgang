@@ -528,7 +528,7 @@ abstract class Model extends Component implements IModel {
 	/**
 	 * Does a hard deleted on the database record this instance represents
 	 *
-	 * @return Model a reference to this instance
+	 * @return Model A reference to this instance
 	 */
 	public function delete ( ): IModel {
 		$this->getTable()->getSchema()->delete( $this );

@@ -140,9 +140,9 @@ abstract class Application extends Component implements IApplication {
 	/**
 	 *
 	 * @param string $kind
-	 * @param string $name
+	 * @param IContext $context
 	 */
-	protected function __construct ( string $kind, IContext $context ) {
+	public function __construct ( string $kind, IContext $context ) {
 		$this->setKind( $kind );
 		$this->setContext($context);
 

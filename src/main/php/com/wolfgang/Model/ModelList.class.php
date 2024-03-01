@@ -27,7 +27,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 abstract class ModelList extends Component implements \Iterator , IModelList , \Countable , IQueryBuilder , \ArrayAccess {
 	/**
 	 *
-	 * @var \ArrayObject
+	 * @var ArrayObject
 	 */
 	private $objects;
 
@@ -229,11 +229,10 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	}
 
 	/**
-	 * Deletes all the objects within this list and returns a reference to this instance
+	 * Deletes all the objects within this list
 	 *
-	 * @param boolean $hard Indicates whether to hard delete the opbjects within the list
-	 * @return ModelList This method will always return the instance of itself unless an exception
-	 *         thrown within the process.
+	 * @return ModelList The instance of this model list 
+	 * for method chaining, unless an exception is thrown within the process
 	 */
 	public function delete ( ):ModelList {
 		$this->each( function ( IModel $model ) {

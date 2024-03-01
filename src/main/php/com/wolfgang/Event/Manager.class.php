@@ -8,7 +8,6 @@ use Wolfgang\Interfaces\Event\IEvent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @version 1.0.0
  * @since Version 0.1.0
  */
 final class Manager extends Component {
@@ -31,7 +30,7 @@ final class Manager extends Component {
 		} else if ( ! $action ) {
 			throw new IllegalArgumentException( "Action must be provided" );
 		} else if ( ! $preposition ) {
-			$preposition = \Wolfgang\Interfaces\Event\IEvent::PREPOSITION_ON;
+			$preposition = IEvent::PREPOSITION_ON;
 		}
 
 		$e = new Event( $subject, $action, $object, $preposition );

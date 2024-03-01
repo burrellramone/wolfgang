@@ -27,11 +27,11 @@ final class Password extends Component {
 	 *
 	 * @param string $password
 	 */
-	public function __construct ( $password = NULL ) {
+	public function __construct ( string $password ) {
 		parent::__construct();
 
 		if ( empty( $password ) ) {
-			$password = md5( time() );
+			throw new CoreException("Password not provided");
 		}
 
 		$this->set( $password );
