@@ -100,9 +100,9 @@ final class ConditionalExpressionGroup extends Component implements IConditional
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\SQL\Expression\IConditionalExpression::eq()
 	 */
-	public function eq ( $expression1, $expression2, $not = false) {
+	public function eq ( $expression1, $expression2 ) {
 		$conditional_expression = new ConditionalExpression( $this->getClause(), $this->getLogicalOperator() );
-		$conditional_expression->eq( $expression1, $expression2, $not );
+		$conditional_expression->eq( $expression1, $expression2 );
 
 		$this->append( $conditional_expression );
 		return $this;
@@ -113,8 +113,13 @@ final class ConditionalExpressionGroup extends Component implements IConditional
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\SQL\Expression\IConditionalExpression::neq()
 	 */
-	public function neq ( $expression1, $expression ) {
-		throw new MethodNotImplementedException();
+	public function neq ( $expression1, $expression2 ) {
+		$conditional_expression = new ConditionalExpression( $this->getClause(), $this->getLogicalOperator() );
+		$conditional_expression->neq( $expression1, $expression2 );
+
+		$this->append( $conditional_expression );
+
+		return $this;
 	}
 
 	/**

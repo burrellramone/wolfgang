@@ -106,8 +106,17 @@ final class ConditionalExpression extends Expression implements IConditionalExpr
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\SQL\Expression\IConditionalExpression::neq()
 	 */
-	public function neq ( $expression1, $expression ) {
-		throw new MethodNotImplementedException( "" );
+	public function neq ( $expression1, $expression2 ) {
+		if ( $expression2 === null ) {
+			return $this->isNull( $expression1 );
+		}
+
+		$this->comparison_operator = IConditionalExpression::OPERATOR_NOT_EQUAL;
+
+		$this->expressions->append( Expression::create( $this->clause, $expression1 ) );
+		$this->expressions->append( Expression::create( $this->clause, $expression2 ) );
+
+		return $this;
 	}
 
 	/**
@@ -172,7 +181,7 @@ final class ConditionalExpression extends Expression implements IConditionalExpr
 	 * @see \Wolfgang\Interfaces\SQL\Expression\IConditionalExpression::is()
 	 */
 	public function is ( $expression, $boolean ) {
-		throw new MethodNotImplementedException( "" );
+		throw new MethodNotImplementedException( );
 	}
 
 	/**
