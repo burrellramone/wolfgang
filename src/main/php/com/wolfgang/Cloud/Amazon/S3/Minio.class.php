@@ -57,14 +57,17 @@ final class Minio extends Component {
 	}
 
 	/**
-	 * @param string $bucket
+	 * Transforms a string into an appropriate bucket name
+	 * 
+	 * @param string $bucket The string to transform
+	 * @return string The string transformed into an appropriate bucket name
 	 */
 	public static function bucketize( string $bucket ): string {
 		if(!$bucket){
 			throw new InvalidArgumentException("Bucket string not provided");
 		}
 
-		$bucket = preg_replace("/[^\w]/", '', $bucket);
+		$bucket = preg_replace("/[^\w]+/", '', $bucket);
 		$bucket = strtolower($bucket);
 		
 		return $bucket;
