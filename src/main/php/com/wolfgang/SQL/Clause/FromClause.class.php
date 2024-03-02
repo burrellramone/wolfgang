@@ -2,6 +2,9 @@
 
 namespace Wolfgang\SQL\Clause;
 
+use Exception;
+
+//Wolfgang
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Interfaces\SQL\Clause\IFromClause;
 use Wolfgang\Interfaces\SQL\Statement\DML\IDMLStatement;
@@ -12,6 +15,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 use Wolfgang\SQL\Join;
 use Wolfgang\ORM\Schema;
 use Wolfgang\Application\Application;
+use Wolfgang\ORM\SchemaManager;
 
 /**
  *
@@ -80,15 +84,37 @@ final class FromClause extends Clause implements IFromClause {
 	}
 	
 	/**
-	 * Adds a table which is to be joined as a table reference in this from clasuse.
+	 * @inheritdoc
+	 * 
+	 * Adds a table which is to be joined as a table reference in this from clause.
 	 *
-	 * @param ITable $table
+	 * @param ITable|string $table
 	 * @param string $type
 	 * @param string $alias The alias the table should be given in joining it
-	 * @see FromClause::__toString
+	 * @see FromClause::__toString()
 	 */
-	public function joinTable ( ITable $table, $type = IFromClause::JOIN_TYPE_INNER, $alias = null) {
-		$this->tables_to_join[ $table->getQualifiedName() ] = [ 
+	public function joinTable ( ITable|string $table, $type = IFromClause::JOIN_TYPE_INNER, $alias = null) {
+		if(is_string($table)){
+			foreach(SchemaManager::getInstance()->getSchemas() as $schema){
+				try {
+					$table = $schema->getTable($table);
+
+					break;
+				} catch (Exception $e) {
+
+				}
+			}
+		}
+
+		$qualified_name = $table->getQualifiedName();
+
+		//if table already joined
+		//@TODO What if I want to join the same table multiple times with different aliases
+		if(isset($this->tables_to_join[ $qualified_name ])){
+			return;
+		}
+
+		$this->tables_to_join[ $qualified_name ] = [ 
 				'type' => $type,
 				'alias' => $alias,
 				'table' => $table,

@@ -11,12 +11,12 @@ use Wolfgang\Date\DateTime;
 use Wolfgang\Interfaces\ORM\ITable;
 use Wolfgang\Exceptions\Model\Exception as ModelException;
 use Wolfgang\Util\Inflector;
+use Wolfgang\Interfaces\IMarshallable;
 use Wolfgang\Exceptions\IllegalArgumentException;
 use Wolfgang\Exceptions\IllegalOperationException;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\ORM\SchemaManager;
 use Wolfgang\Interfaces\ORM\ISchema as IDatabaseSchema;
-use Wolfgang\Application\Application;
 use Wolfgang\Util\UUID;
 use Wolfgang\Interfaces\Model\IBridgeModel;
 
@@ -25,9 +25,9 @@ use Wolfgang\Interfaces\Model\IBridgeModel;
  * inherit from.
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 0.0.1
  */
-abstract class Model extends Component implements IModel {
+abstract class Model extends Component implements IModel, IMarshallable {
 
 	/**
 	 *
@@ -632,6 +632,23 @@ abstract class Model extends Component implements IModel {
 		$called_class_instance = new $called_class();
 
 		return $called_class_instance->getSchema();
+	}
+
+	/**
+	 *
+	 * {@inheritdoc}
+	 * @see \Wolfgang\Interfaces\IMarshallable::marshall()
+	 */
+	public function marshall ( ): array {
+		$data = [];
+		$columns = $this->getTable()->getColumns();
+
+		foreach($columns as $column){
+			$property = $column->getName();
+			$data[$property] = $this->{$property};
+		}
+
+		return $data;
 	}
 
 	/**

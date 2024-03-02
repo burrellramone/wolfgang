@@ -17,11 +17,11 @@ interface IFromClause extends IClause {
 
 	/**
 	 *
-	 * @param ITable $table
+	 * @param ITable|string $table
 	 * @param string $join_type
 	 * @param string $as
 	 */
-	public function joinTable ( ITable $table, $join_type = IFromClause::JOIN_TYPE_LEFT_OUTER, $as = null );
+	public function joinTable ( ITable|string $table, $join_type = IFromClause::JOIN_TYPE_LEFT_OUTER, $as = null );
 
 	/**
 	 *
