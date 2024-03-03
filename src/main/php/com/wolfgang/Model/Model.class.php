@@ -10,6 +10,7 @@ use Wolfgang\Interfaces\Model\IModel;
 use Wolfgang\Date\DateTime;
 use Wolfgang\Interfaces\ORM\ITable;
 use Wolfgang\Exceptions\Model\Exception as ModelException;
+use Wolfgang\Traits\TMarshallable;
 use Wolfgang\Util\Inflector;
 use Wolfgang\Interfaces\IMarshallable;
 use Wolfgang\Exceptions\IllegalArgumentException;
@@ -28,6 +29,7 @@ use Wolfgang\Interfaces\Model\IBridgeModel;
  * @since Version 0.0.1
  */
 abstract class Model extends Component implements IModel, IMarshallable {
+	use TMarshallable;
 
 	/**
 	 *
@@ -642,9 +644,15 @@ abstract class Model extends Component implements IModel, IMarshallable {
 	public function marshall ( ): array {
 		$data = [];
 		$columns = $this->getTable()->getColumns();
+		$exempted_fields = $this->getMarshallFieldExemptions();
 
 		foreach($columns as $column){
 			$property = $column->getName();
+
+			if(isset($exempted_fields[$property])){
+				continue;
+			}
+
 			$data[$property] = $this->{$property};
 		}
 
