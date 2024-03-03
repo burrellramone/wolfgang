@@ -62,11 +62,12 @@ abstract class Api extends Application implements IApi {
 		$this->setRouter( HttpRouter::getInstance() );
 		$this->setResponse( HttpResponse::getInstance() );
 
+		//Request being made from different origin
 		if ( ! empty( $_SERVER[ 'HTTP_ORIGIN' ] ) ) {
 			$this->response->setHeader( "Access-Control-Allow-Origin", $_SERVER[ 'HTTP_ORIGIN' ] );
 			$this->response->setHeader( "Access-Control-Allow-Credentials", "true" );
 			$this->response->setHeader( "Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS" );
-			$this->response->setHeader( "Access-Control-Allow-Headers", "Origin, Cookie, Content-Type, X-Auth-Token, Access-Control-Allow-Origin, X-Requested-With, HTTP-X-REQUESTED-WITH-DATATABLE" );
+			$this->response->setHeader( "Access-Control-Allow-Headers", "Origin, Cookie, Content-Type, X-Auth-Token, Access-Control-Allow-Origin, X-Requested-With, HTTP-X-REQUESTED-WITH-DATATABLE, Http-X-Requested-For-AutoComplete" );
 		}
 	}
 

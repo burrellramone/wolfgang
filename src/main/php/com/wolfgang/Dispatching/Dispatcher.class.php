@@ -13,6 +13,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 use Wolfgang\Interfaces\Model\IModel;
 use Wolfgang\Interfaces\ICliMarshallable;
 use Wolfgang\Interfaces\Model\IModelList;
+use Wolfgang\Util\AutoCompleteMarshaller;
 use Wolfgang\Util\DataTableMarshaller;
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Interfaces\IGraph;
@@ -76,6 +77,8 @@ final class Dispatcher extends Component implements IDispatcher , ISingleton {
 					} else if ( ($result instanceof IModelList) ) {
 						if ( $request->getHeader( 'HTTP-X-REQUESTED-WITH-DATATABLE' ) ) {
 							$result = DataTableMarshaller::getInstance()->marshall( $result );
+						} else if($request->getHeader( 'Http-X-Requested-For-AutoComplete' )) {
+							$result = AutoCompleteMarshaller::getInstance()->marshall( $result );
 						} else {
 							$result = $result->marshall();
 						}

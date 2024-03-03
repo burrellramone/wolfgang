@@ -2,6 +2,8 @@
 
 namespace Wolfgang\Interfaces;
 
+use \stdClass;
+
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
@@ -12,7 +14,7 @@ interface IMarshaller {
 	/**
 	 *
 	 * @param IMarshallable $object
-	 * @return \stdClass
+	 * @return stdClass|array
 	 */
-	public function marshall ( IMarshallable $object ): \stdClass;
+	public function marshall ( IMarshallable $object ): stdClass|array;
 }

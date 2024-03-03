@@ -6,6 +6,7 @@ use Wolfgang\Interfaces\IMarshaller;
 use Wolfgang\Interfaces\IMarshallable;
 use Wolfgang\Interfaces\Model\IModelList;
 use Wolfgang\Interfaces\ISingleton;
+use Wolfgang\Traits\TMarshaller;
 
 /**
  *
@@ -13,18 +14,13 @@ use Wolfgang\Interfaces\ISingleton;
  * @since Version 0.1.0
  */
 final class DataTableMarshaller extends Component implements IMarshaller , ISingleton {
-
+	use TMarshaller;
+	
 	/**
 	 *
 	 * @var DataTableMarshaller
 	 */
 	private static $instance;
-
-	/**
-	 */
-	protected function __construct ( ) {
-		parent::__construct();
-	}
 
 	/**
 	 *
@@ -79,57 +75,5 @@ final class DataTableMarshaller extends Component implements IMarshaller , ISing
 		$result->recordsFiltered = $records_filtered;
 
 		return $result;
-	}
-
-	public static function recursiveMarshall ( $data ) {
-		if ( ! $data ) {
-			return $data;
-		}
-
-		if ( $data ) {
-			if ( is_object( $data ) ) {
-				if ( ($data instanceof IMarshallable) ) {
-					$digest = $data->marshall();
-
-					if ( is_array( $digest ) || is_object( $digest ) ) {
-						return self::recursiveMarshall( $digest );
-					}
-
-					return $digest;
-				}
-
-				foreach ( get_object_vars( $data ) as $property => $value ) {
-					if ( ($data->$property instanceof IMarshallable) ) {
-						$data->$property = $value->marshall();
-
-						if ( is_array( $data->$property ) || is_object( $data->$property ) ) {
-							$data->$property = self::recursiveMarshall( $data->$property );
-						}
-					} else if ( is_array( $data->$property ) ) {
-						$data->$property = self::recursiveMarshall( $data->$property );
-					}
-				}
-			} else if ( is_array( $data ) ) {
-
-				foreach ( $data as &$value ) {
-
-					if ( ($value instanceof IMarshallable) ) {
-						$value = $value->marshall();
-
-						if ( is_array( $value ) ) {
-							foreach ( $value as &$value2 ) {
-								if ( is_array( $value2 ) || is_object( $value2 ) ) {
-									$value2 = self::recursiveMarshall( $value2 );
-								}
-							}
-						}
-					} else if ( is_array( $value ) ) {
-						$value = self::recursiveMarshall( $value );
-					}
-				}
-			}
-		}
-
-		return $data;
 	}
 }

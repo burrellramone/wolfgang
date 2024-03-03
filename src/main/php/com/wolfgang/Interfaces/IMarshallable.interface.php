@@ -8,8 +8,8 @@ namespace Wolfgang\Interfaces;
  * @since Version 0.1.0
  */
 interface IMarshallable {
+
 	/**
-	 *
 	 * @return mixed
 	 */
 	public function marshall ( ): array;

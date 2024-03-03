@@ -1,9 +1,6 @@
 <?php
 namespace Wolfgang\Traits\Model;
 
-use Wolfgang\Interfaces\IMarshaller;
-use Wolfgang\Interfaces\IMarshallable as IModelMarshallable;
-use Wolfgang\Exceptions\IllegalStateException;
 use Wolfgang\Util\DataTableMarshaller;
 
 /**
@@ -15,19 +12,9 @@ trait TModelListMarshallable {
 
 	/**
 	 *
-	 * @param IMarshaller $marshaller
-	 * @throws IllegalStateException
-	 * @return \stdClass|array
+	 * @return array
 	 */
-	public function marshall ( IMarshaller $marshaller = null): array {
-		if ( ! ($this->getUnitClassInstance() instanceof IModelMarshallable) ) {
-			throw new IllegalStateException( "Unit class '{$this->getUnitClassInstance()}' does not implement interface 'Wolfgang\Interfaces\IMarshallable'" );
-		}
-
-		if ( $marshaller ) {
-			return $marshaller->marshall( $this );
-		}
-
+	public function marshall (): array {
 		$items = array ();
 
 		foreach ( $this as $object ) {
