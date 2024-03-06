@@ -250,7 +250,7 @@ final class Smarty extends Templater implements ITemplater {
 			$common_default_layout = "Common/layout/default.tmpl";
 			$default_layout = $skin->getName() . "/layout/default.tmpl";
 
-			$layout = $this->getLayoutFromDirectives( $skin->getName(), $context->getControllerName(), $context->getAction() );
+			$layout = $this->getLayoutFromDirectives( $skin->getName(), $context->getController(), $context->getAction() );
 
 			if ( ! $layout ) {
 				$layout = $default_layout;

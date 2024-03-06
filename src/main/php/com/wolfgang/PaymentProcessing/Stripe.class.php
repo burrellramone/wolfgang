@@ -3,6 +3,7 @@
 namespace Wolfgang\PaymentProcessing;
 
 // Stripe
+use Stripe\StripeClient;
 use Stripe\Plan as StripePlan;
 use Stripe\Card as StripeCard;
 use Stripe\Stripe as StripeLib;
@@ -12,7 +13,7 @@ use Stripe\Customer as StripeCustomer;
 use Stripe\Error\Card as StripeCardError;
 use Stripe\BankAccount as StripeBankAccount;
 use Stripe\Subscription as StripeSubscription;
-use Stripe\Error\InvalidRequest as InvalidStripeRequest;
+use Stripe\Exception\InvalidRequestException as InvalidStripeRequest;
 // Wolfgang
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Interfaces\ISingleton;
@@ -28,7 +29,7 @@ use Wolfgang\Exceptions\PaymentProcessing\Stripe\Exception as StripePaymentProce
  *
  * @uses \Stripe\Stripe()
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @see Version 1.0.0
+ * @see Version 0.1.0
  */
 final class Stripe extends Component implements ISingleton {
 	use TSingleton;
@@ -55,8 +56,7 @@ final class Stripe extends Component implements ISingleton {
 		
 		$this->setConfig( PaymentProcessingConfig::get( 'stripe' ) );
 		
-		$this->stripe = new \Stripe\Stripe();
-		$this->stripe->setApiKey( $this->config[ 'secret_key' ] );
+		$this->stripe = new StripeClient($this->config[ 'secret_key' ]);
 	}
 	
 	/**
@@ -100,7 +100,7 @@ final class Stripe extends Component implements ISingleton {
 		}
 		
 		try {
-			$stripe_cus_object = StripeCustomer::create( $options );
+			$stripe_cus_object = $this->stripe->customers->create( $options );
 			return $stripe_cus_object->id;
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to add stripe customer", 0, $e );
@@ -193,7 +193,7 @@ final class Stripe extends Component implements ISingleton {
 		
 		try {
 			
-			$cus = $this->getCustomer( $wolfgang_stripe_customer->getStripeCustomerId() );
+			$cus = $this->getCustomer( $wolfgang_stripe_customer );
 			
 			if ( ! $cus ) {
 				throw new InvalidStateException( "Cannot add card for non-existent customer" );
@@ -201,7 +201,7 @@ final class Stripe extends Component implements ISingleton {
 			
 			$stripe_card_object = $cus->sources->create( array (
 					"card" => $stripe_token
-			) );
+			) ); 
 		} catch ( StripeCardError $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to add a new card for a customer", 0, $e );
 		} catch ( InvalidStripeRequest $e ) {

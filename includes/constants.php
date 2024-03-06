@@ -193,6 +193,15 @@ if ( ! defined( 'INTERVAL_YEAR' ) ) {
 	define( 'INTERVAL_YEAR', 'year' );
 }
 
+if ( ! defined( 'INTERVAL_CUSTOM' ) ) {
+
+	/**
+	 *
+	 * @var string
+	 */
+	define( 'INTERVAL_CUSTOM', 'custom' );
+}
+
 if ( ! defined( 'DATE_FORMAT' ) ) {
 	/**
 	 *

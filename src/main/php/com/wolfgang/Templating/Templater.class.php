@@ -96,11 +96,10 @@ abstract class Templater extends Component implements ISingleton {
 	 *
 	 * @access public
 	 * @param array $rewrites
+	 * @return void
 	 */
-	public function addTemplateRewrites ( array $rewrites ) {
-		foreach ( $rewrites as $rewrite ) {
-			$this->addRewrite( $rewrite );
-		}
+	public function setTemplateRewrites ( array $rewrites ):void{
+		$this->rewrites = $rewrites;
 	}
 	
 	/**
@@ -118,10 +117,11 @@ abstract class Templater extends Component implements ISingleton {
 	 * @param string $action
 	 * @return string | null
 	 */
-	public function getRewrite ( $app, $controller, $action ) {
+	public function getRewrite ( $app, $controller, $action ):?string{
 		if ( ! empty( $this->rewrites[ $app ][ $controller ][ $action ] ) ) {
-			return TEMPLATE_DIRECTORY . $this->rewrites[ $app ][ $controller ][ $action ][ 'app' ] . "/sections/" . $this->rewrites[ $app ][ $controller ][ $action ][ 'file' ];
+			return $this->rewrites[ $app ][ $controller ][ $action ][ 'app' ] . "/sections/" . $this->rewrites[ $app ][ $controller ][ $action ][ 'file' ];
 		}
+		return null;
 	}
 	
 	/**
