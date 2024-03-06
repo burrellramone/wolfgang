@@ -10,7 +10,7 @@ use Stripe\Stripe as StripeLib;
 use Stripe\Refund as StripeRefund;
 use Stripe\Charge as StripeCharge;
 use Stripe\Customer as StripeCustomer;
-use Stripe\Error\Card as StripeCardError;
+use Stripe\Exception\CardException as StripeCardException;
 use Stripe\BankAccount as StripeBankAccount;
 use Stripe\Subscription as StripeSubscription;
 use Stripe\Exception\InvalidRequestException as InvalidStripeRequest;
@@ -202,7 +202,7 @@ final class Stripe extends Component implements ISingleton {
 			$stripe_card_object = $cus->sources->create( array (
 					"card" => $stripe_token
 			) ); 
-		} catch ( StripeCardError $e ) {
+		} catch ( StripeCardException $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to add a new card for a customer", 0, $e );
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to add a new card for a customer", 0, $e );
@@ -250,7 +250,7 @@ final class Stripe extends Component implements ISingleton {
 			$stripe_card_object->exp_month = $exp_month;
 			
 			$stripe_card_object = $stripe_card_object->save();
-		} catch ( StripeCardError $e ) {
+		} catch ( StripeCardException $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to update stripe card", 0, $e );
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to update stripe card", 0, $e );
@@ -291,7 +291,7 @@ final class Stripe extends Component implements ISingleton {
 			}
 			
 			$stripe_card_object = $stripe_card_object->delete();
-		} catch ( StripeCardError $e ) {
+		} catch ( StripeCardException $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to delete stripe card", 0, $e );
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to delete stripe card", 0, $e );
