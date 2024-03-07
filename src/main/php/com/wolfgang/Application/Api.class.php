@@ -155,12 +155,14 @@ abstract class Api extends Application implements IApi {
 		if ( ($message instanceof Exception) || ($message instanceof Error) || ($message instanceof ErrorException) || (is_string( $message )) ) {
 			if ( is_string( $message ) ) {
 				$message = new ComponentException( $message );
-				Logger::getLogger()->error( $message );
+				
+				$this->logError($message);
 			} else {
+				$this->logError($message);
+
 				if ( ! ($message instanceof IMarshallable) ) {
 					$message = new ComponentException( "", 0, $message );
 				}
-				Logger::getLogger()->error( $message );
 			}
 
 			$error = $message->marshall();
@@ -242,7 +244,7 @@ abstract class Api extends Application implements IApi {
 			$this->onAfterExec();
 
 			if ($e) {
-				Logger::getLogger()->error($e);
+				$this->logError($e);
 			}
 
 			if ( $request->getMethod() == IHttpRequest::METHOD_OPTIONS ) {

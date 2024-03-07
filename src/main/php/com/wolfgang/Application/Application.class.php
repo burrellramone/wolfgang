@@ -645,6 +645,16 @@ abstract class Application extends Component implements IApplication {
 	}
 
 	/**
+	 * Logs a message as an error
+	 * 
+	 * @param mixed $message The message to log
+	 * @return void
+	 */
+	protected function logError(mixed $message):void {
+		Logger::getLogger()->error( $message );
+	}
+
+	/**
 	 *
 	 * @return void
 	 */
