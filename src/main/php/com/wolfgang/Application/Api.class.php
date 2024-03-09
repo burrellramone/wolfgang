@@ -175,6 +175,16 @@ abstract class Api extends Application implements IApi {
 		$request = $this->getRequest();
 		$response = $this->getResponse();
 
+		$content_disposition_header = $response->getHeader("Content-Disposition");
+
+		if($content_disposition_header){
+			if (preg_match("/(download)/", $content_disposition_header)) {
+				echo $response;
+				exit;
+			}
+		}
+
+
 		$successful_request = ! preg_match( "/^[54]{1}/", $response->getStatusCode() ) && empty( $error );
 		$message = $response->getBody();
 
