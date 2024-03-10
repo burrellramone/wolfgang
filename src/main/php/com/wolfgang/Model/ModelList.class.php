@@ -119,7 +119,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 *
 	 * @return ModelList A reference to this instance
 	 */
-	public function findAll ( ) {
+	public function findAll ( ):ModelList {
 		$this->limit( 1000000000000 );
 		return $this;
 	}

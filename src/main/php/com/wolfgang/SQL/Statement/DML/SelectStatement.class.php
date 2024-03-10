@@ -358,6 +358,10 @@ final class SelectStatement extends Statement implements ISelectStatement {
 	 * @see \Wolfgang\Interfaces\SQL\Statement\ISelectStatement::addOrderBy()
 	 */
 	public function addOrderBy ( $expression, $order = IOrderByClause::ORDER_ASC) {
+		if(!$this->order_by_clause){
+			return $this->orderBy($expression, $order);
+		}
+
 		$this->order_by_clause->addOrderBy( $expression, $order );
 	}
 
