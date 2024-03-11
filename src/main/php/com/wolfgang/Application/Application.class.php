@@ -157,21 +157,27 @@ abstract class Application extends Component implements IApplication {
 	protected function init ( ) {
 		parent::init();
 
+		$this->config = AppConfig::getAll();
+
 		if(!$this->context->isCli()){
 			$kind = SessionConfig::get( 'kind' );
 			$domain = $this->context->getSkin()->getSkinDomain()->getDomain();
+			$session = SessionManager::getInstance()->createSession( $kind, array(
+				'domain' => $domain,
+				'id_prefix' => $this->config['session_id_prefix']
+			) );
 
-			$this->setSession( SessionManager::getInstance()->createSession( $kind, array(
-				'domain' => $domain
-			) ) );
+			if($session->get('remember_me')){
+				$session->setExpires(YEAR_IN_SECONDS);
+			}
+
+			$this->setSession( $session );
 		}		
 		
 		$this->setDispatcher( Dispatcher::getInstance() );
 		$this->setEventDispatcher( EventDispatcher::getInstance() );
 		$this->setDriverManager( DriverManager::getInstance() );
 		$this->setSchemaManager( SchemaManager::getInstance() );
-
-		$this->config = AppConfig::getAll();
 
 		$this->bootstrap();
 	}
@@ -732,5 +738,7 @@ abstract class Application extends Component implements IApplication {
 
 	public function __destruct ( ) {
 		parent::__destruct();
+
+		$this->getSession()->close();
 	}
 }

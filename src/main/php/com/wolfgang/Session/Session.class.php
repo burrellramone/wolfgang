@@ -3,7 +3,7 @@
 namespace Wolfgang\Session;
 
 use Wolfgang\Interfaces\Session\ISession;
-use Wolfgang\Interfaces\ISingleton;
+use Wolfgang\Util\Cookie;
 use Wolfgang\Interfaces\Session\ISessionHandler;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\IllegalArgumentException;
@@ -33,10 +33,21 @@ final class Session extends Component implements ISession {
 	protected $id;
 
 	/**
+	 * @var string
+	 */
+	private string $id_prefix = 'WG';
+
+	/**
 	 *
 	 * @var string
 	 */
 	protected $kind;
+
+	/**
+	 *
+	 * @var string
+	 */
+	protected string $domain;
 
 	/**
 	 *
@@ -52,25 +63,28 @@ final class Session extends Component implements ISession {
 
 	/**
 	 *
-	 * @param string $kind
+	 * @param array $options An array of options to use in creating the session
 	 */
-	protected function __construct ( array $options ) {
+	public function __construct ( array $options ) {
 		parent::__construct();
 
 		if( !isset($options['kind']) ){
 			throw new IllegalArgumentException("Session kind session option not provided");
 		}
 
-		$this->setKind( $options['kind'] );
+		if( !isset($options['domain']) ){
+			throw new IllegalArgumentException("Session domain session option not provided");
+		}
 
-		$handler = null;
+		$this->setKind( $options['kind'] );
+		$this->setDomain( $options['domain'] );
+
+		if(!empty($options['id_prefix'])){
+			$this->setIdPrefix($options['id_prefix']);
+		}
 
 		switch ( $this->getKind() ) {
 			case ISession::KIND_COOKIE :
-				if( !isset($options['domain']) ){
-					throw new IllegalArgumentException("Session domain session option not provided");
-				}
-
 				$handler = new CookieSessionHandler( $options['domain'] );
 				break;
 
@@ -103,7 +117,11 @@ final class Session extends Component implements ISession {
 	 *
 	 * @param string $id
 	 */
-	protected function setId ( $id ) {
+	protected function setId ( string $id ) {
+		if(!$id){
+			throw new InvalidArgumentException('id');
+		}
+
 		$this->id = $id;
 	}
 
@@ -113,6 +131,29 @@ final class Session extends Component implements ISession {
 	 */
 	public function getId ( ) {
 		return $this->id;
+	}
+
+	/**
+	 *
+	 * @see https://www.php.net/manual/function.session-name.php
+	 * @return string
+	 */
+	public function getName():string {
+		return session_name();
+	}
+
+   /**
+	* @param string
+	*/
+   public function setIdPrefix(string $id_prefix):void {
+	   $this->id_prefix = $id_prefix;
+   }
+
+	/**
+	 * @return string
+	 */
+	public function getIdPrefix():string {
+		return $this->id_prefix;
 	}
 
 	/**
@@ -150,7 +191,6 @@ final class Session extends Component implements ISession {
 
 		$this->kind = $kind;
 	}
-
 	/**
 	 *
 	 * @return string
@@ -161,10 +201,29 @@ final class Session extends Component implements ISession {
 
 	/**
 	 *
+	 * @param string $domain
+	 * @return void
+	 */
+	private function setDomain ( string $domain ):void {
+		$this->domain = $domain;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getDomain():string {
+		return $this->domain;
+	}
+
+	/**
+	 *
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Session\ISession::close()
 	 */
 	public function close ( ) {
+		//Don't encrypt session id value
+		Cookie::write($this->getName(), $this->getId(), $this->getExpires(), '/', $this->getDomain(), true, true, false );
+
 		$this->getHandler()->close();
 	}
 
@@ -173,7 +232,11 @@ final class Session extends Component implements ISession {
 	 * @return boolean
 	 */
 	public function destroy ( ) {
-		return session_destroy();
+		session_destroy();
+		
+		Cookie::write($this->getName(), 'deleted', -1, '/', $this->getDomain() );
+
+		return $this->getHandler()->destroy($this->getId());
 	}
 
 	/**
@@ -185,9 +248,9 @@ final class Session extends Component implements ISession {
 
 	/**
 	 *
-	 * @param string $key
+	 * @param mixed $key
 	 */
-	public function get ( string $key ) {
+	public function get ( string $key ):mixed {
 		if ( isset( $_SESSION[ $key ] ) ) {
 			return $_SESSION[ $key ];
 		}
@@ -215,6 +278,21 @@ final class Session extends Component implements ISession {
 	}
 
 	/**
+	 * @param int
+	 */
+	public function setExpires(int $expires):void{
+		$this->getHandler()->setExpires($expires);
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getExpires():int {
+		return $this->getHandler()->getExpires();
+	}
+
+	/**
+	 * @see https://www.php.net/manual/en/session.configuration.php
 	 * @return void
 	 */
 	private function start ( ): void {
@@ -222,9 +300,19 @@ final class Session extends Component implements ISession {
 			return;
 		}
 
+		if(!isset($_COOKIE[$this->getName()])){
+			$id = session_create_id($this->getIdPrefix());
+			session_id($id);
+		}
+
 		session_set_save_handler( $this->getHandler(), true );
 		session_start( [ 
-				'cookie_domain' => Context::getInstance()->getSkin()->getSkinDomain()->getDomain()
+			'cookie_domain' => $this->getDomain(),
+			'cookie_lifetime' => 0,
+			'gc_probability' => 1,
+			'gc_divisor' => 100,
 		] );
+
+		$this->setId(session_id());
 	}
 }

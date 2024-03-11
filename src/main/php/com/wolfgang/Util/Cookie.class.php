@@ -2,14 +2,14 @@
 
 namespace Wolfgang\Util;
 
-use Wolfgang\Exceptions\IllegalArgumentException;
+use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\Exception as ComponentException;
 use Wolfgang\Encryption\AES;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @uses Wolfgang\Exceptions\IllegalArgumentException
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @uses Wolfgang\Exceptions\InvalidArgumentException
  * @uses Wolfgang\Encryption\AES
  * @since Version 0.1.0
  */
@@ -22,24 +22,27 @@ final class Cookie extends Component {
 	 * @param string $expires
 	 * @param string $path
 	 * @param string $domain
-	 * @param string $secure
-	 * @param string $httponly
-	 * @throws IllegalArgumentException
+	 * @param bool $secure
+	 * @param bool $httponly
+	 * @param bool $encrypt_value
+	 * @throws InvalidArgumentException
 	 */
-	public static function write ( $name, $value, $expires = YEAR_IN_SECONDS, $path = null, $domain = null, $secure = false, $httponly = true ) {
+	public static function write ( string $name, string $value, int|null $expires = YEAR_IN_SECONDS, $path = null, $domain = null, bool $secure = true, bool $httponly = true, $encrypt_value = true) {
 		if ( empty( $name ) ) {
-			throw new IllegalArgumentException( 'Name of cookie must be provided' );
-		} else if ( empty( $value ) && $value !== null ) {
-			throw new IllegalArgumentException( 'Value for cookie to be written must be provided' );
+			throw new InvalidArgumentException( 'Name of cookie must be provided' );
 		} else if ( headers_sent() ) {
 			return false;
 		}
 
-		if ( $value !== null ) {
+		if($expires){
+			$expires += time();
+		}
+
+		if($encrypt_value){
 			$value = AES::encrypt( $value );
 		}
 
-		if ( ! setcookie( $name, $value, time() + $expires, $path, $domain, $secure, $httponly ) ) {
+		if ( ! setcookie( $name, $value, $expires, $path, $domain, $secure, $httponly ) ) {
 			throw new ComponentException( "Failed to write cookie '{$name}'" );
 		}
 
@@ -49,10 +52,11 @@ final class Cookie extends Component {
 	/**
 	 *
 	 * @param string $name
+	 * @return string|null
 	 */
-	public static function read ( string $name ) {
+	public static function read ( string $name ):?string {
 		$value = null;
-		if ( ! empty( $_COOKIE[ $name ] ) ) {
+		if ( isset( $_COOKIE[ $name ] ) ) {
 			$value = AES::decrypt( $_COOKIE[ $name ] );
 		}
 		return $value;

@@ -3,10 +3,9 @@
 namespace Wolfgang\Session;
 
 use Wolfgang\Util\Cookie;
-use Wolfgang\Exceptions\IllegalArgumentException;
+use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\Session\Exception as SessionException;
 use Wolfgang\Interfaces\Session\ISessionHandler;
-use Wolfgang\Application\Application;
 
 /**
  *
@@ -21,12 +20,23 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	private $domain;
 
 	/**
-	 * @param string $domain The (sub)domain that the cookies that are written is available to.
+	 * The number of seconds after the session cookie is set that it should expire.
+	 * If set to 0, it will expire when the browser closes
+	 * 
+	 * @see http://php.net/setcookie
+	 * @var int
 	 */
-	public function __construct ( string $domain ) {
+	private int $expires = 0;
+
+	/**
+	 * @param string $domain The (sub)domain that the cookies that are written is available to.
+	 * @param string $expires The number of seconds after the session cookie is set that it should expire.
+	 */
+	public function __construct ( string $domain, int $expires = 0) {
 		parent::__construct();
 
 		$this->setDomain($domain);
+		$this->setExpires($expires);
 	}
 
 	/**
@@ -37,6 +47,20 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	}
 
 	/**
+	 * @param int
+	 */
+	public function setExpires(int $expires):void {
+		$this->expires = $expires;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getExpires():int {
+		return $this->expires;
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getDomain():string {
@@ -44,22 +68,31 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	}
 	
 	/**
-	 *
+	 * @see https://www.php.net/manual/en/sessionhandlerinterface.destroy.php
 	 * @param string $session_id
 	 */
-	public function destroy ( $session_id ): bool {
-		return Cookie::write( $session_id, null, time() - 1, '/', $GLOBALS[ 'cookie_domain' ] );
+	public function destroy ( string $session_id ): bool {
+		session_destroy();
+
+		$_SESSION = [];
+
+		return Cookie::write( $session_id, 'deleted', -1, '/', $this->getDomain() );
 	}
 	
 	/**
 	 *
 	 * @param string $session_id
+	 * @return string|false
 	 */
 	public function read ( $session_id ): string|false {
-		if ( ! empty( $_COOKIE[ $session_id ] ) ) {
-			return Cookie::read( $session_id );
+		//Must return at least empty string else we'll get error "Warning:  session_start(): Failed to read session data: user (path: /var/lib/php/sessions)"
+		$session_data = '';
+
+		if ( isset( $_COOKIE[ $session_id ] ) ) {
+			$session_data = Cookie::read( $session_id );
 		}
-		return '';
+		
+		return $session_data;
 	}
 	
 	/**
@@ -69,28 +102,32 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	 * @throws SessionException
 	 * @return bool
 	 */
-	public function write ( $session_id, $session_data ):bool {
+	public function write ( string $session_id, string $session_data ):bool {
 		if ( empty( $session_id ) ) {
-			throw new IllegalArgumentException( "Session id must be provided" );
+			throw new InvalidArgumentException( "Session id must be provided" );
 		} else if ( empty( $session_data ) ) {
-			return true;
+			throw new InvalidArgumentException( "Session data empty" );
 		} else if ( php_sapi_name() == 'cli' ) {
 			return true;
 		} else if ( headers_sent() ) {
 			return true;
 		}
-		
-		if ( ! Cookie::write( $session_id, $session_data, time() + YEAR_IN_SECONDS, '/', $this->getDomain() ) ) {
+
+		if ( ! Cookie::write( $session_id, $session_data, $this->getExpires(), '/', $this->getDomain() ) ) {
 			throw new SessionException( "Failed to write session data for session id {$session_id}" );
 		}
 		
 		return true;
 	}
 	
-	public function gc ( $maxlifetime ): int|false {
+	public function gc (int $maxlifetime ): int|false {
 		return true;
 	}
 	
+	/**
+	 * @see https://www.php.net/manual/en/sessionhandler.open.php
+	 * @see https://www.php.net/manual/en/sessionhandlerinterface.open.php
+	 */
 	public function open ( $save_path, $session_name ) :bool{
 		return true;
 	}

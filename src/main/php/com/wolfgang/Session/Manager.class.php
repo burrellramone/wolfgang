@@ -19,22 +19,17 @@ final class Manager extends Component implements ISingleton {
 	 * @var Session
 	 */
 	protected $session;
-	
-	/**
-	 */
-	protected function __construct ( ) {
-		parent::__construct();
-	}
+
+
 	/**
 	 * @param string $kind
 	 * @param array $options
 	 * @return ISession
 	 */
 	public function createSession(string $kind, array $options = array()){
-		$this->session = Session::create([
-			'kind' => $kind,
-			'domain' => $options['domain']??null,
-		]);
+		$options['kind'] = $kind;
+		
+		$this->session = Session::create($options);
 
 		return $this->session;
 	} 
