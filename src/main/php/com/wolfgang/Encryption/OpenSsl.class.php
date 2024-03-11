@@ -4,7 +4,7 @@ namespace Wolfgang\Encryption;
 
 use Wolfgang\Component as BaseComponent;
 use Wolfgang\Exceptions\Encryption\OpenSslException;
-use Wolfgang\Exceptions\IllegalArgumentException;
+use Wolfgang\Exceptions\InvalidArgumentException;
 
 /**
  *
@@ -99,13 +99,13 @@ abstract class OpenSsl extends BaseComponent {
 	 * @param string &$tag
 	 * @param string $additional_authentication_data
 	 * @param number $tag_length
-	 * @throws IllegalArgumentException
+	 * @throws InvalidArgumentException
 	 * @throws OpenSslException
 	 * @return string
 	 */
-	public static function encrypt ( $data, $method = OpenSsl::CIPHER_METHOD_AES_256_ECB, $password = OpenSsl::OPEN_SSL_PASSWORD, $options = 0, $iv = '', &$tag = NULL, $additional_authentication_data = '', $tag_length = 16): string {
+	public static function encrypt ( string $data, $method = OpenSsl::CIPHER_METHOD_AES_256_ECB, $password = OpenSsl::OPEN_SSL_PASSWORD, $options = 0, $iv = '', &$tag = NULL, $additional_authentication_data = '', $tag_length = 16): string {
 		if ( empty( $data ) ) {
-			throw new IllegalArgumentException( 'Data to be encrypted must be provided' );
+			throw new InvalidArgumentException( 'Data to be encrypted must be provided' );
 		}
 		
 		//ecb mode does not use/require an IV
@@ -138,13 +138,13 @@ abstract class OpenSsl extends BaseComponent {
 	 * @param string $iv
 	 * @param string $tag
 	 * @param string $additional_authentication_data
-	 * @throws IllegalArgumentException
+	 * @throws InvalidArgumentException
 	 * @throws OpenSslException
 	 * @return string
 	 */
-	public static function decrypt ( $encrypted_data, $method = OpenSsl::CIPHER_METHOD_AES_256_ECB, $password = OpenSsl::OPEN_SSL_PASSWORD, $options = 0, $iv = '', $tag = '', $additional_authentication_data = ''): string {
+	public static function decrypt ($encrypted_data, string $method = OpenSsl::CIPHER_METHOD_AES_256_ECB, $password = OpenSsl::OPEN_SSL_PASSWORD, $options = 0, $iv = '', $tag = '', $additional_authentication_data = ''): string {
 		if ( empty( $encrypted_data ) ) {
-			throw new IllegalArgumentException( 'Data to be decrypted must be provided' );
+			throw new InvalidArgumentException( 'Data to be decrypted must be provided' );
 		}
 		
 		//ecb mode does not use/require an IV
