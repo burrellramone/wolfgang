@@ -6,6 +6,7 @@ use Wolfgang\Util\Cookie;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\Session\Exception as SessionException;
 use Wolfgang\Interfaces\Session\ISessionHandler;
+use Wolfgang\Traits\TSessionHandler;
 
 /**
  *
@@ -13,24 +14,16 @@ use Wolfgang\Interfaces\Session\ISessionHandler;
  * @since Version 0.1.0
  */
 final class CookieSessionHandler extends Component implements ISessionHandler {
-	
+	use TSessionHandler;
+
 	/**
 	 * @var string The (sub)domain that the cookie is available to.
 	 */
 	private $domain;
 
 	/**
-	 * The number of seconds after the session cookie is set that it should expire.
-	 * If set to 0, it will expire when the browser closes
-	 * 
-	 * @see http://php.net/setcookie
-	 * @var int
-	 */
-	private int $expires = 0;
-
-	/**
 	 * @param string $domain The (sub)domain that the cookies that are written is available to.
-	 * @param string $expires The number of seconds after the session cookie is set that it should expire.
+	 * @param string $expires The number of seconds after the session cookie is set/session is created that it should expire.
 	 */
 	public function __construct ( string $domain, int $expires = 0) {
 		parent::__construct();
@@ -44,20 +37,6 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	 */
 	private function setDomain( string $domain ):void{
 		$this->domain = $domain;
-	}
-
-	/**
-	 * @param int
-	 */
-	public function setExpires(int $expires):void {
-		$this->expires = $expires;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getExpires():int {
-		return $this->expires;
 	}
 
 	/**

@@ -172,7 +172,11 @@ abstract class Application extends Component implements IApplication {
 			}
 
 			$this->setSession( $session );
-		}		
+		} else {
+			//Cli session
+			$session = SessionManager::getInstance()->createSession(ISession::KIND_CLI);
+			$this->setSession( $session );
+		}
 		
 		$this->setDispatcher( Dispatcher::getInstance() );
 		$this->setEventDispatcher( EventDispatcher::getInstance() );

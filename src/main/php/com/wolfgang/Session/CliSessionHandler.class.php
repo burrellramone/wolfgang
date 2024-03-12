@@ -3,14 +3,15 @@
 namespace Wolfgang\Session;
 
 use Wolfgang\Interfaces\Session\ISessionHandler;
+use Wolfgang\Exceptions\Exception as CoreException;
 use Wolfgang\Traits\TSessionHandler;
 
 /**
  *
- * @author Ramone Burrell <ramone@ramoneburrell.com>
+* @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
-final class FileSessionHandler extends Component implements ISessionHandler {
+final class CliSessionHandler extends Component implements ISessionHandler {
 	use TSessionHandler;
 	
 	/**
@@ -21,17 +22,16 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 
 	/**
 	 *
-	 * {@inheritdoc}
-	 * @see \SessionHandlerInterface::destroy()
+	 * @param string $session_id
+	 * @return bool
 	 */
-	public function destroy ( $session_id ):bool {
+	public function destroy ( $session_id ): bool {
 		return true;
 	}
 
 	/**
 	 *
-	 * {@inheritdoc}
-	 * @see \SessionHandlerInterface::read()
+	 * @param string $session_id
 	 */
 	public function read ( $session_id ): string|false {
 		return false;
@@ -39,21 +39,25 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 
 	/**
 	 *
-	 * {@inheritdoc}
-	 * @see \SessionHandlerInterface::write()
+	 * @param string $session_id
+	 * @param string $session_data
+	 * @throws CoreException
+	 * @return bool
 	 */
 	public function write ( $session_id, $session_data ):bool {
 		return false;
 	}
 
 	/**
+	 * 
 	 */
 	public function create_sid ( ) {
+
 	}
 
 	/**
-	 *
-	 * {@inheritdoc}
+	 * 
+	 * {@inheritDoc}
 	 * @see \SessionHandlerInterface::gc()
 	 */
 	public function gc ( $maxlifetime ):int|false {
@@ -61,8 +65,8 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	}
 
 	/**
-	 *
-	 * {@inheritdoc}
+	 * 
+	 * {@inheritDoc}
 	 * @see \SessionHandlerInterface::open()
 	 */
 	public function open ( $save_path, $session_name ):bool {
@@ -70,8 +74,8 @@ final class FileSessionHandler extends Component implements ISessionHandler {
 	}
 
 	/**
-	 *
-	 * {@inheritdoc}
+	 * 
+	 * {@inheritDoc}
 	 * @see \SessionHandlerInterface::close()
 	 */
 	public function close ( ):bool {

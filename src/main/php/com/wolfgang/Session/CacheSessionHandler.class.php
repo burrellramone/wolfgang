@@ -4,6 +4,7 @@ namespace Wolfgang\Session;
 
 use Wolfgang\Interfaces\Session\ISessionHandler;
 use Wolfgang\Exceptions\Exception as CoreException;
+use Wolfgang\Traits\TSessionHandler;
 
 /**
  *
@@ -11,7 +12,8 @@ use Wolfgang\Exceptions\Exception as CoreException;
  * @since Version 0.1.0
  */
 final class CacheSessionHandler extends Component implements ISessionHandler {
-
+	use TSessionHandler;
+	
 	/**
 	 */
 	public function __construct ( ) {
