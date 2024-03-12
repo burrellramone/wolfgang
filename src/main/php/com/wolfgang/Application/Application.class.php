@@ -413,7 +413,7 @@ abstract class Application extends Component implements IApplication {
 	 *
 	 * @return ISession
 	 */
-	protected function getSession ( ): ISession {
+	public function getSession ( ): ISession {
 		return $this->session;
 	}
 
