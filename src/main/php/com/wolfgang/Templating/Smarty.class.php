@@ -275,7 +275,6 @@ final class Smarty extends Templater implements ITemplater {
 	private function determineTemplate ( ) {
 		$context = Application::getInstance()->getContext();
 		$app = $context->getSkin()->getName();
-
 		$controller = $context->getController();
 		$action = $context->getAction();
 
@@ -301,6 +300,19 @@ final class Smarty extends Templater implements ITemplater {
 		}
 
 		$this->setTemplate( $template );
+		$this->determineStylesheetAndScript($app, $controller, $action);
+	}
+
+	public function determineStylesheetAndScript(string $app = null, string $controller = null, string $action = null):void {
+		$context = Application::getInstance()->getContext();
+		$app = $context->getSkin()->getName();
+
+
+		if(!$app || !$controller || !$action){
+			$app = $context->getSkin()->getName();
+			$controller = $context->getController();
+			$action = $context->getAction();
+		}
 
 		if ( $action == 'add' ) {
 			$action = 'edit';
