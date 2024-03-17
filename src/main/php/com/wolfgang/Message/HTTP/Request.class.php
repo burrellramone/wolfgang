@@ -89,4 +89,16 @@ class Request extends Message implements ISingleton , IRequest {
 	public function getUri ( ): IUri {
 		return $this->uri;
 	}
+
+	public function is(string $what):bool {
+		switch(strtolower($what)){
+			case 'post':
+				return $this->getMethod() == IRequest::METHOD_POST;
+			break;
+
+			default:
+				return false;
+			break;
+		}
+	}
 }
