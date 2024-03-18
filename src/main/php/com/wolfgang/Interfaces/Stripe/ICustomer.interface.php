@@ -1,13 +1,13 @@
 <?php
 
-namespace Wolfgang\Interfaces;
+namespace Wolfgang\Interfaces\Stripe;
 
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
-interface IStripeCustomer {
+interface ICustomer {
 
 	/**
 	 *

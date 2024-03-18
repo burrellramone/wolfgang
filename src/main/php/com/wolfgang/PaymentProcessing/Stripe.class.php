@@ -4,7 +4,7 @@ namespace Wolfgang\PaymentProcessing;
 
 // Stripe
 use Stripe\StripeClient;
-use Stripe\Plan as StripePlan;
+use Stripe\Product as StripeProduct;
 use Stripe\Card as StripeCard;
 use Stripe\Stripe as StripeLib;
 use Stripe\Refund as StripeRefund;
@@ -17,7 +17,8 @@ use Stripe\Exception\InvalidRequestException as InvalidStripeRequest;
 // Wolfgang
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Interfaces\ISingleton;
-use Wolfgang\Interfaces\IStripeCustomer;
+use Wolfgang\Interfaces\Stripe\ICustomer as IStripeCustomer;
+use Wolfgang\Interfaces\Stripe\IPaymentMethod as IStripePaymentMethod;
 use Wolfgang\Exceptions\InvalidStateException;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\Exception as WolfgangException;
@@ -36,7 +37,7 @@ final class Stripe extends Component implements ISingleton {
 	
 	/**
 	 *
-	 * @var StripeLib
+	 * @var StripeClient
 	 */
 	private $stripe;
 	
@@ -55,8 +56,9 @@ final class Stripe extends Component implements ISingleton {
 		parent::init();
 		
 		$this->setConfig( PaymentProcessingConfig::get( 'stripe' ) );
-		
+
 		$this->stripe = new StripeClient($this->config[ 'secret_key' ]);
+		StripeLib::setApiKey($this->config[ 'secret_key' ]);
 	}
 	
 	/**
@@ -199,8 +201,8 @@ final class Stripe extends Component implements ISingleton {
 				throw new InvalidStateException( "Cannot add card for non-existent customer" );
 			}
 			
-			$stripe_card_object = $cus->sources->create( array (
-					"card" => $stripe_token
+			$stripe_card_object = $this->stripe->customers->createSource($cus->id, array (
+					"source" => $stripe_token
 			) ); 
 		} catch ( StripeCardException $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to add a new card for a customer", 0, $e );
@@ -362,9 +364,9 @@ final class Stripe extends Component implements ISingleton {
 	 * @param array $options
 	 * @throws InvalidArgumentException
 	 * @throws PaymentProcessingException
-	 * @return StripePlan
+	 * @return StripeProduct
 	 */
-	public function createPlan ( array $options ): StripePlan {
+	public function createProduct ( array $options ): StripeProduct {
 		if ( empty( $options ) ) {
 			throw new InvalidArgumentException( "Params to create new stripe plan not provided" );
 		}
@@ -372,7 +374,7 @@ final class Stripe extends Component implements ISingleton {
 		$plan = null;
 		
 		try {
-			$plan = StripePlan::create( $options );
+			$plan = StripeProduct::create( $options );
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to create a stripe plan", 0, $e );
 		}
@@ -384,43 +386,46 @@ final class Stripe extends Component implements ISingleton {
 	 *
 	 * @param string $id
 	 * @throws InvalidArgumentException
-	 * @return StripePlan
+	 * @return StripeProduct
 	 */
-	public function getPlan ( string $id ): StripePlan {
+	public function getProduct ( string $id ): StripeProduct {
 		if ( ! $id ) {
 			throw new InvalidArgumentException( "Stripe plan id not provided" );
 		}
 		
-		$plan = null;
-		
 		try {
-			$plan = StripePlan::retrieve( $id );
+			$product = StripeProduct::retrieve( $id );
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to create a stripe plan", 0, $e );
 		}
 		
-		return $plan;
+		return $product;
 	}
 	
 	/**
 	 *
-	 * @param IStripeCustomer $wolfgang_stripe_customer
-	 * @param int $tax_percentage
-	 * @param string $stripe_plan_id
+	 * @param IStripeCustomer $stripe_customer
+	 * @param StripeProduct $product
+	 * @param IStripePaymentMethod $payment_method
 	 * @throws PaymentProcessingException
 	 * @return StripeSubscription
 	 */
-	public function createSubscription ( IStripeCustomer $wolfgang_stripe_customer, int $tax_percentage, string $stripe_plan_id ): StripeSubscription {
+	public function createSubscription ( IStripeCustomer $stripe_customer, StripeProduct $product, IStripePaymentMethod $payment_method ): StripeSubscription {
 		$subscription = null;
 		
 		try {
 			
-			$subscription = StripeSubscription::create( array (
-					"customer" => $wolfgang_stripe_customer->getStripeCustomerId(),
-					"plan" => $stripe_plan_id,
-					"quantity" => 1,
-					"tax_percent" => $tax_percentage
-			) );
+			$subscription = $this->stripe->subscriptions->create([
+					"customer" => $stripe_customer->getStripeCustomerId(),
+					"default_payment_method" => $payment_method->getStripeCardId(),
+					"items" => [
+						[
+							"price" => $product->default_price, //if the the price
+							"quantity" => 1
+						]
+					]
+					
+			]);
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to create stripe subscription", 0, $e );
 		}
