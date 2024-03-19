@@ -235,23 +235,22 @@ final class Stripe extends Component implements ISingleton {
 		$stripe_card_object = null;
 		
 		try {
-			$customer = $this->getCustomer( $wolfgang_stripe_customer->getStripeCustomerId() );
+			$customer = $this->getCustomer( $wolfgang_stripe_customer );
 			
 			if ( ! $customer ) {
 				throw new InvalidStateException( "Unable to find stripe customer with id '{$wolfgang_stripe_customer->getStripeCustomerId()}'" );
 			}
 			
-			$stripe_card_object = $customer->cards->retrieve( $stripe_card_id );
+			$stripe_card_object = $this->stripe->customers->updateSource( $wolfgang_stripe_customer->getStripeCustomerId(), $stripe_card_id, [
+				'name' => $name,
+				'exp_year' => $exp_year,
+				'exp_month' => $exp_month,
+			]);
 			
 			if ( ! $stripe_card_object ) {
 				throw new InvalidStateException( "Unable to find stripe card with id '{$stripe_card_id}'" );
 			}
 			
-			$stripe_card_object->name = $name;
-			$stripe_card_object->exp_year = $exp_year;
-			$stripe_card_object->exp_month = $exp_month;
-			
-			$stripe_card_object = $stripe_card_object->save();
 		} catch ( StripeCardException $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to update stripe card", 0, $e );
 		} catch ( InvalidStripeRequest $e ) {
