@@ -355,7 +355,7 @@ final class Smarty extends Templater implements ITemplater {
 			$script_file = str_replace( PUBLIC_DIRECTORY, "/", $script_file );
 			$this->assign( 'script_file', $script_file );
 		} else {
-			$this->assign( 'script_file', '#' );
+			$this->assign( 'script_file', '' );
 		}
 	}
 
