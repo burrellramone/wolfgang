@@ -413,13 +413,12 @@ final class Stripe extends Component implements ISingleton {
 		$subscription = null;
 		
 		try {
-			
 			$subscription = $this->stripe->subscriptions->create([
 					"customer" => $stripe_customer->getStripeCustomerId(),
 					"default_payment_method" => $payment_method->getStripeCardId(),
 					"items" => [
 						[
-							"price" => $product->default_price, //if the the price
+							"price" => $product->default_price, //the id of the default price
 							"quantity" => 1
 						]
 					]
