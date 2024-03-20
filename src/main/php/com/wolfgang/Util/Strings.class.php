@@ -52,6 +52,13 @@ final class Strings extends Component {
 	}
 
 	/**
+	 * @param string $fullname
+	 */
+	public static function validateFullName( string $fullname ):bool{
+		return preg_match("/^([A-Za-z-]+) ([A-Za-z-]+)$/", $fullname);
+	}
+
+	/**
 	 *
 	 * @param mixed $remove
 	 * @param string $subject
