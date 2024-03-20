@@ -101,4 +101,16 @@ class Request extends Message implements ISingleton , IRequest {
 			break;
 		}
 	}
+
+	public function getHttpHost():string {
+		return $_SERVER['HTTP_HOST'];
+	}
+
+	public function getRequestScheme():string {
+		return $_SERVER['REQUEST_SCHEME'];
+	}
+
+	public function getRequestUri():string {
+		return $_SERVER['REQUEST_URI'];
+	}
 }
