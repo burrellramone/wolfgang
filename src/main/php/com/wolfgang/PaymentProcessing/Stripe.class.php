@@ -434,21 +434,24 @@ final class Stripe extends Component implements ISingleton {
 	/**
 	 *
 	 * @param string $stripe_subscription_id
+	 * @param string $comment
+	 * @param string $feedback
 	 * @throws InvalidArgumentException
 	 * @throws PaymentProcessingException
 	 * @return StripeSubscription
 	 */
-	public function cancelSubscription ( string $stripe_subscription_id ): StripeSubscription {
+	public function cancelSubscription ( string $stripe_subscription_id, string $comment = '', string $feedback = ''): StripeSubscription {
 		if ( ! $stripe_subscription_id ) {
 			throw new InvalidArgumentException( "Stripe subscription id not provided" );
 		}
 		
-		$subsscription = null;
-		
 		try {
-			
-			$subsscription = StripeSubscription::retrieve( $stripe_subscription_id );
-			$subsscription->cancel();
+			$subsscription = $this->stripe->subscriptions->cancel($stripe_subscription_id, [
+				'cancellation_details' => [
+					'comment' => $comment,
+					'feedback' => $feedback
+				]
+			]);
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to cancel stripe subscription", 0, $e );
 		}
