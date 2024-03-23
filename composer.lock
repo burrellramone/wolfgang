@@ -2737,12 +2737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/tc-lib-pdf.git",
-                "reference": "753d1872e3065518f42596e436c874335424455a"
+                "reference": "560776d9f1ec3fe86a5d48aa66c59c91698c2357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf/zipball/753d1872e3065518f42596e436c874335424455a",
-                "reference": "753d1872e3065518f42596e436c874335424455a",
+                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf/zipball/560776d9f1ec3fe86a5d48aa66c59c91698c2357",
+                "reference": "560776d9f1ec3fe86a5d48aa66c59c91698c2357",
                 "shasum": ""
             },
             "require": {
@@ -2812,7 +2812,7 @@
                     "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20tc-lib-pdf%20project"
                 }
             ],
-            "time": "2024-03-22T12:23:42+00:00"
+            "time": "2024-03-22T12:50:43+00:00"
         },
         {
             "name": "tecnickcom/tc-lib-pdf-encrypt",
