@@ -413,6 +413,10 @@ final class Stripe extends Component implements ISingleton {
 		$subscription = null;
 		
 		try {
+			if(!isset($product->default_price)){
+				throw new InvalidArgumentException("Product does not have a default price");
+			}
+
 			$subscription = $this->stripe->subscriptions->create([
 					"customer" => $stripe_customer->getStripeCustomerId(),
 					"default_payment_method" => $payment_method->getStripeCardId(),
