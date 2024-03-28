@@ -1737,16 +1737,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v13.15.0",
+            "version": "v13.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "22963c3596eb198e3dd56fbd95d7de9bc4d44f8f"
+                "reference": "b122efcf4ee02256e4a9ae60783cbf1c3f702503"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/22963c3596eb198e3dd56fbd95d7de9bc4d44f8f",
-                "reference": "22963c3596eb198e3dd56fbd95d7de9bc4d44f8f",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/b122efcf4ee02256e4a9ae60783cbf1c3f702503",
+                "reference": "b122efcf4ee02256e4a9ae60783cbf1c3f702503",
                 "shasum": ""
             },
             "require": {
@@ -1790,9 +1790,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v13.15.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v13.16.0"
             },
-            "time": "2024-03-21T21:05:10+00:00"
+            "time": "2024-03-28T19:17:08+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -2737,12 +2737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/tc-lib-pdf.git",
-                "reference": "560776d9f1ec3fe86a5d48aa66c59c91698c2357"
+                "reference": "0316bffc599afbb8fcd63b61f638c87edc4d6fe0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf/zipball/560776d9f1ec3fe86a5d48aa66c59c91698c2357",
-                "reference": "560776d9f1ec3fe86a5d48aa66c59c91698c2357",
+                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf/zipball/0316bffc599afbb8fcd63b61f638c87edc4d6fe0",
+                "reference": "0316bffc599afbb8fcd63b61f638c87edc4d6fe0",
                 "shasum": ""
             },
             "require": {
@@ -2812,7 +2812,7 @@
                     "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20tc-lib-pdf%20project"
                 }
             ],
-            "time": "2024-03-22T12:50:43+00:00"
+            "time": "2024-03-25T23:34:45+00:00"
         },
         {
             "name": "tecnickcom/tc-lib-pdf-encrypt",
@@ -2885,16 +2885,16 @@
         },
         {
             "name": "tecnickcom/tc-lib-pdf-font",
-            "version": "2.2.0",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/tc-lib-pdf-font.git",
-                "reference": "af272b807d6ca7a6dc89ea18d4c6c0decbd1304b"
+                "reference": "db27eb4fcba43659a53a08ae3ccf298b03a437ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf-font/zipball/af272b807d6ca7a6dc89ea18d4c6c0decbd1304b",
-                "reference": "af272b807d6ca7a6dc89ea18d4c6c0decbd1304b",
+                "url": "https://api.github.com/repos/tecnickcom/tc-lib-pdf-font/zipball/db27eb4fcba43659a53a08ae3ccf298b03a437ff",
+                "reference": "db27eb4fcba43659a53a08ae3ccf298b03a437ff",
                 "shasum": ""
             },
             "require": {
@@ -2942,7 +2942,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tecnickcom/tc-lib-pdf-font/issues",
-                "source": "https://github.com/tecnickcom/tc-lib-pdf-font/tree/2.2.0"
+                "source": "https://github.com/tecnickcom/tc-lib-pdf-font/tree/2.2.2"
             },
             "funding": [
                 {
@@ -2950,7 +2950,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2024-03-21T18:29:03+00:00"
+            "time": "2024-03-25T23:24:44+00:00"
         },
         {
             "name": "tecnickcom/tc-lib-pdf-graph",
@@ -4004,16 +4004,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.64",
+            "version": "1.10.66",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "fb9f270daffedcb5ff46275dcafe92538b1bc4bb"
+                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/fb9f270daffedcb5ff46275dcafe92538b1bc4bb",
-                "reference": "fb9f270daffedcb5ff46275dcafe92538b1bc4bb",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/94779c987e4ebd620025d9e5fdd23323903950bd",
+                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd",
                 "shasum": ""
             },
             "require": {
@@ -4062,7 +4062,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-21T09:57:47+00:00"
+            "time": "2024-03-28T16:17:31+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

@@ -163,6 +163,7 @@ class Table extends Component implements ITable {
 
 		foreach ( $result->getColumns() as $column ) {
 			$column_name = $column[ 'name' ];
+			$this->column_names[] = $column_name;
 
 			$statement = "SELECT column_default as default_value,
 				is_nullable, data_type,
@@ -179,10 +180,6 @@ class Table extends Component implements ITable {
 			$column = array_merge( $column, $record );
 
 			$this->columns->{$column_name} = new MySQLiColumn( $this, $column );
-		}
-
-		foreach ( $this->getColumns() as $column ) {
-			$this->column_names[] = $column->getName();
 		}
 	}
 
@@ -254,6 +251,15 @@ class Table extends Component implements ITable {
 	 */
 	public function getColumns ( ): \ArrayObject {
 		return $this->columns;
+	}
+
+	/**
+	 * Gets the column names for this table
+	 *
+	 * @return array
+	 */
+	public function getColumnNames():array {
+		return $this->column_names;
 	}
 
 	/**

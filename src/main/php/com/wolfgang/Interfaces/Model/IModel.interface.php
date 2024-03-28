@@ -11,9 +11,9 @@ interface IModel {
 	
 	/**
 	 *
-	 * @return string|null
+	 * @return string|int|null
 	 */
-	public function getId ( );
+	public function getId ( ):string|int|null;
 	
 	/**
 	 *

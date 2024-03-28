@@ -4,6 +4,7 @@ namespace Wolfgang\Model;
 
 // PHP
 use ReflectionException;
+use ReflectionUnionType;
 
 // Wolfgang
 use Wolfgang\Interfaces\Model\IModel;
@@ -33,9 +34,9 @@ abstract class Model extends Component implements IModel, IMarshallable {
 
 	/**
 	 *
-	 * @var string|int
+	 * @var string|int|null
 	 */
-	public $id;
+	public string|int|null $id;
 
 	/**
 	 *
@@ -103,9 +104,15 @@ abstract class Model extends Component implements IModel, IMarshallable {
 
 		$model_reflection = $this->getReflection();
 
-		foreach($this->getTable()->getColumns() as $column) {
-			$column_name = $column->getName();
+		//initialize properties that are table columns
+		$column_names = $this->getTable()->getColumnNames();
 
+		//bridge models do not have an 'id' column but should still have the property initialized
+		if($this instanceof IBridgeModel) {
+			$column_names[] = 'id';
+		}
+
+		foreach($column_names as $column_name) {
 			if(isset($this->{$column_name})){
 				continue;
 			}
@@ -119,40 +126,52 @@ abstract class Model extends Component implements IModel, IMarshallable {
 			if ( $reflection_property->isPublic() || $reflection_property->isProtected() ) {
 				$type = $reflection_property->getType();
 
-				if( $type ){
-					switch($type->getName()){
-						case 'array':
-							$this->{$column_name} = [];
-						break;
 
-						case 'bool':
-							$this->{$column_name} = false;
-						break;
-
-						case 'float':
-							$this->{$column_name} = 0.0;
-						break;
-
-						case 'int':
-							$this->{$column_name} = 0;
-						break;
-
-						case 'null':
-							$this->{$column_name} = null;
-						break;
-
-						case 'object':
-							$this->{$column_name} = new \stdClass;
-						break;
-
-						case 'string':
-							$this->{$column_name} = '';
-						break;
-
-						default:
-							$this->{$column_name} = null;
-						break;
+				if($type){
+					if($type instanceof ReflectionUnionType){
+						$type = $type->getTypes();
+					} else {
+						$type = array($type);
 					}
+
+					foreach($type as $t){
+						switch($t->getName()){
+							case 'array':
+								$this->{$column_name} = [];
+							break;
+
+							case 'bool':
+								$this->{$column_name} = false;
+							break;
+
+							case 'float':
+								$this->{$column_name} = 0.0;
+							break;
+
+							case 'int':
+								$this->{$column_name} = 0;
+							break;
+
+							case 'null':
+								$this->{$column_name} = null;
+							break;
+
+							case 'object':
+								$this->{$column_name} = new \stdClass;
+							break;
+
+							case 'string':
+								$this->{$column_name} = '';
+							break;
+
+							default:
+								$this->{$column_name} = null;
+							break;
+						}
+
+						//initialize the property to the first type
+						break;
+					} 
 				} else {
 					$this->{$column_name} = null;
 				}
@@ -452,21 +471,33 @@ abstract class Model extends Component implements IModel, IMarshallable {
 					$type = $reflection_property->getType();
 
 					if( $type ){
-						if($type->getName() == 'array'){
-							if($value){
-								$uvalue = unserialize($value);
-
-								if(!is_array($uvalue)){
-									throw new ModelException("Could not unserialize value '{$value}' to assign to object");
-								}
-
-								$this->{$column_name} = $uvalue;
-							} else {
-								$this->{$column_name} = [];
-							}
+						if($type instanceof ReflectionUnionType){
+							$type = $type->getTypes();
 						} else {
-							$this->{$column_name} = $value;
+							$type = array($type);
 						}
+
+						foreach($type as $t){
+							if($t->getName() == 'array'){
+								if($value){
+									$uvalue = unserialize($value);
+	
+									if(!is_array($uvalue)){
+										throw new ModelException("Could not unserialize value '{$value}' to assign to object");
+									}
+	
+									$this->{$column_name} = $uvalue;
+								} else {
+									$this->{$column_name} = [];
+								}
+							} else {
+								$this->{$column_name} = $value;
+							}
+
+							//use first type, break after
+							break;
+						}
+						
 					} else {
 						$this->{$column_name} = $value;
 					}
@@ -665,7 +696,7 @@ abstract class Model extends Component implements IModel, IMarshallable {
 	 *
 	 * @see \Wolfgang\Interfaces\Model\IModel::getId()
 	 */
-	public function getId ( ) {
+	public function getId ( ):string|int|null {
 		return $this->id;
 	}
 

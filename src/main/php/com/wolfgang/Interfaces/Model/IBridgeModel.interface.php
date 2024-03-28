@@ -1,14 +1,14 @@
 <?php
 
 namespace Wolfgang\Interfaces\Model;
+use Wolfgang\Interfaces\SQL\IUnduplicable;
 
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
  * @since Version 0.1.0
  */
-interface IBridgeModel extends IModel {
+interface IBridgeModel extends IUnduplicable, IModel {
 	/**
 	 *
 	 * @return array
