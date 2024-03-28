@@ -2,6 +2,10 @@
 
 namespace Wolfgang\SQL\Statement\DML;
 
+//
+use Stringable;
+
+//Wolfgang
 use Wolfgang\Interfaces\SQL\Statement\DML\IInsertStatement;
 use Wolfgang\Interfaces\ORM\ITable;
 use Wolfgang\Exceptions\IllegalArgumentException;
@@ -16,7 +20,7 @@ use Wolfgang\SQL\Clause\OnDuplicateKeyUpdateClause;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
-final class InsertStatement extends Statement implements IInsertStatement {
+final class InsertStatement extends Statement implements IInsertStatement, Stringable {
 	
 	/**
 	 *
