@@ -4,7 +4,7 @@ namespace Wolfgang\PaymentProcessing;
 
 // Stripe
 use Stripe\StripeClient;
-use Stripe\Plan as StripePlan;
+use Stripe\Product as StripeProduct;
 use Stripe\Card as StripeCard;
 use Stripe\Stripe as StripeLib;
 use Stripe\Refund as StripeRefund;
@@ -17,7 +17,8 @@ use Stripe\Exception\InvalidRequestException as InvalidStripeRequest;
 // Wolfgang
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Interfaces\ISingleton;
-use Wolfgang\Interfaces\IStripeCustomer;
+use Wolfgang\Interfaces\Stripe\ICustomer as IStripeCustomer;
+use Wolfgang\Interfaces\Stripe\IPaymentMethod as IStripePaymentMethod;
 use Wolfgang\Exceptions\InvalidStateException;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\Exception as WolfgangException;
@@ -36,7 +37,7 @@ final class Stripe extends Component implements ISingleton {
 	
 	/**
 	 *
-	 * @var StripeLib
+	 * @var StripeClient
 	 */
 	private $stripe;
 	
@@ -55,8 +56,9 @@ final class Stripe extends Component implements ISingleton {
 		parent::init();
 		
 		$this->setConfig( PaymentProcessingConfig::get( 'stripe' ) );
-		
+
 		$this->stripe = new StripeClient($this->config[ 'secret_key' ]);
+		StripeLib::setApiKey($this->config[ 'secret_key' ]);
 	}
 	
 	/**
@@ -199,8 +201,8 @@ final class Stripe extends Component implements ISingleton {
 				throw new InvalidStateException( "Cannot add card for non-existent customer" );
 			}
 			
-			$stripe_card_object = $cus->sources->create( array (
-					"card" => $stripe_token
+			$stripe_card_object = $this->stripe->customers->createSource($cus->id, array (
+					"source" => $stripe_token
 			) ); 
 		} catch ( StripeCardException $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to add a new card for a customer", 0, $e );
@@ -233,23 +235,22 @@ final class Stripe extends Component implements ISingleton {
 		$stripe_card_object = null;
 		
 		try {
-			$customer = $this->getCustomer( $wolfgang_stripe_customer->getStripeCustomerId() );
+			$customer = $this->getCustomer( $wolfgang_stripe_customer );
 			
 			if ( ! $customer ) {
 				throw new InvalidStateException( "Unable to find stripe customer with id '{$wolfgang_stripe_customer->getStripeCustomerId()}'" );
 			}
 			
-			$stripe_card_object = $customer->cards->retrieve( $stripe_card_id );
+			$stripe_card_object = $this->stripe->customers->updateSource( $wolfgang_stripe_customer->getStripeCustomerId(), $stripe_card_id, [
+				'name' => $name,
+				'exp_year' => $exp_year,
+				'exp_month' => $exp_month,
+			]);
 			
 			if ( ! $stripe_card_object ) {
 				throw new InvalidStateException( "Unable to find stripe card with id '{$stripe_card_id}'" );
 			}
 			
-			$stripe_card_object->name = $name;
-			$stripe_card_object->exp_year = $exp_year;
-			$stripe_card_object->exp_month = $exp_month;
-			
-			$stripe_card_object = $stripe_card_object->save();
 		} catch ( StripeCardException $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to update stripe card", 0, $e );
 		} catch ( InvalidStripeRequest $e ) {
@@ -362,9 +363,9 @@ final class Stripe extends Component implements ISingleton {
 	 * @param array $options
 	 * @throws InvalidArgumentException
 	 * @throws PaymentProcessingException
-	 * @return StripePlan
+	 * @return StripeProduct
 	 */
-	public function createPlan ( array $options ): StripePlan {
+	public function createProduct ( array $options ): StripeProduct {
 		if ( empty( $options ) ) {
 			throw new InvalidArgumentException( "Params to create new stripe plan not provided" );
 		}
@@ -372,7 +373,7 @@ final class Stripe extends Component implements ISingleton {
 		$plan = null;
 		
 		try {
-			$plan = StripePlan::create( $options );
+			$plan = StripeProduct::create( $options );
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to create a stripe plan", 0, $e );
 		}
@@ -384,43 +385,49 @@ final class Stripe extends Component implements ISingleton {
 	 *
 	 * @param string $id
 	 * @throws InvalidArgumentException
-	 * @return StripePlan
+	 * @return StripeProduct
 	 */
-	public function getPlan ( string $id ): StripePlan {
+	public function getProduct ( string $id ): StripeProduct {
 		if ( ! $id ) {
 			throw new InvalidArgumentException( "Stripe plan id not provided" );
 		}
 		
-		$plan = null;
-		
 		try {
-			$plan = StripePlan::retrieve( $id );
+			$product = StripeProduct::retrieve( $id );
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to create a stripe plan", 0, $e );
 		}
 		
-		return $plan;
+		return $product;
 	}
 	
 	/**
 	 *
-	 * @param IStripeCustomer $wolfgang_stripe_customer
-	 * @param int $tax_percentage
-	 * @param string $stripe_plan_id
+	 * @param IStripeCustomer $stripe_customer
+	 * @param StripeProduct $product
+	 * @param IStripePaymentMethod $payment_method
 	 * @throws PaymentProcessingException
 	 * @return StripeSubscription
 	 */
-	public function createSubscription ( IStripeCustomer $wolfgang_stripe_customer, int $tax_percentage, string $stripe_plan_id ): StripeSubscription {
+	public function createSubscription ( IStripeCustomer $stripe_customer, StripeProduct $product, IStripePaymentMethod $payment_method ): StripeSubscription {
 		$subscription = null;
 		
 		try {
-			
-			$subscription = StripeSubscription::create( array (
-					"customer" => $wolfgang_stripe_customer->getStripeCustomerId(),
-					"plan" => $stripe_plan_id,
-					"quantity" => 1,
-					"tax_percent" => $tax_percentage
-			) );
+			if(!isset($product->default_price)){
+				throw new InvalidArgumentException("Product does not have a default price");
+			}
+
+			$subscription = $this->stripe->subscriptions->create([
+					"customer" => $stripe_customer->getStripeCustomerId(),
+					"default_payment_method" => $payment_method->getStripeCardId(),
+					"items" => [
+						[
+							"price" => $product->default_price, //the id of the default price
+							"quantity" => 1
+						]
+					]
+					
+			]);
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to create stripe subscription", 0, $e );
 		}
@@ -431,21 +438,24 @@ final class Stripe extends Component implements ISingleton {
 	/**
 	 *
 	 * @param string $stripe_subscription_id
+	 * @param string $comment
+	 * @param string $feedback
 	 * @throws InvalidArgumentException
 	 * @throws PaymentProcessingException
 	 * @return StripeSubscription
 	 */
-	public function cancelSubscription ( string $stripe_subscription_id ): StripeSubscription {
+	public function cancelSubscription ( string $stripe_subscription_id, string $comment = '', string $feedback = ''): StripeSubscription {
 		if ( ! $stripe_subscription_id ) {
 			throw new InvalidArgumentException( "Stripe subscription id not provided" );
 		}
 		
-		$subsscription = null;
-		
 		try {
-			
-			$subsscription = StripeSubscription::retrieve( $stripe_subscription_id );
-			$subsscription->cancel();
+			$subsscription = $this->stripe->subscriptions->cancel($stripe_subscription_id, [
+				'cancellation_details' => [
+					'comment' => $comment,
+					'feedback' => $feedback
+				]
+			]);
 		} catch ( InvalidStripeRequest $e ) {
 			throw new PaymentProcessingException( "Error occured while attempting to cancel stripe subscription", 0, $e );
 		}

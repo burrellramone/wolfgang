@@ -37,7 +37,7 @@ final class Filesystem extends Component {
 	}
 
 	/**
-	 *
+	 * @see file_put_contents()
 	 * @param string $filepath
 	 * @param string $contents
 	 * @param number $flags
@@ -45,7 +45,7 @@ final class Filesystem extends Component {
 	 * @throws FilesystemException
 	 * @return bool
 	 */
-	public static function putContents ( $filepath, $contents, $flags = null): bool {
+	public static function putContents ( string $filepath, string $contents, $flags = null): bool {
 		if ( empty( $filepath ) ) {
 			throw new IllegalargumentException( "File path not provided" );
 		} else if ( empty( $contents ) ) {

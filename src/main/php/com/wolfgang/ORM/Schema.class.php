@@ -397,7 +397,7 @@ final class Schema extends Component implements IDatabaseSchema {
 			if ( $encrypted && $instance->isEncryptedColumn( $column ) && $column->isEncrypted() ) {
 				$statement->addSelectColumn( "COALESCE(AES_DECRYPT({$column_name}, '{$encryption_key}'), {$column_name})", $column_name );
 			} else if ( $column->isGeometryType() ) {
-				$statement->addSelectColumn( "ASTEXT({$column_name})", $column_name );
+				$statement->addSelectColumn( "ST_AsText({$column_name})", $column_name );
 			} else {
 				$statement->addSelectColumn( $column_name );
 			}

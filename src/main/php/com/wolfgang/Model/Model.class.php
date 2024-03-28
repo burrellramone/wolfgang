@@ -370,7 +370,7 @@ abstract class Model extends Component implements IModel, IMarshallable {
 
 		foreach ( $data as $name => &$datum ) {
 			//@formatter:off
-			if ( in_array($name, ['id']) ) {
+			if ( in_array($name, ['id']) && !in_array($name, $exceptions)) {
 				throw new ModelException("Cannot update field '{$name}'");
 			}
 			// @formatter:on

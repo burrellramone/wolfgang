@@ -172,7 +172,11 @@ abstract class Application extends Component implements IApplication {
 			}
 
 			$this->setSession( $session );
-		}		
+		} else {
+			//Cli session
+			$session = SessionManager::getInstance()->createSession(ISession::KIND_CLI);
+			$this->setSession( $session );
+		}
 		
 		$this->setDispatcher( Dispatcher::getInstance() );
 		$this->setEventDispatcher( EventDispatcher::getInstance() );
@@ -409,7 +413,7 @@ abstract class Application extends Component implements IApplication {
 	 *
 	 * @return ISession
 	 */
-	protected function getSession ( ): ISession {
+	public function getSession ( ): ISession {
 		return $this->session;
 	}
 
@@ -682,26 +686,20 @@ abstract class Application extends Component implements IApplication {
 			] );
 		}, E_ALL );
 
-		$log_directory = AppConfig::get( 'directories.log_directory' );
-		$this->temporary_directory = AppConfig::get( 'directories.temporary_directory' );
-		$templating_temporary_directory = AppConfig::get( 'directories.templating_temporary_directory' );
-		$xhprof_temporary_directory = AppConfig::get( 'directories.xhprof_temporary_directory' );
-		$uploads_temporary_directory = AppConfig::get( 'directories.uploads_temporary_directory' );
-		$curl_temporary_directory = CurlConfig::get( 'temporary_directory' );
-
-		if ( ! Filesystem::exists( $log_directory ) ) {
-			Filesystem::makeDirectory( $log_directory, 0777 );
-			exec( "chown www-data:www-data -R " . $log_directory );
-		}
+		$this->temporary_directory = TEMP_DIRECTORY;
+		$log_directory = LOG_DIRECTORY;
+		$xhprof_temporary_directory = XHPROF_DIRECTORY;
+		$uploads_temporary_directory = UPLOADS_DIRECTORY;
+		$curl_temporary_directory = CURL_DIRECTORY;
 
 		if ( ! Filesystem::exists( $this->temporary_directory ) ) {
 			Filesystem::makeDirectory( $this->temporary_directory, 0777 );
 			exec( "chown www-data:www-data -R " . $this->temporary_directory );
 		}
 
-		if ( ! Filesystem::exists( $templating_temporary_directory ) ) {
-			Filesystem::makeDirectory( $templating_temporary_directory, 0777 );
-			exec( "chown www-data:www-data -R " . $templating_temporary_directory );
+		if ( ! Filesystem::exists( $log_directory ) ) {
+			Filesystem::makeDirectory( $log_directory, 0777 );
+			exec( "chown www-data:www-data -R " . $log_directory );
 		}
 
 		if ( ! Filesystem::exists( $xhprof_temporary_directory ) ) {

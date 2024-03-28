@@ -33,7 +33,7 @@ final class FileLoggerConfiguration extends LoggerComponent {
 		parent::__construct();
 		
 		$this->setName( $configuration[ 'name' ] );
-		$this->setFilepath( App::get( 'directories.log_directory' ) . '/' . $configuration[ 'file' ] );
+		$this->setFilepath( LOG_DIRECTORY . '/' . $configuration[ 'file' ] );
 	}
 	
 	/**

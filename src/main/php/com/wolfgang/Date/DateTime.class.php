@@ -9,6 +9,7 @@ use DateTimeZone;
 use Stringable;
 
 //Wolfgang
+use Wolfgang\Interfaces\IMarshallable;
 use Wolfgang\Interfaces\Model\ITimezone;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Model\Timezone;
@@ -18,7 +19,7 @@ use Wolfgang\Model\Timezone;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
-final class DateTime extends PHPDateTime implements Stringable {
+final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 	const DEFAULT_FORMAT = 'Y-m-d H:i';
 
 	/**
@@ -187,6 +188,16 @@ final class DateTime extends PHPDateTime implements Stringable {
 	public function getModelTimezone ( ):Timezone {
 		$timezone_name = parent::getTimezone()->getName();
 		return Timezone::findByLabel( $timezone_name );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function marshall():array{
+		return [
+			'date' => $this->getDateTime(),
+			'timezone' => $this->getTimezone(),
+		];
 	}
 
 	/**

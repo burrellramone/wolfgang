@@ -7,7 +7,6 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
  * @since Version 0.1.0
  */
 final class Time extends Component {
@@ -24,7 +23,7 @@ final class Time extends Component {
 	 * @param string $time
 	 * @throws InvalidArgumentException
 	 */
-	public function __construct ( $time = "now" ) {
+	public function __construct ( string $time = "now" ) {
 		parent::__construct();
 
 		$unix_time = strtotime( $time );

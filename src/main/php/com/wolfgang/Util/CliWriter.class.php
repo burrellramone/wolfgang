@@ -13,6 +13,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 final class CliWriter extends Component {
 
 	public static $COLOR_RED = '31m';
+	public static $COLOR_GREEN = '32m';
 	public static $COLOR_BLUE = '34m';
 
 	public static function info( string|array $message ){
@@ -35,5 +36,13 @@ final class CliWriter extends Component {
 		}
 		
 		echo "\033[" . self::$COLOR_RED . "{$message}\e[0m\n";
+	}
+
+	public static function success( string $message ){
+		if(!$message){
+			return;
+		}
+		
+		echo "\033[" . self::$COLOR_GREEN . "{$message}\e[0m\n";
 	}
 }

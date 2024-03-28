@@ -34,6 +34,11 @@ interface ISession {
 	const KIND_FILE = 'file';
 
 	/**
+	 * @var string
+	 */
+	const KIND_CLI = 'cli';
+
+	/**
 	 */
 	public function close ( );
 

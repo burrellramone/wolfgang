@@ -68,11 +68,14 @@ final class Curl extends Component implements ISingleton {
 	 * @return mixed
 	 */
 	private function sendRequest ( $url, array $options = array(), $json_decode = FALSE) {
+		$cookiejar_filepath = CURL_DIRECTORY . "/cookies.dat";
+		$errorfile_filepath = CURL_DIRECTORY . "/cerror.dat";
+
 		$this->curl_handle = curl_init();
 		
 		curl_setopt( $this->curl_handle, CURLOPT_URL, $url );
 		
-		$this->error_file = fopen( CurlConfig::get( 'error_file' ), 'w' );
+		$this->error_file = fopen( $errorfile_filepath , 'w' );
 		
 		if ( empty( $options ) ) {
 			$options = array ();
@@ -92,8 +95,8 @@ final class Curl extends Component implements ISingleton {
 		) );
 		
 		curl_setopt( $this->curl_handle, CURLOPT_RETURNTRANSFER, 1 );
-		curl_setopt( $this->curl_handle, CURLOPT_COOKIEJAR, CurlConfig::get( 'cookie_jar' ) );
-		curl_setopt( $this->curl_handle, CURLOPT_COOKIEFILE, CurlConfig::get( 'cookie_jar' ) );
+		curl_setopt( $this->curl_handle, CURLOPT_COOKIEJAR, $cookiejar_filepath );
+		curl_setopt( $this->curl_handle, CURLOPT_COOKIEFILE, $cookiejar_filepath );
 		curl_setopt( $this->curl_handle, CURLOPT_STDERR, $this->error_file );
 		curl_setopt( $this->curl_handle, CURLOPT_CONNECTTIMEOUT, 30 );
 		curl_setopt( $this->curl_handle, CURLOPT_TIMEOUT, 60 );

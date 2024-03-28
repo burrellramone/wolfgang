@@ -45,9 +45,9 @@ final class Session extends Component implements ISession {
 
 	/**
 	 *
-	 * @var string
+	 * @var string|null
 	 */
-	protected string $domain;
+	protected string|null $domain = null;
 
 	/**
 	 *
@@ -72,15 +72,18 @@ final class Session extends Component implements ISession {
 			throw new IllegalArgumentException("Session kind session option not provided");
 		}
 
-		if( !isset($options['domain']) ){
-			throw new IllegalArgumentException("Session domain session option not provided");
-		}
-
 		$this->setKind( $options['kind'] );
-		$this->setDomain( $options['domain'] );
 
-		if(!empty($options['id_prefix'])){
-			$this->setIdPrefix($options['id_prefix']);
+		if($options['kind'] != ISession::KIND_CLI) {
+			if( !isset($options['domain']) ){
+				throw new IllegalArgumentException("Session domain session option not provided");
+			}
+			
+			$this->setDomain( $options['domain'] );
+	
+			if(!empty($options['id_prefix'])){
+				$this->setIdPrefix($options['id_prefix']);
+			}
 		}
 
 		switch ( $this->getKind() ) {
@@ -98,6 +101,10 @@ final class Session extends Component implements ISession {
 
 			case ISession::KIND_FILE :
 				$handler = new FileSessionHandler();
+				break;
+			
+			case ISession::KIND_CLI:
+				$handler = new CliSessionHandler();
 				break;
 		}
 
@@ -184,7 +191,8 @@ final class Session extends Component implements ISession {
 				ISession::KIND_COOKIE,
 				ISession::KIND_CACHE,
 				ISession::KIND_DATABASE,
-				ISession::KIND_FILE
+				ISession::KIND_FILE,
+				ISession::KIND_CLI,
 		] ) ) {
 			throw new InvalidArgumentException( "Session kind '{$kind}' is unknown" );
 		}
@@ -209,9 +217,9 @@ final class Session extends Component implements ISession {
 	}
 
 	/**
-	 * @return string
+	 * @return string|null
 	 */
-	public function getDomain():string {
+	public function getDomain():?string {
 		return $this->domain;
 	}
 
@@ -221,9 +229,11 @@ final class Session extends Component implements ISession {
 	 * @see \Wolfgang\Interfaces\Session\ISession::close()
 	 */
 	public function close ( ) {
-		//Don't encrypt session id value
-		Cookie::write($this->getName(), $this->getId(), $this->getExpires(), '/', $this->getDomain(), true, true, false );
-
+		if($this->getKind() != ISession::KIND_CLI){
+			//Don't encrypt session id value
+			Cookie::write($this->getName(), $this->getId(), $this->getExpires(), '/', $this->getDomain(), true, true, false );
+		}
+		
 		$this->getHandler()->close();
 	}
 

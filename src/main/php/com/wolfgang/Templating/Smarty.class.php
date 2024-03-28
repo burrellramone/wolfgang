@@ -226,7 +226,7 @@ final class Smarty extends Templater implements ITemplater {
 			$context = Context::getInstance();
 			$skin = $context->getSkin();
 			$skin_name = $skin->getName();
-			$temporary_directory = AppConfig::get( 'directories.temporary_directory' );
+			$temporary_directory = TEMP_DIRECTORY;
 
 			$this->smarty->addTemplateDir( TEMPLATE_DIRECTORY );
 			$this->smarty->addTemplateDir( $temporary_directory );
@@ -275,7 +275,6 @@ final class Smarty extends Templater implements ITemplater {
 	private function determineTemplate ( ) {
 		$context = Application::getInstance()->getContext();
 		$app = $context->getSkin()->getName();
-
 		$controller = $context->getController();
 		$action = $context->getAction();
 
@@ -301,6 +300,19 @@ final class Smarty extends Templater implements ITemplater {
 		}
 
 		$this->setTemplate( $template );
+		$this->determineStylesheetAndScript($app, $controller, $action);
+	}
+
+	public function determineStylesheetAndScript(string $app = null, string $controller = null, string $action = null):void {
+		$context = Application::getInstance()->getContext();
+		$app = $context->getSkin()->getName();
+
+
+		if(!$app || !$controller || !$action){
+			$app = $context->getSkin()->getName();
+			$controller = $context->getController();
+			$action = $context->getAction();
+		}
 
 		if ( $action == 'add' ) {
 			$action = 'edit';
@@ -343,7 +355,7 @@ final class Smarty extends Templater implements ITemplater {
 			$script_file = str_replace( PUBLIC_DIRECTORY, "/", $script_file );
 			$this->assign( 'script_file', $script_file );
 		} else {
-			$this->assign( 'script_file', '#' );
+			$this->assign( 'script_file', '' );
 		}
 	}
 
