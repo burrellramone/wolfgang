@@ -50,10 +50,11 @@ class Request extends Message implements ISingleton , IRequest {
 		foreach ( $_REQUEST as $param => $value ) {
 			$this->params->{$param} = $value;
 		}
+		
 
 		$this->headers = getallheaders();
 		$this->setMethod( $_SERVER[ 'REQUEST_METHOD' ] );
-		$this->setUri( isset( $_SERVER[ 'REDIRECT_URL' ] ) ? new Uri( $_SERVER[ 'REDIRECT_URL' ] ) : new Uri( $_SERVER[ 'REQUEST_URI' ] ) );
+		$this->setUri( isset( $_SERVER[ 'REDIRECT_URL' ] ) ? new Uri( $_SERVER[ 'REDIRECT_URL' ] . '?' .$_SERVER[ 'QUERY_STRING' ] ) : new Uri( $_SERVER[ 'REQUEST_URI' ] ) );
 	}
 
 	/**
@@ -106,11 +107,7 @@ class Request extends Message implements ISingleton , IRequest {
 		return $_SERVER['HTTP_HOST'];
 	}
 
-	public function getRequestScheme():string {
+	public function getScheme():string {
 		return $_SERVER['REQUEST_SCHEME'];
-	}
-
-	public function getRequestUri():string {
-		return $_SERVER['REQUEST_URI'];
 	}
 }
