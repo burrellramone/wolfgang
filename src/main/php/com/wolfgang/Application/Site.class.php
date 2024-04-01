@@ -31,6 +31,8 @@ use Wolfgang\Util\Logger\Logger;
  */
 abstract class Site extends Application implements ISite {
 
+	protected $tmpl;
+
 	protected function __construct ( IContext $context ) {
 		parent::__construct( IApplication::KIND_SITE, $context);
 	}
