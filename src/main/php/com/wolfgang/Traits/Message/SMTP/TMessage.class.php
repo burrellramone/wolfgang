@@ -5,6 +5,7 @@ namespace Wolfgang\Traits\Message\SMTP;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Traits\Message\TMessage as TWolfgangMessage;
 use Wolfgang\Interfaces\IEmailContact;
+use Wolfgang\Util\EmailContact;
 
 /**
  *
@@ -70,6 +71,8 @@ trait TMessage {
 	 * @param IEmailContact $email_contact
 	 */
 	public function addRecipient ( IEmailContact $email_contact ) {
+		$email_contact = new EmailContact($email_contact->getEmail(), $email_contact->getName());
+		
 		$this->recipients[] = $email_contact;
 	}
 	
