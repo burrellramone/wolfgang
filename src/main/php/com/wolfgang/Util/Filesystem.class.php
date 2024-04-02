@@ -48,8 +48,6 @@ final class Filesystem extends Component {
 	public static function putContents ( string $filepath, string $contents, $flags = null): bool {
 		if ( empty( $filepath ) ) {
 			throw new IllegalargumentException( "File path not provided" );
-		} else if ( empty( $contents ) ) {
-			throw new FilesystemException( "Contents not provided" );
 		}
 
 		if ( ! self::exists( $filepath ) ) {
