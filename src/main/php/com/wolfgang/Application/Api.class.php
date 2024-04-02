@@ -7,6 +7,8 @@ use Exception;
 use ErrorException;
 
 //Wolfgang
+use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
+use Wolfgang\Message\HTTP\Request as HttpRequest;
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Interfaces\Message\IMessage;
 use Wolfgang\Interfaces\Message\IResponse;
@@ -19,14 +21,11 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Interfaces\IApiKey;
 use Wolfgang\Encoding\JSON;
 use Wolfgang\Exceptions\Message\HTTP\Exception as HTTPException;
-use Wolfgang\Util\Logger\Logger;
 use Wolfgang\Interfaces\IMarshallable;
 use Wolfgang\Exceptions\Exception as ComponentException;
 use Wolfgang\Routing\HttpRouter;
 use Wolfgang\Message\HTTP\Response as HttpResponse;
 use Wolfgang\Interfaces\Message\HTTP\IResponse as IHttpResponse;
-use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
-use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Exceptions\UnsupportedOperationException;
 use Wolfgang\Interfaces\Network\IUri;
 
@@ -238,12 +237,17 @@ abstract class Api extends Application implements IApi {
 		try {
 			ob_start();
 
-			$driver_manager = $this->getDriverManager();
-			$driver_manager->begin();
+			if($request instanceof HttpRequest) {
+				if ( $request->getMethod() != IHttpRequest::METHOD_OPTIONS ) {
+					$driver_manager = $this->getDriverManager();
+					$driver_manager->begin();
 
-			$this->getDispatcher()->dispatch( $request, $this->getRouter()->route( $request ) );
+					$this->getDispatcher()->dispatch( $request, $this->getRouter()->route( $request ) );
 
-			$driver_manager->commit();
+					$driver_manager->commit();
+				}
+			}
+
 		} catch ( HTTPException $e ) {
 			$this->response->setStatusCode( $e->getHttpCode() );
 		} catch ( Error $e ) {
