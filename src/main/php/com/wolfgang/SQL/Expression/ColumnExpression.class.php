@@ -212,7 +212,7 @@ final class ColumnExpression extends Expression implements IColumnExpression {
 			$encryption_key = $table->getSchema()->getDsn()->getEncryptionKey();
 			
 			if ( ($model instanceof IEncrypted) && $model->isEncryptedColumn( $this->getColumn() ) ) {
-				return "AES_DECRYPT({$this->expression}, '{$encryption_key}')";
+				return "CAST(AES_DECRYPT({$this->expression}, '{$encryption_key}') AS CHAR)";
 			}
 		} catch ( \Exception $e ) {
 			Application::getInstance()->respond( $e );
