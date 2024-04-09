@@ -2,6 +2,9 @@
 
 namespace Wolfgang\Date;
 
+use Stringable;
+
+//Wolfgang
 use Wolfgang\Exceptions\InvalidArgumentException;
 
 /**
@@ -9,7 +12,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
-final class Time extends Component {
+final class Time extends Component implements Stringable {
 	const FORMAT = 'h:i A';
 	const FORMAT_24_HOUR = 'H:i';
 
