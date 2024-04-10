@@ -15,6 +15,7 @@ use Wolfgang\Interfaces\Date\ITimezone;
 final class Timezone extends Model implements ITimezoneModel , ITimezone {
 	use TLabelled;
 	public $name;
+	public $identifier;
 	public $coordinates;
 	public $abbr;
 	public $dst_abbr;
