@@ -242,6 +242,19 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	}
 
 	/**
+	 * Saves all the objects within this list
+	 *
+	 * @return ModelList The instance of this model list 
+	 * for method chaining, unless an exception is thrown within the process
+	 */
+	public function save():ModelList{
+		$this->each( function ( IModel $model ) {
+			$model->save();
+		} );
+		return $this;
+	}
+
+	/**
 	 * Filters the objects within this list by a set of respective fields and values.
 	 *
 	 * @param mixed $field The field or fields to filter the objects by
@@ -496,7 +509,7 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 * @see \ArrayAccess::offsetSet()
 	 */
 	public function offsetSet ( $offset, $value ):void {
-		throw new MethodNotImplementedException();
+		$this->objects->offsetSet($offset, $value);
 	}
 
 	/**
