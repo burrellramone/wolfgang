@@ -127,6 +127,14 @@ final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 		return new DateTime( date( "Y-m-d H:i:s", strtotime( $str_datetime ) ), $timezone );
 	}
 
+	public function setTimezone(DateTimeZone|ITimezone $timezone):PHPDateTime{
+		if($timezone instanceof DateTimeZone){
+			return parent::setTimezone($timezone);
+		} else {
+			return parent::setTimezone(new DateTimeZone($timezone->getIdentifier()));
+		}
+	}
+
 	/**
 	 *
 	 * @param string $datetime

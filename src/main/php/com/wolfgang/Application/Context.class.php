@@ -262,7 +262,7 @@ final class Context extends Component implements IContext , ISingleton {
 	 * @param string $controller
 	 */
 	private function setController ( string $controller ) {
-		$this->controller = $controller;
+		$this->controller = strtolower($controller);
 	}
 
 	/**

@@ -27,6 +27,14 @@ final class Timezone extends Model implements ITimezoneModel , ITimezone {
 	public $datetime_created;
 
 	/**
+	 * @inheritdoc
+	 * @return string
+	 */
+	public function getIdentifier():string {
+		return $this->identifier;
+	}
+
+	/**
 	 *
 	 * @access public
 	 * @return \DateTimeZone
