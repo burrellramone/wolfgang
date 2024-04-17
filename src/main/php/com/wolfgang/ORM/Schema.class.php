@@ -5,6 +5,7 @@ namespace Wolfgang\ORM;
 // PHP
 use ReflectionException;
 // Wolfgang
+use Wolfgang\Date\DateTime;
 use Wolfgang\Exceptions\IllegalArgumentException;
 use Wolfgang\Exceptions\IllegalStateException;
 use Wolfgang\Exceptions\InvalidArgumentException;
@@ -481,6 +482,15 @@ final class Schema extends Component implements IDatabaseSchema {
 				$statement->bind( $column_name, $value, true );
 			} else {
 				$statement->bind( $column_name, $value );
+			}
+		}
+
+		//if table has 'last_updated' column, set 'last_updated' to current datetime
+		if($table->getColumn('last_updated')){
+			$last_updated = $model->last_updated;
+
+			if(!$last_updated){
+				$statement->bind('last_updated', new DateTime);
 			}
 		}
 
