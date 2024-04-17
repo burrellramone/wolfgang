@@ -5,6 +5,7 @@ namespace Wolfgang\Model;
 // PHP
 use ReflectionException;
 use ReflectionUnionType;
+use ReflectionProperty;
 
 // Wolfgang
 use Wolfgang\Interfaces\Model\IModel;
@@ -119,13 +120,19 @@ abstract class Model extends Component implements IModel, IMarshallable {
 			
 			try {
 				$reflection_property = $model_reflection->getProperty( $column_name );
+
+				$rp = new ReflectionProperty($this, $column_name);
+
+				if($rp->isInitialized($this)){
+					continue;
+				}
+
 			} catch ( ReflectionException $e ) {
 				throw new ModelException( "Property '{$column_name}' of class '{$this->getModelType()}' does not exist. Please implement it." );
 			}
 
 			if ( $reflection_property->isPublic() || $reflection_property->isProtected() ) {
 				$type = $reflection_property->getType();
-
 
 				if($type){
 					if($type instanceof ReflectionUnionType){
