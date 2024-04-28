@@ -77,9 +77,13 @@ final class Filesystem extends Component {
 	 *         there was an error creating the physical file
 	 * @return boolean
 	 */
-	public static function create ( string $filepath, $data = '', $flags = null, $mode = null) {
+	public static function create ( string $filepath, $data = '', $flags = 0, $mode = null) {
 		if ( self::exists( $filepath ) ) {
 			throw new FilesystemException( "File '{$filepath}' already exists." );
+		}
+
+		if($flags === null){
+			$flags = 0;
 		}
 
 		$flags = $flags | LOCK_EX;
