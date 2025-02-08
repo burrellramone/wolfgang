@@ -33,6 +33,12 @@ final class MinioTenant extends Component {
 	 * @var string
 	 */
 	private $port;
+
+	/**
+	 * 
+	 * @var bool 
+	 */
+	private $http_verify;
 	
 	/**
 	 *
@@ -46,15 +52,17 @@ final class MinioTenant extends Component {
 	 * @param string $protocol
 	 * @param string $hostname
 	 * @param string $port
+	 * @param bool $httpVerify
 	 * @throws CoreException
 	 */
-	public function __construct ( int $id, string $protocol, string $hostname, string $port ) {
+	public function __construct ( int $id, string $protocol, string $hostname, string $port, bool $httpVerify = true ) {
 		parent::__construct();
 		
 		$this->id = $id;
 		$this->protocol = $protocol;
 		$this->hostname = $hostname;
 		$this->port = $port;
+		$this->http_verify = $httpVerify;
 		
 		$this->client = new Client( $this );
 	}
@@ -91,6 +99,14 @@ final class MinioTenant extends Component {
 		return $this->port;
 	}
 	
+	/**
+	 * 
+	 * @return bool
+	 */
+	public function getHttpVerify(): bool {
+		return $this->http_verify;
+	}
+
 	/**
 	 *
 	 * {@inheritdoc}

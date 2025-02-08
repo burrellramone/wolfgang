@@ -35,6 +35,9 @@ final class Client extends Component {
 				'version' => 'latest',
 				'endpoint' => $tenant->getProtocol() . '://' . $tenant->getHostname() . ':' . $tenant->getPort(),
 				'use_path_style_endpoint' => true,
+				'http' => [
+					'verify' => $tenant->getHttpVerify(),
+				],
 				'credentials' => [ 
 					'key' => MinioConfig::get( 'access_key' ),
 					'secret' => MinioConfig::get( 'secret_key' ),

@@ -34,7 +34,7 @@ final class Minio extends Component {
 	}
 
 	public static function createTenantFromArray( array $tenant ):MinioTenant{
-		return Minio::createTenant( $tenant['id'], $tenant['protocol'], $tenant['host'], $tenant['port'] );
+		return Minio::createTenant( $tenant['id'], $tenant['protocol'], $tenant['host'], $tenant['port'], $tenant['http_verify'] );
 	}
 
 	/**
@@ -43,15 +43,16 @@ final class Minio extends Component {
 	 * @param string $protocol
 	 * @param string $hostname
 	 * @param string $port
+	 * @param bool $httpVerify
 	 * @throws CoreException
 	 * @return \Wolfgang\Cloud\Amazon\S3\MinioTenant
 	 */
-	public static function createTenant ( int $id, string $protocol, string $hostname, string $port ) {
+	public static function createTenant ( int $id, string $protocol, string $hostname, string $port, bool $httpVerify = true ) {
 		if ( self::getTenantById( $id ) ) {
 			throw new CoreException( "Minio tenant with id '{$id}' has already been instantiated" );
 		}
 
-		$tenant = new MinioTenant( $id, $protocol, $hostname, $port );
+		$tenant = new MinioTenant( $id, $protocol, $hostname, $port, $httpVerify );
 		self::$tenants[ $id ] = &$tenant;
 		return $tenant;
 	}
