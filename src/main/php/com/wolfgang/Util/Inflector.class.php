@@ -53,7 +53,7 @@ final class Inflector extends Component {
 		}
 
 		$table_name = '';
-		$class_name = preg_replace( "~^(.*)Model\\\~i", "", $class_name );
+		$class_name = preg_replace( "~^(.*)Model(.*)\\\~i", "", $class_name );
 
 		$tablename_parts = preg_split( "/([A-Z]{1})/", $class_name, 0, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
 
