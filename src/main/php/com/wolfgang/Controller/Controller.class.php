@@ -10,6 +10,7 @@ use Wolfgang\Interfaces\Dispatching\IEventDispatcher;
 use Wolfgang\Interfaces\IControllerAuthenticator;
 use Wolfgang\Dispatching\EventDispatcher;
 use Wolfgang\Application\Application;
+use Wolfgang\I18N\I18N;
 
 /**
  *
@@ -54,6 +55,18 @@ abstract class Controller extends BaseComponent implements IController {
 		$this->setResponse( $response );
 
 		parent::__construct();
+
+		$context = $this->application->getContext();
+
+		$language = $this->getSession()->get('language');
+		$languageCode = DEFAULT_LANGUAGE_CODE;
+
+		if ($language) {
+			$languageCode = $language->getCode();
+		}
+
+		I18N::setLoadContext($this->getApplication()->getContext()->getSkin()->getName(), $this->application->getKind(), "{$context->getController()}/{$context->getAction()}", $languageCode);
+
 	}
 
 	/**
