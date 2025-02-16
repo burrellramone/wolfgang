@@ -8,6 +8,7 @@ use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Interfaces\Routing\IRouter;
 use Wolfgang\Dispatching\Dispatcher;
 use Wolfgang\Interfaces\Network\IUri;
+use Wolfgang\Interfaces\Session\ISession;
 
 /**
  *
@@ -96,6 +97,14 @@ interface IApplication {
 	 * @return IContext
 	 */
 	public function getContext ( ): IContext;
+
+	/**
+	 * 
+	 * Gets the session of the application
+	 * 
+	 * @return ISession The session of the application
+	 */
+	public function getSession(): ISession;
 	
 	/**
 	 * If the current application being run is of the kind 'api' or 'site' then an HTTP 'Location'
