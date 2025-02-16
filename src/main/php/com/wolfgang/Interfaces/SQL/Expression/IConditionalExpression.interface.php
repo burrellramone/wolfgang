@@ -2,6 +2,7 @@
 
 namespace Wolfgang\Interfaces\SQL\Expression;
 
+use \DateTime;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
@@ -44,7 +45,13 @@ interface IConditionalExpression {
 	
 	public function gte ( $expression1, $expresion2 );
 	
-	public function in ( $expression, array $values );
+	/**
+	 * 
+	 * @param string|int|array|float|DateTime $expression
+	 * @param array $values
+	 * @return void
+	 */
+	public function in ( string|int|array|float|DateTime $expression, array $values );
 	
 	public function nin ( $expression, array $values );
 	

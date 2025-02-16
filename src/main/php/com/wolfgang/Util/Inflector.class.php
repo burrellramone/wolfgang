@@ -2,6 +2,12 @@
 
 namespace Wolfgang\Util;
 
+
+//PGP
+use ReflectionClass;
+use ReflectionException;
+
+//Wolfgang
 use Wolfgang\Exceptions\Exception;
 use Wolfgang\Exceptions\IllegalArgumentException;
 use Wolfgang\Model\Model;
@@ -35,7 +41,18 @@ final class Inflector extends Component {
 		if ( in_array( $class_name, Model::$framework_class_names ) ) {
 			$class_name = "Wolfgang\\Model\\" . $class_name;
 		} else {
-			$class_name = "Model\\" . $class_name;
+		    $class_name = "Model\\" . $class_name;
+		    
+		    if (count($parts) == ONE) {
+    		    try {
+    		        $cn = $class_name ."\\{$parts[0]}";
+    		        $instance = new ReflectionClass($cn);
+    		        $class_name = $cn;
+    		    } catch (ReflectionException $e) {
+    		        
+    		    }
+		      }
+			
 		}
 
 		return $class_name;

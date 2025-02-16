@@ -70,7 +70,7 @@ final class StringExpression extends CharacterExpression {
 					$expression = '(\'\')';
 				} else {
 					if(isset( $this->expression[0] )){
-						if ( is_int( $this->expression[ 0 ] ) || is_double( $this->expression[ 0 ] || is_float( $this->expression[ 0 ] ) ) ) {
+						if ( is_int( $this->expression[ 0 ] ) || is_double( $this->expression[ 0 ] ) || is_float( $this->expression[ 0 ] ) ) {
 							$expression = "(" . implode( ',', $this->expression ) . ")";
 						} else if ( is_string( $this->expression[ 0 ] ) ) {
 							$expression = "('" . implode( "','", $this->expression ) . "')";
