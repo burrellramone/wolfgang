@@ -20,7 +20,7 @@
 	
 	<target name="composer-self-update" description="Self-update composer php package manager.">
 	    <exec executable="php" failonerror="true" resultproperty="result.composer-self-update">
-	        <arg value="${basedir}/composer.phar"/>
+		<arg value="/usr/bin/composer"/>
 	        <arg value="self-update"/>
 	    	<arg value="--no-interaction"/>
 	    	<arg value="-v"/>
@@ -29,9 +29,9 @@
 	
 	<target name="composer" description="Install composer packages including require-dev.">
         <exec executable="php" failonerror="true" resultproperty="result.composer">
-            <arg value="${basedir}/composer.phar"/>
+	    <arg value="/usr/bin/composer"/>
             <arg value="update"/>
-        	<arg value="--verbose"/>
+            <arg value="--verbose"/>
             <arg value="--prefer-dist"/>
             <arg value="--no-progress"/>
         </exec>
