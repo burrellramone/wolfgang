@@ -6,6 +6,7 @@ use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Interfaces\Message\IResponse;
 use Wolfgang\Auth\Controller as ControllerAuthenticator;
 use Wolfgang\Dispatching\EventDispatcher;
+use Wolfgang\Templating\Templater;
 
 /**
  *
@@ -17,6 +18,10 @@ use Wolfgang\Dispatching\EventDispatcher;
  * @since Version 0.1.0
  */
 abstract class SiteController extends Controller {
+	/**
+	 * 
+	 */
+	protected $tmpl;
 
 	/**
 	 *
@@ -38,5 +43,7 @@ abstract class SiteController extends Controller {
 
 		$this->authenticator = new ControllerAuthenticator( $this );
 		$this->setEventDispatcher( EventDispatcher::getInstance() );
+
+		$this->tmpl = Templater::getInstance();
 	}
 }
