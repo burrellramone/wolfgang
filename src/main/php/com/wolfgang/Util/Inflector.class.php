@@ -70,19 +70,20 @@ final class Inflector extends Component {
 		}
 
 		$table_name = '';
-		$class_name = preg_replace( "~^(.*)Model(.*)\\\~i", "", $class_name );
+		$class_name = preg_replace( ["~^(.*)Model\\\~i", "~\\\~"], "", $class_name );
 
-		$tablename_parts = preg_split( "/([A-Z]{1})/", $class_name, 0, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY );
-
-		foreach ( $tablename_parts as $key => $tablename_part ) {
-			if ( $key != 0 && is_int( $key / 2 ) ) {
-				$table_name .= "_";
-			}
-
-			$table_name .= $tablename_part;
+		$table_name = preg_replace("/([A-Z]{1})/", "_$1", $class_name);
+		$table_name = strtolower(substr($table_name, 1));
+		$tablename_parts = explode("_", $table_name);
+		
+		if (count($tablename_parts) > ONE && ($tablename_parts[0] == $tablename_parts[1])) {
+			unset($tablename_parts[0]);
+			$tablename_parts = array_values($tablename_parts);
 		}
+		
+		$table_name = implode("_", $tablename_parts);
 
-		return strtolower( $table_name );
+		return $table_name;
 	}
 
 	/**
