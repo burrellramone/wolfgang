@@ -42,6 +42,12 @@ final class Context extends Component implements IContext , ISingleton {
 	 * @var string
 	 */
 	private $application;
+	
+	/**
+	 * 
+	 * @var string
+	 */
+	private $version;
 
 	/**
 	 *
@@ -82,6 +88,18 @@ final class Context extends Component implements IContext , ISingleton {
 		if ( PHP_SAPI == IContext::PHP_SAPI_APACHE2_HANDLER ) {
 			$uri = new Uri( isset( $_SERVER[ 'REDIRECT_URL' ] ) ? $_SERVER[ 'REDIRECT_URL' ] : $_SERVER[ 'REQUEST_URI' ] );
 			$request_uri_parts = array_values( array_filter( explode( '/', $uri->getPath() ) ) );
+			$versions = ["v1", "v2", "v3", "v4", "v5"];
+			
+			$versionIdx = array_find_key($versions, function($version) use($request_uri_parts){
+			    return in_array($version, $request_uri_parts);
+			});
+		
+			if ($versionIdx !== null) {
+			    $version = $request_uri_parts[$versionIdx];
+			    unset($request_uri_parts[$versionIdx]);
+			    $request_uri_parts = array_values($request_uri_parts);
+			    $this->setVersion($version);
+			}
 
 			$this->setApplication($this->getSkin()->getName());
 
@@ -257,6 +275,25 @@ final class Context extends Component implements IContext , ISingleton {
 		return $this->application;
 	}
 
+	/**
+	 * Sets the version of the request / controller call
+	 * 
+	 * @param string $version
+	 * @return void
+	 */
+	private function setVersion(string $version):void {
+	    $this->version = strtoupper($version);
+	}
+	
+	/**
+	 * Gets the version of the request / controller call
+	 * 
+	 * @return string
+	 */
+	public function getVersion():string {
+	    return $this->version;
+	}
+	
 	/**
 	 *
 	 * @param string $controller

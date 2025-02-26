@@ -11,8 +11,7 @@ use Wolfgang\Exceptions\Routing\Exception as RoutingException;
 use Wolfgang\Exceptions\Message\HTTP\NotFoundException;
 
 /**
- *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class HttpRoute extends Route {
@@ -33,7 +32,7 @@ final class HttpRoute extends Route {
 	 * @throws RoutingException
 	 * @throws NotFoundException
 	 * {@inheritDoc}
-	 * @see \Wolfgang\Routing\Route\Route::init()
+	 * @see Wolfgang\Routing\Route::init()
 	 */
 	protected function init ( ) {
 		parent::init();
@@ -41,6 +40,7 @@ final class HttpRoute extends Route {
 		$application = Application::getInstance();
 		$context = $application->getContext();
 		$app = $context->getApplication();
+		$version = $context->getVersion();
 		$controller = $context->getController();
 		$action = $context->getAction();
 
