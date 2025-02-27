@@ -288,9 +288,9 @@ final class Context extends Component implements IContext , ISingleton {
 	/**
 	 * Gets the version of the request / controller call
 	 * 
-	 * @return string
+	 * @return string|null
 	 */
-	public function getVersion():string {
+	public function getVersion():?string {
 	    return $this->version;
 	}
 	
