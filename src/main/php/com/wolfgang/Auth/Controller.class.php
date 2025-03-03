@@ -61,8 +61,9 @@ class Controller extends BaseComponent implements IControllerAuthenticator {
 	/**
 	 *
 	 * @param IController $controller
+	 * @param IUser $user
 	 */
-	public function __construct ( IController $controller, IUser $user = null) {
+	public function __construct ( IController $controller, IUser|null $user = null) {
 		parent::__construct();
 
 		$this->setController( $controller );

@@ -25,9 +25,9 @@ final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 	/**
 	 *
 	 * @param string $time
-	 * @param \DateTimeZone $timezone
+	 * @param DateTimeZone|null $timezone
 	 */
-	public function __construct ( string $time = "now", ITimezone $timezone = null) {
+	public function __construct ( string $time = "now", ITimezone|null $timezone = null) {
 		if ( !isset($time) || strtotime( $time ) < 0 ) {
 			throw new InvalidArgumentException( "Invalid time provided" );
 		}
@@ -87,32 +87,66 @@ final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 		return date( "Y-m-d H:i:s", time() );
 	}
 
+	/**
+	 * 
+	 * @return DateTime
+	 */
 	public function tomorrow ( ) {
 		$tomorrow = new DateTime( $this->getDateTime( "Y-m-d 00:00:00" ), $this->getTimezone()->toDateTimeZone() );
 		return $tomorrow->add( new \DateInterval( 'P1D' ) );
 	}
 
-	public static function startOfWeek ( ITimezone $timezone = NULL) {
+	/**
+	 * 
+	 * @param ITimezone|null $timezone
+	 * @return \Wolfgang\Date\DateTime
+	 */
+	public static function startOfWeek ( ITimezone|null $timezone = NULL) {
 		return new DateTime( date( "Y-m-d H:i:s", strtotime( "last sunday midnight" ) ), $timezone );
 	}
 
-	public static function endOfWeek ( ITimezone $timezone = NULL) {
+	/**
+	 * 
+	 * @param ITimezone|null $timezone
+	 * @return \Wolfgang\Date\DateTime
+	 */
+	public static function endOfWeek ( ITimezone|null $timezone = NULL) {
 		return new DateTime( date( "Y-m-d H:i:s", strtotime( "next sunday midnight - 1 second" ) ), $timezone );
 	}
 
-	public static function startOfMonth ( ITimezone $timezone = NULL) {
+	/**
+	 * 
+	 * @param ITimezone|null $timezone
+	 * @return \Wolfgang\Date\DateTime
+	 */
+	public static function startOfMonth ( ITimezone|null $timezone = NULL) {
 		return new DateTime( date( "Y-m-d H:i:s", strtotime( 'first day of this month' ) ), $timezone );
 	}
 
-	public static function endOfMonth ( ITimezone $timezone = NULL) {
+	/**
+	 * 
+	 * @param ITimezone|null $timezone
+	 * @return \Wolfgang\Date\DateTime
+	 */
+	public static function endOfMonth ( ITimezone|null $timezone = NULL) {
 		return new DateTime( date( "Y-m-d H:i:s", strtotime( 'last day of this month - 1 second' ) ), $timezone );
 	}
 
-	public static function todayMidnight ( ITimezone $timezone = NULL) {
+	/**
+	 * 
+	 * @param ITimezone|null $timezone
+	 * @return \Wolfgang\Date\DateTime
+	 */
+	public static function todayMidnight ( ITimezone|null $timezone = NULL) {
 		return new DateTime( date( "Y-m-d H:i:s", strtotime( 'today midnight' ) ), $timezone );
 	}
 
-	public static function beforeMidnightTomorrow ( ITimezone $timezone = NULL) {
+	/**
+	 * 
+	 * @param ITimezone|null $timezone
+	 * @return \Wolfgang\Date\DateTime
+	 */
+	public static function beforeMidnightTomorrow ( ITimezone|null $timezone = NULL) {
 		return new DateTime( date( "Y-m-d H:i:s", strtotime( 'tomorrow - 1 second' ) ), $timezone );
 	}
 
@@ -143,7 +177,7 @@ final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 	 * @param string $timezone_label
 	 * @param bool $is_utc
 	 */
-	public static function getUTCAndLocalDatetimes ( string $datetime, DateTime &$utc_datetime, DateTime &$local_datetime, string $timezone_label, bool $is_utc = FALSE) {
+	public static function getUTCAndLocalDatetimes ( string $datetime, DateTime &$utc_datetime, DateTime &$local_datetime, string $timezone_label, bool $is_utc = false) {
 		if ( $is_utc ) {
 			$utc_datetime = new DateTime( $datetime, new \DateTimeZone( "Europe/London" ) );
 			$local_datetime = new DateTime( $datetime, new \DateTimeZone( "Europe/London" ) );
@@ -156,10 +190,10 @@ final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 
 	/**
 	 *
-	 * @param DateTime $time
+	 * @param DateTime|null $time
 	 * @return string
 	 */
-	public function getElapsedTime ( DateTime $datetime = null): string {
+	public function getElapsedTime ( DateTime|null $datetime = null): string {
 		$elapsedTime = '';
 		$time = 0;
 

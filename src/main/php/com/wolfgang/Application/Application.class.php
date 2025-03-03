@@ -669,7 +669,7 @@ abstract class Application extends Component implements IApplication {
 	 * @return void
 	 */
 	private function bootstrap ( ): void {
-		set_error_handler( function ( $errno, $errstr, $errfile = null, $errline = null, array $errcontext = null) {
+		set_error_handler( function ( $errno, $errstr, string|null $errfile = null, string|null $errline = null, array|null $errcontext = null) {
 			if ( ! empty( $_SERVER[ 'HTTP_HOST' ] ) ) {
 				$host = $_SERVER[ 'HTTP_HOST' ];
 			} else {

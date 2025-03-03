@@ -57,9 +57,9 @@ final class RecordHistory extends Model implements IEncrypted {
 	
 	/**
 	 *
-	 * @param IModel $model_instance
+	 * @param IModel|null $model_instance
 	 */
-	public function __construct ( IModel $model_instance = null) {
+	public function __construct ( IModel|null $model_instance = null) {
 		parent::__construct();
 		
 		if ( ! empty( $model_instance ) ) {

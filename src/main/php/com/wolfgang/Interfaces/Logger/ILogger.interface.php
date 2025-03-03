@@ -81,7 +81,7 @@ interface ILogger {
 	 * @param string|null $name
 	 * @return ILogger
 	 */
-	public static function getLogger ( string $name = null ): ILogger;
+	public static function getLogger ( string|null $name = null ): ILogger;
 
 	/**
 	 * System is unusable.

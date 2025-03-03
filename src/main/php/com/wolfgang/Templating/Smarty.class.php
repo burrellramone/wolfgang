@@ -100,7 +100,7 @@ final class Smarty extends Templater implements ITemplater {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\ITemplater::fetch()
 	 */
-	public function fetch ( $template = null): string {
+	public function fetch ( string|null $template = null): string {
 		if ( ! empty( $template ) ) {
 			if ( ! Filesystem::exists( $template ) && ! Filesystem::exists( TEMPLATE_DIRECTORY . $template ) ) {
 				throw new FileNotExistException( "Template {$template} does not exist" );
@@ -303,7 +303,13 @@ final class Smarty extends Templater implements ITemplater {
 		$this->determineStylesheetAndScript($app, $controller, $action);
 	}
 
-	public function determineStylesheetAndScript(string $app = null, string $controller = null, string $action = null):void {
+	/**
+	 * 
+	 * @param string|null $app
+	 * @param string|null $controller
+	 * @param string|null $action
+	 */
+	public function determineStylesheetAndScript(string|null $app = null, string|null $controller = null, string|null $action = null):void {
 		$context = Application::getInstance()->getContext();
 		$app = $context->getSkin()->getName();
 

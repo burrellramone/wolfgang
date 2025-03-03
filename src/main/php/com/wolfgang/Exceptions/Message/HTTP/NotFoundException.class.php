@@ -26,9 +26,9 @@ final class NotFoundException extends Exception {
 	 *
 	 * @param string $message
 	 * @param number $code
-	 * @param PHPException $previous
+	 * @param PHPException|null $previous
 	 */
-	public function __construct ( $message = "404 Not Found. See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html", $code = 0, PHPException $previous = NULL ) {
+	public function __construct ( string $message = "404 Not Found. See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html", int $code = 0, PHPException|null $previous = NULL ) {
 		parent::__construct( $message, $code, $previous );
 		
 	}

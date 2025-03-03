@@ -37,10 +37,10 @@ final class FileLogger extends Logger implements IFileLogger {
 	
 	/**
 	 *
-	 * @param string $name
+	 * @param string|null $name
 	 * @return ILogger
 	 */
-	public static function getLogger ( string $name = null): ILogger {
+	public static function getLogger ( string|null $name = null): ILogger {
 		$logger = null;
 		
 		if ( $name == null ) {

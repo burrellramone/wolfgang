@@ -39,11 +39,11 @@ final class I18N extends BaseComponent {
      * @see https://html.spec.whatwg.org/multipage/system-state.html#dom-navigator-language-dev
      * 
      * @param string $text
-     * @param string $language
+     * @param string|null $language
      * @param array $replacements
      * @return string
      */
-    public static function __(string $text, string $language = null, array $replacements = array()): string {
+    public static function __(string $text, string|null $language = null, array $replacements = array()): string {
         if (!empty($language) && !self::isValidLanguage($language)) {
             throw new InvalidArgumentException("Invalid language '{$language}' provided.");
         }
