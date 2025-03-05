@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Wolfgang" default="full-build">
-	<target name="full-build" depends="composer-self-update,composer,phplint,phpstan,phpunit,phploc,clean,prepare,phpab,phpdoc" description="Perform static analysis, run tests, and generate project documentation.">
+	<target name="full-build" depends="composer,phplint,phpstan,phpunit,phploc,clean,prepare,phpab,phpdoc" description="Perform static analysis, run tests, and generate project documentation.">
         <echo message="Full Build Complete"/>
     </target>
 
