@@ -107,7 +107,7 @@ define( 'UUID_NAMESPACE', 'e4309058-5f59-11e8-8a69-abede464e6d6' );
  *
  * @var string
  */
-define( 'HOST_BOCCHERINI', 'boccherini' );
+define( 'COUNTRY_ISO_CA', 'CA' );
 
 /**
  *
