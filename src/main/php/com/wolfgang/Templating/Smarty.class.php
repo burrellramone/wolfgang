@@ -2,6 +2,9 @@
 
 namespace Wolfgang\Templating;
 
+use Smarty\Smarty as Smartest;
+
+//Wolfgang
 use Wolfgang\Interfaces\ITemplater;
 use Wolfgang\Exceptions\Templating\TemplateNotExistException;
 use Wolfgang\Exceptions\Templating\Exception as TemplatingException;
@@ -45,7 +48,7 @@ final class Smarty extends Templater implements ITemplater {
 	private $template;
 
 	protected function __construct ( ) {
-		$this->smarty = new \Smarty();
+	    $this->smarty = new Smartest();
 
 		parent::__construct();
 	}
@@ -71,6 +74,15 @@ final class Smarty extends Templater implements ITemplater {
 
 		$this->setSmartyLocations();
 		$this->enableCaching();
+		
+		// native PHP functions used as modifiers need to be registered
+		$this->smarty->registerPlugin('modifier', 'substr', 'substr');
+		$this->smarty->registerPlugin('modifier', 'ucfirst', 'ucfirst');
+		$this->smarty->registerPlugin('modifier', 'method_exists', 'method_exists');
+		$this->smarty->registerPlugin('modifier', 'date', 'date');
+		
+		// userland PHP functions used as modifiers need to be registered
+		$this->smarty->registerPlugin('modifier', '__', '__');
 	}
 
 	/**
