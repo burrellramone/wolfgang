@@ -108,8 +108,6 @@ abstract class Site extends Application implements ISite {
 			throw new InvalidArgumentException( "Router must be an instance of Wolfgang\Routing\HttpRouter" );
 		}
 
-		$router->setApplication( $this );
-
 		$this->router = $router;
 	}
 

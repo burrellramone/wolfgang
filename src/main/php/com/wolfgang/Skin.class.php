@@ -20,6 +20,8 @@ final class Skin extends Component implements ISkin {
 	 * @var SkinDomain|null
 	 */
 	private $skin_domain;
+	
+	private array $routes = [];
 
 	public function __construct(array $definition) {
 		parent::__construct();
@@ -34,9 +36,26 @@ final class Skin extends Component implements ISkin {
 		if(!empty($definition['skin_domain'])){
 			$this->skin_domain = new SkinDomain($definition['skin_domain']);
 		}
+		
+		if (isset($definition['routes'])) {
+		    $this->routes = $definition['routes'];
+		}
 	}
 
 	public function getId():string|int {
 		return $this->id;
+	}
+	
+	/**
+	 * Gets the defined routes for this site
+	 * 
+	 * @return array
+	 */
+	public function getRoutes():array {
+	    return $this->routes;
+	}
+	
+	public function isCli():bool {
+	    return $this->name == 'CLI';
 	}
 }

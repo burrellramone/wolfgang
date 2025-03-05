@@ -4,12 +4,14 @@ namespace Wolfgang\Routing;
 
 use Wolfgang\Interfaces\Application\IApplication;
 use Wolfgang\Network\Uri\UriPath;
-use Wolfgang\Routing\HttpRoute;
+use Wolfgang\Application\Context;
 use Wolfgang\Interfaces\Routing\IRoute;
 use Wolfgang\Interfaces\Message\IRequest;
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
 use Wolfgang\Exceptions\InvalidArgumentException;
+use Wolfgang\Exceptions\InvalidStateException;
+use Wolfgang\Exceptions\Message\HTTP\BadRequest;
 
 /**
  *
@@ -46,12 +48,51 @@ final class HttpRouter extends Router {
 			throw new InvalidArgumentException("Request must be an instance of Wolfgang\Interfaces\Message\HTTP\IRequest");
 		}
 
-		$route = new HttpRoute();
-		$route->setMethod( $request->getMethod() );
-		$route->setUri( $request->getUri() );
-
-		$this->route = $route;
+		$context = Context::getInstance();
 		
+		$domain = $context->getDomain();
+		$requestMethod = $request->getMethod();
+        $requestPath = $request->getUri()->getPath();
+		$site = $context->getSite();
+        $routes = $site->getRoutes();
+        //Only need routs for current domain
+        $routes = $routes[$domain]??[];
+        
+
+        foreach($routes as $method => $methodRoutes){
+            foreach($methodRoutes as $siteRoute){
+                $type = $siteRoute['type']??Route::ROUTE_TYPE_LITERAL;
+                
+                switch($type){
+                    case Route::ROUTE_TYPE_LITERAL:
+                        break;
+                        
+                    case Route::ROUTE_TYPE_REGEX:
+                        $siteRoutePathQuoted = preg_quote($siteRoute['path'], "/");
+
+                        if (preg_match("/({$siteRoutePathQuoted})/", $requestPath)) {
+                            if($method != $requestMethod){
+                                throw new BadRequest("HTTP method '{$method}' required to access this resource.");
+                            }
+                        }
+                        break;
+                        
+                    default:
+                        
+                        throw new InvalidStateException("Invalid route type '{$type}'.");
+                        break;
+                }
+            }
+        }
+
+        $route = new HttpRoute();
+        $route->setMethod( $request->getMethod() );
+        $route->setUri( $request->getUri() );
+        
+        $this->route = $route;
+        
+        
+       
 		return $this->route;
 	}
 	

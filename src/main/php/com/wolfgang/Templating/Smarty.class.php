@@ -46,6 +46,9 @@ final class Smarty extends Templater implements ITemplater {
 	 * @var string
 	 */
 	private $template;
+	
+	private array $modifiers = ['substr', 'ucfirst', 'method_exists', 'date', 'strtolower',];
+	
 
 	protected function __construct ( ) {
 	    $this->smarty = new Smartest();
@@ -76,10 +79,9 @@ final class Smarty extends Templater implements ITemplater {
 		$this->enableCaching();
 		
 		// native PHP functions used as modifiers need to be registered
-		$this->smarty->registerPlugin('modifier', 'substr', 'substr');
-		$this->smarty->registerPlugin('modifier', 'ucfirst', 'ucfirst');
-		$this->smarty->registerPlugin('modifier', 'method_exists', 'method_exists');
-		$this->smarty->registerPlugin('modifier', 'date', 'date');
+		foreach($this->modifiers as $modifier){
+		    $this->smarty->registerPlugin('modifier', $modifier, $modifier);
+		}
 		
 		// userland PHP functions used as modifiers need to be registered
 		$this->smarty->registerPlugin('modifier', '__', '__');

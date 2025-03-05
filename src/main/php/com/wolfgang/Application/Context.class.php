@@ -11,6 +11,7 @@ use Wolfgang\Exceptions\Exception;
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Network\Uri\Uri;
 use Wolfgang\Skin;
+use Wolfgang\Exceptions\InvalidStateException;
 
 /**
  *
@@ -26,6 +27,19 @@ final class Context extends Component implements IContext , ISingleton {
 	 * @var string
 	 */
 	private $environment;
+	
+	/**
+	 * 
+	 * @var Uri
+	 */
+	
+	private Uri $request_uri;
+	
+	/**
+	 * 
+	 * @var string
+	 */
+	private string $domain;
 
 	/**
 	 *
@@ -33,10 +47,6 @@ final class Context extends Component implements IContext , ISingleton {
 	 */
 	private $skin;
 
-	/**
-	 * @var array
-	 */
-	private $skins = [];
 
 	/**
 	 * @var string
@@ -68,6 +78,12 @@ final class Context extends Component implements IContext , ISingleton {
 	private $id_matched;
 
 	/**
+	 *
+	 * @var int|null
+	 */
+	private int|null $cli_skin_id = null;
+	
+	/**
 	 * @var array
 	 */
 	private $cli_options = array();
@@ -76,7 +92,7 @@ final class Context extends Component implements IContext , ISingleton {
 	 * @var array
 	 */
 	private $sites = array();
-
+	
 	/**
 	 *
 	 * {@inheritdoc}
@@ -84,9 +100,33 @@ final class Context extends Component implements IContext , ISingleton {
 	 */
 	protected function init ( ) {
 		parent::init();
-
+        
+		if (!defined('SITES_FILE_PATH')) {
+		    throw new Exception("'SITES_FILE_PATH' constant not defined.");
+		}
+		
+		$sitesFilepath = SITES_FILE_PATH;
+		$sites = include $sitesFilepath;
+		
+		if (!is_array($sites)) {
+		    throw new InvalidStateException("Sites file '{$sitesFilepath}' does not return an array.");
+		}
+		
+		foreach($sites as $site){
+	        $this->sites[$site['id']] = new Skin($site);
+	        if (strtolower($site['name']) == 'cli') {
+	            $this->cli_skin_id = $site['id'];
+	        }
+		}
+		
+		
 		if ( PHP_SAPI == IContext::PHP_SAPI_APACHE2_HANDLER ) {
+		    $domain = strtok($_SERVER['HTTP_HOST'], ':');
 			$uri = new Uri( isset( $_SERVER[ 'REDIRECT_URL' ] ) ? $_SERVER[ 'REDIRECT_URL' ] : $_SERVER[ 'REQUEST_URI' ] );
+			
+			$this->setRequestUri($uri);
+			$this->setDomain($domain);
+			
 			$request_uri_parts = array_values( array_filter( explode( '/', $uri->getPath() ) ) );
 			$versions = ["v1", "v2", "v3", "v4", "v5"];
 			
@@ -101,7 +141,9 @@ final class Context extends Component implements IContext , ISingleton {
 			    $this->setVersion($version);
 			}
 
-			$this->setApplication($this->getSkin()->getName());
+			$site = $this->getSite();
+			$this->setApplication($site->getName());
+			
 
 			//Redirect rules will sometimes set controller and and action in query string
 			if(isset($_GET['c'], $_GET['a'])) {
@@ -193,57 +235,95 @@ final class Context extends Component implements IContext , ISingleton {
 	}
 
 	/**
-	 *
+	 * @deprecated
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Application\IContext::getSkin()
 	 */
 	public function getSkin ( ): ISkin {
-		if ( $this->skin == null ) {
-			$skins = include DOCUMENT_ROOT . 'sites.php';
-
-			if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
-				$this->skin = new Skin($skins['cli']);
-			} else {
-				$domain = strtok($_SERVER['HTTP_HOST'], ':');
-
-				foreach($skins as $key => $skin){
-					if($key == 'cli'){
-						continue;
-					}
-					if($skin['skin_domain']['domain'] == $domain || $skin['skin_domain']['api_domain'] == $domain) {
-						$this->skin = new Skin($skin);
-					}
-				}
-				
-				if(!$this->skin) {
-					throw new Exception( "Unable to determine skin with domain {$domain}. " );
-				}
-			}
-		}
-
-		return $this->skin;
+		return $this->getSite();
+	}
+	
+	public function getSite():ISkin {
+	    if ( $this->skin == null ) {
+	        if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
+	            $this->skin = $this->getSkinById($this->getCliSkinId());
+	        } else {
+	            $domain = $this->getDomain();
+	            
+	            foreach($this->sites as $site){
+	                if($site->isCli()){
+	                    continue;
+	                }
+	                
+	                if($site->getSkinDomain()->getDomain() == $domain || $site->getSkinDomain()->getApiDomain() == $domain) {
+	                    $this->skin = $site;
+	                }
+	            }
+	            
+	            if(!$this->skin) {
+	                throw new Exception( "Unable to determine skin with domain {$domain}. " );
+	            }
+	        }
+	    }
+	    
+	    return $this->skin;
+	}
+	
+	/**
+	 * Sets the domain for this context
+	 * 
+	 * @param string $domain
+	 */
+	private function setDomain(string $domain):void {
+	    $this->domain = $domain;
+	}
+	
+	/**
+	 * Gets the domain for this context
+	 * @return string
+	 */
+	public function getDomain():string {
+	    return $this->domain;
+	}
+	
+	/**
+	 * Sets the requst URI for this context
+	 * 
+	 * @param Uri $uri
+	 */
+	private function setRequestUri(Uri $uri):void {
+	    $this->request_uri = $uri;
+	}
+	
+	/**
+	 * Gets the request URI for this context
+	 * 
+	 * @return Uri
+	 */
+	public function getRequestUri():Uri {
+	    return $this->request_uri;
+	}
+	
+	/**
+	 * Gets the id of the CLI site
+	 * 
+	 * @return int|null
+	 */
+	private function getCliSkinId():int|null {
+	    return $this->cli_skin_id;
 	}
 
 	/**
 	 * @param int $id
+	 * @throws InvalidStateException
 	 * @return Skin
 	 */
 	public function getSkinById(int $id):Skin{
-		if(isset($this->skins[$id])) {
-			return $this->skins[$id];
+		if(isset($this->sites[$id])) {
+		    return $this->sites[$id];
 		}
 
-		if(empty($this->sites)){
-			$this->sites = include DOCUMENT_ROOT . 'sites.php';
-		}
-		
-		foreach($this->sites as $skin){
-			if($skin['id'] == $id) {
-				$this->skins[$id] = new Skin($skin);
-			}
-		}
-
-		return $this->skins[$id];
+        throw new InvalidStateException("Site with id '{$id}' not found");	
 	}
 
 	/**

@@ -84,8 +84,6 @@ final class CookieSessionHandler extends Component implements ISessionHandler {
 	public function write ( string $session_id, string $session_data ):bool {
 		if ( empty( $session_id ) ) {
 			throw new InvalidArgumentException( "Session id must be provided" );
-		} else if ( empty( $session_data ) ) {
-			throw new InvalidArgumentException( "Session data empty" );
 		} else if ( php_sapi_name() == 'cli' ) {
 			return true;
 		} else if ( headers_sent() ) {

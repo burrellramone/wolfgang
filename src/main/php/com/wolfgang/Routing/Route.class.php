@@ -18,6 +18,9 @@ use Wolfgang\Network\Uri\Uri;
  */
 abstract class Route extends Component implements IRoute {
 
+    const ROUTE_TYPE_LITERAL = 'literal';
+    const ROUTE_TYPE_REGEX = 'regex';
+    
 	/**
 	 *
 	 * @var string
