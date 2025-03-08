@@ -65,6 +65,11 @@ final class HttpRouter extends Router {
                 
                 switch($type){
                     case Route::ROUTE_TYPE_LITERAL:
+                        if ($siteRoute['path'] == $requestPath) {
+                            if($method != $requestMethod){
+                                throw new BadRequest("HTTP method '{$method}' required to access this resource.");
+                            }
+                        }
                         break;
                         
                     case Route::ROUTE_TYPE_REGEX:
