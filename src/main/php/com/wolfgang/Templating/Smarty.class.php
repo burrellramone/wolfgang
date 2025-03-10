@@ -47,7 +47,9 @@ final class Smarty extends Templater implements ITemplater {
 	 */
 	private $template;
 	
-	private array $modifiers = ['substr', 'ucfirst', 'method_exists', 'date', 'strtolower',];
+	private array $modifiers = ['substr', 'ucfirst', 'method_exists', 'date', 'strtolower',
+	    'htmlentities',
+	];
 	
 
 	protected function __construct ( ) {
