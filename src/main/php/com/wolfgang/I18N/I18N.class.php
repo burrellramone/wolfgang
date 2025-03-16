@@ -91,7 +91,10 @@ final class I18N extends BaseComponent {
 
         //load site specific translations
         if (!empty($site) && !empty($path)) {
-            //General translation file for the site
+            //@TODO: General translation file for the site
+
+
+            //General translation file for the site and app kind
             $siteFile = I18N_DIRECTORY . "{$site}/{$appKind}/{$language}.php";
 
             if (file_exists($siteFile)) {
@@ -183,6 +186,15 @@ final class I18N extends BaseComponent {
 
 		self::$language = $language;
 	}
+
+    /**
+     * Gets the translations that have been loaded
+     * 
+     * @return array
+     */
+    public static function getTranslations():array {
+        return self::$translations[self::$language] ?? [];
+    }
 
     /**
      * 

@@ -31,7 +31,7 @@ final class Smarty extends Templater implements ITemplater {
 
 	/**
 	 *
-	 * @var \Smarty
+	 * @var Smartest
 	 */
 	private $smarty;
 
@@ -48,7 +48,7 @@ final class Smarty extends Templater implements ITemplater {
 	private $template;
 	
 	private array $modifiers = ['substr', 'ucfirst', 'method_exists', 'date', 'strtolower',
-	    'htmlentities',
+	    'htmlentities', 'intval',
 	];
 	
 

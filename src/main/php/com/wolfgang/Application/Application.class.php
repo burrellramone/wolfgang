@@ -695,6 +695,7 @@ abstract class Application extends Component implements IApplication {
 		if ( ! Filesystem::exists( $this->temporary_directory ) ) {
 			Filesystem::makeDirectory( $this->temporary_directory, 0777 );
 			exec( "chown www-data:www-data -R " . $this->temporary_directory );
+			exec( "chmod 777 -R " . $this->temporary_directory );
 		}
 
 		if ( ! Filesystem::exists( $log_directory ) ) {
@@ -717,7 +718,7 @@ abstract class Application extends Component implements IApplication {
 			exec( "chown www-data:www-data -R " . $curl_temporary_directory );
 		}
 
-		exec( "chmod 777 -R " . $this->temporary_directory );
+		
 
 		$this->registerShutdownFunction( function ( $application ) {
 			// Rollback all transactions that might have been left open

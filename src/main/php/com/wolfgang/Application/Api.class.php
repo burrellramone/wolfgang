@@ -150,15 +150,14 @@ abstract class Api extends Application implements IApi {
 	 */
 	public function respond ( $message = null) {
 		$error = null;
+		$request = $this->getRequest();
+		$response = $this->getResponse();
+		$successfulRequest = ! preg_match( "/^[54]{1}/", $response->getStatusCode() ) && empty( $error );
 
 		if ( ($message instanceof Exception) || ($message instanceof Error) || ($message instanceof ErrorException) || (is_string( $message )) ) {
 			if ( is_string( $message ) ) {
 				$message = new ComponentException( $message );
-				
-				$this->logError($message);
 			} else {
-				$this->logError($message);
-
 				if ( ! ($message instanceof IMarshallable) ) {
 					$message = new ComponentException( "", 0, $message );
 				}
@@ -169,10 +168,11 @@ abstract class Api extends Application implements IApi {
 			if ( Context::getInstance()->isProduction() ) {
 				$error[ 'trace' ] = null;
 			}
+			
+			if ($successfulRequest) {
+			    $response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
+			}
 		}
-
-		$request = $this->getRequest();
-		$response = $this->getResponse();
 
 		$content_disposition_header = $response->getHeader("Content-Disposition");
 
@@ -184,7 +184,6 @@ abstract class Api extends Application implements IApi {
 		}
 
 
-		$successful_request = ! preg_match( "/^[54]{1}/", $response->getStatusCode() ) && empty( $error );
 		$message = $response->getBody();
 
 		if(!$message){
@@ -192,10 +191,10 @@ abstract class Api extends Application implements IApi {
 		}
 
 		$array_response = [ 
-				"success" => $successful_request,
-				"message" => $successful_request ? $message : 'Failed',
-				"data" => $response->getData(),
-				"error" => $error
+		    "success" => $successfulRequest,
+		    "message" => $successfulRequest ? $message : 'Failed',
+			"data" => $response->getData(),
+			"error" => $error
 		];
 
 		$json_response = JSON::encode( $array_response );
@@ -250,9 +249,7 @@ abstract class Api extends Application implements IApi {
 
 		} catch ( HTTPException $e ) {
 			$this->response->setStatusCode( $e->getHttpCode() );
-		} catch ( Error $e ) {
-			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
-		} catch ( Exception $e ) {
+		} catch ( Exception|ComponentException|Error $e ) {
 			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
 		} finally {
 			$this->onAfterExec();

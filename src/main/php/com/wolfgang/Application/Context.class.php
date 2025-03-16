@@ -12,6 +12,7 @@ use Wolfgang\Traits\TSingleton;
 use Wolfgang\Network\Uri\Uri;
 use Wolfgang\Skin;
 use Wolfgang\Exceptions\InvalidStateException;
+use Wolfgang\Exceptions\InvalidArgumentException;
 
 /**
  *
@@ -186,7 +187,8 @@ final class Context extends Component implements IContext , ISingleton {
 					"timezone_id:",
 					"type_id:",
 					"bucket:",
-					"stripe-live-secret-key:"
+					"stripe-live-secret-key:",
+			        "site:",
 			];
 
 			$options = getopt( $shortopts, $longopts );
@@ -243,6 +245,10 @@ final class Context extends Component implements IContext , ISingleton {
 		return $this->getSite();
 	}
 	
+	public function getSites():array {
+	   return $this->sites;    
+	}
+	
 	public function getSite():ISkin {
 	    if ( $this->skin == null ) {
 	        if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
@@ -267,6 +273,20 @@ final class Context extends Component implements IContext , ISingleton {
 	    }
 	    
 	    return $this->skin;
+	}
+	
+	public function getSiteByName(string $name):?ISkin {
+	    if (!$name) {
+	        throw new InvalidArgumentException("Site name not provided");
+	    }
+	    
+	    foreach ($this->sites as $site) {
+	        if ($site->getName() == $name) {
+	            return $site;
+	        }
+	    }
+	    
+	    return null;
 	}
 	
 	/**

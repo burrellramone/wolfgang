@@ -41,7 +41,7 @@ final class Inflector extends Component {
 		if ( in_array( $class_name, Model::$framework_class_names ) ) {
 			$class_name = "Wolfgang\\Model\\" . $class_name;
 		} else {
-		    $class_name = "Model\\" . $class_name;
+            $class_name = "Model\\" . $class_name;
 		    
 		    if (count($parts) == ONE) {
     		    try {
@@ -51,7 +51,15 @@ final class Inflector extends Component {
     		    } catch (ReflectionException $e) {
     		        
     		    }
-		      }
+		    } else {
+		        try {
+		            $cn = "Model\\" . "{$parts[0]}\\{$parts[0]}{$parts[1]}";
+		            $instance = new ReflectionClass($cn);
+		            $class_name = $cn;
+		        } catch (ReflectionException $e) {
+                    
+		        }
+		    }
 			
 		}
 
