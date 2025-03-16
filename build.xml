@@ -64,7 +64,7 @@
 	
 	<target name="phploc" unless="phploc.done" depends="phpunit" description="Measures the size of this project">
 		<exec executable="${phploc}" failonerror='true' resultproperty="result.phploc" taskname="phploc">
-		<arg path="${basedir}/src/main/php/com/wolfgang/"/>
+			<arg path="${basedir}/src/main/php/com/wolfgang/"/>
     	</exec>
     	<property name="phploc.done" value="true"/>
 	</target>
@@ -88,7 +88,7 @@
         	<arg path="${basedir}/build/wolfgang.phar"/>
 	    	<arg path="${basedir}/src/main/php/"/>
         </exec>
-        <property name="phpunit.done" value="true"/>
+        <property name="phpab.done" value="true"/>
     </target>
 
 	<target name="phpdoc" if="app_version" unless="phpdoc.done" depends="phpab" description="Generate documentation for Wolfgang">
