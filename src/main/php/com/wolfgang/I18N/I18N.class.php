@@ -54,7 +54,7 @@ final class I18N extends BaseComponent {
             self::$translations[$language] = self::loadTranslations($language);
         }
 
-        if (array_key_exists($text, self::$translations[$language])){
+        if (!empty(self::$translations[$language][$text])){
             $text = self::$translations[$language][$text];
         }
 
