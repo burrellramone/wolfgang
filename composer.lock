@@ -2620,7 +2620,7 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/tecnickcom/tc-lib-pdf.git",
+                "url": "git@github.com:tecnickcom/tc-lib-pdf.git",
                 "reference": "b0eb7997d96255000bbd6f46a463340828a55e2b"
             },
             "dist": {
@@ -2685,16 +2685,6 @@
                 "TCPDF",
                 "document",
                 "tc-lib-pdf"
-            ],
-            "support": {
-                "source": "https://github.com/tecnickcom/tc-lib-pdf/tree/8.0.85",
-                "issues": "https://github.com/tecnickcom/tc-lib-pdf/issues"
-            },
-            "funding": [
-                {
-                    "type": "custom",
-                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&currency_code=GBP&business=paypal@tecnick.com&item_name=donation%20for%20tc-lib-pdf%20project"
-                }
             ],
             "time": "2025-02-07T10:45:41+00:00"
         },
