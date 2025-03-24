@@ -45,7 +45,7 @@ final class UUID extends Component {
 	 * UUID) and a value (the name). Given the same namespace and name, the output is always the
 	 * same.
 	 *
-	 * @param uuid $namespace
+	 * @param string $namespace
 	 * @param string $name
 	 */
 	public static function v5 ( $namespace, $name = 'uuid_name' ) {
@@ -96,7 +96,7 @@ final class UUID extends Component {
 	}
 	
 	/**
-	 *
+	 * @see UUID0::v5()
 	 * @return string
 	 */
 	public static function id ( ): string {
