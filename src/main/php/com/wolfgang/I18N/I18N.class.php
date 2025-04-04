@@ -43,7 +43,7 @@ final class I18N extends BaseComponent {
      * @param array $replacements
      * @return string
      */
-    public static function __(string $text, string|null $language = null, array $replacements = array()): string {
+    public static function __(string $text, array $replacements = array(), string|null $language = null): string {
         if (!empty($language) && !self::isValidLanguage($language)) {
             throw new InvalidArgumentException("Invalid language '{$language}' provided.");
         }

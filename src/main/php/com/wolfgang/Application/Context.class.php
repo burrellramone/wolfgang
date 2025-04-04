@@ -190,6 +190,7 @@ final class Context extends Component implements IContext , ISingleton {
 					"stripe-live-secret-key:",
 			        "site:",
 					"lang:",
+					"write:",
 			];
 
 			$options = getopt( $shortopts, $longopts );
