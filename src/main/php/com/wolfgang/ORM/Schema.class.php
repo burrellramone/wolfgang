@@ -34,6 +34,7 @@ use Wolfgang\Exceptions\Exception;
 use Wolfgang\Interfaces\Model\IBridgeModel;
 use Wolfgang\Util\Inflector;
 use Wolfgang\Exceptions\ORM\Exception as ORMException;
+use Wolfgang\I18N\I18N;
 
 /**
  *
@@ -275,7 +276,7 @@ final class Schema extends Component implements IDatabaseSchema {
 	 */
 	public function save ( IModel $model ): void {
 		if ( $model->getId() && ! ($model instanceof IBridgeModel) ) {
-			throw new InvalidArgumentException( "Model record must not already exist." );
+			throw new InvalidArgumentException( I18N::__("Model record must not already exist.") );
 		}
 
 		$connection = $this->getConnection();
@@ -289,6 +290,10 @@ final class Schema extends Component implements IDatabaseSchema {
 			$column_name = $column->getName();
 
 			if ( $column_name == 'id' ) {
+				if (!$column->isCharType()) {
+					continue;	
+				}
+
 				$value = $model->id = UUID::id();
 			} else {
 				// Determine if property is public before attempting to access
@@ -345,6 +350,13 @@ final class Schema extends Component implements IDatabaseSchema {
 		}
 
 		$connection->exec( $statement );
+		$insertId = $connection->getLastInsertId();
+
+		if ($insertId) {
+			//@todo Make sure that you cannot set id twice on a model instance
+			$model->id = $insertId;
+		}
+		
 
 		// Read the modal from the database
 		$model = $this->read( $model->getModelType(), $model->getId() );

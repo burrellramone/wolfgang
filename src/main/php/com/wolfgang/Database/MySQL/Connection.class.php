@@ -158,4 +158,11 @@ final class Connection extends DatabaseConnection implements IMySQLConnection {
 	public function getEncryptionKey ( ): ?string {
 		return $this->getDsn()->getEncryptionKey();
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getLastInsertId():int {
+		return $this->connection->insert_id;
+	}
 }

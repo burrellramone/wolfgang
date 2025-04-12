@@ -350,7 +350,7 @@ abstract class Model extends Component implements IModel, IMarshallable {
 
 	/**
 	 *
-	 * @return string|NULL
+	 * @return string|null
 	 */
 	public function getCandidateId ( ): ?string {
 		if ( $this->id ) {
@@ -657,7 +657,7 @@ abstract class Model extends Component implements IModel, IMarshallable {
 
 	/**
 	 *
-	 * @return string|NULL
+	 * @return string|null
 	 */
 	public function getDSNName ( ): ?string {
 		return $this->dsn_name;
