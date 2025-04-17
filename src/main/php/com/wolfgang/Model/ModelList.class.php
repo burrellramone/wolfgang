@@ -6,9 +6,9 @@ namespace Wolfgang\Model;
 use ArrayObject;
 
 //Wolfgang
+use Wolfgang\Interfaces\Model\ISearchable;
 use Wolfgang\SQL\Statement\DML\SelectStatement;
 use Wolfgang\Interfaces\ORM\IQueryBuilder;
-use Wolfgang\Interfaces\Model\IModelList;
 use Wolfgang\Interfaces\SQL\Clause\IOrderByClause;
 use Wolfgang\Model\Manager as ModelManager;
 use Wolfgang\Interfaces\Model\IModel;
@@ -18,13 +18,14 @@ use Wolfgang\Interfaces\Model\IBridgeModel;
 use Wolfgang\Database\DriverManager;
 use Wolfgang\Exceptions\MethodNotImplementedException;
 use Wolfgang\Exceptions\InvalidStateException;
+use Wolfgang\Interfaces\SQL\Expression\IConditionalExpressionGroup;
 
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
-abstract class ModelList extends Component implements \Iterator , IModelList , \Countable , IQueryBuilder , \ArrayAccess {
+abstract class ModelList extends Component implements \Iterator , \Countable , IQueryBuilder , \ArrayAccess, ISearchable {
 	/**
 	 *
 	 * @var ArrayObject
@@ -78,6 +79,12 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 * @var IModel
 	 */
 	private $unit_class_instance;
+
+	/**
+	 * 
+	 * @var array
+	 */
+	protected array $searchableColumns = [];
 
 	public function __construct ( ) {
 		parent::__construct();
@@ -519,6 +526,44 @@ abstract class ModelList extends Component implements \Iterator , IModelList , \
 	 */
 	public function offsetUnset ( $offset ):void {
 		throw new MethodNotImplementedException();
+	}
+
+	/**
+	 * @inheritDoc
+	 * @throws MethodNotImplementedException
+	 */
+	public function getSearchableColumns():array {
+		throw new MethodNotImplementedException("Implement Wolfgang\Interfaces\Model\ISearchable::getSearchableColumns()");
+	}
+
+	/**
+	 * Summary of search
+	 *
+	 * @param string $searchValue
+	 * @return IQueryBuilder
+	 */
+	public function search(string $searchValue):IQueryBuilder{
+		$columns = $this->getSearchableColumns();
+
+		$this->andWhere( function ( IConditionalExpressionGroup $expression ) use ( $searchValue, $columns ) {
+			$keywords = explode( ' ', $searchValue );
+
+			array_walk( $keywords, function ( &$item, $index ) {
+				$item = '%' . $item . '%';
+			} );
+
+			$expression->or();
+
+			foreach ( $keywords as $keyword ) {
+				foreach($columns as $column){
+					$expression->like($column, $keyword );
+				}
+			}
+
+			return $expression;
+		} );
+
+		return $this;
 	}
 
 	/**
