@@ -8,8 +8,8 @@ use Wolfgang\Interfaces\Logger\ILogger;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @link https://airportruns.ca
+ * @since Version 0.0.1
  */
 final class UDPLogger extends Logger implements IUDPLogger {
 	
@@ -20,11 +20,10 @@ final class UDPLogger extends Logger implements IUDPLogger {
 	protected $instances;
 	
 	/**
-	 *
 	 * @param string|null $name
 	 * @return ILogger
 	 */
-	public static function getLogger ( string|null $name = null): ILogger {
+	public static function getLogger (string|null $name = null): ILogger {
 		$logger = null;
 
 		return $logger;

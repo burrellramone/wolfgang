@@ -54,11 +54,11 @@ class Event extends Component implements IEvent {
 	/**
 	 *
 	 * @param IModel $subject
-	 * @param IModel|null $object
 	 * @param string $action
+	 * @param IModel|null $object
 	 * @param string $preposition
 	 */
-	public function __construct ( IModel $subject, $action, IModel|null $object = null, $preposition = IEvent::PREPOSITION_ON ) {
+	public function __construct ( IModel $subject, string $action, IModel|null $object = null, string $preposition = IEvent::PREPOSITION_ON ) {
 		$this->setSubject( $subject );
 
 		if ( $object ) {

@@ -114,7 +114,7 @@ abstract class Exception extends ComponentException implements IHttpException {
 	 * @param number $code
 	 * @param PHPException|null $previous
 	 */
-	public function __construct ( string $message = "", int $code = 0, PHPException|null $previous = NULL) {
+	public function __construct ( string $message = "", int $code = 0, PHPException|null $previous = null) {
 		parent::__construct( $message, $code, $previous );
 
 		$this->reason_phrase = self::$http_codes[ $this->http_code ];
