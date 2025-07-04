@@ -43,9 +43,9 @@ class TreeNode extends Node implements ITreeNode {
 	 *
 	 * @param ISchema $schema
 	 * @param string $name
-	 * @param ITreeNode|null $parent
+	 * @param ?ITreeNode $parent
 	 */
-	public function __construct ( ISchema $schema, string $name, ITreeNode|null $parent = null) {
+	public function __construct (ISchema $schema, string $name, ?ITreeNode $parent = null) {
 		parent::__construct( $schema, $name );
 		
 		$this->siblings = new \ArrayObject();

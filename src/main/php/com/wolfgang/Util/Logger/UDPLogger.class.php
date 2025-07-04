@@ -20,10 +20,10 @@ final class UDPLogger extends Logger implements IUDPLogger {
 	protected $instances;
 	
 	/**
-	 * @param string|null $name
+	 * @param ?string $name
 	 * @return ILogger
 	 */
-	public static function getLogger (string|null $name = null): ILogger {
+	public static function getLogger (?string $name = null): ILogger {
 		$logger = null;
 
 		return $logger;

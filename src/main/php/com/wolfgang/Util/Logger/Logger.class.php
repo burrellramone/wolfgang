@@ -14,10 +14,10 @@ abstract class Logger extends Component implements ILogger {
 
 	/**
 	 *
-	 * @param string|null $name
+	 * @param ?string $name
 	 * @return ILogger
 	 */
-	public static function getLogger ( string|null $name = null ): ILogger {
+	public static function getLogger (?string $name = null): ILogger {
 		return FileLogger::getLogger($name);	
 	}
 }

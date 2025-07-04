@@ -3,6 +3,7 @@
 namespace Wolfgang\Structure\Tree;
 
 use Wolfgang\Interfaces\Structure\Tree\ITreeNode;
+use Wolfgang\Interfaces\ISchema;
 
 /**
  *
@@ -16,9 +17,9 @@ final class RoseTreeNode extends TreeNode {
 	/**
 	 *
 	 * @param string|int|float $name
-	 * @param ITreeNode|null $parent
+	 * @param ?ITreeNode $parent
 	 */
-    public function __construct ( string|int|float $name, ITreeNode|null $parent = null ) {
-		parent::__construct( $name, $parent );
+    public function __construct (ISchema $schema, string|int|float $name, ?ITreeNode $parent = null ) {
+		parent::__construct($schema, $name, $parent );
 	}
 }
