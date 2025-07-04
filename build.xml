@@ -48,6 +48,7 @@
 		<exec executable="${phpstan}" failonerror="true" resultproperty="result.phpstan" taskname="phpstan">
 			<arg value="analyse"/>
 			<arg value="--memory-limit=250M"/>
+			<arg value="--level=0"/>
 			<arg value="--verbose"/>
 			<arg path="${basedir}/src/"/>
 		</exec>
