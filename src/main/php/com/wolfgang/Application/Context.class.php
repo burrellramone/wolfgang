@@ -107,6 +107,11 @@ final class Context extends Component implements IContext , ISingleton {
 		}
 		
 		$sitesFilepath = SITES_FILE_PATH;
+
+		if(!file_exists($sitesFilepath)){
+			throw new InvalidStateException("Sites file '{$sitesFilepath}' does not exist. Please create it.");
+		}
+
 		$sites = include $sitesFilepath;
 		
 		if (!is_array($sites)) {
