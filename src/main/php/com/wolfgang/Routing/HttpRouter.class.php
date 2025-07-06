@@ -50,13 +50,10 @@ final class HttpRouter extends Router {
 
 		$context = Context::getInstance();
 		
-		$domain = $context->getDomain();
 		$requestMethod = $request->getMethod();
         $requestPath = $request->getUri()->getPath();
 		$site = $context->getSite();
-        $routes = $site->getRoutes();
-        //Only need routs for current domain
-        $routes = $routes[$domain]??[];
+        $routes = $context->isApiDomain() ? $site->getApiDomainRoutes() : $site->getDomainRoutes();
         
 
         foreach($routes as $method => $methodRoutes){

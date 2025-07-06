@@ -54,6 +54,22 @@ final class Skin extends Component implements ISkin {
 	public function getRoutes():array {
 	    return $this->routes;
 	}
+
+	/**
+	 * 
+	 * @return array
+	 */
+	public function getDomainRoutes():array {
+		return $this->getRoutes()['domain'] ?? [];
+	}
+
+	/**
+	 *
+	 * @return array
+	 */
+	public function getApiDomainRoutes():array {
+		return $this->getRoutes()['api_domain'] ?? [];
+	}
 	
 	public function isCli():bool {
 	    return $this->name == 'CLI';

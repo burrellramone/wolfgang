@@ -257,7 +257,7 @@ final class Context extends Component implements IContext , ISingleton {
 	}
 	
 	public function getSite():ISkin {
-	    if ( $this->skin == null ) {
+	    if ( !isset($this->skin) ) {
 	        if ( PHP_SAPI == IContext::PHP_SAPI_CLI ) {
 	            $this->skin = $this->getSkinById($this->getCliSkinId());
 	        } else {
@@ -267,10 +267,16 @@ final class Context extends Component implements IContext , ISingleton {
 	                if($site->isCli()){
 	                    continue;
 	                }
-	                
-	                if($site->getSkinDomain()->getDomain() == $domain || $site->getSkinDomain()->getApiDomain() == $domain) {
-	                    $this->skin = $site;
-	                }
+
+					$skinDomainDomainName = $site->getSkinDomain()->getDomain();
+					$skinDomainApiDomainName = $site->getSkinDomain()->getApiDomain();
+
+					foreach([$skinDomainDomainName, $skinDomainApiDomainName] as $sddn){
+						if($sddn == $domain) {
+							$this->skin = $site;
+							break;
+						}
+					}
 	            }
 	            
 	            if(!$this->skin) {
@@ -295,6 +301,20 @@ final class Context extends Component implements IContext , ISingleton {
 	    
 	    return null;
 	}
+
+	public function getSiteById(int $id):?ISkin {
+	    if (!$id) {
+	        throw new InvalidArgumentException("Site ID not provided");
+	    }
+	    
+	    foreach ($this->sites as $site) {
+	        if ($site->getId() == $id) {
+	            return $site;
+	        }
+	    }
+	    
+	    return null;
+	}
 	
 	/**
 	 * Sets the domain for this context
@@ -311,6 +331,17 @@ final class Context extends Component implements IContext , ISingleton {
 	 */
 	public function getDomain():string {
 	    return $this->domain;
+	}
+
+
+	/**
+	 * 
+	 * Determines if the current domain is the API domain
+	 * 
+	 * @return bool true if the current domain is the API domain, false otherwise
+	 */
+	public function isApiDomain():bool {
+		return $this->getDomain() == $this->getSite()->getSkinDomain()->getApiDomain();
 	}
 	
 	/**
@@ -411,7 +442,7 @@ final class Context extends Component implements IContext , ISingleton {
 
 	/**
 	 *
-	 * @return string|NULL
+	 * @return string|null
 	 */
 	public function getController ( ): ?string {
 		return $this->controller;
@@ -420,7 +451,7 @@ final class Context extends Component implements IContext , ISingleton {
 	/**
 	 *
 	 * @deprecated
-	 * @return string|NULL
+	 * @return string|null
 	 */
 	public function getControllerName ( ): ?string {
 		return $this->controller;
@@ -436,7 +467,7 @@ final class Context extends Component implements IContext , ISingleton {
 
 	/**
 	 *
-	 * @return string|NULL
+	 * @return string|null
 	 */
 	public function getAction ( ): ?string {
 		return $this->action;
@@ -453,7 +484,7 @@ final class Context extends Component implements IContext , ISingleton {
 	/**
 	 * Gets the id match in the URL path of the request
 	 *
-	 * @return string|NULL The id matched in the URL of the request, null if it was not matched
+	 * @return string|null The id matched in the URL of the request, null if it was not matched
 	 */
 	public function getIdMatched ( ): ?string {
 		return $this->id_matched;
