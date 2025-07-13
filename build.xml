@@ -4,7 +4,7 @@
         <echo message="Full Build Complete"/>
     </target>
 
-	<target name="full-build-nodoc" depends="composer-self-update,composer,phplint,phpstan,phpunit,phploc,clean,prepare,phpab" description="Like full-build but without generating documentation">
+	<target name="full-build-nodoc" depends="composer,phplint,phpstan,phpunit,phploc,clean,prepare,phpab" description="Like full-build but without generating documentation">
         <echo message="Full Build wo Documentation Complete"/>
     </target>
 	
@@ -18,19 +18,10 @@
 	<property name="phpab" value="${basedir}/vendor/bin/phpab"/>
 	<property name="phpdoc" value="/usr/bin/phpdoc"/>
 	
-	<target name="composer-self-update" description="Self-update composer php package manager.">
-	    <exec executable="php" failonerror="true" resultproperty="result.composer-self-update">
-		<arg value="/usr/bin/composer"/>
-	        <arg value="self-update"/>
-	    	<arg value="--no-interaction"/>
-	    	<arg value="-v"/>
-	    </exec>
-    </target>
-	
 	<target name="composer" description="Install composer packages including require-dev.">
         <exec executable="php" failonerror="true" resultproperty="result.composer">
 	    <arg value="/usr/bin/composer"/>
-            <arg value="update"/>
+            <arg value="install"/>
             <arg value="--verbose"/>
             <arg value="--prefer-dist"/>
             <arg value="--no-progress"/>
