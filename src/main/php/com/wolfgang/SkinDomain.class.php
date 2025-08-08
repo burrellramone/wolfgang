@@ -111,6 +111,15 @@ final class SkinDomain extends Component implements ISkinDomain {
 		if ( ! $this->api_url ) {
 			throw new IllegalStateException( "An API URL has not been defined for this skin domain" );
 		}
-		return $this->api_url;
+
+
+		$apiUrl = $this->api_url;
+		$serverPort = $_SERVER['SERVER_PORT'];
+
+		if($serverPort && $serverPort != '443'){
+			$apiUrl .= ":{$serverPort}";
+		}
+
+		return $apiUrl;
 	}
 }
