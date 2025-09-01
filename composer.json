@@ -9,7 +9,7 @@
 		"tecnickcom/tc-lib-pdf" : "dev-main",
 		"phpmailer/phpmailer" : "~6.0",
 		"google/recaptcha" : "~1.1",
-		"aws/aws-sdk-php" : "3.340.5",
+		"aws/aws-sdk-php" : "3.356.3",
 		"paquettg/php-html-parser" : "1.7.0"
 	},
 	"require-dev" : {
