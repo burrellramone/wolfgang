@@ -387,6 +387,15 @@ final class Context extends Component implements IContext , ISingleton {
 	/**
 	 *
 	 * {@inheritdoc}
+	 * @see \Wolfgang\Interfaces\Application\IContext::isDevelopment()
+	 */
+	public function isDevelopment(): bool {
+		return getenv( 'APPLICATION_ENV' ) === IContext::ENVIRONMENT_DEVELOPMENT;
+	}
+
+	/**
+	 *
+	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\Application\IContext::isProduction()
 	 */
 	public function isProduction ( ): bool {

@@ -195,7 +195,7 @@ final class Schema extends Component implements IDatabaseSchema {
 			return $this->table_names;
 		}
 
-		$this->table_names = Cacher::getInstance()->get( $this->table_names_cache_key );
+		$this->table_names = Cacher::getInstance()->get( $this->table_names_cache_key ) ?? $this->table_names;
 
 		if ( ! empty( $this->table_names ) ) {
 			return $this->table_names;

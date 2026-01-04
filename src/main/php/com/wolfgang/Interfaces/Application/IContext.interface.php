@@ -28,29 +28,17 @@ interface IContext {
 	 */
 	const ENVIRONMENT_INTEGRATION = 'integration';
 	
-	/**
+    /**
 	 *
 	 * @var string
 	 */
-	const ENVIRONMENT_LOCAL = 'local';
-	
+	const ENVIRONMENT_STAGING = 'staging';
+
 	/**
 	 *
 	 * @var string
 	 */
 	const ENVIRONMENT_PRODUCTION = 'production';
-	
-	/**
-	 *
-	 * @var string
-	 */
-	const ENVIRONMENT_STAGING = 'staging';
-	
-	/**
-	 *
-	 * @var string
-	 */
-	const ENVIRONMENT_UAT = 'uat';
 	
 	/**
 	 *
@@ -207,6 +195,12 @@ interface IContext {
 	 */
 	public function isMobile ( ): bool;
 	
+	/**
+	 *
+	 * @return bool
+	 */
+	public function isDevelopment ( ): bool;
+
 	/**
 	 *
 	 * @return bool

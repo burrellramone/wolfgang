@@ -456,7 +456,7 @@ abstract class Application extends Component implements IApplication {
 
 	/**
 	 *
-	 * @return Uri|NULL
+	 * @return Uri|null
 	 */
 	public function getProfileRunUri ( ): ?Uri {
 		return $this->profile_run_uri;
