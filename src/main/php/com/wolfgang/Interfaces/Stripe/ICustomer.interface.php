@@ -13,17 +13,17 @@ interface ICustomer {
 	 *
 	 * @return string
 	 */
-	public function getStripeCustomerId ( ): ?string;
+	public function getStripeCustomerId(): ?string;
 
 	/**
 	 *
 	 * @return string
 	 */
-	public function getName ( ): string;
+	public function getName(): string;
 
 	/**
 	 *
 	 * @return string
 	 */
-	public function getEmail ( ): string;
+	public function getEmail(): string;
 }
