@@ -12,7 +12,9 @@ use Stringable;
 use Wolfgang\Interfaces\IMarshallable;
 use Wolfgang\Interfaces\Model\ITimezone;
 use Wolfgang\Exceptions\InvalidArgumentException;
-use Wolfgang\Model\Timezone;
+
+//AirportRuns
+use Model\Timezone;
 
 /**
  *
@@ -25,14 +27,18 @@ final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 	/**
 	 *
 	 * @param string $time
-	 * @param DateTimeZone|null $timezone
+	 * @param DateTimeZone|ITimezone|null $timezone
 	 */
-	public function __construct ( string $time = "now", ITimezone|null $timezone = null) {
+	public function __construct ( string $time = "now", DateTimeZone|ITimezone|null $timezone = null) {
 		if ( !isset($time) || strtotime( $time ) < 0 ) {
 			throw new InvalidArgumentException( "Invalid time provided" );
 		}
 
-		$date_timezone = $timezone ? $timezone->toDateTimezone() : null;
+		$date_timezone = $timezone;
+		
+		if ($timezone instanceof ITimezone) {
+			$date_timezone = $timezone->toDateTimeZone();
+		}
 
 		parent::__construct( $time, $date_timezone );
 	}
@@ -93,7 +99,7 @@ final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 	 */
 	public function tomorrow ( ) {
 		$tomorrow = new DateTime( $this->getDateTime( "Y-m-d 00:00:00" ), $this->getTimezone()->toDateTimeZone() );
-		return $tomorrow->add( new \DateInterval( 'P1D' ) );
+		return $tomorrow->add( new DateInterval( 'P1D' ) );
 	}
 
 	/**
@@ -179,12 +185,12 @@ final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 	 */
 	public static function getUTCAndLocalDatetimes ( string $datetime, DateTime &$utc_datetime, DateTime &$local_datetime, string $timezone_label, bool $is_utc = false) {
 		if ( $is_utc ) {
-			$utc_datetime = new DateTime( $datetime, new \DateTimeZone( "Europe/London" ) );
-			$local_datetime = new DateTime( $datetime, new \DateTimeZone( "Europe/London" ) );
-			$local_datetime->setTimezone( new \DateTimeZone( $timezone_label ) );
+			$utc_datetime = new DateTime( $datetime, new DateTimeZone( "Europe/London" ) );
+			$local_datetime = new DateTime( $datetime, new DateTimeZone( "Europe/London" ) );
+			$local_datetime->setTimezone( new DateTimeZone( $timezone_label ) );
 		} else {
-			$utc_datetime = $local_datetime = new DateTime( $datetime, new \DateTimeZone( $timezone_label ) );
-			$utc_datetime->setTimezone( new \DateTimeZone( "Europe/London" ) );
+			$utc_datetime = $local_datetime = new DateTime( $datetime, new DateTimeZone( $timezone_label ) );
+			$utc_datetime->setTimezone( new DateTimeZone( "Europe/London" ) );
 		}
 	}
 

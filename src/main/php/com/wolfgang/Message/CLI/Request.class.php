@@ -7,6 +7,7 @@ use Wolfgang\Interfaces\Message\CLI\IRequest;
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Traits\Message\TRequest;
 use Wolfgang\Application\Context;
+use Wolfgang\Exceptions\Exception;
 
 /**
  *
@@ -27,6 +28,10 @@ final class Request extends Message implements ISingleton , IRequest {
 		$context = Context::getInstance();
 		$options = $context->getCliOptions();
 		
+		if (empty($options)) {
+			throw new Exception("No options provided");
+		}
+
 		foreach ( $options as $param => $value ) {
 			$this->params->{$param} = $value;
 		}

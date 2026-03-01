@@ -2,6 +2,8 @@
 
 namespace Wolfgang\Interfaces\Model;
 
+use DateTimeZone;
+
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
@@ -15,4 +17,11 @@ interface ITimezone extends IModel {
      * @return string
      */
     public function getIdentifier():string;
+
+
+    /**
+     * 
+     * @return DateTimeZone
+     */
+    public function toDateTimeZone():DateTimeZone;
 }
