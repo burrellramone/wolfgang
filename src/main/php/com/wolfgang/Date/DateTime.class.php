@@ -231,14 +231,6 @@ final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 	}
 
 	/**
-	 *
-	 */
-	public function getModelTimezone ( ):Timezone {
-		$timezone_name = parent::getTimezone()->getName();
-		return Timezone::findByLabel( $timezone_name );
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function marshall():array{
