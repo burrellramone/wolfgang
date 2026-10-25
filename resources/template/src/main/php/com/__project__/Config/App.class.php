@@ -1,0 +1,11 @@
+<?php
+namespace Config;
+
+/**
+ *
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 0.1.0
+ */
+final class App extends Config {
+
+}

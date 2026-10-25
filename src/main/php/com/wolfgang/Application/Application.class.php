@@ -164,7 +164,7 @@ abstract class Application extends Component implements IApplication {
 			$domain = $this->context->getSkin()->getSkinDomain()->getDomain();
 			$session = SessionManager::getInstance()->createSession( $kind, array(
 				'domain' => $domain,
-				'id_prefix' => $this->config['session_id_prefix']
+				'id_prefix' => $this->config['session_id_prefix'] ?? '',
 			) );
 
 			if($session->get('remember_me')){

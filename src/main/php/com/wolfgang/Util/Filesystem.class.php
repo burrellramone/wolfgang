@@ -213,4 +213,33 @@ final class Filesystem extends Component {
 	public static function glob ( string $pattern, int $flags = 0) {
 		return glob( $pattern, $flags );
 	}
+
+	/**
+	 *
+	 * @param string $source
+	 * @param string $dest
+	 * @param string $new_name
+	 * @return void
+	 */
+	public static function copy(string $source, string $dest, string $new_name = ''): void {
+		if (!file_exists($source)) {
+			throw new FileNotExistException("Source '$source' does not exist");
+		} else if (!file_exists($dest)) {
+			throw new FileNotExistException("Destination '$dest' does not exist");
+		}
+
+		if (is_dir($source)) {
+			$dir_basename = $new_name ?: basename($source);
+			$dest_new_dirname = $dest . DIRECTORY_SEPARATOR . $dir_basename;
+
+			if (file_exists($dest_new_dirname)) {
+				throw new FilesystemException("Direction '$dir_basename' already exists in destination '$dest'");
+			}
+
+			mkdir($dest_new_dirname);
+			shell_exec("cp -r $source/* $dest_new_dirname/");
+		} else {
+
+		}
+	}
 }
