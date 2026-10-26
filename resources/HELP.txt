@@ -1,1 +1,6 @@
-TODO
+--create-project --name <name> --short-name <short_name> --overwrite --dest <dest> --root-domain <root_domain>
+
+--version
+
+--help
+
