@@ -6,9 +6,7 @@ namespace Wolfgang\Interfaces\Model;
 use Wolfgang\Interfaces\ORM\IColumn;
 
 /**
- *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 interface IEncrypted extends IModel {

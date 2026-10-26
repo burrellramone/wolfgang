@@ -6,7 +6,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
- * @author Ramone Burrell <ramone.burrell@rairportruns.ca>
+ * @author Ramone Burrell <burrellramone@gmail.com>
  * @uses Wolfgang\Exceptions\Exception
  * @since Version 0.1.0
  */

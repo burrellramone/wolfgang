@@ -34,9 +34,9 @@ class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
 		$subject_schema = $this->getSchema();
 		
 		$orm_connection = $orm_schema->getConnection();
-		$airportruns_connection = $subject_schema->getConnection();
+		$connection = $subject_schema->getConnection();
 		
-		$result = $airportruns_connection->exec( "SHOW TABLES IN {$this->getSchema()->getName()};" );
+		$result = $connection->exec( "SHOW TABLES IN {$this->getSchema()->getName()};" );
 		
 		foreach ( $result as $record ) {
 			$add_node_to_graph = false;

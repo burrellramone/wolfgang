@@ -6,8 +6,7 @@ use Wolfgang\Interfaces\Logger\IGelfMessage;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 final class GelfMessage extends Component implements IGelfMessage {

@@ -7,7 +7,6 @@ use Wolfgang\Interfaces\Message\IResponse as IComponentResponse;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @see http://airportruns.ca
  * @since Version 0.1.0
  */
 interface IResponse extends IMessage , IComponentResponse {

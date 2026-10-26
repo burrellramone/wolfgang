@@ -6,8 +6,7 @@ use Wolfgang\Event\Event;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 0.1.0
  */
 interface IEventListener {

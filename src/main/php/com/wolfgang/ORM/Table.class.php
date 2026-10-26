@@ -372,6 +372,7 @@ class Table extends Component implements ITable {
 			return $this->referenced_key_fields_relationships;
 		}
 
+		$schema_name = $this->getSchema()->getName();
 		$query = "SELECT
 					TABLE_SCHEMA as table_schema_name,
 					TABLE_NAME as table_name,
@@ -387,7 +388,7 @@ class Table extends Component implements ITable {
 					REFERENCED_TABLE_NAME = '{$this->getName()}'
 					AND
 					REFERENCED_TABLE_NAME IS NOT NULL
-					AND TABLE_SCHEMA = 'airportruns'";
+					AND TABLE_SCHEMA = '{$schema_name}'";
 
 		$connection = $this->getSchema()->getConnection();
 		$result = $connection->exec( $query );
