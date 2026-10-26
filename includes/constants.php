@@ -5,7 +5,14 @@
  *
  * @var string
  */
-define( 'WOLFGANG_VERSION', "0.1.0" );
+define( 'WOLFGANG_VERSION', "1.0.0" );
+
+/**
+ * The version name of this wolfgang instance
+ *
+ * @var string
+ */
+define( 'WOLFGANG_VERSION_NAME', "Wolfgang v1.0.0" );
 
 /**
  * The version of PHP the application is using

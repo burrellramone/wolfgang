@@ -76,6 +76,7 @@ class Cli {
 
 $commands = [
     "help" => [],
+    "version" => [],
     "create-project" => [
         [
             "a:",
@@ -118,7 +119,11 @@ try {
         if (array_key_exists($command_name, $cli_options)) {
                 switch ($command_name) {
                     case 'help':
+                        echo WOLFGANG_VERSION_NAME . PHP_EOL . PHP_EOL;
                         echo file_get_contents("resources/HELP.txt") . PHP_EOL;
+                        break;
+                    case 'version':
+                        echo WOLFGANG_VERSION_NAME . PHP_EOL;
                         break;
 
                     case 'create-project':
