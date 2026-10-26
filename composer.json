@@ -1,5 +1,5 @@
 {
-	"name" : "burrell/wolfgang",
+	"name" : "ramoneburrell/wolfgang",
 	"type": "library",
 	"description" : "A MVC framework with built in ORM",
 	"keywords": ["framework","mvc","mvac"],
