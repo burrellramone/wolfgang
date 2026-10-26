@@ -442,36 +442,36 @@ spl_autoload_register(
 );
 Phar::mapPhar('wolfgang.phar');
 __HALT_COMPILER(); ?>
-˜~  ™         wolfgang.phar    '   com/wolfgang/Traits/TLabelled.class.php’      ’  2|À¥      :   com/wolfgang/Traits/Model/TModelListMarshallable.trait.php†      †  Ct?a¥      .   com/wolfgang/Traits/Model/TEncrypted.trait.php≈      ≈  9"_ù¥      )   com/wolfgang/Traits/TMarshaller.trait.php0      0  âm2«¥      )   com/wolfgang/Traits/TExtensible.class.php.
+˜~  ™         wolfgang.phar    '   com/wolfgang/Traits/TLabelled.class.php’      ’  "øéÆ¥      :   com/wolfgang/Traits/Model/TModelListMarshallable.trait.php†      †  îÑ †¥      .   com/wolfgang/Traits/Model/TEncrypted.trait.php≈      ≈  dó¥      )   com/wolfgang/Traits/TMarshaller.trait.php0      0  çË¥      )   com/wolfgang/Traits/TExtensible.class.php.
       .
-  y·Å™¥      )   com/wolfgang/Traits/TSkinDomain.trait.php¶       ¶   oÛµ¥      -   com/wolfgang/Traits/TSessionHandler.class.php-      -  „7Ù¥      7   com/wolfgang/Traits/TCliModelListMarshallable.trait.php        Ã›{?¥      .   com/wolfgang/Traits/Message/TRequest.class.phpf      f  ®¸∏¥      .   com/wolfgang/Traits/Message/TMessage.class.php«      «  ªY∆ı¥      3   com/wolfgang/Traits/Message/SMTP/TMessage.class.phpÚ      Ú  m*]u¥      /   com/wolfgang/Traits/Message/TResponse.trait.php¶       ¶   G)aù¥      +   com/wolfgang/Traits/TMarshallable.trait.phpf      f  •í´Q¥      (   com/wolfgang/Traits/TSingleton.class.phpΩ      Ω  Ëù°K¥      $   com/wolfgang/Traits/TProxy.class.phpU      U  ôU•à¥      #   com/wolfgang/Traits/TSkin.trait.php          u—/c¥      .   com/wolfgang/Serialization/Component.class.phpﬁ       ﬁ   `<◊d¥      /   com/wolfgang/Serialization/Serializer.class.php‚      ‚  Òô¢¥      1   com/wolfgang/Session/FileSessionHandler.class.php        çπŸì¥      (   com/wolfgang/Session/Component.class.phpÿ       ÿ   ªqñ¥      &   com/wolfgang/Session/Manager.class.php        ΩFCu¥      0   com/wolfgang/Session/CliSessionHandler.class.phpQ      Q  %ris¥      5   com/wolfgang/Session/DatabaseSessionHandler.class.phpW      W  ÈŸ¥      &   com/wolfgang/Session/Session.class.phpÑ      Ñ  iÎÊS¥      3   com/wolfgang/Session/CookieSessionHandler.class.phpD      D  ¨q›¥      2   com/wolfgang/Session/CacheSessionHandler.class.phpS      S  ŒÅ9À¥      (   com/wolfgang/Adapter/Component.class.php        ˛9≈√˝      &   com/wolfgang/Adapter/Manager.class.php        ;èt¬˝      &   com/wolfgang/Adapter/Adapter.class.php®       ®   o¶‘h˝      0   com/wolfgang/Extension/Model/Extension.class.phpÍ       Í   q¥      *   com/wolfgang/Extension/Extension.class.php∫      ∫  9ñèº¥      *   com/wolfgang/Event/EventListener.class.php¢      ¢  €Ü√¥      "   com/wolfgang/Event/Event.class.phpŒ      Œ  ±£{¥      &   com/wolfgang/Event/Component.class.php÷       ÷   ù˙˘2¥      $   com/wolfgang/Event/Manager.class.phpQ      Q  gËåF¥      0   com/wolfgang/Controller/SiteController.class.php`      `  ‰[–8¥      %   com/wolfgang/Controller/Cli.class.php(      (  C√‰¥      ,   com/wolfgang/Controller/Controller.class.php'      '  z·í¥      /   com/wolfgang/Controller/ApiController.class.php|      |  íW{H¥      ,   com/wolfgang/ORM/TableRelationship.class.php        êÑá¥      2   com/wolfgang/ORM/EntityRelationshipGraph.class.php¸      ¸  ∫Uˆ3¥      $   com/wolfgang/ORM/Component.class.php‘       ‘   )¶¢‡¥      5   com/wolfgang/ORM/ForeignKeyRelationshipTree.class.php}      }  =Y[A¥      9   com/wolfgang/ORM/ReferencedKeyFieldRelationship.class.php        >ô–2¥      (   com/wolfgang/ORM/SchemaManager.class.phpò      ò  ≠9L2¥      6   com/wolfgang/ORM/ForeignKeyFieldRelationship.class.phpæ       æ   Ê‡Çf¥      '   com/wolfgang/ORM/TableManager.class.phpn      n   %,ú¥          com/wolfgang/ORM/Table.class.php√3      √3  ï’<¥      !   com/wolfgang/ORM/Column.class.php/      /  çÕL ¥      1   com/wolfgang/ORM/EntityRelationshipNode.class.phpØ      Ø  ÆÈπ™¥      !   com/wolfgang/ORM/Schema.class.phpî>      î>  ◊ÚAŸ¥      '   com/wolfgang/ORM/MySQLi/Table.class.php›       ›   ˇœ¥      (   com/wolfgang/ORM/MySQLi/Column.class.php>      >  ÿÕ≤¥      3   com/wolfgang/Model/FlightAwareApiCallList.class.php≥       ≥   )¯ò˛¥      *   com/wolfgang/Model/RecordHistory.class.phpI	      I	  eØüx¥      &   com/wolfgang/Model/Component.class.php÷       ÷   Qa˙±¥      .   com/wolfgang/Model/RecordHistoryList.class.php÷       ÷   *˚¿Ú¥      $   com/wolfgang/Model/Manager.class.php        |P`O¥      /   com/wolfgang/Model/FlightAwareApiCall.class.php´       ´   õæﬂ¥      &   com/wolfgang/Model/ModelList.class.php"9      "9  1ﬁ∫Ú¥      "   com/wolfgang/Model/Model.class.phpUA      UA  Ωç˚÷¥      %   com/wolfgang/I18N/Component.class.php’       ’   #›6d¥          com/wolfgang/I18N/I18N.class.php!      !  ≈∆5¥      ,   com/wolfgang/SocialMedia/Component.class.php›       ›   Œ`÷¥      *   com/wolfgang/SocialMedia/Twitter.class.php        ◊ ' ¥      +   com/wolfgang/SocialMedia/Facebook.class.php        óIág¥         com/wolfgang/Google/Push.php¥]      ¥]  [Ÿ8¥         com/wolfgang/SQL/Join.class.phpv      v  |@• ¥      +   com/wolfgang/SQL/StatementManager.class.php{      {  QLu¥      4   com/wolfgang/SQL/Statement/Utility/Explain.class.php£      £  †”œö¥      6   com/wolfgang/SQL/Statement/Utility/Statement.class.phpv      v  ÆÂ‡D¥      8   com/wolfgang/SQL/Statement/DML/InsertStatement.class.php™      ™  TTz¥      8   com/wolfgang/SQL/Statement/DML/SelectStatement.class.phpﬁ-      ﬁ-  N{EC¥      8   com/wolfgang/SQL/Statement/DML/DeleteStatement.class.phpæ      æ  Õª¥2¥      8   com/wolfgang/SQL/Statement/DML/UpdateStatement.class.php        Gì	¥      2   com/wolfgang/SQL/Statement/DML/Statement.class.php“	      “	  1Ì¥      .   com/wolfgang/SQL/Statement/Statement.class.php¸      ¸  Ÿl	˘¥      -   com/wolfgang/SQL/Clause/LimitClause.class.phpk      k  åõ.¥      /   com/wolfgang/SQL/Clause/OrderByClause.class.phpy      y  ÇÁx¥      .   com/wolfgang/SQL/Clause/HavingClause.class.php5      5  Ω¡¯Ö¥      .   com/wolfgang/SQL/Clause/SelectClause.class.php<      <  µÉ˙…¥      .   com/wolfgang/SQL/Clause/DeleteClause.class.php{      {  ®˙¡˚¥      /   com/wolfgang/SQL/Clause/GroupByClause.class.php˛      ˛  Ç5$O¥      ,   com/wolfgang/SQL/Clause/FromClause.class.phpp;      p;  $–+E¥      <   com/wolfgang/SQL/Clause/OnDuplicateKeyUpdateClause.class.phpk      k  >zPH¥      .   com/wolfgang/SQL/Clause/UpdateClause.class.phpú      ú  ‰XkŒ¥      -   com/wolfgang/SQL/Clause/WhereClause.class.php        D¸º¡¥      .   com/wolfgang/SQL/Clause/InsertClause.class.php3      3  xÁÀ~¥      (   com/wolfgang/SQL/Clause/Clause.class.phpy      y  t$¥      8   com/wolfgang/SQL/Expression/FunctionExpression.class.php~      ~  ‚"≠¥      8   com/wolfgang/SQL/Expression/DateTimeExpression.class.phpû      û  ˆÜX¥      /   com/wolfgang/SQL/Expression/Component.class.php·       ·   Å3¥      @   com/wolfgang/SQL/Expression/ConditionalExpressionGroup.class.php%"      %"  ´‰j2¥      9   com/wolfgang/SQL/Expression/CharacterExpression.class.php
+  ÃHU¥      )   com/wolfgang/Traits/TSkinDomain.trait.php¶       ¶   MnÊç¥      -   com/wolfgang/Traits/TSessionHandler.class.php-      -  lx0¥      7   com/wolfgang/Traits/TCliModelListMarshallable.trait.php        †Ç \¥      .   com/wolfgang/Traits/Message/TRequest.class.phpf      f  ëÏ⁄#¥      .   com/wolfgang/Traits/Message/TMessage.class.php«      «  pqÖ…¥      3   com/wolfgang/Traits/Message/SMTP/TMessage.class.phpÚ      Ú  J]πå¥      /   com/wolfgang/Traits/Message/TResponse.trait.php¶       ¶   ˜‰y¥      +   com/wolfgang/Traits/TMarshallable.trait.phpf      f  bŸg¥      (   com/wolfgang/Traits/TSingleton.class.phpΩ      Ω  fÁ,¥      $   com/wolfgang/Traits/TProxy.class.phpU      U  ‡7`•¥      #   com/wolfgang/Traits/TSkin.trait.php          î‘à¥      .   com/wolfgang/Serialization/Component.class.phpﬁ       ﬁ   |Ω√‰¥      /   com/wolfgang/Serialization/Serializer.class.php‚      ‚  ˘¨©¥      1   com/wolfgang/Session/FileSessionHandler.class.php        pÁú¥      (   com/wolfgang/Session/Component.class.phpÿ       ÿ   u7Ç¥      &   com/wolfgang/Session/Manager.class.php        vd¥      0   com/wolfgang/Session/CliSessionHandler.class.phpQ      Q  ;‹ø@¥      5   com/wolfgang/Session/DatabaseSessionHandler.class.phpW      W  aõ‚÷¥      &   com/wolfgang/Session/Session.class.phpÑ      Ñ  ‚™ÿΩ¥      3   com/wolfgang/Session/CookieSessionHandler.class.phpD      D  z¥Ø«¥      2   com/wolfgang/Session/CacheSessionHandler.class.phpS      S  (.¥      (   com/wolfgang/Adapter/Component.class.php        ñ›d°˝      &   com/wolfgang/Adapter/Manager.class.php        ]∂v˝      &   com/wolfgang/Adapter/Adapter.class.php®       ®   ‘ÛΩ ˝      0   com/wolfgang/Extension/Model/Extension.class.phpÍ       Í   ´5¥      *   com/wolfgang/Extension/Extension.class.php∫      ∫  åà¥      *   com/wolfgang/Event/EventListener.class.php¢      ¢  „ÌP$¥      "   com/wolfgang/Event/Event.class.phpŒ      Œ  ﬂT˘1¥      &   com/wolfgang/Event/Component.class.php÷       ÷   S≤x&¥      $   com/wolfgang/Event/Manager.class.phpQ      Q  ®kP√¥      0   com/wolfgang/Controller/SiteController.class.php`      `  Q÷øJ¥      %   com/wolfgang/Controller/Cli.class.php(      (  à‰V¥      ,   com/wolfgang/Controller/Controller.class.php'      '  -$=¥      /   com/wolfgang/Controller/ApiController.class.php|      |  j&‚¥      ,   com/wolfgang/ORM/TableRelationship.class.php        5%—È¥      2   com/wolfgang/ORM/EntityRelationshipGraph.class.php‰      ‰  ‘¥î?¥      $   com/wolfgang/ORM/Component.class.php‘       ‘   5'∂`¥      5   com/wolfgang/ORM/ForeignKeyRelationshipTree.class.php}      }  ‚Xÿw¥      9   com/wolfgang/ORM/ReferencedKeyFieldRelationship.class.php        ùú9¥      (   com/wolfgang/ORM/SchemaManager.class.phpò      ò  WÅ 	¥      6   com/wolfgang/ORM/ForeignKeyFieldRelationship.class.phpæ       æ   ÷ná¥      '   com/wolfgang/ORM/TableManager.class.phpn      n  „µO#¥          com/wolfgang/ORM/Table.class.phpˆ3      ˆ3  …ue£¥      !   com/wolfgang/ORM/Column.class.php/      /  Ì+◊¥      1   com/wolfgang/ORM/EntityRelationshipNode.class.phpØ      Ø  3y·®¥      !   com/wolfgang/ORM/Schema.class.phpî>      î>  •'ÍZ¥      '   com/wolfgang/ORM/MySQLi/Table.class.php›       ›   ª”¢(¥      (   com/wolfgang/ORM/MySQLi/Column.class.php>      >  À™®Û¥      3   com/wolfgang/Model/FlightAwareApiCallList.class.php≥       ≥   óN3Û¥      *   com/wolfgang/Model/RecordHistory.class.phpI	      I	  }QH¯¥      &   com/wolfgang/Model/Component.class.php÷       ÷   M‡Ó1¥      .   com/wolfgang/Model/RecordHistoryList.class.php÷       ÷   ’ïé¥      $   com/wolfgang/Model/Manager.class.php        “b;Å¥      /   com/wolfgang/Model/FlightAwareApiCall.class.php´       ´   √XÆ¥      &   com/wolfgang/Model/ModelList.class.php"9      "9  ®°«)¥      "   com/wolfgang/Model/Model.class.phpUA      UA  f∏Û±¥      %   com/wolfgang/I18N/Component.class.php’       ’   ?\"‰¥          com/wolfgang/I18N/I18N.class.php!      !  ◊÷k¥      ,   com/wolfgang/SocialMedia/Component.class.php›       ›   1‘™¥      *   com/wolfgang/SocialMedia/Twitter.class.php        é˝≤ÿ¥      +   com/wolfgang/SocialMedia/Facebook.class.php        Ÿ]öî¥         com/wolfgang/Google/Push.php¥]      ¥]  [Ÿ8¥         com/wolfgang/SQL/Join.class.phpv      v  ~åDN¥      +   com/wolfgang/SQL/StatementManager.class.php{      {  ˙EMx¥      4   com/wolfgang/SQL/Statement/Utility/Explain.class.php£      £  ˇ ”i¥      6   com/wolfgang/SQL/Statement/Utility/Statement.class.phpv      v  HM·¥      8   com/wolfgang/SQL/Statement/DML/InsertStatement.class.php™      ™  ˘òﬁz¥      8   com/wolfgang/SQL/Statement/DML/SelectStatement.class.phpﬁ-      ﬁ-  µ„ùº¥      8   com/wolfgang/SQL/Statement/DML/DeleteStatement.class.phpæ      æ  I‹Ë¥      8   com/wolfgang/SQL/Statement/DML/UpdateStatement.class.php        ^Ì÷Í¥      2   com/wolfgang/SQL/Statement/DML/Statement.class.php“	      “	  ⁄ªwË¥      .   com/wolfgang/SQL/Statement/Statement.class.php¸      ¸  4rb{¥      -   com/wolfgang/SQL/Clause/LimitClause.class.phpk      k  ò¸∂=¥      /   com/wolfgang/SQL/Clause/OrderByClause.class.phpy      y  ÔLàg¥      .   com/wolfgang/SQL/Clause/HavingClause.class.php5      5  ≠ôrâ¥      .   com/wolfgang/SQL/Clause/SelectClause.class.php<      <  ÁR¶X¥      .   com/wolfgang/SQL/Clause/DeleteClause.class.php{      {  +ï}¥      /   com/wolfgang/SQL/Clause/GroupByClause.class.php˛      ˛  Z`	’¥      ,   com/wolfgang/SQL/Clause/FromClause.class.phpp;      p;   „®¥      <   com/wolfgang/SQL/Clause/OnDuplicateKeyUpdateClause.class.phpk      k   ‘Ü{¥      .   com/wolfgang/SQL/Clause/UpdateClause.class.phpú      ú  9r∞P¥      -   com/wolfgang/SQL/Clause/WhereClause.class.php        Ë÷B¥      .   com/wolfgang/SQL/Clause/InsertClause.class.php3      3  ≈π¥      (   com/wolfgang/SQL/Clause/Clause.class.phpy      y  @Æ;x¥      8   com/wolfgang/SQL/Expression/FunctionExpression.class.php~      ~  XP¥      8   com/wolfgang/SQL/Expression/DateTimeExpression.class.phpû      û  Ñ{1l¥      /   com/wolfgang/SQL/Expression/Component.class.php·       ·   îï≥¥      @   com/wolfgang/SQL/Expression/ConditionalExpressionGroup.class.php%"      %"  â@¥      9   com/wolfgang/SQL/Expression/CharacterExpression.class.php
       
-  H™»¥      ;   com/wolfgang/SQL/Expression/ConditionalExpression.class.phpp'      p'  »"∆Ì¥      6   com/wolfgang/SQL/Expression/StringExpression.class.php˜      ˜  ñSˇ£¥      7   com/wolfgang/SQL/Expression/NumericExpression.class.phpΩ      Ω  ¯O;n¥      4   com/wolfgang/SQL/Expression/CaseExpression.class.phpµ       µ   T8IÑ¥      7   com/wolfgang/SQL/Expression/BooleanExpression.class.phpÆ      Æ  ãª([¥      6   com/wolfgang/SQL/Expression/ColumnExpression.class.phpC      C  ¥ªı¥      8   com/wolfgang/SQL/Expression/IntervalExpression.class.phpÛ       Û   V:∫¥      0   com/wolfgang/SQL/Expression/Expression.class.php8      8  u⁄—o¥      $   com/wolfgang/SQL/Component.class.php        Ó!Î¥          com/wolfgang/Component.class.php§       §   Õ»P¥      %   com/wolfgang/Config/IPStack.class.php°       °   nÑ±1¥      !   com/wolfgang/Config/Orm.class.phpù       ù   áŒùã¥      )   com/wolfgang/Config/SocialMedia.class.php¶       ¶   ü•‹S¥      $   com/wolfgang/Config/Config.class.php"      "  ¸ 1◊¥      &   com/wolfgang/Config/Database.class.php∆       ∆   ˇ∂°ˆ¥      '   com/wolfgang/Config/Component.class.phpÿ       ÿ   %\jÄ¥      )   com/wolfgang/Config/FlightAware.class.php¶       ¶   ¬à2.¥      #   com/wolfgang/Config/Minio.class.php˘      ˘  ¢ıˇ ¥      "   com/wolfgang/Config/Curl.class.phpû       û   8t°¥      %   com/wolfgang/Config/Mailing.class.phpƒ       ƒ   ö°£¥      $   com/wolfgang/Config/Google.class.php†       †   Ê∞)1¥      #   com/wolfgang/Config/Cache.class.phpü       ü   –ø)r¥      $   com/wolfgang/Config/Server.class.php†       †   0
-$¥      %   com/wolfgang/Config/Session.class.php¢       ¢   =cBÿ¥          com/wolfgang/Config/Mq.class.phpú       ú   œÚìÅ¥      $   com/wolfgang/Config/Logger.class.php°       °   ‡BîÇ¥      /   com/wolfgang/Config/PaymentProcessing.class.php¨       ¨   2£wu¥      !   com/wolfgang/Config/App.class.phpû       û   ΩÈña¥      %   com/wolfgang/Encryption/AES.class.phpÄ      Ä  Çî5ª¥      )   com/wolfgang/Encryption/OpenSsl.class.php»      »  D+¬D¥      6   com/wolfgang/Interfaces/Session/ISession.interface.phpK      K  ÏøÌ¥      =   com/wolfgang/Interfaces/Session/ISessionHandler.interface.phpÀ      À  4ƒÒ¥      0   com/wolfgang/Interfaces/IExtension.interface.php"      "  $˙oS¥      ,   com/wolfgang/Interfaces/IProxy.interface.php≥       ≥   ﬁ!’Ê¥      -   com/wolfgang/Interfaces/IEntity.interface.php¥       ¥   ÿa§¥      2   com/wolfgang/Interfaces/Event/IEvent.interface.phpﬂ      ﬂ  hHe¥      :   com/wolfgang/Interfaces/Event/IEventListener.interface.php&      &  GtM®¥      ?   com/wolfgang/Interfaces/Controller/IApiController.interface.php£       £   ìÂ¥      <   com/wolfgang/Interfaces/Controller/IController.interface.php          KËh˜¥      ?   com/wolfgang/Interfaces/Controller/ICliController.interface.php£       £   Â\:ı¥      >   com/wolfgang/Interfaces/IControllerAuthenticator.interface.phpO       O   ≥qõ‘¥      6   com/wolfgang/Interfaces/ICliMarshallable.interface.php7      7  |qÊÂ¥      .   com/wolfgang/Interfaces/ICommand.interface.php        ,¶£–¥      5   com/wolfgang/Interfaces/IBitManipulator.interface.phpÂ      Â  ˝'˜∏¥      1   com/wolfgang/Interfaces/ORM/IColumn.interface.php3	      3	  4=>.¥      1   com/wolfgang/Interfaces/ORM/ISchema.interface.phpÁ      Á  ªôh¥      7   com/wolfgang/Interfaces/ORM/IMySQLiColumn.interface.phpÒ       Ò   F‡¯^¥      <   com/wolfgang/Interfaces/ORM/ITableRelationship.interface.php        #‘}å¥      0   com/wolfgang/Interfaces/ORM/ITable.interface.phpü      ü  f§#¥      7   com/wolfgang/Interfaces/ORM/IQueryBuilder.interface.phpu      u  T„Zè¥      ;   com/wolfgang/Interfaces/ORM/IRelationalSchema.interface.php=      =  D≈¥      +   com/wolfgang/Interfaces/ISkin.interface.phpJ      J  z$£¥      1   com/wolfgang/Interfaces/Model/IUser.interface.php®       ®   {jo≈¥      4   com/wolfgang/Interfaces/Model/IAddress.interface.php.      .  PYÔ¸¥      6   com/wolfgang/Interfaces/Model/IModelList.interface.php        32kb¥      6   com/wolfgang/Interfaces/Model/IEncrypted.interface.php'      '  4]t¥      8   com/wolfgang/Interfaces/Model/IBridgeModel.interface.php;      ;  ¿'EÀ¥      2   com/wolfgang/Interfaces/Model/IModel.interface.phpÜ      Ü  x¥&#¥      5   com/wolfgang/Interfaces/Model/ITimezone.interface.phpÎ      Î  ~9WË¥      7   com/wolfgang/Interfaces/Model/ISearchable.interface.php        Rƒy¥      F   com/wolfgang/Interfaces/SQL/Statement/Utility/IStatement.interface.php        xåµb¥      D   com/wolfgang/Interfaces/SQL/Statement/ISelectStatement.interface.phpÙ
+  ≈Kk¥      ;   com/wolfgang/SQL/Expression/ConditionalExpression.class.phpp'      p'  ™Ò˙1¥      6   com/wolfgang/SQL/Expression/StringExpression.class.php˜      ˜  Nøj¥      7   com/wolfgang/SQL/Expression/NumericExpression.class.phpΩ      Ω  'áP¥      4   com/wolfgang/SQL/Expression/CaseExpression.class.phpµ       µ   Hπ]¥      7   com/wolfgang/SQL/Expression/BooleanExpression.class.phpÆ      Æ  Â⁄¥      6   com/wolfgang/SQL/Expression/ColumnExpression.class.phpC      C  /:≈À¥      8   com/wolfgang/SQL/Expression/IntervalExpression.class.phpÛ       Û   è•≈¥      0   com/wolfgang/SQL/Expression/Expression.class.php8      8  –äÈª¥      $   com/wolfgang/SQL/Component.class.php        Kãñ+¥          com/wolfgang/Component.class.php§       §   â‘U¥      %   com/wolfgang/Config/IPStack.class.php°       °   !Û…s¥      !   com/wolfgang/Config/Orm.class.phpù       ù   rå ¥      )   com/wolfgang/Config/SocialMedia.class.php¶       ¶   MÊ:Á¥      $   com/wolfgang/Config/Config.class.php"      "  üw¶Ø¥      &   com/wolfgang/Config/Database.class.php∆       ∆   -ıGB¥      '   com/wolfgang/Config/Component.class.phpÿ       ÿ   ÎÎî¥      )   com/wolfgang/Config/FlightAware.class.php¶       ¶   À‘ö¥      #   com/wolfgang/Config/Minio.class.php˘      ˘  "ë‹Ì¥      "   com/wolfgang/Config/Curl.class.phpû       û   ºÊÒE¥      %   com/wolfgang/Config/Mailing.class.phpƒ       ƒ   ◊«Ê¥      $   com/wolfgang/Config/Google.class.php†       †   œì∆˚¥      #   com/wolfgang/Config/Cache.class.phpü       ü   !»'¥      $   com/wolfgang/Config/Server.class.php†       †   )ÀÃ¥      %   com/wolfgang/Config/Session.class.php¢       ¢   KGc>¥          com/wolfgang/Config/Mq.class.phpú       ú   ïîó.¥      $   com/wolfgang/Config/Logger.class.php°       °   Ø5Ï¿¥      /   com/wolfgang/Config/PaymentProcessing.class.php¨       ¨   ßtë¥      !   com/wolfgang/Config/App.class.phpû       û   
+7Ö¥      %   com/wolfgang/Encryption/AES.class.phpÄ      Ä  jÔaè¥      )   com/wolfgang/Encryption/OpenSsl.class.php»      »  |¯o¥      6   com/wolfgang/Interfaces/Session/ISession.interface.phpK      K  V¯	¥      =   com/wolfgang/Interfaces/Session/ISessionHandler.interface.phpÀ      À  Ê˙r&¥      0   com/wolfgang/Interfaces/IExtension.interface.php"      "  8AÕ¥      ,   com/wolfgang/Interfaces/IProxy.interface.phpî       î   cÉº'¥      -   com/wolfgang/Interfaces/IEntity.interface.phpñ       ñ   ¡,¥      2   com/wolfgang/Interfaces/Event/IEvent.interface.phpﬂ      ﬂ  hHe¥      :   com/wolfgang/Interfaces/Event/IEventListener.interface.php&      &  ¨ÆO¥      ?   com/wolfgang/Interfaces/Controller/IApiController.interface.php£       £   ìÂ¥      <   com/wolfgang/Interfaces/Controller/IController.interface.php          KËh˜¥      ?   com/wolfgang/Interfaces/Controller/ICliController.interface.php£       £   Â\:ı¥      >   com/wolfgang/Interfaces/IControllerAuthenticator.interface.phpO       O   ≥qõ‘¥      6   com/wolfgang/Interfaces/ICliMarshallable.interface.php7      7  Û¥      .   com/wolfgang/Interfaces/ICommand.interface.php„       „   ûû∑%¥      5   com/wolfgang/Interfaces/IBitManipulator.interface.phpÂ      Â  ïE±¥      1   com/wolfgang/Interfaces/ORM/IColumn.interface.php3	      3	  ¨%ÛÇ¥      1   com/wolfgang/Interfaces/ORM/ISchema.interface.phpÁ      Á  ªôh¥      7   com/wolfgang/Interfaces/ORM/IMySQLiColumn.interface.phpÒ       Ò   ñ≤Ä˝¥      <   com/wolfgang/Interfaces/ORM/ITableRelationship.interface.php        #‘}å¥      0   com/wolfgang/Interfaces/ORM/ITable.interface.phpü      ü  8têÜ¥      7   com/wolfgang/Interfaces/ORM/IQueryBuilder.interface.phpu      u  «‰±-¥      ;   com/wolfgang/Interfaces/ORM/IRelationalSchema.interface.php=      =  …XzE¥      +   com/wolfgang/Interfaces/ISkin.interface.php+      +  Ù$≠§¥      1   com/wolfgang/Interfaces/Model/IUser.interface.php®       ®   Ã¥Í!¥      4   com/wolfgang/Interfaces/Model/IAddress.interface.php        ô|a¥      6   com/wolfgang/Interfaces/Model/IModelList.interface.php        ÙÆ∏Z¥      6   com/wolfgang/Interfaces/Model/IEncrypted.interface.php        W(Ö?¥      8   com/wolfgang/Interfaces/Model/IBridgeModel.interface.php;      ;  8êÓ¥      2   com/wolfgang/Interfaces/Model/IModel.interface.phpÜ      Ü  hî¥(¥      5   com/wolfgang/Interfaces/Model/ITimezone.interface.phpË      Ë  xi\¥      7   com/wolfgang/Interfaces/Model/ISearchable.interface.php        Rƒy¥      F   com/wolfgang/Interfaces/SQL/Statement/Utility/IStatement.interface.php        B¥Ï≤¥      D   com/wolfgang/Interfaces/SQL/Statement/ISelectStatement.interface.phpÙ
       Ù
-  >@=g¥      >   com/wolfgang/Interfaces/SQL/Statement/IStatement.interface.php•       •   ∞·Ó¥      H   com/wolfgang/Interfaces/SQL/Statement/DML/IDeleteStatement.interface.php        ≤zŸõ¥      H   com/wolfgang/Interfaces/SQL/Statement/DML/IUpdateStatement.interface.phpÜ      Ü  ¡∞¬8¥      B   com/wolfgang/Interfaces/SQL/Statement/DML/IStatement.interface.php        "R<ä¥      E   com/wolfgang/Interfaces/SQL/Statement/DML/IDMLStatement.interface.php        .)ö¥      H   com/wolfgang/Interfaces/SQL/Statement/DML/IInsertStatement.interface.phpˆ      ˆ  +◊¥      =   com/wolfgang/Interfaces/SQL/Clause/IWhereClause.interface.php∑      ∑  ì|õÍ¥      =   com/wolfgang/Interfaces/SQL/Clause/ILimitClause.interface.php9      9  e¬¯¥      >   com/wolfgang/Interfaces/SQL/Clause/IDeleteClause.interface.phpµ       µ   Z€üÊ¥      >   com/wolfgang/Interfaces/SQL/Clause/IHavingClause.interface.phpµ       µ   ´ã1Ä¥      ?   com/wolfgang/Interfaces/SQL/Clause/IOrderByClause.interface.php         B”¥      >   com/wolfgang/Interfaces/SQL/Clause/IInsertClause.interface.php,      ,  ™Rã¥      ?   com/wolfgang/Interfaces/SQL/Clause/IGroupByClause.interface.php∂       ∂   "∏ ¥      <   com/wolfgang/Interfaces/SQL/Clause/IFromClause.interface.phpï      ï  âÅ˝¥      >   com/wolfgang/Interfaces/SQL/Clause/ISelectClause.interface.phpä      ä  >ı‚Q¥      8   com/wolfgang/Interfaces/SQL/Clause/IClause.interface.php'      '  ∏€ê‹¥      >   com/wolfgang/Interfaces/SQL/Clause/IUpdateClause.interface.php,      ,  {Â@¡¥      P   com/wolfgang/Interfaces/SQL/Expression/IConditionalExpressionGroup.interface.php        Y9¥      F   com/wolfgang/Interfaces/SQL/Expression/IColumnExpression.interface.php>      >  S4éﬁ¥      @   com/wolfgang/Interfaces/SQL/Expression/IExpression.interface.phpà      à  5ø¥      K   com/wolfgang/Interfaces/SQL/Expression/IConditionalExpression.interface.phpö      ö  Ö©=à¥      7   com/wolfgang/Interfaces/SQL/IUnduplicable.interface.phpØ      Ø  -x£Æ¥      7   com/wolfgang/Interfaces/SQL/ISQLComponent.interface.phpü       ü   âòzÍ¥      ,   com/wolfgang/Interfaces/IDelta.interface.phpË       Ë   ¶7wP¥      4   com/wolfgang/Interfaces/IHttpException.interface.phpÚ       Ú   ù¯)»¥      /   com/wolfgang/Interfaces/IIterator.interface.php‰       ‰   rËÓ~¥      3   com/wolfgang/Interfaces/Util/IContact.interface.phpﬁ       ﬁ   ÓÏ5´¥      8   com/wolfgang/Interfaces/Util/IEmailContact.interface.phpˆ       ˆ   £êÙ ¥      0   com/wolfgang/Interfaces/Util/IFile.interface.php§      §  ıªÅ~¥      -   com/wolfgang/Interfaces/ISchema.interface.phpª      ª  Ú¥˜e¥      O   com/wolfgang/Interfaces/Database/PostgreSQL/IPostgreSQLConnection.interface.php        ºá≤y¥      A   com/wolfgang/Interfaces/Database/DB2/IDB2Connection.interface.php        åpÂ~¥      E   com/wolfgang/Interfaces/Database/MySQL/IMySQLConnection.interface.php        ˛é¥      D   com/wolfgang/Interfaces/Database/MySQL/IMySQLResultSet.interface.phpÌ       Ì   Lx§¥      :   com/wolfgang/Interfaces/Database/IConnection.interface.phpÁ      Á  ≤]p¥      9   com/wolfgang/Interfaces/Database/IResultSet.interface.php±      ±  	⁄ï]¥      ,   com/wolfgang/Interfaces/IGraph.interface.php√       √   ∞3ƒ¥      1   com/wolfgang/Interfaces/IExtensible.interface.phpŸ      Ÿ  œ•%¥      -   com/wolfgang/Interfaces/IReport.interface.phpÀ       À   )ˇ¥      2   com/wolfgang/Interfaces/IDeltaChange.interface.php-      -  zëo¥      -   com/wolfgang/Interfaces/IApiKey.interface.phpÖ       Ö   «ﬂî…¥      0   com/wolfgang/Interfaces/IAdaptable.interface.phpô       ô   kHM¥      0   com/wolfgang/Interfaces/ISingleton.interface.php¿       ¿   ¬K£¥      >   com/wolfgang/Interfaces/Application/IApplication.interface.php#	      #	  ù#åî¥      6   com/wolfgang/Interfaces/Application/IApi.interface.php!      !  fxö¥      7   com/wolfgang/Interfaces/Application/ISite.interface.php≥       ≥   M%•¥      :   com/wolfgang/Interfaces/Application/IContext.interface.php·	      ·	  *ïsè¥      .   com/wolfgang/Interfaces/IEncoder.interface.php?       ?   Ú¥      3   com/wolfgang/Interfaces/Cache/ICacher.interface.phpA      A  bít=¥      6   com/wolfgang/Interfaces/Stripe/ICustomer.interface.php}      }  Y¨Ò¥      ;   com/wolfgang/Interfaces/Stripe/IPaymentMethod.interface.phpÚ       Ú   9/÷¥      B   com/wolfgang/Interfaces/Dispatching/IEventDispatcher.interface.php        C†Ω!¥      =   com/wolfgang/Interfaces/Dispatching/IDispatcher.interface.php*      *  |W´N¥      4   com/wolfgang/Interfaces/Routing/IRoute.interface.phpn      n  u"™¥      8   com/wolfgang/Interfaces/Routing/IHttpRoute.interface.php˘       ˘   L·Œ¥      5   com/wolfgang/Interfaces/Routing/IRouter.interface.php+      +  L‘p#¥      7   com/wolfgang/Interfaces/Routing/ICliRoute.interface.phpÆ       Æ   ⁄Á¨¥      6   com/wolfgang/Interfaces/Message/IRequest.interface.phpõ      õ  dªç‹¥      ;   com/wolfgang/Interfaces/Message/HTTP/IRequest.interface.php#      #  @àé¥      <   com/wolfgang/Interfaces/Message/HTTP/IResponse.interface.php–      –  S√T¥      >   com/wolfgang/Interfaces/Message/HTTP/IApiRequest.interface.php$      $  ⁄L?ï¥      ;   com/wolfgang/Interfaces/Message/HTTP/IMessage.interface.phpÂ       Â   µG‚¥      7   com/wolfgang/Interfaces/Message/IResponse.interface.phpÕ       Õ   µ‚“ﬁ¥      ;   com/wolfgang/Interfaces/Message/SMTP/IMessage.interface.php=      =  +≈Ã¥      :   com/wolfgang/Interfaces/Message/CLI/IRequest.interface.php        }ŒX[¥      :   com/wolfgang/Interfaces/Message/CLI/IMessage.interface.php‰       ‰   Ã9é.¥      6   com/wolfgang/Interfaces/Message/IMessage.interface.phpâ      â  Ù"≤#¥      0   com/wolfgang/Interfaces/ITemplater.interface.phpa      a  Ø°áû¥      1   com/wolfgang/Interfaces/ISkinDomain.interface.php.      .  J&¥      3   com/wolfgang/Interfaces/IMarshallable.interface.php›       ›   ÷ß9¥      1   com/wolfgang/Interfaces/IMarshaller.interface.php8      8  ig}¥      6   com/wolfgang/Interfaces/Network/IDataUri.interface.phpÅ      Å  Y>¡m¥      2   com/wolfgang/Interfaces/Network/IDsn.interface.php4      4  á∂mG¥      2   com/wolfgang/Interfaces/Network/IUrl.interface.phpO       O   \@S¥      2   com/wolfgang/Interfaces/Network/IUri.interface.phpè      è  G<
-Í¥      1   com/wolfgang/Interfaces/IModelDelta.interface.php«       «   ∆zNÖ¥      5   com/wolfgang/Interfaces/Structure/INode.interface.phpﬁ       ﬁ   ∑)~¸¥      <   com/wolfgang/Interfaces/Structure/Graph/IGraph.interface.php          #ﬁóç¥      I   com/wolfgang/Interfaces/Structure/Graph/IEntityRelationship.interface.php≤       ≤   ¨€"¥      N   com/wolfgang/Interfaces/Structure/Graph/IEntityRelationshipGraph.interface.php+      +  >ΩÍ ¥      @   com/wolfgang/Interfaces/Structure/Graph/IGraphNode.interface.phpÓ      Ó  Üs¥      >   com/wolfgang/Interfaces/Structure/Tree/ITreeNode.interface.php¨      ¨  IiaÈ¥      :   com/wolfgang/Interfaces/Structure/Tree/ITree.interface.php        ËÏ“°¥      >   com/wolfgang/Interfaces/Structure/Tree/IRoseTree.interface.php]       ]   [¥      4   com/wolfgang/Interfaces/Date/ITimezone.interface.phpC       C   ú`ºo¥      9   com/wolfgang/Interfaces/Logger/IGelfMessage.interface.phpÅ      Å  c¡jK¥      8   com/wolfgang/Interfaces/Logger/IHTTPLogger.interface.phpœ       œ   )A]G¥      4   com/wolfgang/Interfaces/Logger/ILogger.interface.phpÕ      Õ  ’–Í¡¥      8   com/wolfgang/Interfaces/Logger/IFileLogger.interface.php±       ±   6(z¥      7   com/wolfgang/Interfaces/Logger/IUDPLogger.interface.phpŒ       Œ   AlAá¥      .   com/wolfgang/Interfaces/IAdapter.interface.phpµ       µ   säò¥      0   com/wolfgang/Interfaces/IImmutable.interface.php∑       ∑   ª∆¥      !   com/wolfgang/SkinDomain.class.phpG      G  :õ.Ä¥      #   com/wolfgang/Util/Contact.class.phpô      ô  ã¡¥      )   com/wolfgang/Util/UploadHandler.class.php        @8j¥      !   com/wolfgang/Util/Regex.class.php        –ìß2¥      /   com/wolfgang/Util/DateValueAggregator.class.php        |PÜ¥      '   com/wolfgang/Util/DeltaChange.class.phpÄ      Ä  !Pç¥      #   com/wolfgang/Util/Command.class.phpÎ      Î  äÑü¥          com/wolfgang/Util/File.class.phph
+  ∑Qÿˆ¥      >   com/wolfgang/Interfaces/SQL/Statement/IStatement.interface.php•       •   ,µ∂›¥      H   com/wolfgang/Interfaces/SQL/Statement/DML/IDeleteStatement.interface.php        !◊¥      H   com/wolfgang/Interfaces/SQL/Statement/DML/IUpdateStatement.interface.phpÜ      Ü  à¢Ó¥      B   com/wolfgang/Interfaces/SQL/Statement/DML/IStatement.interface.php        ®“‡L¥      E   com/wolfgang/Interfaces/SQL/Statement/DML/IDMLStatement.interface.php        
+îm¬¥      H   com/wolfgang/Interfaces/SQL/Statement/DML/IInsertStatement.interface.phpˆ      ˆ  V√pı¥      =   com/wolfgang/Interfaces/SQL/Clause/IWhereClause.interface.php∑      ∑  DµÖ¥      =   com/wolfgang/Interfaces/SQL/Clause/ILimitClause.interface.php9      9  e¬¯¥      >   com/wolfgang/Interfaces/SQL/Clause/IDeleteClause.interface.phpµ       µ   ·éˆé¥      >   com/wolfgang/Interfaces/SQL/Clause/IHavingClause.interface.phpµ       µ   ﬁXË¥      ?   com/wolfgang/Interfaces/SQL/Clause/IOrderByClause.interface.php        ËÔºÔ¥      >   com/wolfgang/Interfaces/SQL/Clause/IInsertClause.interface.php,      ,  yuN¥      ?   com/wolfgang/Interfaces/SQL/Clause/IGroupByClause.interface.php∂       ∂   sc\¥      <   com/wolfgang/Interfaces/SQL/Clause/IFromClause.interface.phpï      ï  u¨#¥      >   com/wolfgang/Interfaces/SQL/Clause/ISelectClause.interface.phpä      ä  Òƒ¥      8   com/wolfgang/Interfaces/SQL/Clause/IClause.interface.php'      '  ’«W1¥      >   com/wolfgang/Interfaces/SQL/Clause/IUpdateClause.interface.php,      ,  :¥      P   com/wolfgang/Interfaces/SQL/Expression/IConditionalExpressionGroup.interface.php        ƒ‹P¥      F   com/wolfgang/Interfaces/SQL/Expression/IColumnExpression.interface.php>      >  kD=¥      @   com/wolfgang/Interfaces/SQL/Expression/IExpression.interface.phpà      à  *ÒG:¥      K   com/wolfgang/Interfaces/SQL/Expression/IConditionalExpression.interface.phpö      ö  ßQë¥      7   com/wolfgang/Interfaces/SQL/IUnduplicable.interface.phpØ      Ø  @ddC¥      7   com/wolfgang/Interfaces/SQL/ISQLComponent.interface.phpü       ü   ?Ñ$¥      ,   com/wolfgang/Interfaces/IDelta.interface.php∆       ∆   mßU@¥      4   com/wolfgang/Interfaces/IHttpException.interface.phpÚ       Ú   /ñˇ¥      /   com/wolfgang/Interfaces/IIterator.interface.php≈       ≈   ·z<A¥      3   com/wolfgang/Interfaces/Util/IContact.interface.phpﬁ       ﬁ    Y}¥      8   com/wolfgang/Interfaces/Util/IEmailContact.interface.phpˆ       ˆ   -ÿˇC¥      0   com/wolfgang/Interfaces/Util/IFile.interface.phpÇ      Ç  øàπ¥      -   com/wolfgang/Interfaces/ISchema.interface.phpª      ª  Ú¥˜e¥      O   com/wolfgang/Interfaces/Database/PostgreSQL/IPostgreSQLConnection.interface.php        / r¥      A   com/wolfgang/Interfaces/Database/DB2/IDB2Connection.interface.php        ±E1R¥      E   com/wolfgang/Interfaces/Database/MySQL/IMySQLConnection.interface.php        8Å∫÷¥      D   com/wolfgang/Interfaces/Database/MySQL/IMySQLResultSet.interface.phpÌ       Ì   P˘∞û¥      :   com/wolfgang/Interfaces/Database/IConnection.interface.phpÁ      Á  Ù‚P‰¥      9   com/wolfgang/Interfaces/Database/IResultSet.interface.php±      ±  Ëﬂ2'¥      ,   com/wolfgang/Interfaces/IGraph.interface.php§       §   ªU/¥      1   com/wolfgang/Interfaces/IExtensible.interface.php∑      ∑  õòê˚¥      -   com/wolfgang/Interfaces/IReport.interface.php¨       ¨   €Ò ∫¥      2   com/wolfgang/Interfaces/IDeltaChange.interface.php        ºü≠ù¥      -   com/wolfgang/Interfaces/IApiKey.interface.phpÖ       Ö   «ﬂî…¥      0   com/wolfgang/Interfaces/IAdaptable.interface.phpô       ô   »Õø¶¥      0   com/wolfgang/Interfaces/ISingleton.interface.php¿       ¿   ïíF ¥      >   com/wolfgang/Interfaces/Application/IApplication.interface.php#	      #	  c’Ë£¥      6   com/wolfgang/Interfaces/Application/IApi.interface.php!      !  :œÚÊ¥      7   com/wolfgang/Interfaces/Application/ISite.interface.php≥       ≥   `–%§¥      :   com/wolfgang/Interfaces/Application/IContext.interface.php·	      ·	  Ãdº"¥      .   com/wolfgang/Interfaces/IEncoder.interface.php?       ?   Ú¥      3   com/wolfgang/Interfaces/Cache/ICacher.interface.phpA      A  bít=¥      6   com/wolfgang/Interfaces/Stripe/ICustomer.interface.php}      }  gAØ¥      ;   com/wolfgang/Interfaces/Stripe/IPaymentMethod.interface.phpÚ       Ú   Í„¡Â¥      B   com/wolfgang/Interfaces/Dispatching/IEventDispatcher.interface.php        -ü"¥      =   com/wolfgang/Interfaces/Dispatching/IDispatcher.interface.php*      *  |W´N¥      4   com/wolfgang/Interfaces/Routing/IRoute.interface.phpn      n  X#¥      8   com/wolfgang/Interfaces/Routing/IHttpRoute.interface.php˘       ˘   ˛è!˘¥      5   com/wolfgang/Interfaces/Routing/IRouter.interface.php+      +  ên˝i¥      7   com/wolfgang/Interfaces/Routing/ICliRoute.interface.phpÆ       Æ   ˜é¥      6   com/wolfgang/Interfaces/Message/IRequest.interface.phpõ      õ  ±—≥±¥      ;   com/wolfgang/Interfaces/Message/HTTP/IRequest.interface.php#      #  ı$çç¥      <   com/wolfgang/Interfaces/Message/HTTP/IResponse.interface.php≤      ≤  Ñà¥      >   com/wolfgang/Interfaces/Message/HTTP/IApiRequest.interface.php$      $  ˝“DX¥      ;   com/wolfgang/Interfaces/Message/HTTP/IMessage.interface.phpÂ       Â   µG‚¥      7   com/wolfgang/Interfaces/Message/IResponse.interface.php¨       ¨   }ËR¥      ;   com/wolfgang/Interfaces/Message/SMTP/IMessage.interface.php=      =  +≈Ã¥      :   com/wolfgang/Interfaces/Message/CLI/IRequest.interface.php        YV¥      :   com/wolfgang/Interfaces/Message/CLI/IMessage.interface.php‰       ‰   Ã9é.¥      6   com/wolfgang/Interfaces/Message/IMessage.interface.phpâ      â  Ù"≤#¥      0   com/wolfgang/Interfaces/ITemplater.interface.phpa      a  Ø°áû¥      1   com/wolfgang/Interfaces/ISkinDomain.interface.php.      .  vIk¥      3   com/wolfgang/Interfaces/IMarshallable.interface.php›       ›   v(ÒÉ¥      1   com/wolfgang/Interfaces/IMarshaller.interface.php8      8  ¯˜∏¥      6   com/wolfgang/Interfaces/Network/IDataUri.interface.phpÅ      Å  Y>¡m¥      2   com/wolfgang/Interfaces/Network/IDsn.interface.php4      4  á∂mG¥      2   com/wolfgang/Interfaces/Network/IUrl.interface.phpO       O   \@S¥      2   com/wolfgang/Interfaces/Network/IUri.interface.phpè      è  G<
+Í¥      1   com/wolfgang/Interfaces/IModelDelta.interface.php•       •   ”îC¥      5   com/wolfgang/Interfaces/Structure/INode.interface.phpﬁ       ﬁ   ∑)~¸¥      <   com/wolfgang/Interfaces/Structure/Graph/IGraph.interface.php          EV¯s¥      I   com/wolfgang/Interfaces/Structure/Graph/IEntityRelationship.interface.php≤       ≤   –^∆¥      N   com/wolfgang/Interfaces/Structure/Graph/IEntityRelationshipGraph.interface.php+      +  80ùM¥      @   com/wolfgang/Interfaces/Structure/Graph/IGraphNode.interface.phpÓ      Ó  S;s¥      >   com/wolfgang/Interfaces/Structure/Tree/ITreeNode.interface.php¨      ¨  IiaÈ¥      :   com/wolfgang/Interfaces/Structure/Tree/ITree.interface.php        ËÏ“°¥      >   com/wolfgang/Interfaces/Structure/Tree/IRoseTree.interface.php]       ]   [¥      4   com/wolfgang/Interfaces/Date/ITimezone.interface.phpC       C   ú`ºo¥      9   com/wolfgang/Interfaces/Logger/IGelfMessage.interface.phpc      c  Ù8%Ò¥      8   com/wolfgang/Interfaces/Logger/IHTTPLogger.interface.php±       ±   _§q~¥      4   com/wolfgang/Interfaces/Logger/ILogger.interface.phpÕ      Õ  ƒ¡©¥      8   com/wolfgang/Interfaces/Logger/IFileLogger.interface.php±       ±   ‰kú≤¥      7   com/wolfgang/Interfaces/Logger/IUDPLogger.interface.php∞       ∞   ¢ÿ®¥      .   com/wolfgang/Interfaces/IAdapter.interface.phpó       ó   \≤˜¥      0   com/wolfgang/Interfaces/IImmutable.interface.phpò       ò   :!~b¥      !   com/wolfgang/SkinDomain.class.phpG      G  ùvb.¥      #   com/wolfgang/Util/Contact.class.phpô      ô  ûJ˜M¥      )   com/wolfgang/Util/UploadHandler.class.php        ˝≥Ôy¥      !   com/wolfgang/Util/Regex.class.php        h’+#¥      /   com/wolfgang/Util/DateValueAggregator.class.php        ©‰Mé¥      '   com/wolfgang/Util/DeltaChange.class.phpÄ      Ä  q€·N¥      #   com/wolfgang/Util/Command.class.phpÎ      Î  ıe?¥          com/wolfgang/Util/File.class.phph
       h
-  ]Ag¥      .   com/wolfgang/Util/ApplicationCommand.class.php        ∆å°Ï¥      6   com/wolfgang/Util/ExtendsModelFilterIterator.class.php…      …  8Úﬁ¥      !   com/wolfgang/Util/Token.class.php/      /  ˛›úR¥      2   com/wolfgang/Util/Iterator/RegexIterator.class.phpt      t  ”√¡P¥      %   com/wolfgang/Util/Component.class.php’       ’   ßΩtÚ¥      &   com/wolfgang/Util/Filesystem.class.php'      '  /ˇ
-#¥      "   com/wolfgang/Util/Xhprof.class.phpä      ä  •∫„B¥      '   com/wolfgang/Util/FlightAware.class.php¶
+  ]Ag¥      .   com/wolfgang/Util/ApplicationCommand.class.php        [˘Ó¥      6   com/wolfgang/Util/ExtendsModelFilterIterator.class.php…      …  ô.–ƒ¥      !   com/wolfgang/Util/Token.class.php/      /  ”Ôâ€¥      2   com/wolfgang/Util/Iterator/RegexIterator.class.phpb      b  ˇÇ‘¥      %   com/wolfgang/Util/Component.class.php’       ’   iııÊ¥      &   com/wolfgang/Util/Filesystem.class.php'      '  ÌaUV¥      "   com/wolfgang/Util/Xhprof.class.phpä      ä  z†ø)¥      '   com/wolfgang/Util/FlightAware.class.php¶
       ¶
-  >^Œ‰˝      (   com/wolfgang/Util/EmailContact.class.phpG      G  fgÊ¥      %   com/wolfgang/Util/CliWriter.class.php⁄      ⁄  ^~¸û¥      #   com/wolfgang/Util/Strings.class.phpU      U  £LﬁÕ¥      "   com/wolfgang/Util/Cookie.class.php+      +  ‚˙ûB¥          com/wolfgang/Util/Curl.class.phpÉ      É  ÷2V¥          com/wolfgang/Util/UUID.class.phpñ      ñ  :bªç˝      %   com/wolfgang/Util/LocalFile.class.php          ìˆj¥      &   com/wolfgang/Util/CLICommand.class.php‚      ‚  6…^¸¥      !   com/wolfgang/Util/GeoIP.class.php”      ”  ÿ◊zl¥      &   com/wolfgang/Util/ModelDelta.class.phpb      b  c≤IK¥      $   com/wolfgang/Util/Password.class.php	      	  a˜ë¥      $   com/wolfgang/Util/Minifier.class.phpê      ê  üáb¥      /   com/wolfgang/Util/DataTableMarshaller.class.php2      2  •/≥¥      "   com/wolfgang/Util/LatLng.class.php¬      ¬  .lí¥      "   com/wolfgang/Util/Arrays.class.phpv      v  ·Û^™¥      +   com/wolfgang/Util/JSONPMarshaller.class.phpø      ø  –˘
-1¥      #   com/wolfgang/Util/Numbers.class.php[      [  g∏ı¥      !   com/wolfgang/Util/Delta.class.phpB      B  Q‹9¥          com/wolfgang/Util/Bots.class.phpp      p  æI‚I¥      %   com/wolfgang/Util/Validator.class.php        7ı…˛¥      .   com/wolfgang/Util/Logger/GelfMessage.class.phpø      ø  ∫|ïÖ¥      -   com/wolfgang/Util/Logger/HTTPLogger.class.phpf      f  ù›ñ¿¥      ,   com/wolfgang/Util/Logger/Component.class.php‚       ‚   ¿ıf¥      ,   com/wolfgang/Util/Logger/UDPLogger.class.php`      `  ì˛¥      -   com/wolfgang/Util/Logger/FileLogger.class.phps      s  &PΩå¥      H   com/wolfgang/Util/Logger/Configuration/FileLoggerConfiguration.class.phpc      c  ·]c¥      )   com/wolfgang/Util/Logger/Logger.class.php¨      ¨  Ëáâú¥      %   com/wolfgang/Util/Inflector.class.phpŒ      Œ  g,¥      (   com/wolfgang/Util/UploadedFile.class.php«      «  3Dk˝¥      2   com/wolfgang/Util/AutoCompleteMarshaller.class.php&      &  ›O∞¥         com/wolfgang/Skin.class.phpk      k  ´á2¬¥      )   com/wolfgang/Database/Component.class.php‡       ‡   ÇIw¥      3   com/wolfgang/Database/MySQL/BackupManager.class.php≥       ≥   ÂÜ†¥      /   com/wolfgang/Database/MySQL/Component.class.phpﬂ       ﬂ   !ÖØ¥      /   com/wolfgang/Database/MySQL/ResultSet.class.php{	      {	  Y˜BÃ˝      0   com/wolfgang/Database/MySQL/Connection.class.phpµ      µ  ;∫≥W˝      -   com/wolfgang/Database/DriverManager.class.phpÃ
+  ∆ƒ˝      (   com/wolfgang/Util/EmailContact.class.phpG      G  9ºª{¥      %   com/wolfgang/Util/CliWriter.class.php⁄      ⁄  Æ~/ò¥      #   com/wolfgang/Util/Strings.class.phpU      U  £SK¥      "   com/wolfgang/Util/Cookie.class.php+      +  mv∑¥          com/wolfgang/Util/Curl.class.phpÉ      É  Tîc*¥          com/wolfgang/Util/UUID.class.phpñ      ñ  sÊG(˝      %   com/wolfgang/Util/LocalFile.class.php          ìˆj¥      &   com/wolfgang/Util/CLICommand.class.php‚      ‚  	,Å“¥      !   com/wolfgang/Util/GeoIP.class.php”      ”  à`≥æ¥      &   com/wolfgang/Util/ModelDelta.class.phpb      b  Ò√¥      $   com/wolfgang/Util/Password.class.php	      	  Çd2¥      $   com/wolfgang/Util/Minifier.class.phpê      ê  Ê∞†B¥      /   com/wolfgang/Util/DataTableMarshaller.class.php2      2  ˆˇëu¥      "   com/wolfgang/Util/LatLng.class.php¬      ¬  wn®¥      "   com/wolfgang/Util/Arrays.class.phpv      v  ≠;Í¥      +   com/wolfgang/Util/JSONPMarshaller.class.phpø      ø  9à!¥      #   com/wolfgang/Util/Numbers.class.php[      [  k-V¥      !   com/wolfgang/Util/Delta.class.phpB      B  ∫∞≈*¥          com/wolfgang/Util/Bots.class.phpp      p  √ñYe¥      %   com/wolfgang/Util/Validator.class.php        ÿ+Nq¥      .   com/wolfgang/Util/Logger/GelfMessage.class.php°      °  ˝vçi¥      -   com/wolfgang/Util/Logger/HTTPLogger.class.phpG      G  ±∂%Ó¥      ,   com/wolfgang/Util/Logger/Component.class.php‚       ‚   ?õŸ¥      ,   com/wolfgang/Util/Logger/UDPLogger.class.php@      @   =*Ö¥      -   com/wolfgang/Util/Logger/FileLogger.class.phps      s  Ëe–¥      H   com/wolfgang/Util/Logger/Configuration/FileLoggerConfiguration.class.phpD      D  ≥HKU¥      )   com/wolfgang/Util/Logger/Logger.class.php¨      ¨  √˚Ìî¥      %   com/wolfgang/Util/Inflector.class.phpŒ      Œ  íZÀg¥      (   com/wolfgang/Util/UploadedFile.class.php«      «  3Dk˝¥      2   com/wolfgang/Util/AutoCompleteMarshaller.class.php&      &  (Z÷d¥         com/wolfgang/Skin.class.phpk      k  ]Ã9¥      )   com/wolfgang/Database/Component.class.php‡       ‡   > »c¥      3   com/wolfgang/Database/MySQL/BackupManager.class.php≥       ≥   C˘‘˜¥      /   com/wolfgang/Database/MySQL/Component.class.phpﬂ       ﬂ   =ôë/¥      /   com/wolfgang/Database/MySQL/ResultSet.class.php{	      {	  gRb[˝      0   com/wolfgang/Database/MySQL/Connection.class.phpµ      µ  5ﬂ˙Ÿ˝      -   com/wolfgang/Database/DriverManager.class.phpÃ
       Ã
-  Am≈›¥      )   com/wolfgang/Database/ResultSet.class.php†      †  mÏç˝      *   com/wolfgang/Database/Connection.class.php=      =  hr˝      2   com/wolfgang/Cloud/Amazon/S3/MinioTenant.class.php˜      ˜  ú≤õa¥      -   com/wolfgang/Cloud/Amazon/S3/Client.class.php`      `  Ü'e=¥      ,   com/wolfgang/Cloud/Amazon/S3/Minio.class.phpı	      ı	  st£˛¥      2   com/wolfgang/PaymentProcessing/Component.class.php‚       ‚   Ò
-äÕ¥      /   com/wolfgang/PaymentProcessing/Stripe.class.phpÊC      ÊC  îgq›¥      /   com/wolfgang/PaymentProcessing/Paypal.class.phpd      d  —¨:˝      *   com/wolfgang/Proxy/ORM/Component.class.php⁄       ⁄   ∂t6	¥      &   com/wolfgang/Proxy/ORM/Table.class.php        Î≤r“¥      ,   com/wolfgang/Application/Component.class.phpŸ       Ÿ   Õ â&¥      *   com/wolfgang/Application/Context.class.php+      +  Á™g¥      &   com/wolfgang/Application/Cli.class.php        e*˙¥      .   com/wolfgang/Application/Application.class.php—5      —5  úè¥      &   com/wolfgang/Application/Api.class.php…      …  Üeé¥      '   com/wolfgang/Application/Site.class.phpí      í  j]7 ¥      $   com/wolfgang/MQ/AMQP/Queue.class.php£       £   â[øF˝      (   com/wolfgang/MQ/AMQP/Component.class.phpÿ       ÿ   Á¶¥      '   com/wolfgang/MQ/AMQP/Exchange.class.php˝      ˝  M˘n˚˝      &   com/wolfgang/MQ/AMQP/Channel.class.phph      h  
-qPœ˝      )   com/wolfgang/MQ/AMQP/Connection.class.php≈      ≈  Dh˝      6   com/wolfgang/Exceptions/Filesystem/Exception.class.php¸      ¸  ¿>V¥      B   com/wolfgang/Exceptions/Filesystem/FileNotExistException.class.php◊      ◊  W∆F€¥      /   com/wolfgang/Exceptions/ClassNotFound.class.php]      ]  P„z¥      3   com/wolfgang/Exceptions/Session/Exception.class.phpì      ì  ¸l8O¥      7   com/wolfgang/Exceptions/UnauthorizedException.class.phpß      ß  Vbb2¥      -   com/wolfgang/Exceptions/AppNotFound.class.php[      [   ¢)∑¥      <   com/wolfgang/Exceptions/ORM/TableNotExistException.class.php≠      ≠  ∂Â4∆¥      /   com/wolfgang/Exceptions/ORM/Exception.class.phpõ      õ  8‘‘µ¥      1   com/wolfgang/Exceptions/Model/Exception.class.phpõ      õ  Ÿ|õ¥      6   com/wolfgang/Exceptions/SQL/Clause/Exception.class.phpò      ò  ·;ù¥      /   com/wolfgang/Exceptions/SQL/Exception.class.phpô      ô  ˘;¸§¥      =   com/wolfgang/Exceptions/SQL/ColumnNotExistException.class.php®      ®  ÖıØ˜¥      6   com/wolfgang/Exceptions/Encryption/Exception.class.php†      †  ⁄M_·¥      =   com/wolfgang/Exceptions/Encryption/OpenSslException.class.php°      °  x∑øª¥      0   com/wolfgang/Exceptions/SMTP/Exception.class.php∑       ∑   `LÕ¥      +   com/wolfgang/Exceptions/Exception.class.php€      €  ﬁ˝ë¥      J   com/wolfgang/Exceptions/Database/UnattainableConnectionException.class.phpµ      µ  f Â∫¥      4   com/wolfgang/Exceptions/Database/Exception.class.phpû      û  …Ræï¥      =   com/wolfgang/Exceptions/PaymentProcessing/Exception.class.php“      “  †¿	x¥      D   com/wolfgang/Exceptions/PaymentProcessing/Stripe/Exception.class.php        8ƒuñ¥      7   com/wolfgang/Exceptions/InvalidStateException.class.php∂       ∂   >&D¥      7   com/wolfgang/Exceptions/IllegalStateException.class.phpô      ô  o»Î÷¥      3   com/wolfgang/Exceptions/MQ/AMQP/Exception.class.phpˆ       ˆ   ˚yÕ(¥      1   com/wolfgang/Exceptions/Cache/Exception.class.php          Æõ¥      >   com/wolfgang/Exceptions/Cache/UnattainableConnection.class.phpn      n  £¿g¥      6   com/wolfgang/Exceptions/Templating/Exception.class.php°      °  P0L¥      F   com/wolfgang/Exceptions/Templating/TemplateNotExistException.class.php£      £  gqõ´¥      :   com/wolfgang/Exceptions/InvalidArgumentException.class.phpπ       π   §€Ω∆¥      8   com/wolfgang/Exceptions/Routing/RouteException.class.phpö      ö  ˘£ÿâ¥      3   com/wolfgang/Exceptions/Routing/Exception.class.php∏       ∏   Ã‹cÔ¥      ?   com/wolfgang/Exceptions/Routing/NoSuchActionException.class.phpl      l  l≠3é¥      9   com/wolfgang/Exceptions/Message/HTTP/BadRequest.class.php$      $  Ûá~D¥      D   com/wolfgang/Exceptions/Message/HTTP/UnauthorizedException.class.php∆      ∆  ö—‘2¥      M   com/wolfgang/Exceptions/Message/HTTP/InvalidHttpStatusCodeException.class.phpË      Ë  :ÅÒ~¥      8   com/wolfgang/Exceptions/Message/HTTP/Exception.class.phpu      u  ø–T*¥      A   com/wolfgang/Exceptions/Message/HTTP/ServiceUnavailable.class.php‹      ‹  úq¥      @   com/wolfgang/Exceptions/Message/HTTP/NotFoundException.class.php∑      ∑  üÏ–u¥      B   com/wolfgang/Exceptions/Message/HTTP/InternalServerError.class.phpâ      â  µ35¥      0   com/wolfgang/Exceptions/MethodNotFound.class.php^      ^  <∂˙|¥      ;   com/wolfgang/Exceptions/IllegalOperationException.class.phpÛ       Û   ≥\ıó¥      :   com/wolfgang/Exceptions/IllegalArgumentException.class.phpú      ú  ≤%/q¥      3   com/wolfgang/Exceptions/Network/Exception.class.php≥       ≥   XlæÙ¥      3   com/wolfgang/Exceptions/Mailing/Exception.class.phpÂ       Â   17k∂¥      ?   com/wolfgang/Exceptions/MethodNotImplementedException.class.php”      ”  ¸ﬁ^¥      7   com/wolfgang/Exceptions/NoSuchMethodException.class.phpd      d  Ä≤P˚¥      4   com/wolfgang/Exceptions/Encoding/Exception.class.php…      …  @tó¥      9   com/wolfgang/Exceptions/Encoding/JSON/Exception.class.php©      ©  ¶z1Ã¥      ?   com/wolfgang/Exceptions/UnsupportedOperationException.class.php¢      ¢  eπÉ¥      &   com/wolfgang/Cache/Memcached.class.phpÚ      Ú  ≈˚D‚˝      &   com/wolfgang/Cache/Component.class.php◊       ◊   õ=vn˝      #   com/wolfgang/Cache/Cacher.class.php+      +  8ò;˝      +   com/wolfgang/Templating/Templater.class.php"      "  ÛaÈ"¥      +   com/wolfgang/Templating/Component.class.php‹       ‹   >‚â¥      (   com/wolfgang/Templating/Smarty.class.phpä'      ä'  ºÀHœ¥      2   com/wolfgang/Dispatching/EventDispatcher.class.php
+  ?$5–¥      )   com/wolfgang/Database/ResultSet.class.php†      †  K⁄#˝      *   com/wolfgang/Database/Connection.class.php=      =  ûˆ¥Ω˝      2   com/wolfgang/Cloud/Amazon/S3/MinioTenant.class.php˜      ˜  Ö\i@¥      -   com/wolfgang/Cloud/Amazon/S3/Client.class.php`      `  ∞¥l¥      ,   com/wolfgang/Cloud/Amazon/S3/Minio.class.phpı	      ı	  éÆ˙¥      2   com/wolfgang/PaymentProcessing/Component.class.php‚       ‚   ÌãûM¥      /   com/wolfgang/PaymentProcessing/Stripe.class.php–C      –C  eM˚é¥      /   com/wolfgang/PaymentProcessing/Paypal.class.phpd      d  À¯˝C˝      *   com/wolfgang/Proxy/ORM/Component.class.php⁄       ⁄   ™ı"â¥      &   com/wolfgang/Proxy/ORM/Table.class.php        ÒLl¥      ,   com/wolfgang/Application/Component.class.phpŸ       Ÿ   —°ù¶¥      *   com/wolfgang/Application/Context.class.php+      +   uZ}¥      &   com/wolfgang/Application/Cli.class.php        ŸÊ"9¥      .   com/wolfgang/Application/Application.class.phpÿ5      ÿ5  ÔË˛Ä¥      &   com/wolfgang/Application/Api.class.php…      …  …ÙµÅ¥      '   com/wolfgang/Application/Site.class.phpí      í  kñ_a¥      $   com/wolfgang/MQ/AMQP/Queue.class.php£       £   ˇû†˝      (   com/wolfgang/MQ/AMQP/Component.class.phpÿ       ÿ   ˚ì≤ñ¥      '   com/wolfgang/MQ/AMQP/Exchange.class.php˝      ˝  =-óv˝      &   com/wolfgang/MQ/AMQP/Channel.class.phph      h  !∆˝      )   com/wolfgang/MQ/AMQP/Connection.class.php≈      ≈  ˙–§˝      6   com/wolfgang/Exceptions/Filesystem/Exception.class.php¸      ¸  Hª¥      B   com/wolfgang/Exceptions/Filesystem/FileNotExistException.class.php◊      ◊  •xØÂ¥      /   com/wolfgang/Exceptions/ClassNotFound.class.php]      ]  E9mô¥      3   com/wolfgang/Exceptions/Session/Exception.class.phpì      ì  ﬁ»∑Ç¥      7   com/wolfgang/Exceptions/UnauthorizedException.class.phpß      ß  £z-∫¥      -   com/wolfgang/Exceptions/AppNotFound.class.php[      [  †
+≠:¥      <   com/wolfgang/Exceptions/ORM/TableNotExistException.class.php≠      ≠  éΩFk¥      /   com/wolfgang/Exceptions/ORM/Exception.class.phpõ      õ  -ÍZV¥      1   com/wolfgang/Exceptions/Model/Exception.class.phpõ      õ  Q{Æˆ¥      6   com/wolfgang/Exceptions/SQL/Clause/Exception.class.phpò      ò  ä?T¥      /   com/wolfgang/Exceptions/SQL/Exception.class.phpô      ô  q<…I¥      =   com/wolfgang/Exceptions/SQL/ColumnNotExistException.class.php®      ®  LÜæ¥      6   com/wolfgang/Exceptions/Encryption/Exception.class.php†      †  RJj¥      =   com/wolfgang/Exceptions/Encryption/OpenSslException.class.php°      °  Hﬁén¥      0   com/wolfgang/Exceptions/SMTP/Exception.class.php∑       ∑   ˆ˝¥      +   com/wolfgang/Exceptions/Exception.class.php€      €  ôœ„≠¥      J   com/wolfgang/Exceptions/Database/UnattainableConnectionException.class.phpµ      µ  ˆ™—i¥      4   com/wolfgang/Exceptions/Database/Exception.class.phpû      û  AUãx¥      =   com/wolfgang/Exceptions/PaymentProcessing/Exception.class.php“      “  ÇdÜµ¥      D   com/wolfgang/Exceptions/PaymentProcessing/Stripe/Exception.class.php        ﬂÌº¥      7   com/wolfgang/Exceptions/InvalidStateException.class.php∂       ∂   ¥¶òƒ¥      7   com/wolfgang/Exceptions/IllegalStateException.class.phpô      ô  à·"Q¥      3   com/wolfgang/Exceptions/MQ/AMQP/Exception.class.phpÔ       Ô   ipÒÔ¥      1   com/wolfgang/Exceptions/Cache/Exception.class.php˘      ˘  ="Æê¥      >   com/wolfgang/Exceptions/Cache/UnattainableConnection.class.phpn      n  ˛1ìm¥      6   com/wolfgang/Exceptions/Templating/Exception.class.php°      °  jnæØ¥      F   com/wolfgang/Exceptions/Templating/TemplateNotExistException.class.php£      £  ˆDj¥      :   com/wolfgang/Exceptions/InvalidArgumentException.class.phpπ       π   ôÓiÍ¥      8   com/wolfgang/Exceptions/Routing/RouteException.class.phpö      ö  ,…Ê‰¥      3   com/wolfgang/Exceptions/Routing/Exception.class.php∏       ∏   ùﬂ∏≥¥      ?   com/wolfgang/Exceptions/Routing/NoSuchActionException.class.phpl      l  ãÑ˙	¥      9   com/wolfgang/Exceptions/Message/HTTP/BadRequest.class.php$      $  ‘â¥      D   com/wolfgang/Exceptions/Message/HTTP/UnauthorizedException.class.php∆      ∆  ÆGhB¥      M   com/wolfgang/Exceptions/Message/HTTP/InvalidHttpStatusCodeException.class.phpË      Ë  9$\¥      8   com/wolfgang/Exceptions/Message/HTTP/Exception.class.phpu      u  Ω√s~¥      A   com/wolfgang/Exceptions/Message/HTTP/ServiceUnavailable.class.php‹      ‹  –Ëπ¥      @   com/wolfgang/Exceptions/Message/HTTP/NotFoundException.class.php∑      ∑  •Yñ◊¥      B   com/wolfgang/Exceptions/Message/HTTP/InternalServerError.class.phpâ      â  †î¿¥      0   com/wolfgang/Exceptions/MethodNotFound.class.php^      ^  È‹ƒ¥      ;   com/wolfgang/Exceptions/IllegalOperationException.class.phpÛ       Û   |Ó±ﬁ¥      :   com/wolfgang/Exceptions/IllegalArgumentException.class.phpú      ú  Ô|{¥      3   com/wolfgang/Exceptions/Network/Exception.class.php≥       ≥   „9◊ú¥      3   com/wolfgang/Exceptions/Mailing/Exception.class.phpÂ       Â   ±ÎÛ¥      ?   com/wolfgang/Exceptions/MethodNotImplementedException.class.php”      ”  GR:ó¥      7   com/wolfgang/Exceptions/NoSuchMethodException.class.phpd      d  gõô|¥      4   com/wolfgang/Exceptions/Encoding/Exception.class.php…      …  b–üZ¥      9   com/wolfgang/Exceptions/Encoding/JSON/Exception.class.php©      ©  πî@¥      ?   com/wolfgang/Exceptions/UnsupportedOperationException.class.php¢      ¢  “›Ù¥      &   com/wolfgang/Cache/Memcached.class.phpÚ      Ú  e3˝      &   com/wolfgang/Cache/Component.class.php◊       ◊   Uu˜z˝      #   com/wolfgang/Cache/Cacher.class.php+      +  ¿∑E
+˝      +   com/wolfgang/Templating/Templater.class.php"      "  '∫ï£¥      +   com/wolfgang/Templating/Component.class.php‹       ‹   ¡åÀı¥      (   com/wolfgang/Templating/Smarty.class.phpä'      ä'  £ÙÑY¥      2   com/wolfgang/Dispatching/EventDispatcher.class.php
       
-  )y|Á¥      ,   com/wolfgang/Dispatching/Component.class.php›       ›   "Ï›D¥      -   com/wolfgang/Dispatching/Dispatcher.class.phpi      i  KÆRê¥      (   com/wolfgang/Routing/Component.class.phpÿ       ÿ   Ceö¥      (   com/wolfgang/Routing/HttpRoute.class.php'      '  :‡ÀÙ¥      $   com/wolfgang/Routing/Route.class.php        B“¶¥      )   com/wolfgang/Routing/HttpRouter.class.phpı      ı  k†S¥      %   com/wolfgang/Routing/Router.class.php]      ]  ~=Àø¥      (   com/wolfgang/Routing/CliRouter.class.php‚      ‚  Å◊Õ¥      '   com/wolfgang/Routing/CliRoute.class.phpã	      ã	  †±∑å¥      &   com/wolfgang/Message/Message.class.php        ßÊeM¥      +   com/wolfgang/Message/HTTP/Message.class.php)      )  ‡‹˛¥      +   com/wolfgang/Message/HTTP/Request.class.phpà      à  ≈©y⁄¥      .   com/wolfgang/Message/HTTP/ApiRequest.class.php±      ±  ˚>ø¥      ,   com/wolfgang/Message/HTTP/Response.class.php        »ßÚ’¥      +   com/wolfgang/Message/SMTP/Message.class.phpÈ      È  l¶¬¥      *   com/wolfgang/Message/CLI/Message.class.php@      @  »…`¥      ,   com/wolfgang/Message/CLI/Component.class.phpÕ       Õ   k»+±¥      *   com/wolfgang/Message/CLI/Request.class.php&      &  j/–t¥      +   com/wolfgang/Message/CLI/Response.class.phpÉ      É  Bkm¶¥      (   com/wolfgang/Network/Component.class.phpÅ       Å   Ù-Eg¥      *   com/wolfgang/Network/Uri/UriPath.class.php‡       ‡   W∑¥ ¥      &   com/wolfgang/Network/Uri/Uri.class.php≠      ≠  oR•¥      *   com/wolfgang/Network/Uri/DataUri.class.php        xvT™¥      &   com/wolfgang/Network/Uri/Dsn.class.phpf      f  ‚›[é¥      !   com/wolfgang/BaseObject.class.php          +í>%¥      )   com/wolfgang/Auth/CliController.class.php¥      ¥  …O!2¥      &   com/wolfgang/Auth/Controller.class.phpÔ      Ô  ˜AÁQ¥      )   com/wolfgang/Auth/ApiController.class.phpi      i  ûÂ0ˇ¥      *   com/wolfgang/Structure/Component.class.php‹       ‹   :=™ﬂ¥      >   com/wolfgang/Structure/Graph/EntityRelationshipGraph.class.php»      »  U€é¥      0   com/wolfgang/Structure/Graph/Component.class.phpı       ı   ıMﬁ¥      9   com/wolfgang/Structure/Graph/EntityRelationship.class.phpP      P  à ¯-¥      0   com/wolfgang/Structure/Graph/GraphNode.class.php?      ?  ˙»†¥      ,   com/wolfgang/Structure/Graph/Graph.class.phpÃ      Ã  ˝πoB¥      %   com/wolfgang/Structure/Node.class.php        A"[é¥      /   com/wolfgang/Structure/Tree/Component.class.phpÛ       Û   ®ﬁ+√¥      *   com/wolfgang/Structure/Tree/Tree.class.php	      	  §>˙”¥      .   com/wolfgang/Structure/Tree/RoseTree.class.phpU      U  E◊(¥      2   com/wolfgang/Structure/Tree/RoseTreeNode.class.php˜      ˜  !ë?¥      .   com/wolfgang/Structure/Tree/TreeNode.class.phpm
+  ÔÙﬂ&¥      ,   com/wolfgang/Dispatching/Component.class.php›       ›   Ï§\P¥      -   com/wolfgang/Dispatching/Dispatcher.class.phpi      i  ì˛kE¥      (   com/wolfgang/Routing/Component.class.phpÿ       ÿ   _‰éé¥      (   com/wolfgang/Routing/HttpRoute.class.php*      *  Úª<¥      $   com/wolfgang/Routing/Route.class.php        §P5C¥      )   com/wolfgang/Routing/HttpRouter.class.phpı      ı   Úl¥      %   com/wolfgang/Routing/Router.class.php]      ]  IŸœy¥      (   com/wolfgang/Routing/CliRouter.class.php‚      ‚  ßÈ ¥      '   com/wolfgang/Routing/CliRoute.class.phpã	      ã	  ≠˝¥      &   com/wolfgang/Message/Message.class.php        )úË¥      +   com/wolfgang/Message/HTTP/Message.class.php)      )  %T‰ÿ¥      +   com/wolfgang/Message/HTTP/Request.class.phpà      à  ˘d≈å¥      .   com/wolfgang/Message/HTTP/ApiRequest.class.php±      ±  ahØ¥      ,   com/wolfgang/Message/HTTP/Response.class.php        :X∑b¥      +   com/wolfgang/Message/SMTP/Message.class.phpÈ      È  ñ™¯Î¥      *   com/wolfgang/Message/CLI/Message.class.php@      @  ÕM·6¥      ,   com/wolfgang/Message/CLI/Component.class.phpÕ       Õ   
+r≠¥      *   com/wolfgang/Message/CLI/Request.class.php&      &  ıõ¥      +   com/wolfgang/Message/CLI/Response.class.phpÉ      É  ª±Éï¥      (   com/wolfgang/Network/Component.class.phpÅ       Å   Ù-Eg¥      *   com/wolfgang/Network/Uri/UriPath.class.php‡       ‡   Ï‚›¢¥      &   com/wolfgang/Network/Uri/Uri.class.php≠      ≠  4SÒg¥      *   com/wolfgang/Network/Uri/DataUri.class.php        9∆hï¥      &   com/wolfgang/Network/Uri/Dsn.class.phpf      f  ‚›[é¥      !   com/wolfgang/BaseObject.class.php          åæ∏¥      )   com/wolfgang/Auth/CliController.class.php¥      ¥  xn¥      &   com/wolfgang/Auth/Controller.class.phpÔ      Ô  _Qw∑¥      )   com/wolfgang/Auth/ApiController.class.phpi      i  eæ±&¥      *   com/wolfgang/Structure/Component.class.php‹       ‹   ≈Sb£¥      >   com/wolfgang/Structure/Graph/EntityRelationshipGraph.class.php»      »  ›ñÊ…¥      0   com/wolfgang/Structure/Graph/Component.class.phpı       ı   ôë¥      9   com/wolfgang/Structure/Graph/EntityRelationship.class.phpP      P  e∑¸Ø¥      0   com/wolfgang/Structure/Graph/GraphNode.class.php?      ?  ∆ öπ¥      ,   com/wolfgang/Structure/Graph/Graph.class.phpÃ      Ã  lWgÜ¥      %   com/wolfgang/Structure/Node.class.php        HNØ¥      /   com/wolfgang/Structure/Tree/Component.class.phpÛ       Û   íÊr¥      *   com/wolfgang/Structure/Tree/Tree.class.php	      	  *g˝¥¥      .   com/wolfgang/Structure/Tree/RoseTree.class.phpU      U  ©k∑√¥      2   com/wolfgang/Structure/Tree/RoseTreeNode.class.php˜      ˜  ´Ò¥      .   com/wolfgang/Structure/Tree/TreeNode.class.phpm
       m
-  ˙ Z¥      &   com/wolfgang/Mailing/Mailman.class.phpó      ó  «Lrú˝      (   com/wolfgang/Mailing/Component.class.php‡       ‡   ´‚/¥      #   com/wolfgang/StringObject.class.php,      ,  ¬B£ê¥      %   com/wolfgang/Date/Component.class.php’       ’   ‰‘÷¥          com/wolfgang/Date/Time.class.phpΩ      Ω  UÔ∞Ω¥      $   com/wolfgang/Date/DateTime.class.phpÍ      Í   µI¥      $   com/wolfgang/Encoding/JSON.class.phpv      v  é≈π¥      )   com/wolfgang/Encoding/Component.class.php⁄       ⁄   ˛¥[ö¥      &   com/wolfgang/Encoding/Base64.class.php4      4  .ts¥      <?php
+  ‹´çÙ¥      &   com/wolfgang/Mailing/Mailman.class.phpó      ó  ,&™&˝      (   com/wolfgang/Mailing/Component.class.php‡       ‡   N/'¥      #   com/wolfgang/StringObject.class.php,      ,  #i¬ﬂ¥      %   com/wolfgang/Date/Component.class.php’       ’   *úW¥          com/wolfgang/Date/Time.class.phpΩ      Ω  «˙&Z¥      $   com/wolfgang/Date/DateTime.class.phpÍ      Í  ÀmR‰¥      $   com/wolfgang/Encoding/JSON.class.phpv      v  ±ó°ç¥      )   com/wolfgang/Encoding/Component.class.php⁄       ⁄   0¸⁄é¥      &   com/wolfgang/Encoding/Base64.class.php4      4  ÖÙMÂ¥      <?php
 
 namespace Wolfgang\Traits;
 
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TLabelled {
 	/**
@@ -510,7 +510,7 @@ use Wolfgang\Util\DataTableMarshaller;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TModelListMarshallable {
 
@@ -536,7 +536,7 @@ use Wolfgang\Interfaces\ORM\IColumn;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TEncrypted {
 	
@@ -558,7 +558,7 @@ use Wolfgang\Interfaces\IMarshallable;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TMarshaller {
 	
@@ -626,7 +626,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TExtensible {
 
@@ -724,7 +724,7 @@ use Wolfgang\Skin;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TSkinDomain {
 
@@ -738,7 +738,7 @@ use Wolfgang\Interfaces\ISingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TSessionHandler {
 
@@ -779,7 +779,7 @@ use Wolfgang\Util\Inflector;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TCliModelListMarshallable {
 
@@ -827,7 +827,7 @@ namespace Wolfgang\Traits\Message;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TRequest {
 	use TMessage;
@@ -869,7 +869,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TMessage {
 
@@ -946,7 +946,7 @@ use Wolfgang\Util\EmailContact;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TMessage {
 	use TWolfgangMessage;
@@ -1062,7 +1062,7 @@ namespace Wolfgang\Traits\Message;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TResponse {
 	use TMessage;
@@ -1073,7 +1073,7 @@ namespace Wolfgang\Traits;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TMarshallable {
 
@@ -1110,7 +1110,7 @@ use Wolfgang\Interfaces\ISingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TSingleton {
 	
@@ -1141,7 +1141,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TProxy {
 	
@@ -1181,7 +1181,7 @@ use Wolfgang\Interfaces\ISkinDomain;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 trait TSkin {
 	/**
@@ -1216,7 +1216,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -1226,7 +1226,7 @@ namespace Wolfgang\Serialization;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Serializer extends Component {
 	
@@ -1257,7 +1257,7 @@ use Wolfgang\Traits\TSessionHandler;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FileSessionHandler extends Component implements ISessionHandler {
 	use TSessionHandler;
@@ -1335,7 +1335,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 
@@ -1350,7 +1350,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Manager extends Component implements ISingleton {
 	use TSingleton;
@@ -1396,7 +1396,7 @@ use Wolfgang\Traits\TSessionHandler;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CliSessionHandler extends Component implements ISessionHandler {
 	use TSessionHandler;
@@ -1479,7 +1479,7 @@ use Wolfgang\Traits\TSessionHandler;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class DatabaseSessionHandler extends Component implements ISessionHandler {
 	use TSessionHandler;
@@ -1568,7 +1568,7 @@ use Wolfgang\Application\Context;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Session\CookieSessionHandler
  * @uses Wolfgang\Config\Session
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Session extends Component implements ISession {
 
@@ -1892,7 +1892,7 @@ use Wolfgang\Traits\TSessionHandler;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CookieSessionHandler extends Component implements ISessionHandler {
 	use TSessionHandler;
@@ -2004,7 +2004,7 @@ use Wolfgang\Traits\TSessionHandler;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CacheSessionHandler extends Component implements ISessionHandler {
 	use TSessionHandler;
@@ -2085,7 +2085,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 
@@ -2103,7 +2103,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Manager extends Component implements ISingleton {
 	use TSingleton;
@@ -2114,7 +2114,7 @@ namespace Wolfgang\Adapter;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Adapter extends Component {
 }<?php
@@ -2126,7 +2126,7 @@ use Wolfgang\Extension\Extension as WolfgangExtension;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Extension extends WolfgangExtension {
 }
@@ -2141,7 +2141,7 @@ use Wolfgang\Interfaces\IExtensible;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Extension extends BaseComponent implements IExtension {
 	/**
@@ -2180,7 +2180,7 @@ use Wolfgang\Interfaces\Event\IEvent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class EventListener extends Component implements IEventListener {
 
@@ -2263,7 +2263,7 @@ use Wolfgang\Dispatching\EventDispatcher;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Event extends Component implements IEvent {
 
@@ -2467,7 +2467,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 
@@ -2481,7 +2481,7 @@ use Wolfgang\Interfaces\Event\IEvent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Manager extends Component {
 
@@ -2527,7 +2527,7 @@ use Wolfgang\Templating\Templater;
  * @uses Wolfgang\Interfaces\Message\IRequest
  * @uses Wolfgang\Interfaces\Message\IResponse
  * @uses Wolfgang\Auth\Controller
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class SiteController extends Controller {
 	/**
@@ -2577,7 +2577,7 @@ use Wolfgang\Application\Cli as CliApplication;
  * @uses Wolfgang\Controller\Controller
  * @uses Wolfgang\Interfaces\HTTP\IRequest
  * @uses Wolfgang\Interfaces\HTTP\IResponse
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Cli extends Controller implements ICliController{
 
@@ -2634,7 +2634,7 @@ use Wolfgang\I18N\I18N;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Interfaces\IController
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Controller extends BaseComponent implements IController {
 
@@ -2798,7 +2798,7 @@ use Wolfgang\Interfaces\Controller\IApiController;
  * @uses Wolfgang\Auth\ApiController
  * @uses Wolfgang\Interfaces\Message\IRequest
  * @uses Wolfgang\Interfaces\Message\IResponse
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class ApiController extends Controller implements IApiController {
 	
@@ -2842,7 +2842,7 @@ use Wolfgang\Interfaces\ORM\ISchema as IDatabaseSchema;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class TableRelationship extends Component implements ITableRelationship {
 	/**
@@ -3174,7 +3174,7 @@ use Wolfgang\Interfaces\ORM\ISchema;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
 	
@@ -3198,9 +3198,9 @@ class EntityRelationshipGraph extends BaseEntityRelationshipGraph {
 		$subject_schema = $this->getSchema();
 		
 		$orm_connection = $orm_schema->getConnection();
-		$airportruns_connection = $subject_schema->getConnection();
+		$connection = $subject_schema->getConnection();
 		
-		$result = $airportruns_connection->exec( "SHOW TABLES IN {$this->getSchema()->getName()};" );
+		$result = $connection->exec( "SHOW TABLES IN {$this->getSchema()->getName()};" );
 		
 		foreach ( $result as $record ) {
 			$add_node_to_graph = false;
@@ -3323,7 +3323,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -3339,7 +3339,7 @@ use Wolfgang\Exceptions\MethodNotImplementedException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ForeignKeyRelationshipTree extends RoseTree implements IRoseTree {
 	
@@ -3395,7 +3395,7 @@ use Wolfgang\Interfaces\ORM\ITableRelationship;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ReferencedKeyFieldRelationship extends TableRelationship implements ITableRelationship {
 }
@@ -3417,7 +3417,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class SchemaManager extends Component implements ISingleton {
 	use TSingleton;
@@ -3556,7 +3556,7 @@ namespace Wolfgang\ORM;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ForeignKeyFieldRelationship extends TableRelationship {
 }
@@ -3574,7 +3574,7 @@ use Wolfgang\Component;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class TableManager extends Component {
 	
@@ -3728,7 +3728,7 @@ use Wolfgang\Proxy\ORM\Table as TableProxy;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Table extends Component implements ITable {
 
@@ -4077,6 +4077,7 @@ class Table extends Component implements ITable {
 			return $this->referenced_key_fields_relationships;
 		}
 
+		$schema_name = $this->getSchema()->getName();
 		$query = "SELECT
 					TABLE_SCHEMA as table_schema_name,
 					TABLE_NAME as table_name,
@@ -4092,7 +4093,7 @@ class Table extends Component implements ITable {
 					REFERENCED_TABLE_NAME = '{$this->getName()}'
 					AND
 					REFERENCED_TABLE_NAME IS NOT NULL
-					AND TABLE_SCHEMA = 'airportruns'";
+					AND TABLE_SCHEMA = '{$schema_name}'";
 
 		$connection = $this->getSchema()->getConnection();
 		$result = $connection->exec( $query );
@@ -4247,7 +4248,7 @@ use Wolfgang\Interfaces\ORM\ITable;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Column extends Component implements IColumn {
 	
@@ -4381,7 +4382,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class EntityRelationshipNode extends GraphNode {
 	
@@ -4438,7 +4439,7 @@ use Wolfgang\I18N\I18N;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Schema extends Component implements IDatabaseSchema {
 
@@ -5008,7 +5009,7 @@ use Wolfgang\ORM\Table as ComponentORMTable;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Table extends ComponentORMTable {
 }
@@ -5024,7 +5025,7 @@ use Wolfgang\Exceptions\MethodNotImplementedException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Column extends ORMColumn implements IMySQLiColumn {
 	
@@ -5334,7 +5335,7 @@ namespace Wolfgang\Model;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FlightAwareApiCallList extends ModelList {
 }
@@ -5354,7 +5355,7 @@ use Wolfgang\Session\Manager as SessionManager;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Interfaces\Model\IModel
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class RecordHistory extends Model implements IEncrypted {
 	use TEncrypted;
@@ -5485,7 +5486,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -5498,7 +5499,7 @@ namespace Wolfgang\Model;
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Model\ModelList
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class RecordHistoryList extends ModelList {
 
@@ -5516,7 +5517,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Manager extends Component implements ISingleton {
 	use TSingleton;
@@ -5712,7 +5713,7 @@ namespace Wolfgang\Model;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FlightAwareApiCall extends Model {
 }
@@ -5741,7 +5742,7 @@ use Wolfgang\Interfaces\SQL\Expression\IConditionalExpressionGroup;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class ModelList extends Component implements \Iterator , \Countable , IQueryBuilder , \ArrayAccess, ISearchable {
 	/**
@@ -6434,7 +6435,7 @@ use Wolfgang\Interfaces\Model\IBridgeModel;
  * inherit from.
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.0.1
+ * @since Version 1.0.0
  */
 abstract class Model extends Component implements IModel, IMarshallable {
 	use TMarshallable;
@@ -7131,7 +7132,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -7146,7 +7147,7 @@ use Wolfgang\Interfaces\Application\IApplication;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class I18N extends BaseComponent {
 	
@@ -7351,7 +7352,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 
@@ -7368,7 +7369,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Twitter extends Component implements ISingleton {
 	use TSingleton;
@@ -7411,7 +7412,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Facebook extends Component implements ISingleton {
 	use TSingleton;
@@ -8090,7 +8091,7 @@ use Wolfgang\Interfaces\SQL\Clause\IFromClause;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Join extends Component {
 
@@ -8203,7 +8204,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class StatementManager extends Component implements ISingleton {
 	use TSingleton;
@@ -8296,7 +8297,7 @@ use Wolfgang\ORM\SchemaManager;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Explain extends Statement {
 	
@@ -8408,7 +8409,7 @@ use Wolfgang\Exceptions\UnsupportedOperationException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Statement extends ComponentSQLStatement implements IUtilityStatement {
 	
@@ -8489,7 +8490,7 @@ use Wolfgang\SQL\Clause\OnDuplicateKeyUpdateClause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class InsertStatement extends Statement implements IInsertStatement, Stringable {
 	
@@ -8708,7 +8709,7 @@ use Wolfgang\Application\Application;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class SelectStatement extends Statement implements ISelectStatement {
 
@@ -9174,7 +9175,7 @@ use Wolfgang\SQL\Expression\ConditionalExpressionGroup;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class DeleteStatement extends Statement implements IDeleteStatement {
 	
@@ -9451,7 +9452,7 @@ use Wolfgang\SQL\Expression\ConditionalExpressionGroup;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class UpdateStatement extends Statement implements IUpdateStatement {
 	
@@ -9682,7 +9683,7 @@ use Wolfgang\Exceptions\UnsupportedOperationException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Statement extends ComponentSQLStatement implements IDMLStatement , IBitManipulator {
 	/**
@@ -9790,7 +9791,7 @@ use Wolfgang\SQL\Statement\DML\Statement as DMLStatement;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Statement extends SQLComponent implements IStatement {
 	
@@ -9858,7 +9859,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class LimitClause extends Clause implements ILimitClause {
 
@@ -9937,7 +9938,7 @@ use Wolfgang\Interfaces\SQL\Clause\IOrderByClause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class OrderByClause extends Clause implements IOrderByClause {
 	
@@ -10013,7 +10014,7 @@ use Wolfgang\Interfaces\SQL\Expression\IConditionalExpression;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class HavingClause extends Clause implements IHavingClause {
 	
@@ -10078,7 +10079,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class SelectClause extends Clause implements ISelectClause {
 	
@@ -10149,7 +10150,7 @@ use Wolfgang\Interfaces\SQL\Clause\IDeleteClause;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class DeleteClause extends Clause implements IDeleteClause {
 	
@@ -10175,7 +10176,7 @@ use Wolfgang\Interfaces\SQL\Statement\ISelectStatement;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class GroupByClause extends Clause implements IGroupByClause {
 
@@ -10237,7 +10238,7 @@ use Wolfgang\ORM\SchemaManager;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FromClause extends Clause implements IFromClause {
 	
@@ -10673,7 +10674,7 @@ use Wolfgang\Interfaces\SQL\Statement\DML\IInsertStatement;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class OnDuplicateKeyUpdateClause extends Clause {
 	/**
@@ -10738,7 +10739,7 @@ use Wolfgang\Interfaces\SQL\Clause\IUpdateClause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class UpdateClause extends Clause implements IUpdateClause {
 	
@@ -10802,7 +10803,7 @@ use Wolfgang\Interfaces\SQL\Clause\IWhereClause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class WhereClause extends Clause implements IWhereClause {
 	
@@ -10885,7 +10886,7 @@ use Wolfgang\Interfaces\ORM\ITable;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class InsertClause extends Clause implements IInsertClause {
 	
@@ -10941,7 +10942,7 @@ use Wolfgang\Interfaces\SQL\Statement\IStatement;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Clause extends SQLComponent implements IClause {
 	
@@ -10991,7 +10992,7 @@ use Wolfgang\ORM\SchemaManager;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FunctionExpression extends Expression {
 	
@@ -11052,7 +11053,7 @@ use Wolfgang\Application\Application;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class DateTimeExpression extends Expression {
 	
@@ -11084,7 +11085,7 @@ use Wolfgang\SQL\Component as SQLComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends SQLComponent {
 
@@ -11104,7 +11105,7 @@ use Wolfgang\Exceptions\MethodNotImplementedException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ConditionalExpressionGroup extends Component implements IConditionalExpressionGroup {
 
@@ -11436,7 +11437,7 @@ use Wolfgang\Interfaces\SQL\Statement\DML\IUpdateStatement;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class CharacterExpression extends Expression {
 
@@ -11503,7 +11504,7 @@ use Wolfgang\Exceptions\MethodNotImplementedException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ConditionalExpression extends Expression implements IConditionalExpression {
 
@@ -11869,7 +11870,7 @@ use Wolfgang\Interfaces\SQL\Statement\DML\IDeleteStatement;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class StringExpression extends CharacterExpression {
 
@@ -11962,7 +11963,7 @@ use Wolfgang\Application\Application;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class NumericExpression extends Expression {
 	
@@ -11993,7 +11994,7 @@ namespace Wolfgang\SQL\Expression;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CaseExpression extends Expression {
 }
@@ -12006,7 +12007,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class BooleanExpression extends NumericExpression {
 	
@@ -12066,7 +12067,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ColumnExpression extends Expression implements IColumnExpression {
 	
@@ -12272,7 +12273,7 @@ namespace Wolfgang\SQL\Expression;
  * 
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class IntervalExpression extends Expression {
 	
@@ -12306,7 +12307,7 @@ use Wolfgang\StringObject;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Expression extends SQLComponent implements IExpression {
 	
@@ -12506,7 +12507,7 @@ use Wolfgang\Interfaces\SQL\ISQLComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent implements ISQLComponent {
 
@@ -12517,7 +12518,7 @@ namespace Wolfgang;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseObject {
 }
@@ -12528,7 +12529,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class IPStack extends Config {
 }<?php
@@ -12538,7 +12539,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Orm extends Config {
 }<?php
@@ -12548,7 +12549,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class SocialMedia extends Config {
 }
@@ -12567,7 +12568,7 @@ use Wolfgang\Config\App as AppConfig;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Config extends Component {
 	/**
@@ -12857,7 +12858,7 @@ namespace Wolfgang\Config;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Config\Config
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Database extends Config {
 }
@@ -12870,7 +12871,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 
@@ -12881,7 +12882,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FlightAware extends Config {
 }
@@ -12894,7 +12895,7 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Minio extends Config {
     
@@ -12941,7 +12942,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Curl extends Config {
 }<?php
@@ -12952,7 +12953,7 @@ namespace Wolfgang\Config;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Config\Config
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Mailing extends Config {
 }<?php
@@ -12962,7 +12963,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Google extends Config {
 }<?php
@@ -12972,7 +12973,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Cache extends Config {
 }<?php
@@ -12982,7 +12983,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Server extends Config {
 }<?php
@@ -12992,7 +12993,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Session extends Config {
 }
@@ -13003,7 +13004,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Mq extends Config {
 }<?php
@@ -13013,7 +13014,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Logger extends Config {
 }
@@ -13024,7 +13025,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class PaymentProcessing extends Config {
 }
@@ -13035,7 +13036,7 @@ namespace Wolfgang\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class App extends Config {
 }
@@ -13046,7 +13047,7 @@ namespace Wolfgang\Encryption;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class AES extends OpenSsl {
 	const AES_PASSWORD = 'e57733e10d128a0e1d24875d6e7479af8af146d4bbc272e444e7c3f7a1e83eae';
@@ -13093,7 +13094,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @see https://tools.ietf.org/html/rfc5246#page-24
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class OpenSsl extends BaseComponent {
 	const OPEN_SSL_PASSWORD = '8d85a81fb6dcadef22e9c8a376c7c1d9755c3fb567c706f4d84290982ad0dbda';
@@ -13262,7 +13263,7 @@ namespace Wolfgang\Interfaces\Session;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ISession {
 
@@ -13312,7 +13313,7 @@ use SessionHandlerInterface;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 interface ISessionHandler extends SessionHandlerInterface {
     
@@ -13339,7 +13340,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IExtension {
 
@@ -13357,8 +13358,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IProxy {
 }
@@ -13368,9 +13368,8 @@ namespace Wolfgang\Interfaces;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 1.0.0
  */
 interface IEntity {
 
@@ -13441,7 +13440,7 @@ use Wolfgang\Interfaces\Application\IContext;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IEventListener {
 
@@ -13556,7 +13555,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ICliMarshallable {
 	/**
@@ -13576,8 +13575,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ICommand {
 	
@@ -13594,7 +13592,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IBitManipulator {
 
@@ -13631,7 +13629,7 @@ namespace Wolfgang\Interfaces\ORM;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IColumn {
 	
@@ -13852,7 +13850,7 @@ namespace Wolfgang\Interfaces\ORM;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IMySQLiColumn extends IColumn {
 	/**
@@ -13950,7 +13948,7 @@ use Wolfgang\Interfaces\ORM\ISchema as IDatabaseSchema;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ITable {
 
@@ -14034,7 +14032,7 @@ use Wolfgang\Interfaces\SQL\Clause\IOrderByClause;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IQueryBuilder {
 
@@ -14115,7 +14113,7 @@ use Wolfgang\Interfaces\ISchema;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IRelationalSchema extends ISchema {
 	/**
@@ -14130,8 +14128,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.0.1
+ * @since Version 1.0.0
  */
 interface ISkin {
 	
@@ -14154,7 +14151,7 @@ namespace Wolfgang\Interfaces\Model;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IUser extends IModel {
 }
@@ -14166,9 +14163,8 @@ use Wolfgang\Util\LatLng;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 1.0.0
  */
 interface IAddress extends IModel {
 
@@ -14185,7 +14181,7 @@ namespace Wolfgang\Interfaces\Model;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IModelList {
 
@@ -14221,10 +14217,8 @@ namespace Wolfgang\Interfaces\Model;
 use Wolfgang\Interfaces\ORM\IColumn;
 
 /**
- *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 1.0.0
  */
 interface IEncrypted extends IModel {
 	
@@ -14251,7 +14245,7 @@ use Wolfgang\Interfaces\SQL\IUnduplicable;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IBridgeModel extends IUnduplicable, IModel {
 	/**
@@ -14267,7 +14261,7 @@ namespace Wolfgang\Interfaces\Model;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IModel {
 	
@@ -14296,9 +14290,8 @@ namespace Wolfgang\Interfaces\Model;
 use DateTimeZone;
 
 /**
- *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ITimezone extends IModel {
 
@@ -14348,7 +14341,7 @@ use Wolfgang\Interfaces\SQL\Statement\IStatement as IComponentSQLStatement;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IStatement extends IComponentSQLStatement {
 }<?php
@@ -14367,7 +14360,7 @@ use Wolfgang\Interfaces\SQL\Clause\ISelectClause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ISelectStatement extends IStatement {
 	const MODIFIER_ALL = 1;
@@ -14504,7 +14497,7 @@ namespace Wolfgang\Interfaces\SQL\Statement;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IStatement {
 }<?php
@@ -14520,7 +14513,7 @@ use Wolfgang\Interfaces\SQL\Clause\IDeleteClause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IDeleteStatement extends IStatement {
 	
@@ -14627,7 +14620,7 @@ use Wolfgang\Interfaces\SQL\Clause\ILimitClause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IUpdateStatement extends IStatement {
 	
@@ -14689,7 +14682,7 @@ use Wolfgang\Interfaces\SQL\Statement\IStatement as IComponentSQLStatement;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IStatement extends IComponentSQLStatement {
 }
@@ -14702,7 +14695,7 @@ use Wolfgang\Interfaces\SQL\Statement\IStatement as IComponentSQLStatement;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IDMLStatement extends IComponentSQLStatement {
 }
@@ -14716,7 +14709,7 @@ use Wolfgang\Interfaces\SQL\Clause\IInsertClause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IInsertStatement extends IStatement {
 	
@@ -14804,7 +14797,7 @@ use Wolfgang\Interfaces\SQL\Expression\IConditionalExpression;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IWhereClause extends IClause {
 	const LOGICAL_OPERATOR_AND = 'AND';
@@ -14842,7 +14835,7 @@ namespace Wolfgang\Interfaces\SQL\Clause;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IDeleteClause extends IClause {
 
@@ -14853,7 +14846,7 @@ namespace Wolfgang\Interfaces\SQL\Clause;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IHavingClause extends IClause {
 
@@ -14864,7 +14857,7 @@ namespace Wolfgang\Interfaces\SQL\Clause;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IOrderByClause extends IClause {
 	const ORDER_ASC = 'ASC';
@@ -14893,7 +14886,7 @@ use Wolfgang\Interfaces\ORM\ITable;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IInsertClause extends IClause {
 	
@@ -14909,7 +14902,7 @@ namespace Wolfgang\Interfaces\SQL\Clause;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IGroupByClause extends IClause {
 
@@ -14922,7 +14915,7 @@ use Wolfgang\Interfaces\ORM\ITable;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IFromClause extends IClause {
 
@@ -14950,7 +14943,7 @@ namespace Wolfgang\Interfaces\SQL\Clause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ISelectClause extends IClause {
 	
@@ -14975,7 +14968,7 @@ use Wolfgang\Interfaces\SQL\Statement\IStatement;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IClause {
 	
@@ -14993,7 +14986,7 @@ use Wolfgang\Interfaces\ORM\ITable;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IUpdateClause extends IClause {
 	
@@ -15009,7 +15002,7 @@ namespace Wolfgang\Interfaces\SQL\Expression;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IConditionalExpressionGroup extends IConditionalExpression {
 
@@ -15030,7 +15023,7 @@ use Wolfgang\Interfaces\ORM\IColumn;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IColumnExpression extends IExpression {
 	
@@ -15066,7 +15059,7 @@ use Wolfgang\Interfaces\SQL\Clause\IClause;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IExpression {
 	
@@ -15093,7 +15086,7 @@ use \DateTime;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IConditionalExpression {
 	const QUALIFIER_NOT = 1;
@@ -15165,7 +15158,7 @@ namespace Wolfgang\Interfaces\SQL;
  * 
  * @see  https://dev.mysql.com/doc/refman/8.0/en/insert-on-duplicate.html
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IUnduplicable {
 	
@@ -15181,7 +15174,7 @@ namespace Wolfgang\Interfaces\SQL;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ISQLComponent {
 
@@ -15191,10 +15184,8 @@ interface ISQLComponent {
 namespace Wolfgang\Interfaces;
 
 /**
- *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IDelta {
 	
@@ -15207,7 +15198,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IHttpException {
     public function getHttpCode ( ): int;
@@ -15220,8 +15211,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IIterator {
 	const TYPE_RECURSIVE_DIRECTORY_ITERATOR = 1;
@@ -15233,7 +15223,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IContact {
 	
@@ -15249,7 +15239,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IEmailContact extends IContact {
 	
@@ -15264,10 +15254,8 @@ interface IEmailContact extends IContact {
 namespace Wolfgang\Interfaces\Util;
 
 /**
- *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IFile {
 
@@ -15365,7 +15353,7 @@ use Wolfgang\Interfaces\Database\IConnection as IDatabaseConnection;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IPostgreSQLConnection extends IDatabaseConnection {
 
@@ -15379,7 +15367,7 @@ use Wolfgang\Interfaces\Database\IConnection as IDatabaseConnection;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IDB2Connection extends IDatabaseConnection {
 
@@ -15393,7 +15381,7 @@ use Wolfgang\Interfaces\Database\IConnection as IDatabaseConnection;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IMySQLConnection extends IDatabaseConnection {
 }
@@ -15406,7 +15394,7 @@ use Wolfgang\Interfaces\Database\IResultSet;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IMySQLResultSet extends IResultSet {
 
@@ -15420,7 +15408,7 @@ use Wolfgang\Interfaces\SQL\Statement\IStatement;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IConnection {
 	
@@ -15494,7 +15482,7 @@ namespace Wolfgang\Interfaces\Database;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IResultSet extends \Iterator , \Countable {
 	
@@ -15524,8 +15512,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IGraph extends IReport {
 }
@@ -15534,10 +15521,8 @@ interface IGraph extends IReport {
 namespace Wolfgang\Interfaces;
 
 /**
- *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IExtensible {
 
@@ -15561,8 +15546,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IReport extends IMarshallable {
 
@@ -15572,10 +15556,8 @@ interface IReport extends IMarshallable {
 namespace Wolfgang\Interfaces;
 
 /**
- *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IDeltaChange {
 	
@@ -15604,7 +15586,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IAdaptable {
 
@@ -15616,7 +15598,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ISingleton {
 	public static function getInstance ( );
@@ -15636,7 +15618,7 @@ use Wolfgang\Interfaces\Session\ISession;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IApplication {
 	
@@ -15753,7 +15735,7 @@ use Wolfgang\Interfaces\IApiKey;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IApi extends IApplication {
 	
@@ -15770,7 +15752,7 @@ namespace Wolfgang\Interfaces\Application;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ISite extends IApplication {
 }<?php
@@ -15782,7 +15764,7 @@ use Wolfgang\Interfaces\ISkin;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IContext {
 	/**
@@ -16033,7 +16015,7 @@ namespace Wolfgang\Interfaces\Stripe;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ICustomer {
 
@@ -16061,7 +16043,7 @@ namespace Wolfgang\Interfaces\Stripe;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IPaymentMethod {
 
@@ -16080,7 +16062,7 @@ use Wolfgang\Interfaces\Event\IEventListener;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IEventDispatcher {
 
@@ -16139,7 +16121,7 @@ use Wolfgang\Interfaces\Controller\IController;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IRoute {
 
@@ -16161,7 +16143,7 @@ namespace Wolfgang\Interfaces\Routing;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IHttpRoute extends IRoute {
     /**
@@ -16179,7 +16161,7 @@ use Wolfgang\Interfaces\Routing\IRoute;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IRouter {
 	const DEFAULT_CONTROLLER = 'Index';
@@ -16205,7 +16187,7 @@ namespace Wolfgang\Interfaces\Routing;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ICliRoute extends IRoute {
  
@@ -16216,7 +16198,7 @@ namespace Wolfgang\Interfaces\Message;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IRequest extends IMessage {
 
@@ -16241,7 +16223,7 @@ use Wolfgang\Interfaces\Message\IRequest as IComponentRequest;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IRequest extends IMessage , IComponentRequest {
 
@@ -16334,8 +16316,7 @@ use Wolfgang\Interfaces\Message\IResponse as IComponentResponse;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @see http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IResponse extends IMessage , IComponentResponse {
 	//@formatter:off
@@ -16730,7 +16711,7 @@ namespace Wolfgang\Interfaces\Message\HTTP;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IApiRequest extends IRequest {
 
@@ -16769,10 +16750,8 @@ interface IMessage extends IComponentMessage {
 namespace Wolfgang\Interfaces\Message;
 
 /**
- *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @see http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IResponse extends IMessage {
 }<?php
@@ -16821,7 +16800,7 @@ use Wolfgang\Interfaces\Message\IRequest as IComponentRequest;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IRequest extends IMessage , IComponentRequest {
 }<?php
@@ -16918,7 +16897,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ISkinDomain {
 
@@ -16934,7 +16913,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IMarshallable {
 
@@ -16951,7 +16930,7 @@ use \stdClass;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IMarshaller {
 	
@@ -17138,10 +17117,8 @@ interface IUri {
 namespace Wolfgang\Interfaces;
 
 /**
- *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IModelDelta extends IDelta {
 }
@@ -17170,7 +17147,7 @@ namespace Wolfgang\Interfaces\Structure\Graph;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IGraph {
 
@@ -17198,7 +17175,7 @@ namespace Wolfgang\Interfaces\Structure\Graph;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IEntityRelationship {
 
@@ -17211,7 +17188,7 @@ use Wolfgang\Interfaces\ISchema;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
  interface IEntityRelationshipGraph {
 	 
@@ -17231,7 +17208,7 @@ use Wolfgang\Interfaces\IEntity;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IGraphNode extends INode , IEntity {
 	
@@ -17353,9 +17330,8 @@ namespace Wolfgang\Interfaces\Logger;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 1.0.0
  */
 interface IGelfMessage {
 
@@ -17401,9 +17377,8 @@ namespace Wolfgang\Interfaces\Logger;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 1.0.0
  */
 interface IHTTPLogger extends ILogger {
 
@@ -17415,7 +17390,7 @@ namespace Wolfgang\Interfaces\Logger;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface ILogger {
 	/**
@@ -17593,7 +17568,7 @@ namespace Wolfgang\Interfaces\Logger;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IFileLogger extends ILogger {
 
@@ -17604,9 +17579,8 @@ namespace Wolfgang\Interfaces\Logger;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 1.0.0
  */
 interface IUDPLogger extends ILogger {
 
@@ -17617,9 +17591,8 @@ namespace Wolfgang\Interfaces;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 1.0.0
  */
 interface IAdapter {
 
@@ -17631,8 +17604,7 @@ namespace Wolfgang\Interfaces;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IImmutable {
 }
@@ -17649,7 +17621,7 @@ use Wolfgang\Config\Config;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class SkinDomain extends Component implements ISkinDomain {
 	use TSkinDomain;
@@ -17770,7 +17742,7 @@ use Wolfgang\Interfaces\IContact;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Contact extends Component implements IContact {
 	/**
@@ -17816,7 +17788,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class UploadHandler extends Component implements ISingleton {
 	use TSingleton;
@@ -17828,7 +17800,7 @@ namespace Wolfgang\Util;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Regex extends Component {
 	
@@ -17853,7 +17825,7 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class DateValueAggregator extends Component {
 	/**
@@ -18076,7 +18048,7 @@ use Wolfgang\Interfaces\IDeltaChange;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class DeltaChange extends Component implements IDeltaChange {
 	/**
@@ -18148,7 +18120,7 @@ use Wolfgang\Interfaces\ICommand;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Command extends Component implements ICommand {
 	
@@ -18372,7 +18344,7 @@ namespace Wolfgang\Util;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ApplicationCommand extends Command {
 	
@@ -18405,7 +18377,7 @@ namespace Wolfgang\Util;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ExtendsModelFilterIterator extends \RecursiveFilterIterator {
 	
@@ -18472,7 +18444,7 @@ namespace Wolfgang\Util;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Token extends Component {
 	
@@ -18495,8 +18467,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @version 1.0.0
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class RegexIterator extends UtilComponent implements IIterator {
 
@@ -18526,7 +18497,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 
@@ -18543,7 +18514,7 @@ use Wolfgang\Network\Uri\DataUri;
 
 /**
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Filesystem extends Component {
 
@@ -18789,7 +18760,7 @@ use Wolfgang\Network\Uri\Uri;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Xhprof extends Component implements ISingleton {
 	use TSingleton;
@@ -18847,7 +18818,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FlightAware extends Component implements ISingleton {
 	use TSingleton;
@@ -18953,7 +18924,7 @@ use Wolfgang\Interfaces\IEmailContact;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class EmailContact extends Contact implements IEmailContact, Stringable {
 	
@@ -19057,7 +19028,7 @@ use Wolfgang\Exceptions\IllegalStateException;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @see https://misc.flogisoft.com/bash/tip_colors_and_formatting
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CliWriter extends Component {
 
@@ -19107,7 +19078,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Strings extends Component {
 
@@ -19220,7 +19191,7 @@ use Wolfgang\Encryption\AES;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Exceptions\InvalidArgumentException
  * @uses Wolfgang\Encryption\AES
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Cookie extends Component {
 
@@ -19300,7 +19271,7 @@ use Wolfgang\Encoding\JSON;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Curl extends Component implements ISingleton {
 	/**
@@ -19520,7 +19491,7 @@ use Wolfgang\Encryption\OpenSsl;
  *
  * @author Andrew Moore
  * @link http://www.php.net/manual/en/function.uniqid.php#94959
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class UUID extends Component {
 	
@@ -19666,7 +19637,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CLICommand extends Command {
 	
@@ -19761,7 +19732,7 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class GeoIP extends Component {
 	
@@ -19820,7 +19791,7 @@ use Wolfgang\Interfaces\IModelDelta;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ModelDelta extends Delta implements IModelDelta {
 
@@ -19866,7 +19837,7 @@ use Wolfgang\Exceptions\Exception as CoreException;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Password extends Component {
 
@@ -19968,7 +19939,7 @@ use Wolfgang\Exceptions\Filesystem\Exception as FilesystemException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Minifier extends Component implements ISingleton {
 	private $scripts = array ();
@@ -20081,7 +20052,7 @@ use Wolfgang\Traits\TMarshaller;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class DataTableMarshaller extends Component implements IMarshaller , ISingleton {
 	use TMarshaller;
@@ -20158,7 +20129,7 @@ use Wolfgang\Interfaces\IMarshallable;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class LatLng extends Component implements IMarshallable {
 
@@ -20262,7 +20233,7 @@ namespace Wolfgang\Util;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Arrays extends Component {
 	public static function filter ( ) {
@@ -20284,7 +20255,7 @@ use Wolfgang\Encoding\JSON;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class JSONPMarshaller extends Component implements IMarshaller , ISingleton {
 
@@ -20327,7 +20298,7 @@ namespace Wolfgang\Util;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Numbers extends Component {
 
@@ -20378,7 +20349,7 @@ use Wolfgang\BaseObject;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Delta extends Component implements IDelta , \Iterator , \Countable {
 	
@@ -20508,7 +20479,7 @@ use Wolfgang\Encoding\JSON;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Bots extends Component {
 
@@ -20561,7 +20532,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Validator extends Component {
 
@@ -20615,9 +20586,8 @@ use Wolfgang\Interfaces\Logger\IGelfMessage;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 1.0.0
  */
 final class GelfMessage extends Component implements IGelfMessage {
 	protected $version = '1.1';
@@ -20691,8 +20661,7 @@ use Wolfgang\Interfaces\Logger\IHTTPLogger;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class HTTPLogger extends Logger implements IHTTPLogger {
 	
@@ -20793,7 +20762,7 @@ use Wolfgang\Util\Component as UtilComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends UtilComponent {
 
@@ -20808,8 +20777,7 @@ use Wolfgang\Interfaces\Logger\ILogger;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link https://airportruns.ca
- * @since Version 0.0.1
+ * @since Version 1.0.0
  */
 final class UDPLogger extends Logger implements IUDPLogger {
 	
@@ -20917,7 +20885,7 @@ use Wolfgang\Application\Context;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FileLogger extends Logger implements IFileLogger {
 	
@@ -21129,8 +21097,7 @@ use Wolfgang\Config\App;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FileLoggerConfiguration extends LoggerComponent {
 	
@@ -21198,7 +21165,7 @@ use Wolfgang\Interfaces\Logger\ILogger;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
-* @since Version 0.1.0
+* @since Version 1.0.0
 */
 abstract class Logger extends Component implements ILogger {
 
@@ -21227,7 +21194,7 @@ use Wolfgang\Model\Model;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Inflector extends Component {
 
@@ -21651,7 +21618,7 @@ use Wolfgang\Traits\TMarshaller;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class AutoCompleteMarshaller extends Component implements IMarshaller , ISingleton {
 	use TMarshaller;
@@ -21719,7 +21686,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Skin extends Component implements ISkin {
 	use TSkin;
@@ -21796,7 +21763,7 @@ use Wolfgang\Component as BaseComponent;
  * 
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 
@@ -21807,7 +21774,7 @@ namespace Wolfgang\Database\MySQL;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class BackupManager extends Component {
 }
@@ -21820,7 +21787,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -21835,7 +21802,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 
 final class ResultSet extends DatabaseResultSet implements IMySQLResultSet {
@@ -21970,7 +21937,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Connection extends DatabaseConnection implements IMySQLConnection {
 	
@@ -22139,7 +22106,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class DriverManager extends DatabaseComponent implements ISingleton {
 	use TSingleton;
@@ -22249,7 +22216,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
  * @abstract
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class ResultSet extends Component implements IResultSet {
 	
@@ -22292,7 +22259,7 @@ use Wolfgang\Interfaces\Network\IDsn;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Connection extends DatabaseComponent implements IConnection {
 	
@@ -22405,7 +22372,7 @@ use Wolfgang\Exceptions\Exception as CoreException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class MinioTenant extends Component {
 	
@@ -22529,7 +22496,7 @@ use Wolfgang\Exceptions\Exception as CoreException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Client extends Component {
 	
@@ -22592,7 +22559,7 @@ use Wolfgang\Config\Minio as MinioConfig;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Minio extends Component {
 
@@ -22693,7 +22660,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -22728,7 +22695,6 @@ use Wolfgang\Exceptions\PaymentProcessing\Stripe\Exception as StripePaymentProce
  *
  * @uses \Stripe\Stripe()
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @see Version 0.1.0
  */
 final class Stripe extends Component implements ISingleton {
 	use TSingleton;
@@ -23234,7 +23200,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Paypal extends Component implements ISingleton {
 	use TSingleton;
@@ -23258,7 +23224,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -23277,7 +23243,7 @@ use Wolfgang\ORM\SchemaManager;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Table extends Component implements IProxy , ITable {
 	use TProxy;
@@ -23516,7 +23482,7 @@ use Wolfgang\Component as BaseComponent;
 
 /**
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -23539,7 +23505,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Interfaces\ISingleton
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Context extends Component implements IContext , ISingleton {
 	use TSingleton;
@@ -24075,7 +24041,7 @@ use Wolfgang\Routing\CliRouter;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\ISingleton
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Cli extends Application {
 
@@ -24211,7 +24177,7 @@ use Wolfgang\Interfaces\Network\IUri;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Application extends Component implements IApplication {
 
@@ -24346,7 +24312,7 @@ abstract class Application extends Component implements IApplication {
 			$domain = $this->context->getSkin()->getSkinDomain()->getDomain();
 			$session = SessionManager::getInstance()->createSession( $kind, array(
 				'domain' => $domain,
-				'id_prefix' => $this->config['session_id_prefix']
+				'id_prefix' => $this->config['session_id_prefix'] ?? '',
 			) );
 
 			if($session->get('remember_me')){
@@ -24932,7 +24898,7 @@ use Wolfgang\Interfaces\Network\IUri;
  * @abstract
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\Application\IApi
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Api extends Application implements IApi {
 
@@ -25197,7 +25163,7 @@ use Wolfgang\Util\Logger\Logger;
 /**
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @abstract
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Site extends Application implements ISite {
 
@@ -25359,7 +25325,7 @@ namespace Wolfgang\MQ\AMQP;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Queue extends Component {
 }<?php
@@ -25371,7 +25337,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -25384,7 +25350,7 @@ use AMQPChannel;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Exchange extends Component {
 	/**
@@ -25423,7 +25389,7 @@ use AMQPChannel;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Channel extends Component {
 	/**
@@ -25454,7 +25420,7 @@ use Wolfgang\Exceptions\MQ\AMQP\Exception as AMQPException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Connection extends Component {
 	
@@ -25496,7 +25462,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
  *
 * @uses Wolfgang\Exceptions\Exception
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends ComponentException {
 
@@ -25517,7 +25483,7 @@ namespace Wolfgang\Exceptions\Filesystem;
  *
 * @uses Wolfgang\Exceptions\Filesystem\Exception
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FileNotExistException extends Exception {
 	
@@ -25536,7 +25502,7 @@ namespace Wolfgang\Exceptions;
 
 /**
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ClassNotFound extends Exception {
 
@@ -25557,7 +25523,7 @@ use Wolfgang\Exceptions\Exception as BaseException;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 class Exception extends BaseException {
 
@@ -25577,7 +25543,7 @@ namespace Wolfgang\Exceptions;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class UnauthorizedException extends Exception {
 
@@ -25597,7 +25563,7 @@ namespace Wolfgang\Exceptions;
 
 /**
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class AppNotFound extends Exception {
 
@@ -25620,7 +25586,7 @@ use Wolfgang\Exceptions\ORM\Exception as ORMException;
  *
  * 
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class TableNotExistException extends ORMException {
 	
@@ -25641,7 +25607,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends ComponentException {
 	
@@ -25662,7 +25628,7 @@ use Wolfgang\Exceptions\Exception as WolfgangException;
 
 /**
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends WolfgangException {
 	
@@ -25683,7 +25649,7 @@ use Wolfgang\Exceptions\SQL\Exception as SQLException;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 class Exception extends SQLException {
 
@@ -25704,7 +25670,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 class Exception extends ComponentException {
 
@@ -25725,7 +25691,7 @@ use Wolfgang\Exceptions\SQL\Exception as SQLException;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 
 final class ColumnNotExistException extends SQLException {
@@ -25748,7 +25714,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 class Exception extends ComponentException {
 
@@ -25768,7 +25734,7 @@ namespace Wolfgang\Exceptions\Encryption;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class OpenSslException extends Exception {
 
@@ -25790,7 +25756,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends ComponentException {
 }<?php
@@ -25802,7 +25768,7 @@ use Wolfgang\Interfaces\IMarshallable;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends \Exception implements IMarshallable {
 
@@ -25856,7 +25822,7 @@ namespace Wolfgang\Exceptions\Database;
 /**
  *
  * @filesource Exceptions\SQL\UnattainableConnectionException
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 final class UnattainableConnectionException extends Exception {
 
@@ -25877,7 +25843,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 class Exception extends ComponentException {
 
@@ -25899,7 +25865,7 @@ use Wolfgang\Exceptions\Exception as BaseException;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends BaseException {
 
@@ -25921,7 +25887,7 @@ use Wolfgang\Exceptions\PaymentProcessing\Exception as PaymentProcessingExceptio
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends PaymentProcessingException {
 
@@ -25942,7 +25908,7 @@ namespace Wolfgang\Exceptions;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class InvalidStateException extends Exception {
 }
@@ -25953,7 +25919,7 @@ namespace Wolfgang\Exceptions;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class IllegalStateException extends Exception {
 
@@ -25974,8 +25940,8 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
- * @author Ramone Burrell <ramone.burrell@rairportruns.ca>
- * @since Version 0.1.0
+ * @author Ramone Burrell <burrellramone@gmail.com>
+ * @since Version 1.0.0
  */
 class Exception extends ComponentException {
 }
@@ -25987,9 +25953,9 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
- * @author Ramone Burrell <ramone.burrell@rairportruns.ca>
+ * @author Ramone Burrell <burrellramone@gmail.com>
  * @uses Wolfgang\Exceptions\Exception
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends ComponentException {
 	
@@ -26009,7 +25975,7 @@ namespace Wolfgang\Exceptions\Cache;
 
 /**
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class UnattainableConnection extends Exception {
 	
@@ -26031,7 +25997,7 @@ use Wolfgang\Exceptions\Exception as ComponentException;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 class Exception extends ComponentException {
 	
@@ -26051,7 +26017,7 @@ namespace Wolfgang\Exceptions\Templating;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class TemplateNotExistException extends Exception {
 	
@@ -26071,7 +26037,7 @@ namespace Wolfgang\Exceptions;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class InvalidArgumentException extends Exception {
 }<?php
@@ -26081,7 +26047,7 @@ namespace Wolfgang\Exceptions\Routing;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class RouteException extends Exception {
 
@@ -26102,7 +26068,7 @@ use Wolfgang\Exceptions\Exception as WolfgangException;
 
 /**
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends WolfgangException {
 }<?php
@@ -26111,7 +26077,7 @@ namespace Wolfgang\Exceptions\Routing;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 final class NoSuchActionException extends Exception {
 
@@ -26131,7 +26097,7 @@ namespace Wolfgang\Exceptions\Message\HTTP;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class BadRequest extends Exception {
 	/**
@@ -26160,7 +26126,7 @@ use Wolfgang\Interfaces\Message\HTTP\IResponse;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class UnauthorizedException extends Exception {
 	/**
@@ -26192,7 +26158,7 @@ namespace Wolfgang\Exceptions\Message\HTTP;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class InvalidHttpStatusCodeException extends Exception {
 	/**
@@ -26223,7 +26189,7 @@ use Wolfgang\Interfaces\IHttpException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Exception extends ComponentException implements IHttpException {
 	/**
@@ -26381,7 +26347,7 @@ use Wolfgang\Interfaces\Message\HTTP\IResponse;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ServiceUnavailable extends Exception {
 	/**
@@ -26415,7 +26381,7 @@ use Exception as PHPException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class NotFoundException extends Exception {
 	/**
@@ -26448,7 +26414,7 @@ namespace Wolfgang\Exceptions\Message\HTTP;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class InternalServerError extends Exception {
 	/**
@@ -26479,7 +26445,7 @@ namespace Wolfgang\Exceptions;
 
 /**
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class MethodNotFound extends Exception {
 
@@ -26501,7 +26467,7 @@ use Wolfgang\Exceptions\Exception as BaseException;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class IllegalOperationException extends BaseException {
 
@@ -26512,7 +26478,7 @@ namespace Wolfgang\Exceptions;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class IllegalArgumentException extends Exception {
 
@@ -26533,7 +26499,7 @@ use Wolfgang\Exceptions\Exception as BaseException;
 
 /**
  *
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends BaseException {
 
@@ -26547,7 +26513,7 @@ use Wolfgang\Exceptions\Exception as BaseException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends BaseException {
 }<?php
@@ -26559,7 +26525,7 @@ use Exception;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class MethodNotImplementedException extends Exception {
     /**
@@ -26577,7 +26543,7 @@ namespace Wolfgang\Exceptions;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 final class NoSuchMethodException extends Exception {
 
@@ -26599,7 +26565,7 @@ use Wolfgang\Exceptions\Exception as BaseException;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Exception extends BaseException {
 
@@ -26620,7 +26586,7 @@ use Wolfgang\Exceptions\Encoding\Exception as EncodingException;
 
 /**
  *
-* @since Version 0.1.0
+* @since Version 1.0.0
  */
 class Exception extends EncodingException {
 	/**
@@ -26639,7 +26605,7 @@ namespace Wolfgang\Exceptions;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class UnsupportedOperationException extends Exception {
 
@@ -26670,7 +26636,7 @@ use Wolfgang\Traits\TSingleton;
  * @uses Wolfgang\Interfaces\ICacher
  * @uses Wolfgang\Session\Manager
  * @uses Wolfgang\Session\Session
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Memcached extends Cacher {
 	use TSingleton;
@@ -26841,7 +26807,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }
@@ -26856,7 +26822,7 @@ use Wolfgang\Interfaces\ISingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Cacher extends Component implements ICacher , ISingleton {
 
@@ -26922,7 +26888,7 @@ use Wolfgang\Config\App as AppConfig;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Templater extends Component implements ISingleton {
 	
@@ -27083,7 +27049,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 
@@ -27109,7 +27075,7 @@ use Wolfgang\Interfaces\ISingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Smarty extends Templater implements ITemplater {
 
@@ -27505,7 +27471,7 @@ use Wolfgang\Interfaces\Event\IEventListener;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class EventDispatcher extends Component implements ISingleton , IEventDispatcher {
 
@@ -27598,7 +27564,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }
@@ -27625,7 +27591,7 @@ use Wolfgang\Interfaces\Message\IRequest;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Dispatcher extends Component implements IDispatcher , ISingleton {
 	use TSingleton;
@@ -27741,7 +27707,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }<?php
@@ -27757,8 +27723,9 @@ use Wolfgang\Exceptions\Routing\Exception as RoutingException;
 use Wolfgang\Exceptions\Message\HTTP\NotFoundException;
 
 /**
+ *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class HttpRoute extends Route {
 
@@ -27905,7 +27872,7 @@ use Wolfgang\Network\Uri\Uri;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Route extends Component implements IRoute {
 
@@ -28000,7 +27967,7 @@ use Wolfgang\Exceptions\Message\HTTP\BadRequest;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class HttpRouter extends Router {
 	use TSingleton;
@@ -28129,7 +28096,7 @@ use Wolfgang\Interfaces\Message\IRequest;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Router extends Component implements IRouter , ISingleton {
 
@@ -28219,7 +28186,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CliRouter extends Router {
 	use TSingleton;
@@ -28278,7 +28245,7 @@ use Wolfgang\Exceptions\Message\HTTP\NotFoundException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CliRoute extends Route implements ICliRoute {
 
@@ -28360,7 +28327,7 @@ use Wolfgang\Traits\Message\TMessage;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Message extends WolfgangComponent implements IMessage {
 	use TMessage;
@@ -28390,7 +28357,7 @@ use Wolfgang\Message\Message as WolfgangMessage;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Message extends WolfgangMessage implements IMessage {
 }
@@ -28411,7 +28378,7 @@ use Wolfgang\Traits\TSingleton;
  * @uses Wolfgang\Message\HTTP\Message
  * @uses Wolfgang\Interfaces\ISingleton
  * @uses Wolfgang\Interfaces\HTTP\IRequest
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Request extends Message implements ISingleton , IRequest {
 	use TSingleton;
@@ -28520,7 +28487,7 @@ use Wolfgang\Interfaces\IApiKey;
  * @uses Wolfgang\Interfaces\ISingleton
  * @uses Componenets\Interfaces\HTTP\IApiRequest
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ApiRequest extends Request implements IApiRequest {
 
@@ -28587,7 +28554,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Response extends Message implements ISingleton , IResponse {
 	use TSingleton;
@@ -28811,7 +28778,7 @@ use Wolfgang\Util\Token;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Message extends WolfgangMessage implements IMail {
 	use TMail;
@@ -28842,7 +28809,7 @@ use Wolfgang\Interfaces\Message\CLI\IMessage;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Message extends Component implements IMessage {
     public function __toString():string{
@@ -28858,7 +28825,7 @@ use Wolfgang\Message\Message;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends Message {
 
@@ -28877,7 +28844,7 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Request extends Message implements ISingleton , IRequest {
 	use TSingleton;
@@ -28913,7 +28880,7 @@ use Wolfgang\Traits\Message\TResponse;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Response extends Message implements ISingleton , IResponse {
 	use TSingleton;
@@ -28936,7 +28903,7 @@ use Wolfgang\Network\Component as NetworkComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class UriPath extends NetworkComponent {
 
@@ -28954,7 +28921,7 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Uri extends Component implements IUri {
 	
@@ -29267,7 +29234,7 @@ use Wolfgang\Encoding\Base64;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class DataUri extends Uri implements IDataUri {
 	
@@ -29672,7 +29639,7 @@ use Wolfgang\Exceptions\NoSuchMethodException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class BaseObject {
 
@@ -29775,7 +29742,7 @@ use Wolfgang\Interfaces\Message\CLI\IRequest as ICliRequest;
  * framework
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CliController extends Controller {
 
@@ -29837,7 +29804,7 @@ use Wolfgang\Encoding\Base64;
  * framework
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Controller extends BaseComponent implements IControllerAuthenticator {
 
@@ -30038,7 +30005,7 @@ use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
  * Controller authentication component. This class authorizes access to an api controller within the
  * framework
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class ApiController extends Controller {
 
@@ -30102,7 +30069,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 
@@ -30117,7 +30084,7 @@ use Wolfgang\Interfaces\ISchema;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class EntityRelationshipGraph extends Graph implements IEntityRelationshipGraph {
 	
@@ -30172,7 +30139,7 @@ use Wolfgang\Structure\Component as StructureComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends StructureComponent {
 }
@@ -30186,7 +30153,7 @@ use Wolfgang\Interfaces\IEntity;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class EntityRelationship extends Component implements IEntityRelationship {
 	/**
@@ -30225,7 +30192,7 @@ use Wolfgang\Interfaces\ISchema;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class GraphNode extends Node implements IGraphNode {
 	
@@ -30295,7 +30262,7 @@ use Wolfgang\Interfaces\Structure\Graph\IGraphNode;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Graph extends Component implements IGraph , \Countable {
 
@@ -30377,7 +30344,7 @@ use Wolfgang\Interfaces\ISchema;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Node extends StructureComponent implements INode {
 	
@@ -30473,7 +30440,7 @@ use Wolfgang\Structure\Component as StructureComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends StructureComponent {
 }<?php
@@ -30486,7 +30453,7 @@ use Wolfgang\Interfaces\Structure\Tree\ITreeNode;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Tree extends Component implements ITree {
 	/**
@@ -30609,7 +30576,7 @@ use Wolfgang\Interfaces\Structure\Tree\ITreeNode;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class RoseTree extends Tree {
 
@@ -30632,7 +30599,7 @@ use Wolfgang\Interfaces\ISchema;
  * 
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class RoseTreeNode extends TreeNode {
 	
@@ -30657,7 +30624,7 @@ use Wolfgang\Interfaces\ISchema;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class TreeNode extends Node implements ITreeNode {
 	
@@ -30802,7 +30769,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Mailman extends Component implements ISingleton {
 	use TSingleton;
@@ -31119,7 +31086,7 @@ use Wolfgang\Component as WolfgangComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends WolfgangComponent {
 }<?php
@@ -31130,7 +31097,7 @@ namespace Wolfgang;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class StringObject extends BaseObject{
 
@@ -31171,7 +31138,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }
@@ -31187,7 +31154,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Time extends Component implements Stringable {
 	const FORMAT = 'h:i A';
@@ -31256,7 +31223,7 @@ use Model\Timezone;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class DateTime extends PHPDateTime implements Stringable, IMarshallable {
 	const DEFAULT_FORMAT = 'Y-m-d H:i';
@@ -31493,7 +31460,7 @@ use Wolfgang\Exceptions\Encoding\JSON\Exception as JSONException;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class JSON extends Component {
 
@@ -31564,7 +31531,7 @@ use Wolfgang\Component as BaseComponent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Component extends BaseComponent {
 }
@@ -31579,7 +31546,7 @@ use Wolfgang\Interfaces\IEncoder;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Interfaces\IEncoder
  * @uses Wolfgang\Component
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Base64 extends Component implements IEncoder {
 
@@ -31614,4 +31581,4 @@ final class Base64 extends Component implements IEncoder {
 		return self::decode( $data, true ) !== false;
 	}
 }
-qﬂ◊^Ú˛oÁ‰∂o√ÍïëŒ∆ÌErªΩ˝ô»Ç”»M$zÎv¨5?∫NuPî”b´√TÑ’pdH∏cØ˛i   GBMB
+,˛⁄óå--˜r‰Öo<…âÛ»l‡ø]:=l”mfìoÿs≤£≈8°k˘VC•’hÚª6&„ÃÃ1¨@·–≈’æi   GBMB
