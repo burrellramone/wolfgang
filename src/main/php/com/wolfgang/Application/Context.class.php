@@ -16,7 +16,7 @@ use Wolfgang\Skin;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Interfaces\ISingleton
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Context extends Component implements IContext , ISingleton {
 	use TSingleton;

@@ -9,7 +9,7 @@ use Wolfgang\Interfaces\IEncoder;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Interfaces\IEncoder
  * @uses Wolfgang\Component
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Base64 extends Component implements IEncoder {
 

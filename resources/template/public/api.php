@@ -10,7 +10,7 @@ try {
      * PHP script where all API requests are sent to for processing
      * 
      * @author Ramone Burrell <ramone@ramoneburrell.com>
-     * @since Version 0.1.0
+     * @since Version 1.0.0
      */
     require_once (dirname( __DIR__ ) . '/includes/common.php');
 

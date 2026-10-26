@@ -15,7 +15,7 @@ use Wolfgang\Application\Context;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Session\CookieSessionHandler
  * @uses Wolfgang\Config\Session
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Session extends Component implements ISession {
 

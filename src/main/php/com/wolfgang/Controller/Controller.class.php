@@ -15,7 +15,7 @@ use Wolfgang\Application\Application;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Interfaces\IController
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Controller extends BaseComponent implements IController {
 

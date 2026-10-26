@@ -35,7 +35,7 @@ use Wolfgang\Interfaces\Network\IUri;
  * @abstract
  * @uses Wolfgang\Application\Application
  * @uses Wolfgang\Interfaces\Application\IApi
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Api extends Application implements IApi {
 

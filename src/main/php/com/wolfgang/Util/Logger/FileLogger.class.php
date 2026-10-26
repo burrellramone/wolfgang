@@ -15,7 +15,7 @@ use Wolfgang\Application\Context;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class FileLogger extends Logger implements IFileLogger {
 	

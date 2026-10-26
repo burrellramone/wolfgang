@@ -12,7 +12,6 @@ use Controller\Site as SiteController;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Controller\Site
- * @since Version 0.0.1
  */
 abstract class Controller extends SiteController {
 

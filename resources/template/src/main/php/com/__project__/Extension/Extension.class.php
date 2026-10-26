@@ -7,7 +7,6 @@ use Wolfgang\Interfaces\IExtensible;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.0.1
  */
 abstract class Extension extends ComponentExtension {
 

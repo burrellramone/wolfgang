@@ -13,7 +13,7 @@ use Wolfgang\Exceptions\Message\HTTP\NotFoundException;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class HttpRoute extends Route {
 

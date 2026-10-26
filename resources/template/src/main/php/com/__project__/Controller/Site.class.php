@@ -16,7 +16,6 @@ use Traits\TController;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Wolfgang\Controller\SiteController
- * @since Version 0.0.1
  */
 abstract class Site extends SiteController {
 	use TController;

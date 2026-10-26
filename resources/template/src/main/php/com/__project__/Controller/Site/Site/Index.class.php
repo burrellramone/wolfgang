@@ -7,7 +7,6 @@ namespace Controller\Site\Site;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Controller\Site\Controller
  * @uses Wolfgang\Templating\Templater
- * @since Version 0.0.1
  */
 final class Index extends Controller {
 

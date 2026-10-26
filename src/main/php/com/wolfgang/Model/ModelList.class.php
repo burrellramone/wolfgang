@@ -22,7 +22,7 @@ use Wolfgang\Exceptions\InvalidStateException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class ModelList extends Component implements \Iterator , IModelList , \Countable , IQueryBuilder , \ArrayAccess {
 	/**

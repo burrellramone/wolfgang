@@ -11,7 +11,7 @@ use Wolfgang\Interfaces\Network\IDsn;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Connection extends DatabaseComponent implements IConnection {
 	

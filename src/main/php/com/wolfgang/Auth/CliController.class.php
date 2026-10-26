@@ -15,7 +15,7 @@ use Wolfgang\Interfaces\Message\CLI\IRequest as ICliRequest;
  * framework
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CliController extends Controller {
 

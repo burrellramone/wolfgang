@@ -9,7 +9,6 @@ use Wolfgang\Event\Event as ComponentEvent;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.0.1
  */
 class Event extends ComponentEvent implements IEvent {
 

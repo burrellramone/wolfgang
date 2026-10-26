@@ -3,8 +3,6 @@
  * Index file where all non-api calls are sent for processing.
  * 
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.0.1
- *
  */
 
  //Wolfgang

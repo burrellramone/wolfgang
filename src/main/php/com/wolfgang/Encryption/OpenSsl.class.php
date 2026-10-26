@@ -10,7 +10,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @see https://tools.ietf.org/html/rfc5246#page-24
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class OpenSsl extends BaseComponent {
 	const OPEN_SSL_PASSWORD = '8d85a81fb6dcadef22e9c8a376c7c1d9755c3fb567c706f4d84290982ad0dbda';

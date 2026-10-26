@@ -7,7 +7,7 @@ use Wolfgang\Interfaces\Logger\IGelfMessage;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class GelfMessage extends Component implements IGelfMessage {
 	protected $version = '1.1';

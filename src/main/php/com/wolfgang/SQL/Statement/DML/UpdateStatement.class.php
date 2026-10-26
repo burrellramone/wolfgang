@@ -20,7 +20,7 @@ use Wolfgang\SQL\Expression\ConditionalExpressionGroup;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class UpdateStatement extends Statement implements IUpdateStatement {
 	

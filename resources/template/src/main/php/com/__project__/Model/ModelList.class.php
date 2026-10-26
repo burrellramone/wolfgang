@@ -14,7 +14,6 @@ use Interfaces\Model\IModelList;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.0.1
  */
 abstract class ModelList extends WolfgangModelList implements IModelList, IMarshallable {
 	use TModelListMarshallable;

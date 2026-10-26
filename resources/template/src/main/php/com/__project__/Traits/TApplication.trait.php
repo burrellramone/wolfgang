@@ -15,7 +15,6 @@ use Wolfgang\Util\Filesystem;
  * use this trait.
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.0.1
  */
 trait TApplication {
 	

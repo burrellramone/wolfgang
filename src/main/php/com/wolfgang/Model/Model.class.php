@@ -27,7 +27,7 @@ use Wolfgang\Interfaces\Model\IBridgeModel;
  * inherit from.
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.0.1
+ * @since Version 1.0.0
  */
 abstract class Model extends Component implements IModel, IMarshallable {
 	use TMarshallable;
