@@ -4,3 +4,4 @@ doc/v/
 .settings/
 .vscode/
 src/tests/*.cache
+composer.phar

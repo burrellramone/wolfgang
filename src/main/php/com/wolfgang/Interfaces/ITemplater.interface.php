@@ -17,10 +17,10 @@ interface ITemplater {
 
 	/**
 	 *
-	 * @param $template
+	 * @param string|null $template
 	 * @return string
 	 */
-	public function fetch ( $template = null ): string;
+	public function fetch (string|null $template = null ): string;
 
 	/**
 	 */

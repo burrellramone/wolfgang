@@ -9,6 +9,7 @@ use Wolfgang\Interfaces\Message\CLI\IRequest as ICliRequest;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Auth\CliController as CliControllerAuthenticator;
 use Wolfgang\Dispatching\EventDispatcher;
+use Wolfgang\Application\Cli as CliApplication;
 
 /**
  *
@@ -45,5 +46,12 @@ abstract class Cli extends Controller implements ICliController{
 
 		$this->authenticator = new CliControllerAuthenticator( $this );
 		$this->setEventDispatcher( EventDispatcher::getInstance() );
+	}
+	
+	/**
+	 * Gets the application the controller is running under
+	 */
+	protected function getApplication(): CliApplication {
+	   return CliApplication::getInstance();
 	}
 }

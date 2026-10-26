@@ -2,6 +2,9 @@
 
 namespace Wolfgang\SQL\Expression;
 
+use \DateTime;
+
+//Wolfgang
 use Wolfgang\Interfaces\SQL\Expression\IConditionalExpression;
 use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Exceptions\IllegalArgumentException;
@@ -152,7 +155,7 @@ final class ConditionalExpression extends Expression implements IConditionalExpr
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\SQL\Expression\IConditionalExpression::in()
 	 */
-	public function in ( $expression, array $values ) {
+	public function in ( string|int|array|float|DateTime $expression, array $values ) {
 		$this->comparison_operator = IConditionalExpression::OPERATOR_IN;
 
 		$this->expressions->append( Expression::create( $this->clause, $expression ) );

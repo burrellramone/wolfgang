@@ -13,4 +13,10 @@ interface ISkin {
 	 * @return string
 	 */
 	public function getName ( ): string;
+
+	/**
+	 * 
+	 * @return void
+	 */
+	public function getSkinDomain(): ISkinDomain;
 }

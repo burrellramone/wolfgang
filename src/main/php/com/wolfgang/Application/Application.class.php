@@ -456,7 +456,7 @@ abstract class Application extends Component implements IApplication {
 
 	/**
 	 *
-	 * @return Uri|NULL
+	 * @return Uri|null
 	 */
 	public function getProfileRunUri ( ): ?Uri {
 		return $this->profile_run_uri;
@@ -669,7 +669,7 @@ abstract class Application extends Component implements IApplication {
 	 * @return void
 	 */
 	private function bootstrap ( ): void {
-		set_error_handler( function ( $errno, $errstr, $errfile = null, $errline = null, array $errcontext = null) {
+		set_error_handler( function ( $errno, $errstr, string|null $errfile = null, string|null $errline = null, array|null $errcontext = null) {
 			if ( ! empty( $_SERVER[ 'HTTP_HOST' ] ) ) {
 				$host = $_SERVER[ 'HTTP_HOST' ];
 			} else {
@@ -686,38 +686,12 @@ abstract class Application extends Component implements IApplication {
 			] );
 		}, E_ALL );
 
-		$this->temporary_directory = TEMP_DIRECTORY;
-		$log_directory = LOG_DIRECTORY;
-		$xhprof_temporary_directory = XHPROF_DIRECTORY;
-		$uploads_temporary_directory = UPLOADS_DIRECTORY;
-		$curl_temporary_directory = CURL_DIRECTORY;
-
-		if ( ! Filesystem::exists( $this->temporary_directory ) ) {
-			Filesystem::makeDirectory( $this->temporary_directory, 0777 );
-			exec( "chown www-data:www-data -R " . $this->temporary_directory );
-		}
-
-		if ( ! Filesystem::exists( $log_directory ) ) {
-			Filesystem::makeDirectory( $log_directory, 0777 );
-			exec( "chown www-data:www-data -R " . $log_directory );
-		}
-
-		if ( ! Filesystem::exists( $xhprof_temporary_directory ) ) {
-			Filesystem::makeDirectory( $xhprof_temporary_directory, 0777 );
-			exec( "chown www-data:www-data -R " . $xhprof_temporary_directory );
-		}
-
-		if ( ! Filesystem::exists( $uploads_temporary_directory ) ) {
-			Filesystem::makeDirectory( $uploads_temporary_directory, 0777 );
-			exec( "chown www-data:www-data -R " . $uploads_temporary_directory );
-		}
-
-		if ( ! Filesystem::exists( $curl_temporary_directory ) ) {
-			Filesystem::makeDirectory( $curl_temporary_directory, 0777 );
-			exec( "chown www-data:www-data -R " . $curl_temporary_directory );
-		}
-
-		exec( "chmod 777 -R " . $this->temporary_directory );
+		$this->makeDir(TEMP_DIRECTORY);
+		$this->makeDir(LOGS_DIRECTORY);
+		$this->makeDir(XHPROF_DIRECTORY);
+		$this->makeDir(UPLOADS_DIRECTORY);
+		$this->makeDir(CURL_DIRECTORY);
+		$this->makeDir(SMARTY_DIRECTORY);
 
 		$this->registerShutdownFunction( function ( $application ) {
 			// Rollback all transactions that might have been left open
@@ -727,11 +701,11 @@ abstract class Application extends Component implements IApplication {
 		}, $this );
 	}
 
-	/**
-	 * @var 
-	 */
-	public function getTemporaryDirectory():string {
-		return $this->temporary_directory;
+	private function makeDir(string $directory):void {
+		if ( ! Filesystem::exists( $directory ) ) {
+			Filesystem::makeDirectory( $directory, 0775 );
+			exec( "chown www-data:www-data -R " . $directory );
+		}
 	}
 
 	public function __destruct ( ) {

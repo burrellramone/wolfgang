@@ -24,7 +24,13 @@ final class Explain extends Statement {
 	 */
 	private $table;
 	
-	public function __construct ( array $schemas, ITable $table = null ) {
+	
+	/**
+	 * 
+	 * @param array $schemas
+	 * @param ITable|null $table
+	 */
+	public function __construct ( array $schemas, ITable|null $table = null ) {
 		if ( $table ) {
 			$this->setTable( $table );
 		}

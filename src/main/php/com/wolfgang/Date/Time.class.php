@@ -2,6 +2,9 @@
 
 namespace Wolfgang\Date;
 
+use Stringable;
+
+//Wolfgang
 use Wolfgang\Exceptions\InvalidArgumentException;
 
 /**
@@ -9,8 +12,9 @@ use Wolfgang\Exceptions\InvalidArgumentException;
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @since Version 1.0.0
  */
-final class Time extends Component {
-	const FORMAT = 'H:i';
+final class Time extends Component implements Stringable {
+	const FORMAT = 'h:i A';
+	const FORMAT_24_HOUR = 'H:i';
 
 	/**
 	 *
@@ -36,11 +40,21 @@ final class Time extends Component {
 	}
 
 	/**
+	 * Formats the time according to a certain format
+	 *
+	 * @param string|null $format The format to use in formatting the time
+	 * @return string The formatted time
+	 */
+	public function format(string $format = self::FORMAT):string {	
+		return $this->datetime->format( $format ?? self::FORMAT );
+	}
+
+	/**
 	 *
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Component::__toString()
 	 */
 	public function __toString ( ) {
-		return $this->datetime->format( self::FORMAT );
+		return $this->datetime->format( self::FORMAT_24_HOUR );
 	}
 }

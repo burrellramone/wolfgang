@@ -20,10 +20,10 @@ final class HTTPLogger extends Logger implements IHTTPLogger {
 	
 	/**
 	 *
-	 * @param string $name
+	 * @param ?string $name
 	 * @return ILogger
 	 */
-	public static function getLogger ( string $name = null): ILogger {
+	public static function getLogger (?string $name = null): ILogger {
 		$logger = null;
 
 		return $logger;

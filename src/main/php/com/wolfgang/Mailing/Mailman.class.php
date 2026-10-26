@@ -98,7 +98,7 @@ final class Mailman extends Component implements ISingleton {
 	 * @param callable|null $email_callback
 	 * @return int
 	 */
-	public function deliver ( callable $email_callback = null): int {
+	public function deliver ( callable|null $email_callback = null): int {
 		$total_emails_sent = 0;
 
 		foreach ( $this->emails as &$email ) {

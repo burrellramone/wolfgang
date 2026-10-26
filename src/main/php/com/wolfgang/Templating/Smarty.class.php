@@ -2,6 +2,9 @@
 
 namespace Wolfgang\Templating;
 
+use Smarty\Smarty as Smartest;
+
+//Wolfgang
 use Wolfgang\Interfaces\ITemplater;
 use Wolfgang\Exceptions\Templating\TemplateNotExistException;
 use Wolfgang\Exceptions\Templating\Exception as TemplatingException;
@@ -28,7 +31,7 @@ final class Smarty extends Templater implements ITemplater {
 
 	/**
 	 *
-	 * @var \Smarty
+	 * @var Smartest
 	 */
 	private $smarty;
 
@@ -43,9 +46,14 @@ final class Smarty extends Templater implements ITemplater {
 	 * @var string
 	 */
 	private $template;
+	
+	private array $modifiers = ['substr', 'ucfirst', 'method_exists', 'date', 'strtolower',
+	    'htmlentities', 'intval', 'print_r', 'phpinfo',
+	];
+	
 
 	protected function __construct ( ) {
-		$this->smarty = new \Smarty();
+	    $this->smarty = new Smartest();
 
 		parent::__construct();
 	}
@@ -71,6 +79,14 @@ final class Smarty extends Templater implements ITemplater {
 
 		$this->setSmartyLocations();
 		$this->enableCaching();
+		
+		// native PHP functions used as modifiers need to be registered
+		foreach($this->modifiers as $modifier){
+		    $this->smarty->registerPlugin('modifier', $modifier, $modifier);
+		}
+		
+		// userland PHP functions used as modifiers need to be registered
+		$this->smarty->registerPlugin('modifier', '__', '__');
 	}
 
 	/**
@@ -100,7 +116,7 @@ final class Smarty extends Templater implements ITemplater {
 	 * {@inheritdoc}
 	 * @see \Wolfgang\Interfaces\ITemplater::fetch()
 	 */
-	public function fetch ( $template = null): string {
+	public function fetch ( string|null $template = null): string {
 		if ( ! empty( $template ) ) {
 			if ( ! Filesystem::exists( $template ) && ! Filesystem::exists( TEMPLATE_DIRECTORY . $template ) ) {
 				throw new FileNotExistException( "Template {$template} does not exist" );
@@ -226,14 +242,13 @@ final class Smarty extends Templater implements ITemplater {
 			$context = Context::getInstance();
 			$skin = $context->getSkin();
 			$skin_name = $skin->getName();
-			$temporary_directory = TEMP_DIRECTORY;
 
-			$this->smarty->addTemplateDir( TEMPLATE_DIRECTORY );
-			$this->smarty->addTemplateDir( $temporary_directory );
+			$this->smarty->addTemplateDir(TEMPLATE_DIRECTORY);
+			$this->smarty->addTemplateDir(SMARTY_DIRECTORY);
 
-			$this->smarty->setCompileDir( "{$temporary_directory}/smarty/templates_c/{$skin_name}" );
-			$this->smarty->setCacheDir( "{$temporary_directory}/smarty/cache/{$skin_name}" );
-			$this->smarty->setConfigDir( "{$temporary_directory}/smarty/configs/{$skin_name}" );
+			$this->smarty->setCompileDir(SMARTY_DIRECTORY . DIRECTORY_SEPARATOR . "templates_c/{$skin_name}");
+			$this->smarty->setCacheDir(SMARTY_DIRECTORY . DIRECTORY_SEPARATOR . "cache/{$skin_name}");
+			$this->smarty->setConfigDir(SMARTY_DIRECTORY . DIRECTORY_SEPARATOR . "configs/{$skin_name}");
 			
 		}
 	}
@@ -303,7 +318,13 @@ final class Smarty extends Templater implements ITemplater {
 		$this->determineStylesheetAndScript($app, $controller, $action);
 	}
 
-	public function determineStylesheetAndScript(string $app = null, string $controller = null, string $action = null):void {
+	/**
+	 * 
+	 * @param string|null $app
+	 * @param string|null $controller
+	 * @param string|null $action
+	 */
+	public function determineStylesheetAndScript(string|null $app = null, string|null $controller = null, string|null $action = null):void {
 		$context = Application::getInstance()->getContext();
 		$app = $context->getSkin()->getName();
 

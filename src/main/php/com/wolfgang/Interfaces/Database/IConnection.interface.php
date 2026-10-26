@@ -66,4 +66,11 @@ interface IConnection {
 	 * @return int
 	 */
 	public function getErrorNumber ( ): int;
+
+
+	/**
+	 * @see https://www.php.net/manual/en/mysqli.insert-id.php
+	 * @return int
+	 */
+	public function getLastInsertId ( ): int;
 }

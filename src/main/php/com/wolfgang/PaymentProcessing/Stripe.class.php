@@ -279,7 +279,7 @@ final class Stripe extends Component implements ISingleton {
 		$stripe_card_object = null;
 		
 		try {
-			$customer = $this->getCustomer( $wolfgang_stripe_customer->getStripeCustomerId() );
+			$customer = $this->getCustomer( $wolfgang_stripe_customer );
 			
 			if ( ! $customer ) {
 				throw new InvalidStateException( "Unable to find stripe customer with id '{$wolfgang_stripe_customer->getStripeCustomerId()}'" );

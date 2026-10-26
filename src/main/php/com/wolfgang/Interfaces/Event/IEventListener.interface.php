@@ -3,6 +3,7 @@
 namespace Wolfgang\Interfaces\Event;
 
 use Wolfgang\Event\Event;
+use Wolfgang\Interfaces\Application\IContext;
 
 /**
  *
@@ -31,4 +32,11 @@ interface IEventListener {
 	 * @return string
 	 */
 	public function getName ( ): string;
+
+	/**
+	 * Gets the context the event listener is running under
+	 *
+	 * @return IContext The context the event listener is running under
+	 */
+	public function getContext():IContext;
 }

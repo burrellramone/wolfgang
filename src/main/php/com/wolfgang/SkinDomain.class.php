@@ -6,6 +6,7 @@ use Wolfgang\Interfaces\ISkinDomain;
 use Wolfgang\Exceptions\IllegalStateException;
 use Wolfgang\Traits\TSkinDomain;
 use Wolfgang\Date\DateTime;
+use Wolfgang\Config\Config;
 
 /**
  *
@@ -49,6 +50,12 @@ final class SkinDomain extends Component implements ISkinDomain {
 		parent::__construct();
 
 		if(!empty($definition)) {
+			foreach($definition as &$def){
+				if(preg_match("/\{\{config\.(app.root_domain)\}\}/", $def, $matches)){
+					$def = str_replace("{{config.app.root_domain}}", Config::get($matches[1]), $def);
+				}
+			}
+
 			$this->domain = $definition['domain'];
 			$this->api_domain = $definition['api_domain'];
 			$this->url = $definition['url'];
@@ -104,6 +111,15 @@ final class SkinDomain extends Component implements ISkinDomain {
 		if ( ! $this->api_url ) {
 			throw new IllegalStateException( "An API URL has not been defined for this skin domain" );
 		}
-		return $this->api_url;
+
+
+		$apiUrl = $this->api_url;
+		$serverPort = $_SERVER['SERVER_PORT'];
+
+		if($serverPort && $serverPort != '443'){
+			$apiUrl .= ":{$serverPort}";
+		}
+
+		return $apiUrl;
 	}
 }

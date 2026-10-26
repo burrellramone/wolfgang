@@ -7,6 +7,8 @@ use Exception;
 use ErrorException;
 
 //Wolfgang
+use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
+use Wolfgang\Message\HTTP\Request as HttpRequest;
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Interfaces\Message\IMessage;
 use Wolfgang\Interfaces\Message\IResponse;
@@ -19,14 +21,11 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Interfaces\IApiKey;
 use Wolfgang\Encoding\JSON;
 use Wolfgang\Exceptions\Message\HTTP\Exception as HTTPException;
-use Wolfgang\Util\Logger\Logger;
 use Wolfgang\Interfaces\IMarshallable;
 use Wolfgang\Exceptions\Exception as ComponentException;
 use Wolfgang\Routing\HttpRouter;
 use Wolfgang\Message\HTTP\Response as HttpResponse;
 use Wolfgang\Interfaces\Message\HTTP\IResponse as IHttpResponse;
-use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
-use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Exceptions\UnsupportedOperationException;
 use Wolfgang\Interfaces\Network\IUri;
 
@@ -151,15 +150,14 @@ abstract class Api extends Application implements IApi {
 	 */
 	public function respond ( $message = null) {
 		$error = null;
+		$request = $this->getRequest();
+		$response = $this->getResponse();
+		$successfulRequest = ! preg_match( "/^[54]{1}/", $response->getStatusCode() ) && empty( $error );
 
 		if ( ($message instanceof Exception) || ($message instanceof Error) || ($message instanceof ErrorException) || (is_string( $message )) ) {
 			if ( is_string( $message ) ) {
 				$message = new ComponentException( $message );
-				
-				$this->logError($message);
 			} else {
-				$this->logError($message);
-
 				if ( ! ($message instanceof IMarshallable) ) {
 					$message = new ComponentException( "", 0, $message );
 				}
@@ -170,10 +168,11 @@ abstract class Api extends Application implements IApi {
 			if ( Context::getInstance()->isProduction() ) {
 				$error[ 'trace' ] = null;
 			}
+			
+			if ($successfulRequest) {
+			    $response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
+			}
 		}
-
-		$request = $this->getRequest();
-		$response = $this->getResponse();
 
 		$content_disposition_header = $response->getHeader("Content-Disposition");
 
@@ -185,7 +184,6 @@ abstract class Api extends Application implements IApi {
 		}
 
 
-		$successful_request = ! preg_match( "/^[54]{1}/", $response->getStatusCode() ) && empty( $error );
 		$message = $response->getBody();
 
 		if(!$message){
@@ -193,10 +191,10 @@ abstract class Api extends Application implements IApi {
 		}
 
 		$array_response = [ 
-				"success" => $successful_request,
-				"message" => $successful_request ? $message : 'Failed',
-				"data" => $response->getData(),
-				"error" => $error
+		    "success" => $successfulRequest,
+		    "message" => $successfulRequest ? $message : 'Failed',
+			"data" => $response->getData(),
+			"error" => $error
 		];
 
 		$json_response = JSON::encode( $array_response );
@@ -238,17 +236,20 @@ abstract class Api extends Application implements IApi {
 		try {
 			ob_start();
 
-			$driver_manager = $this->getDriverManager();
-			$driver_manager->begin();
+			if($request instanceof HttpRequest) {
+				if ( $request->getMethod() != IHttpRequest::METHOD_OPTIONS ) {
+					$driver_manager = $this->getDriverManager();
+					$driver_manager->begin();
 
-			$this->getDispatcher()->dispatch( $request, $this->getRouter()->route( $request ) );
+					$this->getDispatcher()->dispatch( $request, $this->getRouter()->route( $request ) );
 
-			$driver_manager->commit();
+					$driver_manager->commit();
+				}
+			}
+
 		} catch ( HTTPException $e ) {
 			$this->response->setStatusCode( $e->getHttpCode() );
-		} catch ( Error $e ) {
-			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
-		} catch ( Exception $e ) {
+		} catch ( Exception|ComponentException|Error $e ) {
 			$this->response->setStatusCode( IHttpResponse::STATUS_CODE_INTERNAL_SERVER_ERROR );
 		} finally {
 			$this->onAfterExec();

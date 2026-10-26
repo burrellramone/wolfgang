@@ -38,7 +38,7 @@ final class Cookie extends Component {
 			$expires += time();
 		}
 
-		if($encrypt_value){
+		if($encrypt_value && ($value !== "")){
 			$value = AES::encrypt( $value );
 		}
 
@@ -55,8 +55,13 @@ final class Cookie extends Component {
 	 * @return string|null
 	 */
 	public static function read ( string $name ):?string {
-		$value = null;
-		if ( isset( $_COOKIE[ $name ] ) ) {
+	    $value = $_COOKIE[ $name ]??null;
+	    
+		if (isset($value)) {
+		    if ($value === "") {
+		          return $value;        
+		    }
+		    
 			$value = AES::decrypt( $_COOKIE[ $name ] );
 		}
 		return $value;

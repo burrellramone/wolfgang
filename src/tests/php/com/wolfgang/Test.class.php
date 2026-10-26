@@ -17,10 +17,6 @@ abstract class Test extends TestCase {
 	
 	protected function setUp ( ):void {
 		parent::setUp();
-		
-		if ( gethostname() == HOST_BOCCHERINI ) {
-			$GLOBALS[ 'SUPER_APPLICATION_ENVIRONMENT' ] = Context::ENVIRONMENT_UNIT;
-		}
 	}
 	
 	protected function tearDown ( ):void {

@@ -61,8 +61,9 @@ class Controller extends BaseComponent implements IControllerAuthenticator {
 	/**
 	 *
 	 * @param IController $controller
+	 * @param IUser|null $user
 	 */
-	public function __construct ( IController $controller, IUser $user = null) {
+	public function __construct (IController $controller, IUser|null $user = null) {
 		parent::__construct();
 
 		$this->setController( $controller );
@@ -111,10 +112,10 @@ class Controller extends BaseComponent implements IControllerAuthenticator {
 	/**
 	 * Allows public access to a controller's action
 	 *
-	 * @param string $action The action to allow
+	 * @param string|array $action The action to allow
 	 * @return null
 	 */
-	public function allow ( $action ) {
+	public function allow ( string|array $action ) {
 		if ( is_array( $action ) ) {
 			foreach ( $action as $ac ) {
 				$this->allow( $ac );

@@ -8,6 +8,7 @@ use Wolfgang\Exceptions\InvalidArgumentException;
 use Wolfgang\Util\Filesystem;
 use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Exceptions\InvalidStateException;
+use Wolfgang\Config\App as AppConfig;
 
 /**
  *
@@ -39,8 +40,19 @@ abstract class Config extends Component {
 	 * @param string $name
 	 */
 	public static function get ( $name ) {
-		$reflector = new \ReflectionClass( get_called_class() );
-		$configuration_group = strtolower( $reflector->getShortName() );
+		if(preg_match("/^(app)\.(.*)/", $name, $matches)){
+
+			$configuration_group = $matches[1];
+
+			if($configuration_group == 'app'){
+				return AppConfig::get($matches[2]);
+			}
+			
+		} else {
+			$reflector = new \ReflectionClass( get_called_class() );
+			$configuration_group = strtolower( $reflector->getShortName() );
+		}
+
 		$application_environment = APPLICATION_ENVIRONMENT;
 
 		if ( ! empty( $GLOBALS[ 'SUPER_APPLICATION_ENVIRONMENT' ] ) ) {
@@ -69,7 +81,14 @@ abstract class Config extends Component {
 		self::$configurations = [ ];
 
 		$reflector = new \ReflectionClass( get_called_class() );
-		$configuration_group = strtolower( $reflector->getShortName() );
+		$classShortName = $reflector->getShortName();
+		$configuration_group = strtolower( $classShortName );
+
+		if($configuration_group == 'config'){
+			//We need to load everything
+			return self::loadAllConfig();
+		}
+
 		$application_environment = APPLICATION_ENVIRONMENT;
 
 		if ( ! empty( $GLOBALS[ 'SUPER_APPLICATION_ENVIRONMENT' ] ) ) {
@@ -84,6 +103,25 @@ abstract class Config extends Component {
 		}
 
 		return self::$configurations[ $configuration_group ];
+	}
+
+	/**
+	 *
+	 * @return array
+	 */
+	private static function loadAllConfig():array {
+		$configClasses = ['Wolfgang\Config\App'];
+		self::$configurations = [];
+		
+		foreach($configClasses as $configClass){
+			$reflector = new \ReflectionClass( $configClass );
+			$configuration_group = strtolower( $reflector->getShortName() );
+
+			$config[$configuration_group] = $configClass::getAll();
+			self::$configurations = array_merge(self::$configurations, $config);
+		}
+
+		return self::$configurations;
 	}
 
 	public static function getRaw():? string {

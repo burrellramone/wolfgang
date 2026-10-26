@@ -16,6 +16,10 @@ final class CliWriter extends Component {
 	public static $COLOR_GREEN = '32m';
 	public static $COLOR_BLUE = '34m';
 
+	public static function clear(){
+		echo "\e[H\e[J";
+	}
+	
 	public static function info( string|array $message ){
 		if(!$message){
 			return;

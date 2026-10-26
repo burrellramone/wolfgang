@@ -3,7 +3,6 @@
 namespace Wolfgang\Dispatching;
 
 use Wolfgang\Interfaces\IMarshallable;
-use Wolfgang\Interfaces\Message\HTTP\IRequest as IHttpRequest;
 use Wolfgang\Interfaces\Application\IApplication;
 use Wolfgang\Interfaces\ISingleton;
 use Wolfgang\Interfaces\Dispatching\IDispatcher;
@@ -18,7 +17,6 @@ use Wolfgang\Util\DataTableMarshaller;
 use Wolfgang\Traits\TSingleton;
 use Wolfgang\Interfaces\IGraph;
 use Wolfgang\Exceptions\Exception;
-use Wolfgang\Message\HTTP\Request as HttpRequest;
 use Wolfgang\Interfaces\Message\IRequest;
 /**
  *
@@ -46,12 +44,6 @@ final class Dispatcher extends Component implements IDispatcher , ISingleton {
 	 */
 	public function dispatch ( IRequest $request, IRoute $route ): void {
 		$route->getController()->getAuthenticator()->authenticate( $request, $route );
-
-		if($request instanceof HttpRequest) {
-			if ( $request->getMethod() == IHttpRequest::METHOD_OPTIONS ) {
-				return;
-			}
-		}
 		
 		if ( $route->methodExists() ) {
 			$context = $this->getApplication()->getContext();

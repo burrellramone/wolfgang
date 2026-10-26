@@ -10,6 +10,8 @@ use Wolfgang\Interfaces\Dispatching\IEventDispatcher;
 use Wolfgang\Interfaces\IControllerAuthenticator;
 use Wolfgang\Dispatching\EventDispatcher;
 use Wolfgang\Application\Application;
+use Wolfgang\Session\Session;
+use Wolfgang\I18N\I18N;
 
 /**
  *
@@ -54,6 +56,20 @@ abstract class Controller extends BaseComponent implements IController {
 		$this->setResponse( $response );
 
 		parent::__construct();
+
+		$context = $this->getApplication()->getContext();
+		$session = $this->getSession();
+		$languageCode = DEFAULT_LANGUAGE_CODE;
+
+		if ($session) {
+			$language = $session->get('language');
+			
+			if ($language) {
+				$languageCode = $language->getCode();
+			}
+		}
+
+		I18N::setLoadContext($this->getApplication()->getContext()->getSkin()->getName(), $this->getApplication()->getKind(), "{$context->getController()}/{$context->getAction()}", $languageCode);
 	}
 
 	/**
@@ -122,9 +138,17 @@ abstract class Controller extends BaseComponent implements IController {
 	}
 
 	/**
+	 * @inheritDoc
+	 * @return Session
+	 */
+	protected function getSession():Session {
+		return $this->getApplication()->getSession();
+	}
+
+	/**
 	 * Gets the id match in the URL path of the request
 	 *
-	 * @return string|NULL The id matched in the URL of the request, null if it was not matched
+	 * @return string|null The id matched in the URL of the request, null if it was not matched
 	 */
 	public function getIdMatched ( ): ?string {
 		return Application::getInstance()->getContext()->getIdMatched();

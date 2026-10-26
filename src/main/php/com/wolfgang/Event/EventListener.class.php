@@ -2,6 +2,7 @@
 
 namespace Wolfgang\Event;
 
+use Wolfgang\Interfaces\Application\IContext;
 use Wolfgang\Interfaces\Event\IEventListener;
 use Wolfgang\Interfaces\Event\IEvent;
 
@@ -16,13 +17,26 @@ abstract class EventListener extends Component implements IEventListener {
 	 *
 	 * @var bool
 	 */
-	protected $enabled = true;
+	protected bool $enabled = true;
 
 	/**
 	 *
 	 * @var string
 	 */
-	protected $name;
+	protected ?string $name = null;
+
+	protected ?IContext $context = null;
+
+	/**
+	 * Constructs a new instance of this event listener
+	 *
+	 * @param IContext $context
+	 */
+	public function __construct(IContext $context){
+		parent::__construct();
+
+		$this->context = $context;
+	}
 
 	/**
 	 *
@@ -55,5 +69,13 @@ abstract class EventListener extends Component implements IEventListener {
 		}
 
 		return $this->name;
+	}
+
+	/**
+	 * @inheritDoc
+	 * @return IContext
+	 */
+	public function getContext():IContext {
+		return $this->context;
 	}
 }

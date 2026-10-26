@@ -31,6 +31,8 @@ use Wolfgang\Util\Logger\Logger;
  */
 abstract class Site extends Application implements ISite {
 
+	protected $tmpl;
+
 	protected function __construct ( IContext $context ) {
 		parent::__construct( IApplication::KIND_SITE, $context);
 	}
@@ -106,8 +108,6 @@ abstract class Site extends Application implements ISite {
 			throw new InvalidArgumentException( "Router must be an instance of Wolfgang\Routing\HttpRouter" );
 		}
 
-		$router->setApplication( $this );
-
 		$this->router = $router;
 	}
 
@@ -154,9 +154,12 @@ abstract class Site extends Application implements ISite {
 			$this->getDispatcher()->dispatch( $request, $this->getRouter()->route( $request ) );
 
 			if ( ! $this->response->isError() ) {
-				$driver_manager->commit();
 				$templater->determineLayout();
 				$this->response->setBody( $templater->fetch() );
+
+				//Commit AFTER rendering layout and template to allow all operations on
+				//the database inside the transaction that began above
+				$driver_manager->commit();
 			}
 		} catch ( HTTPException $e ) {
 			Logger::getLogger()->error( $e );

@@ -427,8 +427,8 @@ final class FromClause extends Clause implements IFromClause {
 	 *
 	 * @return string
 	 */
-	public function __toString ( ) {
-		$from_clause = null;
+	public function __toString ( ):string {
+		$from_clause = '';
 		
 		try {
 			$this->joinTables();
