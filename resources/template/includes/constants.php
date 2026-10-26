@@ -25,7 +25,7 @@ define("IMG_DIRECTORY", PUBLIC_DIRECTORY . 'img/');
  *
  * @var string
  */
-define('CLASSES_DIRECTORY', DOCUMENT_ROOT . 'src/main/php/com/__project__/');
+define('CLASSES_DIRECTORY', DOCUMENT_ROOT . 'src/main/php/com/__short_name__/');
 
 /**
  * The top-level directory where the composer vendor packages are stored
@@ -45,7 +45,7 @@ define('WOLFGANG_DIRECTORY', CLASSES_DIRECTORY . 'Wolfgang/');
  *
  * @var string
  */
-define('TESTS_CLASSES_DIRECTORY', DOCUMENT_ROOT . 'src/tests/php/com/__project__/');
+define('TESTS_CLASSES_DIRECTORY', DOCUMENT_ROOT . 'src/tests/php/com/__short_name__/');
 
 /**
  *
@@ -63,7 +63,7 @@ define('RESOURCES_DIRECTORY', DOCUMENT_ROOT . "resources/");
  *
  * @var string
  */
-define('TEMPLATE_DIRECTORY', DOCUMENT_ROOT . 'src/main/php/com/__project__/Views/');
+define('TEMPLATE_DIRECTORY', DOCUMENT_ROOT . 'src/main/php/com/__short_name__/Views/');
 
 /**
  *
