@@ -11,7 +11,7 @@ use Wolfgang\Exceptions\Exception;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 class Uri extends Component implements IUri {
 	

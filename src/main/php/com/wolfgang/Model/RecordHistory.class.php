@@ -14,7 +14,7 @@ use Wolfgang\Session\Manager as SessionManager;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @uses Interfaces\Model\IModel
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class RecordHistory extends Model implements IEncrypted {
 	use TEncrypted;

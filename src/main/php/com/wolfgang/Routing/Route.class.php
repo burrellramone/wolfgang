@@ -14,7 +14,7 @@ use Wolfgang\Network\Uri\Uri;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Route extends Component implements IRoute {
 

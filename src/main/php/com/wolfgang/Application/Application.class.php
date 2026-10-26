@@ -29,7 +29,7 @@ use Wolfgang\Interfaces\Network\IUri;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Application extends Component implements IApplication {
 
@@ -164,7 +164,7 @@ abstract class Application extends Component implements IApplication {
 			$domain = $this->context->getSkin()->getSkinDomain()->getDomain();
 			$session = SessionManager::getInstance()->createSession( $kind, array(
 				'domain' => $domain,
-				'id_prefix' => $this->config['session_id_prefix']
+				'id_prefix' => $this->config['session_id_prefix'] ?? '',
 			) );
 
 			if($session->get('remember_me')){

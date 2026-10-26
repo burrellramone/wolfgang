@@ -9,7 +9,7 @@ use Wolfgang\Interfaces\SQL\Statement\IStatement;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Clause extends SQLComponent implements IClause {
 	

@@ -5,7 +5,7 @@ namespace Wolfgang\Interfaces\Database;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IResultSet extends \Iterator , \Countable {
 	

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="distribution" content="web">
+		<meta http-equiv="refresh" content="300">
+
+		<title>{$app_config.name} | {$page_title}</title>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="/node_modules/bootstrap-five/dist/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" href="/css/common.css?v={$app_config.version}"/>
+		<link rel="stylesheet" href="/css/error.css?v={$app_config.version}"/>
+	</head>
+	
+	<body>
+		<div class="epc container">
+			<div class="lc">
+				<img src="/img/logos/header_logo.png?v={$app_config.version}" title="{$app_config.name}" alt="{$app_config.name}"/>
+			</div>
+			{include file=$template}
+		</div>
+	</body>
+</html>

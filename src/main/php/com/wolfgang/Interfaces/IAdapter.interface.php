@@ -4,9 +4,8 @@ namespace Wolfgang\Interfaces;
 
 /**
  *
-* @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link http://airportruns.ca
- * @since Version 0.1.0
+ * @author Ramone Burrell <ramone@ramoneburrell.com>
+ * @since Version 1.0.0
  */
 interface IAdapter {
 

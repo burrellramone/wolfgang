@@ -17,7 +17,7 @@ use Wolfgang\Application\Cli as CliApplication;
  * @uses Wolfgang\Controller\Controller
  * @uses Wolfgang\Interfaces\HTTP\IRequest
  * @uses Wolfgang\Interfaces\HTTP\IResponse
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class Cli extends Controller implements ICliController{
 

@@ -1,0 +1,35 @@
+{
+	"name" : "__short_name__/__short_name__",
+	"version" : "0.0.1",
+	"authors" : [],
+	"require" : {
+	},
+	"require-dev" : {
+	},
+	"autoload" : {
+		"files" : [
+			"src/main/php/com/__short_name__/Wolfgang/build/wolfgang.phar",
+			"includes/common.php"
+		],
+		"classmap" : [
+			"src/tests/",
+			"src/main/php/com/__short_name__/Application",
+			"src/main/php/com/__short_name__/Config",
+			"src/main/php/com/__short_name__/Controller",
+			"src/main/php/com/__short_name__/Event",
+			"src/main/php/com/__short_name__/EventListener",
+			"src/main/php/com/__short_name__/Extension",
+			"src/main/php/com/__short_name__/Interfaces",
+			"src/main/php/com/__short_name__/Model",
+			"src/main/php/com/__short_name__/Traits",
+			"i18n"
+		],
+		"psr-4" : {
+			"Extension\\Model\\" : "src/main/php/com/__short_name__/Extension/Model/",
+			"Application\\" : "src/main/php/com/__short_name__/Application/"
+		}
+	},
+	"scripts" : {
+		"lint" : "phpcs -p --standard=PSR12 --extensions=php --colors --cache --ignore=src/main/php/com/__short_name__/Wolfgang/* src/"
+	}
+}

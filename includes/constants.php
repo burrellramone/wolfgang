@@ -30,13 +30,20 @@ if ( ! defined( "DOCUMENT_ROOT" ) ) {
 }
 
 if ( ! defined( 'WOLFGANG_DIRECTORY' ) ) {
+	$wolfgang_directory = realpath( dirname( __FILE__, 2 ) );
+
+	if (empty($wolfgang_directory)) {
+		$wolfgang_directory = "/var/www/wolfgang/";
+	} else {
+		$wolfgang_directory .= "/";
+	}
 
 	/**
 	 * The top-level directory of the Wolfgang framework
 	 *
 	 * @var string
 	 */
-	define( 'WOLFGANG_DIRECTORY', realpath( dirname( __FILE__, 2 ) ) . "/" );
+	define( 'WOLFGANG_DIRECTORY',  $wolfgang_directory );
 }
 
 if ( ! defined( "APPLICATION_ENVIRONMENT" ) ) {

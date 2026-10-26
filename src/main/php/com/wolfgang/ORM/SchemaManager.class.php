@@ -16,7 +16,7 @@ use Wolfgang\Exceptions\IllegalStateException;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class SchemaManager extends Component implements ISingleton {
 	use TSingleton;

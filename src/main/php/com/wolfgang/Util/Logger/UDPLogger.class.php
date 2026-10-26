@@ -8,8 +8,7 @@ use Wolfgang\Interfaces\Logger\ILogger;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @link https://airportruns.ca
- * @since Version 0.0.1
+ * @since Version 1.0.0
  */
 final class UDPLogger extends Logger implements IUDPLogger {
 	

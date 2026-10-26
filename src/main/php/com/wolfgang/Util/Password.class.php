@@ -7,7 +7,7 @@ use Wolfgang\Exceptions\Exception as CoreException;
 /**
  *
 * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class Password extends Component {
 

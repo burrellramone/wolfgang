@@ -8,7 +8,7 @@ use Wolfgang\Interfaces\SQL\Clause\IInsertClause;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 interface IInsertStatement extends IStatement {
 	

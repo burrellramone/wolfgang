@@ -1,0 +1,22 @@
+<p>
+    {if !empty($e)}
+        <strong>Message:</strong><em> {$e->getMessage()}</em>
+    {elseif !empty($response)}
+        <strong>Message:</strong><em> {$response->getBody()}</em>
+    {/if}
+</p>
+
+<p>
+    {if !empty($e)}
+        <strong>Trace:</strong>
+        <ol class='u-list exception-trace' reversed>
+            {if method_exists($e, 'getTraceAsArray')}
+                {foreach $e->getTraceAsArray() as $trace}
+                    <li class='trace'>{$trace}</li>
+                {/foreach}
+            {else}
+                <li>{$e->getTraceAsString()}</li>
+            {/if}
+        </ol>
+    {/if}
+</p>

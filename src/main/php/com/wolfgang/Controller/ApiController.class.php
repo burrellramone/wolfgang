@@ -17,7 +17,7 @@ use Wolfgang\Interfaces\Controller\IApiController;
  * @uses Wolfgang\Auth\ApiController
  * @uses Wolfgang\Interfaces\Message\IRequest
  * @uses Wolfgang\Interfaces\Message\IResponse
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class ApiController extends Controller implements IApiController {
 	

@@ -8,7 +8,7 @@ use Wolfgang\Exceptions\IllegalStateException;
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
  * @see https://misc.flogisoft.com/bash/tip_colors_and_formatting
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class CliWriter extends Component {
 

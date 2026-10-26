@@ -11,7 +11,7 @@ use Wolfgang\Traits\TSingleton;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class StatementManager extends Component implements ISingleton {
 	use TSingleton;

@@ -11,7 +11,7 @@ use Wolfgang\Interfaces\ORM\ISchema as IDatabaseSchema;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 abstract class TableRelationship extends Component implements ITableRelationship {
 	/**

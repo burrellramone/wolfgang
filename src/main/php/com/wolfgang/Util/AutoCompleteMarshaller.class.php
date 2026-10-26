@@ -13,7 +13,7 @@ use Wolfgang\Traits\TMarshaller;
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
- * @since Version 0.1.0
+ * @since Version 1.0.0
  */
 final class AutoCompleteMarshaller extends Component implements IMarshaller , ISingleton {
 	use TMarshaller;
