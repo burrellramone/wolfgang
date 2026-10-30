@@ -2,10 +2,6 @@
 
 namespace Traits;
 
-//Wolfgang
-use Wolfgang\Event\Manager as EventManager;
-use Wolfgang\Event\Event;
-
 /**
  *
  * @author Ramone Burrell <ramone@ramoneburrell.com>
