@@ -17,7 +17,5 @@ abstract class Cli extends CliController {
 	 */
 	protected function init ( ) {
 		parent::init();
-
-		//@TODO Log CLI call
 	}
 }

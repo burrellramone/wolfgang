@@ -5,7 +5,6 @@ require_once ('includes/common.php');
 //Wolfgang
 use Wolfgang\Message\CLI\Request as CliRequest;
 use Wolfgang\Util\CliWriter;
-use Controller\Admin\Cli\UserTypes;
 
 use Application\Cli;
 
