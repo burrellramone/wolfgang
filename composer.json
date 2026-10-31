@@ -2,7 +2,7 @@
 	"name" : "burrellramone/wolfgang",
 	"type": "library",
 	"description" : "A MVC framework with built in ORM",
-	"keywords": ["framework","mvc","mvac"],
+	"keywords": ["framework","mvc"],
 	"homepage" : "https://wolfgang.ramoneburrell.com",
 	"minimum-stability" : "stable",
 	"license": "GPL-3.0-or-later",
