@@ -79,7 +79,6 @@ abstract class Model extends Component implements IModel, IMarshallable {
 			'RecordHistory',
 			'Skin',
 			'SkinDomain',
-			'Timezone'
 	];
 
 	/**
