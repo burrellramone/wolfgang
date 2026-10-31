@@ -5,14 +5,14 @@
  *
  * @var string
  */
-define( 'WOLFGANG_VERSION', "1.0.0" );
+define( 'WOLFGANG_VERSION', file_get_contents(__DIR__ . "/../VERSION") );
 
 /**
  * The version name of this wolfgang instance
  *
  * @var string
  */
-define( 'WOLFGANG_VERSION_NAME', "Wolfgang v1.0.0" );
+define( 'WOLFGANG_VERSION_NAME', "Wolfgang v" . WOLFGANG_VERSION );
 
 /**
  * The version of PHP the application is using

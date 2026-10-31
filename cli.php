@@ -114,20 +114,25 @@ $cli_options = getopt($shortopts, $longopts);
 $cli = new Cli();
 
 try {
+    if (empty($cli_options)) {
+        $cli_options['help'] = ""; // Force help command
+    }
+
     foreach ($commands as $command_name => $options) {
 
         if (array_key_exists($command_name, $cli_options)) {
                 switch ($command_name) {
-                    case 'help':
-                        echo WOLFGANG_VERSION_NAME . PHP_EOL . PHP_EOL;
-                        echo file_get_contents("resources/HELP.txt") . PHP_EOL;
-                        break;
                     case 'version':
                         echo WOLFGANG_VERSION_NAME . PHP_EOL;
                         break;
 
                     case 'create-project':
                         $cli->createProject($cli_options);
+                        break;
+
+                    default:
+                        echo WOLFGANG_VERSION_NAME . PHP_EOL . PHP_EOL;
+                        echo file_get_contents("resources/HELP.txt") . PHP_EOL;
                         break;
                 }
         }
