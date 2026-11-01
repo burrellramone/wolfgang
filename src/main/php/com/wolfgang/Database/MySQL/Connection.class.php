@@ -2,6 +2,8 @@
 
 namespace Wolfgang\Database\MySQL;
 
+use Throwable;
+
 use Wolfgang\Exceptions\SQL\Exception as SQLException;
 use Wolfgang\Interfaces\SQL\Statement\IStatement;
 use Wolfgang\SQL\StatementManager;
@@ -24,18 +26,23 @@ final class Connection extends DatabaseConnection implements IMySQLConnection {
 	 * @throws UnattainableConnectionException
 	 */
 	public function __construct ( IDsn $dsn ) {
-		if ( $dsn ) {
-			$this->connection = @new \mysqli( $dsn->getHost(), $dsn->getUsername(), $dsn->getPassword(), $dsn->getDatabase(), $dsn->getPort() );
-			$this->database = $dsn->getDatabase();
-			$this->encryption_key = $dsn->getEncryptionKey();
+		try {
+			if ( $dsn ) {
+				$this->connection = @new \mysqli( $dsn->getHost(), $dsn->getUsername(), $dsn->getPassword(), $dsn->getDatabase(), $dsn->getPort() );
+				$this->database = $dsn->getDatabase();
+				$this->encryption_key = $dsn->getEncryptionKey();
+			}
+			
+			if ( ! empty( $this->connection->connect_error ) ) {
+				throw new UnattainableConnectionException( "Unable to connect to '{$dsn->getHost()}'. Error: " . $this->connection->connect_error );
+			}
+			
+			$this->connection->set_charset( $dsn->getCharSet() );
+			$this->connection->autocommit(false);
+		} catch (Throwable $e) {			
+			throw new SQLException("Error establishing DB connection", previous: $e);
 		}
 		
-		if ( ! empty( $this->connection->connect_error ) ) {
-			throw new UnattainableConnectionException( "Unable to connect to '{$dsn->getHost()}'. Error: " . $this->connection->connect_error );
-		}
-		
-		$this->connection->set_charset( $dsn->getCharSet() );
-		$this->connection->autocommit(false);
 		
 		parent::__construct( $dsn );
 	}

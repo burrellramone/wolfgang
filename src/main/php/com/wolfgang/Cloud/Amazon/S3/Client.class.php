@@ -3,10 +3,9 @@
 namespace Wolfgang\Cloud\Amazon\S3;
 
 use Wolfgang\Component;
-use Wolfgang\Interfaces\ISingleton;
-use Wolfgang\Config\Minio as MinioConfig;
 use Aws\S3\S3Client;
 use Wolfgang\Exceptions\Exception as CoreException;
+use Wolfgang\Interfaces\IS3ClientConfig;
 
 /**
  *
@@ -23,24 +22,25 @@ final class Client extends Component {
 	
 	/**
 	 *
-	 * @param MinioTenant $tenant
+	 * @param IS3ClientConfig $config
 	 * @throws CoreException
 	 */
-	public function __construct ( MinioTenant $tenant ) {
+	public function __construct ( IS3ClientConfig $config ) {
 		parent::__construct();
 		
 		try {
 			$this->s3_client = new S3Client( [ 
 				'region' => 'us-east-1',
 				'version' => 'latest',
-				'endpoint' => $tenant->getProtocol() . '://' . $tenant->getHostname() . ':' . $tenant->getPort(),
+				'scheme'  => $config->getProtocol(),
+				'endpoint' => $config->getProtocol() . '://' . $config->getHostname() . ':' . $config->getPort(),
 				'use_path_style_endpoint' => true,
 				'http' => [
-					'verify' => $tenant->getHttpVerify(),
+					'verify' => (bool) $config->getHttpVerify(),
 				],
 				'credentials' => [ 
-					'key' => MinioConfig::get( 'access_key' ),
-					'secret' => MinioConfig::get( 'secret_key' ),
+					'key' => $config->getAccessKey(),
+					'secret' => $config->getSecretKey(),
 				]
 			] );
 			
