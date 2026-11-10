@@ -170,6 +170,10 @@ abstract class Model extends Component implements IModel, IMarshallable {
 								$this->{$column_name} = '';
 							break;
 
+							case 'Wolfgang\Date\DateTime':
+								$this->{$column_name} = new DateTime();
+							break;
+
 							default:
 								$this->{$column_name} = null;
 							break;

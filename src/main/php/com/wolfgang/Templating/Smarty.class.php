@@ -293,28 +293,30 @@ final class Smarty extends Templater implements ITemplater {
 		$controller = $context->getController();
 		$action = $context->getAction();
 
-		$template = $app . "/sections/" . strtolower($controller) . "/{$action}.tmpl";
+		if (!$this->template) {
+			$template = $app . "/sections/" . strtolower($controller) . "/{$action}.tmpl";
 
-		if ( ! $this->templateExists( $template ) && $action === 'add' ) {
-			$template = preg_replace( "/add\.tmpl/", "edit.tmpl", $template );
-		}
-
-		if ( ! $this->templateExists( $template ) ) {
-			// See if there is a template rewrite for this application/controller/action
-			$temp = self::getRewrite( $app, $controller, $action );
-
-			if ( empty( $temp ) || ! $this->templateExists( $temp ) ) {
-				$template = preg_replace( "/($app)/", "Common", $template, 1 );
-
-				if ( ! $this->templateExists( $template ) ) {
-					throw new TemplateNotExistException( "Template file `{$template}` does not exist" );
-				}
-			} else {
-				$template = $temp;
+			if ( ! $this->templateExists( $template ) && $action === 'add' ) {
+				$template = preg_replace( "/add\.tmpl/", "edit.tmpl", $template );
 			}
-		}
 
-		$this->setTemplate( $template );
+			if ( ! $this->templateExists( $template ) ) {
+				// See if there is a template rewrite for this application/controller/action
+				$temp = self::getRewrite( $app, $controller, $action );
+
+				if ( empty( $temp ) || ! $this->templateExists( $temp ) ) {
+					$template = preg_replace( "/($app)/", "Common", $template, 1 );
+
+					if ( ! $this->templateExists( $template ) ) {
+						throw new TemplateNotExistException( "Template file `{$template}` does not exist" );
+					}
+				} else {
+					$template = $temp;
+				}
+			}
+
+			$this->setTemplate( $template );
+		}
 		$this->determineStylesheetAndScript($app, $controller, $action);
 	}
 
