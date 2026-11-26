@@ -131,7 +131,7 @@ final class InsertStatement extends Statement implements IInsertStatement, Strin
 	/**
 	 *
 	 * {@inheritdoc}
-	 *
+	 * @see https://dev.mysql.com/doc/refman/8.4/en/insert-on-duplicate.html
 	 * @see \Wolfgang\Interfaces\SQL\Statement\DML\IInsertStatement::onDuplicateKeyUpdate()
 	 */
 	public function onDuplicateKeyUpdate ( array $columns ) {
